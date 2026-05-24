@@ -1,91 +1,26 @@
 # Madison Plus One
 
-**Author:** Humanitarians AI
-**Publisher:** Bear Brown, LLC
-**Status:** Draft
-**Started:** 2026-05-14
+**Publisher:** Humanitarians AI  
+**Edition:** 2026  
+**License:** CC BY 4.0 for text; AI+1 marks and cover design are trademarks of Humanitarians AI.
 
-## Structure
+## Overview
 
-```
-book.md                 ← book description and high-level outline (planning)
-outline.md              ← starter table of contents (planning)
-vision.md               ← Tic TOC Phase 1: vision and positioning
-architecture.md         ← Tic TOC Phase 2: learning architecture
-chapters-spec.md        ← Tic TOC Phase 3: chapter specifications
-risks.md                ← Tic TOC Phase 4: scope, market, risks
-pantry/                 ← scratch storage for fragments, snippets, leftovers
-chapters/
-    00-frontmatter.md   ← copyright, dedication, preface
-    01-introduction.md  ← Chapter 0 / Introduction
-    02-chapter-01.md    ← Chapter 1
-    ...
-    04-chapter-03.md    ← Chapter 3
-    99-back-matter.md   ← acknowledgments, about the author, notes, references, index
-```
+Madison Plus One is part of the AI+1 series from Humanitarians AI. The book asks what a Madison practitioner can do with AI while preserving the human judgment, accountability, and domain expertise that the tool cannot supply.
 
-## Planning Documents
+The book's front matter explains the copyright, CC BY 4.0 license, distribution model, AI and errata disclosure, and the Humanitarians AI publishing context. The introduction frames the reader's path through the chapters: where AI helps, where it fails, and how to keep the boundary between execution and judgment visible.
 
-| File | Purpose |
-|------|---------|
-| `book.md` | One-sentence pitch, the argument, the gap, the reader, high-level outline. |
-| `outline.md` | Chapter-level table of contents — keep in sync with `chapters/`. |
-| `vision.md` | Tic TOC Phase 1 — book concept, type, learner profile, thesis, field positioning. |
-| `architecture.md` | Tic TOC Phase 2 — learning outcomes, sequencing, three-act arc, prerequisites. |
-| `chapters-spec.md` | Tic TOC Phase 3 — per-chapter specs, cases, contested claims, coverage gaps. |
-| `risks.md` | Tic TOC Phase 4 — comparable texts, features, out of scope, adoption risks. |
-| `pantry/` | Scratch storage for fragments and snippets that don't yet belong in a chapter. |
+## Table of Contents
 
-These files are for planning only. They are not compiled into the EPUB.
+- [Introduction](chapters/01-introduction.md)
+- [Chapter 1](chapters/02-chapter-01.md)
+- [Chapter 2](chapters/03-chapter-02.md)
+- [Chapter 3](chapters/04-chapter-03.md)
 
-The four Tic TOC files are templated with `[NEEDS HUMAN INPUT]` markers
-and a `*Phase N output from Tic TOC*` header signature. Run Tic TOC's
-`/scaffold silent` to fill them from `book.md`, `outline.md`, `pantry/`,
-and `chapters/`. Or build them section-by-section through the interactive
-phase commands (`/i1` → `/m4`).
+## Copyright and License
 
-## Chapters
+Copyright © 2026 Humanitarians AI. The text is licensed under CC BY 4.0. See [LICENSE.md](LICENSE.md) for full terms, including trademark restrictions for AI+1 marks and cover design.
 
-| File | Title | Status |
-|------|-------|--------|
-| 00-frontmatter.md | Front Matter (copyright, dedication, preface) | ☐ |
-| 01-introduction.md | Introduction | ☐ |
-| 02-chapter-01.md | Chapter 1 | ☐ |
-| 03-chapter-02.md | Chapter 2 | ☐ |
-| 04-chapter-03.md | Chapter 3 | ☐ |
-| 99-back-matter.md | Back Matter (acknowledgments, notes, references, index) | ☐ |
+## Errata
 
-## Build
-
-```bash
-./build.sh
-```
-
-Output goes to `output/` (gitignored).
-
-## Figures
-
-```bash
-./graphs.sh
-```
-
-Processes `<!-- → [TYPE: description] -->` comments in every chapter:
-- Tabular figures → classed markdown tables (`.infographic-table`, `.comparison-table`, `.data-table`)
-- Non-tabular figures → placeholder images in `images/`, ready to replace
-- CSS log appended to `styles/kindle-book.css` on each run
-
-Review `chapters/*-updated.md`, then promote:
-```bash
-for f in chapters/*-updated.md; do mv "$f" "${f/-updated/}"; done
-```
-
-## Styles
-
-| File | Purpose |
-|------|---------|
-| `styles/kindle.css` | Shared base — typography, figure table classes. Do not edit per book. |
-| `styles/kindle-book.css` | Book-specific overrides. Edit freely. `graphs.sh` appends its log here. |
-
-## Publish
-
-Upload `output/madison-plus-one.epub` to [KDP](https://kdp.amazon.com).
+Errata, corrections, and suspected mistakes may be submitted through [humanitarians.ai](https://www.humanitarians.ai/).
