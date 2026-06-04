@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2560" width="1600" height="2560" preserveAspectRatio="xMidYMid meet" shape-rendering="geometricPrecision">
+  <g id="background"><rect x="0" y="0" width="1600" height="2560" fill="#F4EFEB"/></g>
+  <g id="symbol-fragments" transform="rotate(-8, 800, 830)">
+    <polygon points="300,488 382,512 442,1054 342,1077" fill="#111111"/>
+    <polygon points="430,440 512,455 572,1022 472,1063" fill="#111111"/>
+    <polygon points="560,456 642,474 702,1062 602,1082" fill="#111111"/>
+    <polygon points="690,467 772,468 832,960 732,982" fill="#111111"/>
+    <polygon points="820,349 902,401 962,932 862,955" fill="#111111"/>
+    <polygon points="950,402 1032,458 1092,975 992,980" fill="#D32F2F"/>
+    <polygon points="1080,267 1162,270 1222,991 1122,1001" fill="#111111"/>
+  </g>
+  <g id="title-letterforms">
+    <text x="120" y="1510" font-family="Arial Black, Arial, sans-serif" font-size="250" font-weight="900" letter-spacing="0" fill="#111111" textLength="1300" lengthAdjust="spacingAndGlyphs">MADISON</text>
+    <text x="120" y="1768" font-family="Arial Black, Arial, sans-serif" font-size="250" font-weight="900" letter-spacing="0" fill="#D32F2F">PLUS</text>
+    <text x="120" y="2026" font-family="Arial Black, Arial, sans-serif" font-size="250" font-weight="900" letter-spacing="0" fill="#111111">ONE</text>
+  </g>
+</svg>
