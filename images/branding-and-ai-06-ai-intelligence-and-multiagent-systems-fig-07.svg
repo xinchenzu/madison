@@ -1,0 +1,25 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-0-7 desc-0-7">
+<title id="title-0-7">visual of the n8n workflow after the AI layer is added</title>
+<desc id="desc-0-7">A visual of the n8n workflow after the AI layer is added — showing the Chapter 5 pipeline with an AI step inserted, a validation node immediately after the AI step, a schema-check node, and two routing paths: one for valid output (proceeds to next step) and one for invalid output (error handler / human review queue). Student should see that the AI step is wrapped, not floating in isolation.</desc>
+<rect width="700" height="420" fill="#FFFFFF"/>
+<text x="48" y="54" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#2a1a0e">visual of the n8n workflow after the AI layer is added</text>
+<text x="48" y="78" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="10" fill="#545454"><tspan x="48" dy="0">A visual of the n8n workflow after the AI layer is added — showing</tspan><tspan x="48" dy="15">the Chapter 5 pipeline with an AI step inserted, a validation node</tspan><tspan x="48" dy="15">immediately after the AI step, a schema-check node, and two</tspan><tspan x="48" dy="15">routing paths: one for valid output (proceeds to next step) and</tspan></text>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+<rect x="48" y="170" width="96" height="64" fill="#C8102E" stroke="#D4D4D4" stroke-width="1"/>
+<text x="96" y="202" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">n8n</text>
+<path d="M 148 202 L 168 202" stroke="#2a1a0e" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="172" y="170" width="96" height="64" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="220" y="202" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#2a1a0e">workflow</text>
+<path d="M 272 202 L 292 202" stroke="#2a1a0e" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="296" y="170" width="96" height="64" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="344" y="202" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#2a1a0e">after</text>
+<path d="M 396 202 L 416 202" stroke="#2a1a0e" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="420" y="170" width="96" height="64" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="468" y="202" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#2a1a0e">layer</text>
+<path d="M 520 202 L 540 202" stroke="#2a1a0e" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="544" y="170" width="96" height="64" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="592" y="202" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#2a1a0e">added</text>
+
+<line x1="48" y1="382" x2="652" y2="382" stroke="#D4D4D4" stroke-width="1"/>
+<text x="48" y="400" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="10" letter-spacing="0.08em" fill="#545454">FIGURE 0.7</text>
+</svg>

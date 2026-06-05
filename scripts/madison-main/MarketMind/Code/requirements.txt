@@ -1,0 +1,17 @@
+streamlit
+pandas
+matplotlib
+plotly
+crewai
+openai
+python-dotenv
+pydantic
+beautifulsoup4
+langdetect
+readability-lxml
+lxml
+trafilatura
+requests
+urllib3
+charset-normalizer
+nltk

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: social-media-scraper
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: REDDIT_CLIENT_ID
+        sync: false
+      - key: REDDIT_CLIENT_SECRET
+        sync: false
+      - key: REDDIT_USER_AGENT
+        sync: false
+      - key: LINKEDIN_USERNAME
+        sync: false
+      - key: LINKEDIN_PASSWORD
+        sync: false

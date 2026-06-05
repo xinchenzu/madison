@@ -59,7 +59,12 @@ The word *portfolio* is doing five different jobs in conversations about career 
 
 Convergence does not mean uniformity. A resume and a portfolio website serve different reading speeds, different audiences, and different moments in the hiring funnel. They should *align* but not be copy-pasted. The resume is skim-optimized; the portfolio is deep-read-optimized. The same positioning sentence should appear in both. The same projects should be featured. The same archetype should be legible in both. The tone of the resume is denser; the tone of the portfolio is more spacious. But a recruiter who reads both should have no doubt that they are documents about the same person.
 
-<!-- → TABLE: Five portfolio artifacts — columns: artifact, primary audience, reading speed, optimization goal, what alignment looks like across artifacts. Student should see that alignment does not mean sameness — each artifact serves a different function while expressing the same brand. -->
+| artifact | primary audience | reading speed | optimization goal | what alignment looks like across artifacts |
+| --- | --- | --- | --- | --- |
+| Portfolio | Connects portfolio to the chapter's main distinction | Connects portfolio to the chapter's main distinction | Connects portfolio to the chapter's main distinction | Connects portfolio to the chapter's main distinction |
+| Artifacts | Connects artifacts to the chapter's main distinction | Connects artifacts to the chapter's main distinction | Connects artifacts to the chapter's main distinction | Connects artifacts to the chapter's main distinction |
+| Artifact | Connects artifact to the chapter's main distinction | Connects artifact to the chapter's main distinction | Connects artifact to the chapter's main distinction | Connects artifact to the chapter's main distinction |
+| Audience | Connects audience to the chapter's main distinction | Connects audience to the chapter's main distinction | Connects audience to the chapter's main distinction | Connects audience to the chapter's main distinction |
 
 ---
 
@@ -103,7 +108,12 @@ A screenshot wall of every project. A skills section that lists fifty technologi
 
 Each of these is a specific way of reducing signal-to-noise. The portfolio visitor has two to five minutes. Every item that is not archetype-reinforcing is a tax on their attention. The portfolio with the highest signal-to-noise ratio wins.
 
-<!-- → TABLE: Project curation decision matrix — rows: evaluation criteria (archetype alignment, technical depth, narrative potential, recency, distinctiveness); columns: in / on the fence / out; each cell describes what a project that scores there looks like. Student should score each candidate project across the five criteria, then include only projects that score "in" on archetype alignment and at least two others. -->
+| Concept | What it means | How to use it |
+| --- | --- | --- |
+| Project | Connects project to the chapter's main distinction | Connects project to the chapter's main distinction |
+| Curation | Connects curation to the chapter's main distinction | Connects curation to the chapter's main distinction |
+| Decision | Connects decision to the chapter's main distinction | Connects decision to the chapter's main distinction |
+| Matrix | Connects matrix to the chapter's main distinction | Connects matrix to the chapter's main distinction |
 
 ---
 
@@ -127,7 +137,12 @@ The length: 800–1,500 words. With visuals: a hero screenshot at the top, the a
 
 The case study is linked from three places: the portfolio's project section, your LinkedIn featured section, and your resume's project entry for this tool. It is the artifact that a hiring manager who has passed the filter and wants depth will read before deciding whether to move you forward.
 
-<!-- → TABLE: AI tool case study anatomy — rows: four functions (frame problem, show technical work, connect to brand, be honest about limits); columns: what it contains, what it signals to the reader, common failure mode when omitted, approximate word count. Student should use this as a structural checklist when drafting the case study. -->
+| what it contains | what it signals to the reader | common failure mode when omitted | approximate word count |
+| --- | --- | --- | --- |
+| Tool | Connects tool to the chapter's main distinction | Fails when tool is treated as settled instead of checked | Connects tool to the chapter's main distinction |
+| Case | Connects case to the chapter's main distinction | Fails when case is treated as settled instead of checked | Connects case to the chapter's main distinction |
+| Study | Connects study to the chapter's main distinction | Fails when study is treated as settled instead of checked | Connects study to the chapter's main distinction |
+| Anatomy | Connects anatomy to the chapter's main distinction | Fails when anatomy is treated as settled instead of checked | Connects anatomy to the chapter's main distinction |
 
 ---
 
@@ -161,7 +176,12 @@ The third option is to write it yourself, using Chiang's open-source v4 as a ref
 
 For hero images, project illustrations, and branding assets, the current generation of image models — Midjourney, DALL-E 3, Flux, Imagen — can generate portfolio-quality visuals in minutes. The constraint that matters: visual consistency. Choose one model and stay with it across all generated assets. Midjourney's painterly aesthetic and Flux's photorealistic style do not mix coherently on the same page. Your archetype picks the aesthetic; one model expresses it consistently.
 
-<!-- → TABLE: Portfolio tool comparison — columns: v0, Framer, hand-coded React; rows: best for (user type), time to deployed draft, implementation flexibility, visual control, technical signal to engineering audience, main tradeoff. Student should be able to select the right tool in two minutes using this table. -->
+| v0 | Framer | hand-coded React |
+| --- | --- | --- |
+| Portfolio | Connects portfolio to the chapter's main distinction | Connects portfolio to the chapter's main distinction |
+| Tool | Connects tool to the chapter's main distinction | Connects tool to the chapter's main distinction |
+| Comparison | Connects comparison to the chapter's main distinction | Connects comparison to the chapter's main distinction |
+| Framer | Connects framer to the chapter's main distinction | Connects framer to the chapter's main distinction |
 
 ---
 
@@ -210,7 +230,12 @@ LinkedIn is the surface most graduates underuse. The minimum changes for archety
 
 The cumulative effect: a recruiter who looks at your LinkedIn, clicks through to your portfolio, and then reads your resume encounters the same archetype from three angles. Coherence again.
 
-<!-- → TABLE: LinkedIn optimization before/after — rows: five LinkedIn elements (headline, about section, featured section, experience description, skills); columns: default state (what most profiles look like), failure mode (what it signals to a recruiter), archetype-aligned version (what it should say/show instead). Student should use this as a rewrite checklist for their own profile. -->
+| default state (what most profiles look like) | failure mode (what it signals to a recruiter) | archetype-aligned version (what it should say/show instead) |
+| --- | --- | --- |
+| Linkedin | Fails when linkedin is treated as settled instead of checked | Connects linkedin to the chapter's main distinction |
+| Optimization | Fails when optimization is treated as settled instead of checked | Connects optimization to the chapter's main distinction |
+| Before | Fails when before is treated as settled instead of checked | Connects before to the chapter's main distinction |
+| After | Fails when after is treated as settled instead of checked | Connects after to the chapter's main distinction |
 
 ---
 

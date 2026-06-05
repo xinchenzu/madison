@@ -1,0 +1,22 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-0-1 desc-0-1">
+<title id="title-0-1">side-by-side comparison of the brand-as-hero framing vs</title>
+<desc id="desc-0-1">A side-by-side comparison of the brand-as-hero framing vs. the customer-as-hero framing — same product, two story shapes. Left: brand is protagonist, customer is beneficiary at the end. Right: customer is protagonist with a problem, brand enters as guide with a plan, customer is transformed. Student should see the structural difference in character roles, not just the tone difference.</desc>
+<rect width="700" height="420" fill="#FFFFFF"/>
+<text x="48" y="54" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#2a1a0e">side-by-side comparison of the brand-as-hero framing vs</text>
+<text x="48" y="78" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="10" fill="#545454"><tspan x="48" dy="0">A side-by-side comparison of the brand-as-hero framing vs. the</tspan><tspan x="48" dy="15">customer-as-hero framing — same product, two story shapes. Left:</tspan><tspan x="48" dy="15">brand is protagonist, customer is beneficiary at the end. Right:</tspan><tspan x="48" dy="15">customer is protagonist with a problem, brand enters as guide with</tspan></text>
+<rect x="64" y="112" width="268" height="218" fill="#F5EFE8" stroke="#D4D4D4" stroke-width="1"/>
+<rect x="368" y="112" width="268" height="218" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="198" y="146" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#2a1a0e">before</text>
+<text x="502" y="146" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#2a1a0e">after</text>
+<text x="96" y="188" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#545454">side</text>
+<text x="400" y="188" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#C8102E">side + test</text>
+<text x="96" y="220" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#545454">comparison</text>
+<text x="400" y="220" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#2a1a0e">comparison + test</text>
+<text x="96" y="252" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#545454">brand</text>
+<text x="400" y="252" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#2a1a0e">brand + test</text>
+<text x="96" y="284" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#545454">hero</text>
+<text x="400" y="284" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#2a1a0e">hero + test</text>
+
+<line x1="48" y1="382" x2="652" y2="382" stroke="#D4D4D4" stroke-width="1"/>
+<text x="48" y="400" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="10" letter-spacing="0.08em" fill="#545454">FIGURE 0.1</text>
+</svg>

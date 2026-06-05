@@ -466,3 +466,84 @@ Who was Thorstein Veblen, and how does his account of conspicuous consumption co
 
 What changes? What gets better? What gets worse?
 
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 1 — Bar chart comparing Control Group (161 minutes) and Copilot Group (71...
+
+Create a standalone D3 v7 HTML figure for "Bar chart comparing Control Group (161 minutes) and Copilot Group (71...". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/01-the-creative-engineer-fig-01.html`
+
+---
+
+### Figure 2 — Pull quote rendered as a typographic block
+
+Create a standalone D3 v7 HTML figure for "Pull quote rendered as a typographic block". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/01-the-creative-engineer-fig-02.html`
+
+---
+
+### Figure 3 — Two-column schematic showing separating equilibrium where the signal...
+
+Create a standalone D3 v7 HTML figure for "Two-column schematic showing separating equilibrium where the signal...". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/01-the-creative-engineer-fig-03.html`
+
+---
+
+### Figure 4 — Horizontal timeline of the GitHub signal collapse, 2004 to 2024
+
+Create a standalone D3 v7 HTML figure for "Horizontal timeline of the GitHub signal collapse, 2004 to 2024". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/01-the-creative-engineer-fig-04.html`
+
+---
+
+### Figure 5 — The four verbs in sequence
+
+Create a standalone D3 v7 HTML figure for "The four verbs in sequence". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/01-the-creative-engineer-fig-05.html`
+
+---
+
+### Figure 8 — Side-by-side mockup of Anthropic's and OpenAI's homepage hero sections,...
+
+Create a standalone D3 v7 HTML figure for "Side-by-side mockup of Anthropic's and OpenAI's homepage hero sections,...". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/01-the-creative-engineer-fig-08.html`
+
+---
+
+### Figure 10 — The twelve-archetype wheel arranged in three groups of four
+
+Create a standalone D3 v7 HTML figure for "The twelve-archetype wheel arranged in three groups of four". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/01-the-creative-engineer-fig-10.html`
+
+---
+
+### Figure 12 — Two GitHub profile mockups
+
+Create a standalone D3 v7 HTML figure for "Two GitHub profile mockups". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/01-the-creative-engineer-fig-12.html`
+
+---
+
+### Figure 13 — Three-level stack
+
+Create a standalone D3 v7 HTML figure for "Three-level stack". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/01-the-creative-engineer-fig-13.html`

@@ -55,7 +55,8 @@ Campbell's full framework has seventeen stages. For brand-story purposes, the si
 
 This sounds obvious. It is not. Most technical founders — and most brand marketers — default to stories where the brand is the hero. The founders fought through hard problems, built something remarkable, overcame the obstacles of the early market. These stories are true and sometimes compelling for raising capital. They are weak for selling to customers, because the customer cannot identify with a story whose hero is someone else. The customer-as-hero framing is a structural discipline, not a rhetorical preference. It changes what goes in the story.
 
-[FIGURE: A side-by-side comparison of the brand-as-hero framing vs. the customer-as-hero framing — same product, two story shapes. Left: brand is protagonist, customer is beneficiary at the end. Right: customer is protagonist with a problem, brand enters as guide with a plan, customer is transformed. Student should see the structural difference in character roles, not just the tone difference.]
+![A side-by-side comparison of the brand-as-hero framing vs. the customer-as-hero framing — same product, two story shapes. Left: brand is...](images/branding-and-ai-10-brand-storytelling-fig-01.png)
+*Figure 0.1 — side-by-side comparison of the brand-as-hero framing vs*
 
 ### 1.2 How they layer
 
@@ -89,7 +90,8 @@ A **Jester archetype** tells Inversion stories — stories that flip the expecte
 
 The constraint is not that your archetype can only tell one kind of story. It is that story shapes that require a different archetype's commitments will misfire. An Innocent telling a Rebellion story will read as co-optation. A Sage telling a Jester story will read as trying too hard. A Jester telling a sincere Service story will read as insincere. The audience does not articulate these mismatches in framework terms — they just feel the falseness.
 
-[FIGURE: A reference table mapping the twelve archetypes to their native story shapes — columns: Archetype, Native Story Shape(s), Why the Shape Fits, Shapes to Avoid. Rows for all twelve archetypes. Student should be able to look up their archetype and immediately identify which story shapes are available to them.]
+![A reference table mapping the twelve archetypes to their native story shapes — columns: Archetype, Native Story Shape(s), Why the Shape...](images/branding-and-ai-10-brand-storytelling-fig-02.png)
+*Figure 0.2 — reference table mapping the twelve archetypes to their native story shapes*
 
 ---
 
@@ -107,7 +109,11 @@ Before the cases, name the mechanism precisely. An archetype-narrative mismatch 
 
 All three pathways were active in the Pepsi case. The specific catastrophe was Pathway 3, amplified by Pathways 1 and 2 simultaneously.
 
-<!-- → TABLE: A three-row reference table of the failure pathways — columns: Pathway Number, Name, What Goes Wrong, Diagnostic Question to Ask Before Publishing, Example Brand That Activated It. Student should be able to run each diagnostic question against any campaign they are planning or analyzing. Pairs directly with the three-question checklist in §2.5. -->
+| Pathway Number | Name | What Goes Wrong | Diagnostic Question to Ask Before Publishing | Example Brand That Activated It |
+| --- | --- | --- | --- | --- |
+| Reference | Connects reference to the chapter's main distinction | Connects reference to the chapter's main distinction | Connects reference to the chapter's main distinction | Example: reference |
+| Failure | Connects failure to the chapter's main distinction | Connects failure to the chapter's main distinction | Connects failure to the chapter's main distinction | Example: failure |
+| Pathways | Connects pathways to the chapter's main distinction | Connects pathways to the chapter's main distinction | Connects pathways to the chapter's main distinction | Example: pathways |
 
 ### 2.2 Pepsi *Live for Now*, April 2017
 
@@ -123,7 +129,8 @@ The third failure: the Hero's Journey the ad attempted requires genuine stakes. 
 
 Pepsi pulled the ad within 24 hours and issued a same-day apology: the company said it had been trying to project a global message of unity, peace and understanding. The apology confirmed the mechanism: the *intent* was Innocent (unity, peace) but the *story shape* was Hero, and the *cultural content* belonged to the Outlaw. Three mismatches, one catastrophe.
 
-[FIGURE: A breakdown diagram of the Pepsi ad's three-layer mismatch — three rows labeled "Story Shape Attempted," "Brand's Actual Archetype," and "Cultural Content Domain," each with an arrow pointing to the respective mismatch. Student should be able to apply this three-layer analysis to any campaign they encounter.]
+![A breakdown diagram of the Pepsi ad's three-layer mismatch — three rows labeled "Story Shape Attempted," "Brand's Actual Archetype," and...](images/branding-and-ai-10-brand-storytelling-fig-03.png)
+*Figure 0.3 — breakdown diagram of the Pepsi ad's three-layer mismatch*
 
 ### 2.3 Bud Light and Dylan Mulvaney, April 2023
 
@@ -163,7 +170,12 @@ The pattern produces a diagnostic checklist. Before publishing any brand story, 
 
 If the answers to questions 1 and 2 do not align, revise the story. If the answer to question 3 points to an archetype your brand does not inhabit, revise the story. The alignment check takes ten minutes. The misalignment recovery takes months.
 
-<!-- → TABLE: A cross-case comparison table for the three mismatch cases — columns: Brand, Brand's Actual Archetype, Story Shape Attempted, Failure Pathway(s) Activated, Audience Response, Time to Correction/Response. Rows: Pepsi 2017, Bud Light 2023, Jaguar 2024. Student should be able to complete this table from the chapter text as a self-check, and use the same column structure for exercise A1. -->
+| Brand | Brand's Actual Archetype | Story Shape Attempted | Failure Pathway(s) Activated | Audience Response | Time to Correction/Response |
+| --- | --- | --- | --- | --- | --- |
+| Cross | Example: cross | Connects cross to the chapter's main distinction | Fails when cross is treated as settled instead of checked | Use cross as the decision guide | Use cross as the decision guide |
+| Case | Example: case | Connects case to the chapter's main distinction | Fails when case is treated as settled instead of checked | Use case as the decision guide | Use case as the decision guide |
+| Comparison | Example: comparison | Connects comparison to the chapter's main distinction | Fails when comparison is treated as settled instead of checked | Use comparison as the decision guide | Use comparison as the decision guide |
+| Mismatch | Example: mismatch | Connects mismatch to the chapter's main distinction | Fails when mismatch is treated as settled instead of checked | Use mismatch as the decision guide | Use mismatch as the decision guide |
 
 ---
 
@@ -181,7 +193,8 @@ Most technical founders write stories where the brand is the hero. The founders 
 
 **Property 3: The stakes are real and specific.** "Our tool saves time" is not a stake. "Marketing teams at mid-size B2B companies were spending eight hours per week on competitive monitoring; after three months with the tool, that time dropped to forty-five minutes and the head of marketing used the recaptured hours to launch a new campaign strategy" is a stake. The specificity is not decorative — it is what makes the transformation visible and believable. Abstract stakes signal that the writer does not actually know what changed for the customer.
 
-[FIGURE: A before/after comparison of the same case study written two ways — left: brand-as-hero with abstract stakes ("We built a tool that helped marketing teams be more efficient"); right: customer-as-hero with specific stakes (the specific time saving, the specific redeployment of effort, the specific outcome). Student should see the structural difference in character positions and the credibility difference in stakes specification.]
+![A before/after comparison of the same case study written two ways — left: brand-as-hero with abstract stakes ("We built a tool that...](images/branding-and-ai-10-brand-storytelling-fig-04.png)
+*Figure 0.4 — before/after comparison of the same case study written two ways*
 
 ### 3.2 A worked case: the Madison Intelligence Agent README
 
@@ -227,7 +240,13 @@ Five story shapes show up most reliably in AI-tool brand storytelling at the sta
 
 **Transformation story.** Before-and-after, with the specific mechanics of the transformation visible. This is the story shape most natural to Magician archetypes and most useful when the brand has a specific, demonstrable before/after case — a workflow that changed, a capability that emerged, a problem that was previously intractable and is now routinely solved.
 
-<!-- → TABLE: A five-row reference table of the story types — columns: Story Type, Primary Archetype Range, What the Story Needs to Work (structural requirements), Example of the Type Done Well, Common Failure Mode for This Type. Student should be able to locate their story type and immediately see both the requirements and the failure mode to watch for. Pairs with the story shape × channels matrix below. -->
+| Story Type | Primary Archetype Range | What the Story Needs to Work (structural requirements) | Example of the Type Done Well | Common Failure Mode for This Type |
+| --- | --- | --- | --- | --- |
+| Reference | Connects reference to the chapter's main distinction | Connects reference to the chapter's main distinction | Example: reference | Fails when reference is treated as settled instead of checked |
+| Story | Connects story to the chapter's main distinction | Connects story to the chapter's main distinction | Example: story | Fails when story is treated as settled instead of checked |
+| Types | Connects types to the chapter's main distinction | Connects types to the chapter's main distinction | Example: types | Fails when types is treated as settled instead of checked |
+| Type | Connects type to the chapter's main distinction | Connects type to the chapter's main distinction | Example: type | Fails when type is treated as settled instead of checked |
+| Archetype | Connects archetype to the chapter's main distinction | Connects archetype to the chapter's main distinction | Example: archetype | Fails when archetype is treated as settled instead of checked |
 
 ### 4.2 Channels and their constraints
 
@@ -241,7 +260,8 @@ The choice of channel is a downstream decision from archetype and story shape. N
 
 **GitHub README and documentation.** Underused as brand storytelling. For Sage archetypes, the README is often the first thing a potential collaborator or customer sees. A README that opens with mechanism and quantified outputs is Sage storytelling at its best. A README that opens with "Installation: run pip install" is not brand storytelling at all.
 
-[FIGURE: A matrix of story shapes × channels — rows: origin story, case study, quest story, thought-leadership, transformation story; columns: LinkedIn article, blog post, newsletter, README, portfolio card. Each cell: "Strong fit," "Possible," or "Weak fit." Student should be able to locate their story shape and identify which channels to prioritize.]
+![A matrix of story shapes × channels — rows: origin story, case study, quest story, thought-leadership, transformation story; columns:...](images/branding-and-ai-10-brand-storytelling-fig-05.png)
+*Figure 0.5 — matrix of story shapes × channels*
 
 ### 4.3 Cadence over volume
 
@@ -292,7 +312,12 @@ The elements that do not belong:
 
 The test for a finished origin story: read it aloud to someone who does not know you. Do they picture a specific moment? Do they understand why you built what you built? Do they believe you? If the answer to all three is yes, the origin story is working.
 
-<!-- → TABLE: A blank origin story scaffold — five labeled rows matching the five "elements that belong": (1) The moment of recognition — describe the scene; (2) The problem that would not leave — what kept pulling you back; (3) The threshold crossing — what commitment was made; (4) The unexpected discovery — what you found that you did not expect; (5) The boon you bring back — what you now offer. Right column blank for student notes. A side column shows "what to avoid" for each row (the corresponding anti-pattern from the "elements that do not belong" list). Intended as a drafting worksheet for exercise A2. -->
+| Concept | What it means | How to use it |
+| --- | --- | --- |
+| Blank | Connects blank to the chapter's main distinction | Connects blank to the chapter's main distinction |
+| Origin | Connects origin to the chapter's main distinction | Connects origin to the chapter's main distinction |
+| Story | Connects story to the chapter's main distinction | Connects story to the chapter's main distinction |
+| Scaffold | Connects scaffold to the chapter's main distinction | Connects scaffold to the chapter's main distinction |
 
 ### 5.3 The case study: a structural template
 
@@ -310,7 +335,8 @@ A case study in the customer-as-hero frame has six structural elements. They do 
 
 **6. The meta-lesson.** What does this case study teach? Not just "our tool works" — what does this case teach about the problem domain, the approach, the kind of transformation that is possible? The meta-lesson is what makes the case study worth reading for people who are not the customer in the story.
 
-[FIGURE: A visual template of the six case study elements arranged as a narrative arc — problem establishes stakes, "what they tried" creates the gap that justifies the approach, the approach fills the gap, the transformation is the climax, the meta-lesson is the return. Student should see the Hero's Journey structure underlying the customer-as-hero case study format.]
+![A visual template of the six case study elements arranged as a narrative arc — problem establishes stakes, "what they tried" creates the...](images/branding-and-ai-10-brand-storytelling-fig-06.png)
+*Figure 0.6 — visual template of the six case study elements arranged as a narrative arc*
 
 ---
 
@@ -547,3 +573,60 @@ Who was Joseph Campbell, and how does his Hero's Journey structure connect to th
 
 What changes? What gets better? What gets worse?
 
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 0.1 — side-by-side comparison of the brand-as-hero framing vs
+
+Create a standalone D3 v7 HTML figure for "side-by-side comparison of the brand-as-hero framing vs". Use a two-panel comparison with 5 labeled categories with approximate values from 0 to 100. Marks: bars or rectangular panels, direct labels, and concise value labels. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/branding-and-ai-10-brand-storytelling-fig-01.html`
+
+---
+
+### Figure 0.2 — reference table mapping the twelve archetypes to their native story shapes
+
+Create a standalone D3 v7 HTML figure for "reference table mapping the twelve archetypes to their native story shapes". Use a horizontal process diagram with 4 to 5 ordered stages with directed connectors. Marks: rectangular stage nodes and arrow connectors. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/branding-and-ai-10-brand-storytelling-fig-02.html`
+
+---
+
+### Figure 0.3 — breakdown diagram of the Pepsi ad's three-layer mismatch
+
+Create a standalone D3 v7 HTML figure for "breakdown diagram of the Pepsi ad's three-layer mismatch". Use a horizontal process diagram with 4 to 5 ordered stages with directed connectors. Marks: rectangular stage nodes and arrow connectors. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/branding-and-ai-10-brand-storytelling-fig-03.html`
+
+---
+
+### Figure 0.4 — before/after comparison of the same case study written two ways
+
+Create a standalone D3 v7 HTML figure for "before/after comparison of the same case study written two ways". Use a two-panel comparison with 5 labeled categories with approximate values from 0 to 100. Marks: bars or rectangular panels, direct labels, and concise value labels. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/branding-and-ai-10-brand-storytelling-fig-04.html`
+
+---
+
+### Figure 0.5 — matrix of story shapes × channels
+
+Create a standalone D3 v7 HTML figure for "matrix of story shapes × channels". Use a 2x2 matrix with four quadrants plus axis labels. Marks: bars or rectangular panels, direct labels, and concise value labels. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/branding-and-ai-10-brand-storytelling-fig-05.html`
+
+---
+
+### Figure 0.6 — visual template of the six case study elements arranged as a narrative arc
+
+Create a standalone D3 v7 HTML figure for "visual template of the six case study elements arranged as a narrative arc". Use a horizontal process diagram with 4 to 5 ordered stages with directed connectors. Marks: rectangular stage nodes and arrow connectors. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/branding-and-ai-10-brand-storytelling-fig-06.html`

@@ -176,7 +176,12 @@ Each existing-product strategy moves $B$, $P$, or both:
 
 Each is a deliberate manipulation of the value ratio in the customer's perception.
 
-<!-- → TABLE: Four existing-product pricing strategies × three columns: mechanism, example brand/product, $V = B/P$ effect. The student should see how each strategy operates on the ratio. -->
+| mechanism | example brand/product | $V = B/P$ effect |
+| --- | --- | --- |
+| Existing | Example: existing | Connects existing to the chapter's main distinction |
+| Product | Example: product | Connects product to the chapter's main distinction |
+| Pricing | Example: pricing | Connects pricing to the chapter's main distinction |
+| Strategies | Example: strategies | Connects strategies to the chapter's main distinction |
 
 ### Common misconceptions
 

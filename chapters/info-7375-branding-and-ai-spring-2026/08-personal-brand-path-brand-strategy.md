@@ -530,3 +530,44 @@ Who was Helen Lansdowne Resor, and how does her career — building a personal b
 
 What changes? What gets better? What gets worse?
 
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 2 — Dependency chain
+
+Create a standalone D3 v7 HTML figure for "Dependency chain". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/08-personal-brand-path-brand-strategy-fig-02.html`
+
+---
+
+### Figure 4 — The Stripe inversion
+
+Create a standalone D3 v7 HTML figure for "The Stripe inversion". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/08-personal-brand-path-brand-strategy-fig-04.html`
+
+---
+
+### Figure 8 — Circular consistency check
+
+Create a standalone D3 v7 HTML figure for "Circular consistency check". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/08-personal-brand-path-brand-strategy-fig-08.html`
+
+---
+
+### Figure 10 — Linear flow showing where Chapter 8 sits in the four-verb arc, with the...
+
+Create a standalone D3 v7 HTML figure for "Linear flow showing where Chapter 8 sits in the four-verb arc, with the...". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/08-personal-brand-path-brand-strategy-fig-10.html`

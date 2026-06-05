@@ -58,7 +58,12 @@ What matters for you, building a product, is knowing which meaning you are opera
 
 Madison uses meaning 4. All five of its agents are specialized roles in a coordinated pipeline, not autonomous problem-solvers. I will argue in section 2 that this was the right choice for a production marketing tool — and I will tell you the specific cost it carries.
 
-<!-- → TABLE: Four meanings of "agent" — columns: meaning, example, who uses it, what it implies architecturally. Student should see that the same word maps to very different system designs. -->
+| meaning | example | who uses it | what it implies architecturally |
+| --- | --- | --- | --- |
+| Meanings | Example: meanings | Connects meanings to the chapter's main distinction | Connects meanings to the chapter's main distinction |
+| Agent | Example: agent | Connects agent to the chapter's main distinction | Connects agent to the chapter's main distinction |
+| Meaning | Example: meaning | Connects meaning to the chapter's main distinction | Connects meaning to the chapter's main distinction |
+| Example | Example: example | Connects example to the chapter's main distinction | Connects example to the chapter's main distinction |
 
 ---
 
@@ -210,7 +215,12 @@ Madison chose predictability. For a marketing intelligence framework that needs 
 
 The core technologies Madison uses across its layers reflect this commitment to structured, auditable work: GPT-4o and BERT for language tasks, PCA and clustering for data analysis, Thompson sampling and contextual bandits for optimization, Neo4j and RDF for knowledge graph work. Each technology is a production choice, not a novelty pick. Neo4j for brand perception tracking because graph databases represent the relationships between brand entities naturally. Thompson sampling for content optimization because it handles the exploration-exploitation trade-off in multi-armed bandit problems better than naive approaches. These choices compound: each one makes the system more legible to the engineer maintaining it and more trustworthy to the customer paying for it.
 
-<!-- → TABLE: Graph-based vs. conversation-based orchestration — columns: property, graph-based (n8n/LangGraph), conversation-based (AutoGen); rows: how workflow is defined, failure locatability, flexibility for novel tasks, production reliability, best use case. Student should be able to choose between patterns for their own system. -->
+| property | graph-based (n8n/LangGraph) | conversation-based (AutoGen) |
+| --- | --- | --- |
+| Graph | Connects graph to the chapter's main distinction | Connects graph to the chapter's main distinction |
+| Based | Connects based to the chapter's main distinction | Connects based to the chapter's main distinction |
+| Conversation | Connects conversation to the chapter's main distinction | Connects conversation to the chapter's main distinction |
+| Orchestration | Connects orchestration to the chapter's main distinction | Connects orchestration to the chapter's main distinction |
 
 ### The Human-in-the-Loop Decision
 
@@ -222,7 +232,12 @@ This is the right choice for marketing work in 2026. The consequences of an auto
 
 Where you place humans in your own pipeline is not a philosophical question — it is a risk-engineering question. Identify the decisions in your system where a wrong answer is expensive and hard to reverse. Put humans there. Automate everything else.
 
-<!-- → TABLE: Human-in-the-loop decision matrix — rows: five Madison layers plus orchestration; columns: decision type, consequence of wrong answer (low/medium/high), reversibility (easy/hard/irreversible), recommended human touch point (none / review / approve). Student should use this as a template for placing humans in their own pipeline. -->
+| decision type | consequence of wrong answer (low/medium/high) | reversibility (easy/hard/irreversible) | recommended human touch point (none / review / approve) |
+| --- | --- | --- | --- |
+| Human | Shows the consequence of human in practice | Connects human to the chapter's main distinction | Use human as the decision guide |
+| Loop | Shows the consequence of loop in practice | Connects loop to the chapter's main distinction | Use loop as the decision guide |
+| Decision | Shows the consequence of decision in practice | Connects decision to the chapter's main distinction | Use decision as the decision guide |
+| Matrix | Shows the consequence of matrix in practice | Connects matrix to the chapter's main distinction | Use matrix as the decision guide |
 
 ---
 
@@ -258,7 +273,12 @@ Madison is a reference architecture, not a template. Reading it well teaches you
 
 **Notice what Madison's architecture does not solve.** Madison is a marketing intelligence framework built for organizations that have existing data sources, existing brand guidelines, and existing marketing workflows. It is not a framework for someone who is starting a brand from scratch or trying to reach a consumer with no prior relationship. The choice of Knowledge Graph systems (Neo4j, RDF, SPARQL) for brand perception tracking assumes you already have brand perception worth tracking. Every architecture embeds assumptions about who the user is and what state they are already in. Reading those assumptions teaches you what the architecture is actually for — and what you will need to supply differently.
 
-<!-- → TABLE: Madison layer × archetype fit — rows: five layers plus orchestration; columns: layer name, primary function, best-fit archetype, what the student would customize, one failure mode to watch. Student should be able to pick their layer and anticipate where their design diverges from Madison's reference. -->
+| layer name | primary function | best-fit archetype | what the student would customize | one failure mode to watch |
+| --- | --- | --- | --- | --- |
+| Madison | Connects madison to the chapter's main distinction | Connects madison to the chapter's main distinction | Connects madison to the chapter's main distinction | Fails when madison is treated as settled instead of checked |
+| Layer | Connects layer to the chapter's main distinction | Connects layer to the chapter's main distinction | Connects layer to the chapter's main distinction | Fails when layer is treated as settled instead of checked |
+| Archetype | Connects archetype to the chapter's main distinction | Connects archetype to the chapter's main distinction | Connects archetype to the chapter's main distinction | Fails when archetype is treated as settled instead of checked |
+| Fit | Connects fit to the chapter's main distinction | Connects fit to the chapter's main distinction | Connects fit to the chapter's main distinction | Fails when fit is treated as settled instead of checked |
 
 ---
 

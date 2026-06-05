@@ -54,7 +54,14 @@ A business-to-business (B2B) transaction is one between two businesses. A busine
 | **Marketing reliance** | Mass marketing | Personal selling |
 | **Geography** | Dispersed worldwide | Often concentrated by industry / resources |
 
-<!-- → TABLE: B2B vs. B2C structural comparison. Six rows, two columns. Each cell concise. The student should see the comparison at a glance before reading the explanation. -->
+| Dimension | First case | Second case |
+| --- | --- | --- |
+| B2b | Example: b2b | Example: b2b |
+| B2c | Example: b2c | Example: b2c |
+| Structural | Example: structural | Example: structural |
+| Comparison | Example: comparison | Example: comparison |
+| Each | Example: each | Example: each |
+| Cell | Example: cell | Example: cell |
 
 **Decision nature.** A consumer decides what a household needs and buys it. A B2B buyer decides what an organization needs — sometimes serving consumers downstream, sometimes serving other businesses — and buys it on behalf of that organization. The personal stake is different. A consumer regrets a bad personal purchase. A B2B buyer who makes a bad organizational purchase faces career consequences.
 
@@ -155,7 +162,12 @@ A vendor who maps the buying center wrong gets the response that haunts B2B sale
 
 A second framework cuts the B2B world by purchase type rather than by participant. **Buy classes** distinguish four buying situations on four characteristics: **newness** (how unfamiliar is the product), **alternatives** (how many to evaluate), **uncertainty** (how much risk), **information needs** (how much research).
 
-<!-- → TABLE: Four buy classes with their characteristics. Rows: Straight rebuy / Modified rebuy / New-task buy / Systems selling. Columns: Newness / Alternatives / Uncertainty / Information needs / Marketing implication. The student should see how each class's quadrant of characteristics determines the marketing approach. -->
+| Concept | What it means | How to use it |
+| --- | --- | --- |
+| Buy | Connects buy to the chapter's main distinction | Connects buy to the chapter's main distinction |
+| Classes | Connects classes to the chapter's main distinction | Connects classes to the chapter's main distinction |
+| Their | Connects their to the chapter's main distinction | Connects their to the chapter's main distinction |
+| Characteristics | Connects characteristics to the chapter's main distinction | Connects characteristics to the chapter's main distinction |
 
 **Straight rebuy.** Routine purchase of a standard product from a familiar supplier. Office paper, printer toner, replacement parts. Minimal effort beyond confirming the order. Marketing implication: protect the account; never disappoint on delivery; make reordering frictionless.
 

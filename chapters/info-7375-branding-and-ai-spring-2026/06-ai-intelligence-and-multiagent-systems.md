@@ -57,9 +57,15 @@ Here are the four patterns, from simplest to most complex:
 
 **Pattern 4: Multi-agent system.** Multiple LLM-driven agents with specialized roles coordinate through an orchestrator or shared state. Each agent does one thing well; the orchestrator decides which agent runs when. This is the pattern underlying CrewAI, LangGraph, and Microsoft's AutoGen. It buys specialization and modularity at the cost of upfront design work. Use this when the task decomposes into genuinely distinct specializations and you need each specialization to be independently debuggable and improvable.
 
-<!-- → TABLE: A four-row reference table — rows: Pattern 1 through 4; columns: Name, Control Flow (who decides next step), Representative Tools/Products, Best Used When, Primary Failure Mode. Designed as a decision guide: student reads down the "Best Used When" column to identify their pattern, then reads across to see what they're committing to. -->
+| Name | Control Flow (who decides next step) | Representative Tools/Products | Best Used When | Primary Failure Mode |
+| --- | --- | --- | --- | --- |
+| Reference | Connects reference to the chapter's main distinction | Example: reference | Connects reference to the chapter's main distinction | Fails when reference is treated as settled instead of checked |
+| Pattern | Connects pattern to the chapter's main distinction | Example: pattern | Connects pattern to the chapter's main distinction | Fails when pattern is treated as settled instead of checked |
+| Name | Connects name to the chapter's main distinction | Example: name | Connects name to the chapter's main distinction | Fails when name is treated as settled instead of checked |
+| Control | Connects control to the chapter's main distinction | Example: control | Connects control to the chapter's main distinction | Fails when control is treated as settled instead of checked |
 
-[FIGURE: A horizontal spectrum diagram — left end labeled "Maximum Predictability / Minimum Flexibility" with Pattern 1 at far left, Pattern 2 slightly right, Pattern 3 further right, Pattern 4 at the far right labeled "Maximum Flexibility / Minimum Predictability." Beneath each pattern: a one-line description and a representative failure mode. Student should see that flexibility and predictability are in direct tension, not independently optimizable.]
+![A horizontal spectrum diagram — left end labeled "Maximum Predictability / Minimum Flexibility" with Pattern 1 at far left, Pattern 2...](images/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-01.png)
+*Figure 0.1 — horizontal spectrum diagram*
 
 In your Chapter 5 pipeline, you already have Pattern 1 if you used an OpenAI or Claude node anywhere — a prompt in, a response out, the pipeline moves on. This chapter is about deciding when and whether to move toward Patterns 2, 3, or 4, and what you are actually buying at each step up.
 
@@ -73,7 +79,8 @@ Pattern 4 has its own internal spectrum. Not all multi-agent systems are the sam
 
 **Conversational multi-agent systems.** Agents communicate with each other, often in a moderated conversation, until they collectively converge on a result. Microsoft AutoGen pioneered this pattern. It sits between autonomous and orchestrated: more structured than autonomous (there is a moderator), less structured than orchestrated (the conversation can go in directions the designer did not anticipate).
 
-[FIGURE: A 2x2 grid with axes "Agent Decision Autonomy (Low → High)" and "Orchestrator Control (Low → High)" — the three multi-agent architectures plotted in their respective quadrants. Autonomous agents: high agent autonomy, low orchestrator control. Orchestrated: low agent autonomy, high orchestrator control. Conversational: medium both. An empty fourth quadrant (low agent autonomy, low orchestrator control) labeled "Not a multi-agent system." Student should see the design space, not just the named options.]
+![A 2x2 grid with axes "Agent Decision Autonomy (Low → High)" and "Orchestrator Control (Low → High)" — the three multi-agent...](images/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-02.png)
+*Figure 0.2 — 2x2 grid with axes "Agent Decision Autonomy (Low → High)" and...*
 
 Madison lives firmly in the orchestrated quadrant. The five layers — Intelligence, Content, Research, Experience, Performance — are specialized agents; the n8n orchestration layer decides which agent runs when. The user of a Madison-powered tool sees neither the agents nor the orchestrator. They request marketing intelligence; they receive marketing intelligence. The system's internal structure is invisible to them, by design.
 
@@ -109,7 +116,8 @@ Architecture A's brand is *transparency*. The user feels like they are working a
 
 Architecture B's brand is *competence*. The user gives the system a task and trusts it will deliver. When it works well, this feels professional and frictionless. When it fails, the failure is opaque — a missing report, an error message, no visible path to understanding what went wrong. The user does not watch the brand fail; they see only that it failed.
 
-[FIGURE: Side-by-side comparison of the two architectures as user experience flows — Architecture A: user → visible agent reasoning trace → report; failure mode shown as user watching the trace loop. Architecture B: user → brief form → status indicator → report; failure mode shown as error message with no context. Student should see that the architecture determines not just *when* failure happens but *how* it is experienced.]
+![Side-by-side comparison of the two architectures as user experience flows — Architecture A: user → visible agent reasoning trace →...](images/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-03.png)
+*Figure 0.3 — Side-by-side comparison of the two architectures as user experience flows*
 
 Neither architecture is universally correct. A research-collaboration tool benefits from Architecture A — the user wants to be in the loop, to redirect the agent, to feel the collaboration happening. An enterprise reporting tool benefits from Architecture B — the user wants a deliverable, not a process. The choice is the brand decision.
 
@@ -127,7 +135,12 @@ An Explorer brand builds tools for discovery and autonomy. The Explorer's shadow
 
 This is not a complete mapping — there are twelve archetypes and many possible architectures. The principle is: before you choose your AI-intelligence pattern, check it against your archetype's shadow. The failure mode most likely to destroy your brand is the one that looks most like your archetype's most likely breakdown.
 
-<!-- → TABLE: A partial archetype-to-architecture mapping table — rows: six selected archetypes (Sage, Creator, Explorer, Hero, Caregiver, Jester); columns: Archetype, Recommended Architecture Tendency, Shadow Expressed as AI Failure Mode, What to Watch For in Production. Rows for the other six archetypes left blank as a student exercise. Student should be able to complete the blank rows using the chapter's logic before attempting exercise A2. -->
+| Archetype | Recommended Architecture Tendency | Shadow Expressed as AI Failure Mode | What to Watch For in Production |
+| --- | --- | --- | --- |
+| Partial | Use partial as the decision guide | Fails when partial is treated as settled instead of checked | Example: partial |
+| Archetype | Use archetype as the decision guide | Fails when archetype is treated as settled instead of checked | Example: archetype |
+| Architecture | Use architecture as the decision guide | Fails when architecture is treated as settled instead of checked | Example: architecture |
+| Mapping | Use mapping as the decision guide | Fails when mapping is treated as settled instead of checked | Example: mapping |
 
 ### 2.3 The Cursor/Devin distinction, restated
 
@@ -167,7 +180,8 @@ Production systems require three controls that the early autonomous frameworks d
 
 Research on user trust in automation systems consistently shows that visible failure is more damaging to long-term trust than opaque failure, particularly when the user has been told to trust the system. Architecture A's transparency is a high-trust deposit on a non-fungible asset. The 2023 AutoGPT failure wave did not just hurt AutoGPT — it made users cautious about autonomous agents as a category. The failure was distributed across the brand landscape of every product that used the word "autonomous."
 
-[FIGURE: Three panels showing each failure mode as a visual metaphor — (1) Compounding error: a chain of dominoes, each slightly larger than the last, falling into a larger error at the end. (2) Cost runaway: a cost meter spinning while an agent's task completion percentage stays near zero. (3) Trust collapse: a trust "gauge" that drops sharply after a single visible failure event. Student should see that these are architectural consequences, not random bugs.]
+![Three panels showing each failure mode as a visual metaphor — (1) Compounding error: a chain of dominoes, each slightly larger than the...](images/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-04.png)
+*Figure 0.4 — Three panels showing each failure mode as a visual metaphor*
 
 ### 3.2 The orchestrated counterpart: what it trades
 
@@ -181,7 +195,12 @@ The orchestrated-multi-agent quadrant does not escape failure. It trades the aut
 
 The trade-off is real. There is no architecture that wins on every dimension. The disciplined engineer chooses where on the spectrum the product should sit and designs each failure mode *on purpose*, not as a surprise.
 
-<!-- → TABLE: A trade-off comparison table — rows: six evaluation criteria (Reliability, Debuggability, Cost Predictability, Flexibility, Upfront Design Cost, User Trust on Failure); columns: Autonomous Agents, Orchestrated Multi-Agent, Chained Calls. Each cell: High / Medium / Low or a brief descriptor. Student should be able to use this table to justify their architecture choice in exercise S2 (Orchestration Decision Memo). -->
+| Autonomous Agents | Orchestrated Multi-Agent | Chained Calls |
+| --- | --- | --- |
+| Trade | Connects trade to the chapter's main distinction | Connects trade to the chapter's main distinction |
+| Off | Connects off to the chapter's main distinction | Connects off to the chapter's main distinction |
+| Comparison | Connects comparison to the chapter's main distinction | Connects comparison to the chapter's main distinction |
+| Evaluation | Connects evaluation to the chapter's main distinction | Connects evaluation to the chapter's main distinction |
 
 ### 3.3 Worked case: Madison's MarketMind agents
 
@@ -210,7 +229,8 @@ Eight lines. Three things are happening that are worth naming precisely.
 
 **`allow_delegation=False` is the orchestration commitment in code.** This agent cannot hand off to other agents. It does its job and returns. The orchestration layer — not the agent — decides what happens next. This single parameter is the architectural choice that separates Madison's approach from AutoGPT's. AutoGPT agents could spawn sub-agents, set new goals, redirect their own work. Madison agents cannot. They execute and report. Predictability is the result.
 
-[FIGURE: A side-by-side code annotation of the `competitor_analyst` agent — left column shows the raw code, right column shows annotations for each key line: what the role does, why the goal includes a discipline, what the backstory commits to, and what `allow_delegation=False` enforces architecturally. Student should be able to read any CrewAI agent and annotate it the same way.]
+![A side-by-side code annotation of the competitoranalyst agent — left column shows the raw code, right column shows annotations for each...](images/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-05.png)
+*Figure 0.5 — side-by-side code annotation of the competitoranalyst agent*
 
 When this architecture fails, it fails locally. One agent's output is wrong — a structured JSON field is null, a competitor's market share is labeled "unverifiable" — and the developer can trace the failure to a specific agent, a specific tool call, a specific input. Compare to AutoGPT's failure mode: the agent wandered, the error is distributed across forty steps, the debugging surface is the entire execution trace. Local failure is the architectural reward for orchestration's specification cost.
 
@@ -243,7 +263,8 @@ Three patterns, from weakest to strongest:
 
 **Pattern 3: Confidence labeling.** Require the agent to label each claim with a confidence level: `verified`, `inferred`, or `unverifiable`. This is more work than null fields but more informative — the downstream system (or user) knows not just that a field was uncertain, but *how* uncertain, and *why*.
 
-[FIGURE: Three versions of the same agent output — Pattern 1 (abstain): a paragraph that says "I cannot verify X"; Pattern 2 (null fields): a JSON object with some fields populated and others set to null with notes; Pattern 3 (confidence labels): a JSON object with each field annotated with a confidence level. Student should see how the same underlying uncertainty is expressed differently in each pattern and what the downstream system can do with each.]
+![Three versions of the same agent output — Pattern 1 (abstain): a paragraph that says "I cannot verify X"; Pattern 2 (null fields): a...](images/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-06.png)
+*Figure 0.6 — Three versions of the same agent output*
 
 For most student projects, Pattern 2 is the right starting point. It is more rigorous than Pattern 1 and less complex to implement than Pattern 3. The Madison `competitor_analyst` uses a variant of Pattern 2: structured JSON with null fields for unverifiable data.
 
@@ -285,7 +306,12 @@ Walk through each component:
 
 This specification will not eliminate hallucination. No specification does. But it will surface uncertainty visibly, in structured form, so that downstream steps can handle it rather than propagate it.
 
-<!-- → TABLE: A blank agent specification template — four labeled sections (Role, Goal, Backstory, Tools) with guiding questions in each: Role: "What professional identity? What domain associations should this activate?"; Goal: "What is the task? What constraints apply? What anti-hallucination instruction is included?"; Backstory: "What instinct resolves ambiguity? What does this agent do when it does not know?"; Tools: "What tools are included? What tools are explicitly excluded, and why?" Intended as a worksheet for exercise A1. -->
+| Concept | What it means | How to use it |
+| --- | --- | --- |
+| Blank | Connects blank to the chapter's main distinction | Connects blank to the chapter's main distinction |
+| Agent | Connects agent to the chapter's main distinction | Connects agent to the chapter's main distinction |
+| Specification | Connects specification to the chapter's main distinction | Connects specification to the chapter's main distinction |
+| Template | Connects template to the chapter's main distinction | Connects template to the chapter's main distinction |
 
 ---
 
@@ -323,7 +349,8 @@ With the architectural decision made, the build sequence:
 
 **Task 6: Stress-test for your failure mode.** Identify the failure mode most likely given your architecture (compounding error for chained patterns, cost runaway for autonomous, rigidity for orchestrated, hidden failure for opaque systems). Design a test input that triggers it. Run the test. Observe the failure. Then add one mitigation and run the test again.
 
-[FIGURE: A visual of the n8n workflow after the AI layer is added — showing the Chapter 5 pipeline with an AI step inserted, a validation node immediately after the AI step, a schema-check node, and two routing paths: one for valid output (proceeds to next step) and one for invalid output (error handler / human review queue). Student should see that the AI step is wrapped, not floating in isolation.]
+![A visual of the n8n workflow after the AI layer is added — showing the Chapter 5 pipeline with an AI step inserted, a validation node...](images/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-07.png)
+*Figure 0.7 — visual of the n8n workflow after the AI layer is added*
 
 ### 5.3 The reference: Madison's Intelligence Agent workflow
 
@@ -608,3 +635,68 @@ Who was Herbert Simon, and how do his concepts of *bounded rationality* and *nea
 
 What changes? What gets better? What gets worse?
 
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 0.1 — horizontal spectrum diagram
+
+Create a standalone D3 v7 HTML figure for "horizontal spectrum diagram". Use a horizontal bar chart with 5 labeled categories with approximate values from 0 to 100. Marks: bars or rectangular panels, direct labels, and concise value labels. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-01.html`
+
+---
+
+### Figure 0.2 — 2x2 grid with axes "Agent Decision Autonomy (Low → High)" and...
+
+Create a standalone D3 v7 HTML figure for "2x2 grid with axes "Agent Decision Autonomy (Low → High)" and...". Use a horizontal process diagram with 4 to 5 ordered stages with directed connectors. Marks: rectangular stage nodes and arrow connectors. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-02.html`
+
+---
+
+### Figure 0.3 — Side-by-side comparison of the two architectures as user experience flows
+
+Create a standalone D3 v7 HTML figure for "Side-by-side comparison of the two architectures as user experience flows". Use a horizontal process diagram with 4 to 5 ordered stages with directed connectors. Marks: rectangular stage nodes and arrow connectors. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-03.html`
+
+---
+
+### Figure 0.4 — Three panels showing each failure mode as a visual metaphor
+
+Create a standalone D3 v7 HTML figure for "Three panels showing each failure mode as a visual metaphor". Use a horizontal process diagram with 4 to 5 ordered stages with directed connectors. Marks: rectangular stage nodes and arrow connectors. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-04.html`
+
+---
+
+### Figure 0.5 — side-by-side code annotation of the competitoranalyst agent
+
+Create a standalone D3 v7 HTML figure for "side-by-side code annotation of the competitoranalyst agent". Use a horizontal process diagram with 4 to 5 ordered stages with directed connectors. Marks: rectangular stage nodes and arrow connectors. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-05.html`
+
+---
+
+### Figure 0.6 — Three versions of the same agent output
+
+Create a standalone D3 v7 HTML figure for "Three versions of the same agent output". Use a node-link concept map with 5 nodes with 6 to 8 links. Marks: circles, links, and direct labels. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-06.html`
+
+---
+
+### Figure 0.7 — visual of the n8n workflow after the AI layer is added
+
+Create a standalone D3 v7 HTML figure for "visual of the n8n workflow after the AI layer is added". Use a horizontal process diagram with 4 to 5 ordered stages with directed connectors. Marks: rectangular stage nodes and arrow connectors. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/info-7375-branding-and-ai-spring-2026-06-ai-intelligence-and-multiagent-systems-fig-07.html`

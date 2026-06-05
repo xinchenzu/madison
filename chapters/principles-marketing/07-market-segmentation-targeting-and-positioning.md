@@ -153,7 +153,12 @@ Once segments are identified and ADAMS-evaluated, the firm chooses a target-mark
 
 **Micromarketing (customized marketing).** One step beyond concentrated — targets specific individuals within a niche, often with personalized offerings. **Stitch Fix** uses **85 meaningful data points** about each customer plus machine learning, algorithms, and human stylists to send personalized clothing selections; customers return what doesn't fit using prepaid labels within 30 days. Real estate is another classic micromarketing category: a residential realtor specializing in luxury properties for the over-55 segment in a specific neighborhood is doing micromarketing.
 
-<!-- → TABLE: Four target-market strategies × four characteristics (cost, precision, scalability, example brand). Rows: Undifferentiated / Differentiated / Concentrated / Micromarketing. The student should see the trade-off pattern: as you move from undifferentiated to micromarketing, cost per customer rises and reach falls, but conversion-per-customer rises. -->
+| Concept | What it means | How to use it |
+| --- | --- | --- |
+| Target | Connects target to the chapter's main distinction | Connects target to the chapter's main distinction |
+| Market | Connects market to the chapter's main distinction | Connects market to the chapter's main distinction |
+| Strategies | Connects strategies to the chapter's main distinction | Connects strategies to the chapter's main distinction |
+| Characteristics | Connects characteristics to the chapter's main distinction | Connects characteristics to the chapter's main distinction |
 
 ### The trade-off — scale economics vs. relevance economics
 

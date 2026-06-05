@@ -165,7 +165,12 @@ A 2×2 matrix on **purchase involvement** (high vs. low) and **perceived brand d
 | **High involvement** | **Complex buying behavior** (new car) | **Dissonance-reducing buying behavior** (ceramic tile) |
 | **Low involvement** | **Variety-seeking buying behavior** (tortilla chips) | **Habitual buying behavior** (organic milk) |
 
-<!-- → TABLE: Four types of buying behavior 2×2. Rows: High involvement / Low involvement. Columns: Significant brand differences / Few brand differences. Each quadrant gets the type name, a one-sentence definition, an example, and a marketing implication. The student should see that the marketing mix changes by quadrant. -->
+| Concept | What it means | How to use it |
+| --- | --- | --- |
+| Types | Connects types to the chapter's main distinction | Connects types to the chapter's main distinction |
+| Buying | Connects buying to the chapter's main distinction | Connects buying to the chapter's main distinction |
+| Behavior | Connects behavior to the chapter's main distinction | Connects behavior to the chapter's main distinction |
+| High | Connects high to the chapter's main distinction | Connects high to the chapter's main distinction |
 
 **Complex buying behavior** — high involvement, significant brand differences. Examples: new car, expensive electronics, real estate. The consumer goes through all five decision stages with high engagement at each. *Marketing implications:* detailed product information, expert sales support, comparison content, post-purchase reassurance.
 

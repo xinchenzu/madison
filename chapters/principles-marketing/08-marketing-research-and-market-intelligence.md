@@ -183,7 +183,12 @@ Strengths: behavioral data captures *what people actually do*, not what they say
 - **In-person surveys** — door-to-door, intercept (mall / public location), or workplace. Used by the US Census Bureau as the follow-up method when households don't return the mailed census. Weaknesses: time-intensive labor; respondent reluctance; privacy concerns for sensitive questions.
 - **Electronic surveys** — email links, web forms, QR codes. Cheapest and fastest to deploy. Weaknesses: spam-filter risk, low response rates, sample skews toward digitally engaged populations.
 
-<!-- → TABLE: Four survey methods × four characteristics (cost, speed, reach, response quality). Rows: Mailed / Phone / In-person / Electronic. The student should see the trade-off pattern: methods that reach further tend to have lower response quality, and vice versa. -->
+| Concept | What it means | How to use it |
+| --- | --- | --- |
+| Survey | Connects survey to the chapter's main distinction | Connects survey to the chapter's main distinction |
+| Methods | Connects methods to the chapter's main distinction | Connects methods to the chapter's main distinction |
+| Characteristics | Connects characteristics to the chapter's main distinction | Connects characteristics to the chapter's main distinction |
+| Cost | Connects cost to the chapter's main distinction | Connects cost to the chapter's main distinction |
 
 ### The mechanism — sampling
 

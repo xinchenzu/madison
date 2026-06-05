@@ -58,7 +58,12 @@ The phrase *visual identity* covers a set of components that, together, tell a v
 
 The system relationship is what matters. A logo that looks fine in isolation can clash with the wrong typography. A palette that is beautiful on print can fail accessibility on screen. A layout that works for long-form reading can feel slow for a task-oriented tool. The visual identity is the rulebook that prevents each component from making choices the others cannot support.
 
-<!-- → TABLE: Six visual identity components — columns: component name, what it contains, how it expresses archetype, most common failure mode when strategy is absent. Student should see that each component is an archetypal expression, not an aesthetic choice made in isolation. -->
+| component name | what it contains | how it expresses archetype | most common failure mode when strategy is absent |
+| --- | --- | --- | --- |
+| Identity | Connects identity to the chapter's main distinction | Connects identity to the chapter's main distinction | Fails when identity is treated as settled instead of checked |
+| Components | Connects components to the chapter's main distinction | Connects components to the chapter's main distinction | Fails when components is treated as settled instead of checked |
+| Component | Connects component to the chapter's main distinction | Connects component to the chapter's main distinction | Fails when component is treated as settled instead of checked |
+| Name | Connects name to the chapter's main distinction | Connects name to the chapter's main distinction | Fails when name is treated as settled instead of checked |
 
 ---
 
@@ -94,7 +99,12 @@ Three cases at increasing levels of damage, to make the mechanism concrete.
 
 The pattern: visual work without strategic substance (Pepsi, Yahoo), or with the wrong strategic substance underneath (Tropicana). The chapter's discipline is to ensure neither happens to your tool's brand.
 
-<!-- → TABLE: Three visual-identity failures — rows: Pepsi 2008, Yahoo 2013, Tropicana 2009; columns: what was changed, the strategic failure, the archetypal mismatch, the brand consequence, the recovery. Student should see that each failure had a different structural cause and that the fix was different in each case. -->
+| what was changed | the strategic failure | the archetypal mismatch | the brand consequence | the recovery |
+| --- | --- | --- | --- | --- |
+| Identity | Fails when identity is treated as settled instead of checked | Connects identity to the chapter's main distinction | Example: identity | Connects identity to the chapter's main distinction |
+| Failures | Fails when failures is treated as settled instead of checked | Connects failures to the chapter's main distinction | Example: failures | Connects failures to the chapter's main distinction |
+| Pepsi | Fails when pepsi is treated as settled instead of checked | Connects pepsi to the chapter's main distinction | Example: pepsi | Connects pepsi to the chapter's main distinction |
+| 2008 | Fails when 2008 is treated as settled instead of checked | Connects 2008 to the chapter's main distinction | Example: 2008 | Connects 2008 to the chapter's main distinction |
 
 ---
 
@@ -122,7 +132,12 @@ A complete creative brief has eight sections. Each section is a constraint, not 
 
 The brief should be dense, one to two pages, no padding. Every sentence is a constraint. A sentence that cannot be used to evaluate a design decision should be cut.
 
-<!-- → TABLE: Creative brief section anatomy — columns: section name, the question it answers, what a weak entry looks like, what a strong entry looks like. Student should use this as a self-grading checklist when writing the brief. -->
+| section name | the question it answers | what a weak entry looks like | what a strong entry looks like |
+| --- | --- | --- | --- |
+| Creative | Connects creative to the chapter's main distinction | Connects creative to the chapter's main distinction | Connects creative to the chapter's main distinction |
+| Brief | Connects brief to the chapter's main distinction | Connects brief to the chapter's main distinction | Connects brief to the chapter's main distinction |
+| Section | Connects section to the chapter's main distinction | Connects section to the chapter's main distinction | Connects section to the chapter's main distinction |
+| Anatomy | Connects anatomy to the chapter's main distinction | Connects anatomy to the chapter's main distinction | Connects anatomy to the chapter's main distinction |
 
 ---
 
@@ -170,9 +185,19 @@ Here is what a partial accessibility audit table looks like for a Sage-archetype
 
 Caption text failed at normal-text size. The fix: darken the caption color to #6B7280, which returns 4.6:1 — a pass. The palette character does not change; the implementation is now compliant.
 
-<!-- → TABLE: Blank accessibility audit template — same structure as the Sage example above (columns: combination, foreground hex, background hex, contrast ratio, AA Normal pass/fail, AA Large pass/fail); rows left blank for student to fill in with their own palette combinations. The last row should include a failing example with a proposed fix, demonstrating the hex adjustment workflow. Student should copy this table structure directly into their palette deliverable. -->
+| combination | foreground hex | background hex | contrast ratio | AA Normal pass/fail | AA Large pass/fail) |
+| --- | --- | --- | --- | --- | --- |
+| Blank | Connects blank to the chapter's main distinction | Connects blank to the chapter's main distinction | Connects blank to the chapter's main distinction | Connects blank to the chapter's main distinction | Connects blank to the chapter's main distinction |
+| Accessibility | Connects accessibility to the chapter's main distinction | Connects accessibility to the chapter's main distinction | Connects accessibility to the chapter's main distinction | Connects accessibility to the chapter's main distinction | Connects accessibility to the chapter's main distinction |
+| Audit | Connects audit to the chapter's main distinction | Connects audit to the chapter's main distinction | Connects audit to the chapter's main distinction | Connects audit to the chapter's main distinction | Connects audit to the chapter's main distinction |
+| Template | Connects template to the chapter's main distinction | Connects template to the chapter's main distinction | Connects template to the chapter's main distinction | Connects template to the chapter's main distinction | Connects template to the chapter's main distinction |
 
-<!-- → TABLE: Palette construction guide — rows: four archetypes (Sage, Hero, Caregiver, Magician); columns: primary color direction, accent direction, neutral system character, palette to avoid (anti-archetype), real-world brand example of this palette logic. Student should find their archetype row and use it as a palette starting point. -->
+| primary color direction | accent direction | neutral system character | palette to avoid (anti-archetype) | real-world brand example of this palette logic |
+| --- | --- | --- | --- | --- |
+| Palette | Connects palette to the chapter's main distinction | Connects palette to the chapter's main distinction | Connects palette to the chapter's main distinction | Example: palette |
+| Construction | Connects construction to the chapter's main distinction | Connects construction to the chapter's main distinction | Connects construction to the chapter's main distinction | Example: construction |
+| Guide | Connects guide to the chapter's main distinction | Connects guide to the chapter's main distinction | Connects guide to the chapter's main distinction | Example: guide |
+| Archetypes | Connects archetypes to the chapter's main distinction | Connects archetypes to the chapter's main distinction | Connects archetypes to the chapter's main distinction | Example: archetypes |
 
 ---
 
@@ -214,7 +239,12 @@ Choosing the typefaces is not enough. You need to specify how they are used:
 
 The specification prevents the system from drifting. Without it, every new page is a new typographic decision — and the accumulated drift destroys system coherence over time.
 
-<!-- → TABLE: Archetype typography pair guide — rows: four archetypes (Sage, Hero, Caregiver, Magician); columns: recommended display face (with Google Fonts link), recommended body face (with Google Fonts link), what the pairing signals, type to avoid (anti-archetype), example brand using this pairing logic. Student should find their archetype row and use it as the starting point for their type specification. -->
+| recommended display face (with Google Fonts link) | recommended body face (with Google Fonts link) | what the pairing signals | type to avoid (anti-archetype) | example brand using this pairing logic |
+| --- | --- | --- | --- | --- |
+| Archetype | Use archetype as the decision guide | Connects archetype to the chapter's main distinction | Connects archetype to the chapter's main distinction | Example: archetype |
+| Typography | Use typography as the decision guide | Connects typography to the chapter's main distinction | Connects typography to the chapter's main distinction | Example: typography |
+| Pair | Use pair as the decision guide | Connects pair to the chapter's main distinction | Connects pair to the chapter's main distinction | Example: pair |
+| Guide | Use guide as the decision guide | Connects guide to the chapter's main distinction | Connects guide to the chapter's main distinction | Example: guide |
 
 ---
 

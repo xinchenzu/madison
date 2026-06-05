@@ -1,0 +1,25 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-0-4 desc-0-4">
+<title id="title-0-4">Three panels showing each failure mode as a visual metaphor</title>
+<desc id="desc-0-4">Three panels showing each failure mode as a visual metaphor — (1) Compounding error: a chain of dominoes, each slightly larger than the last, falling into a larger error at the end. (2) Cost runaway: a cost meter spinning while an agent's task completion percentage stays near zero. (3) Trust collapse: a trust "gauge" that drops sharply after a single visible failure event. Student should see that these are architectural consequences, not random bugs.</desc>
+<rect width="700" height="420" fill="#FFFFFF"/>
+<text x="48" y="54" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#2a1a0e">Three panels showing each failure mode as a visual metaphor</text>
+<text x="48" y="78" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="10" fill="#545454"><tspan x="48" dy="0">Three panels showing each failure mode as a visual metaphor — (1)</tspan><tspan x="48" dy="15">Compounding error: a chain of dominoes, each slightly larger than</tspan><tspan x="48" dy="15">the last, falling into a larger error at the end. (2) Cost</tspan><tspan x="48" dy="15">runaway: a cost meter spinning while an agent's task completion</tspan></text>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+<rect x="48" y="170" width="96" height="64" fill="#C8102E" stroke="#D4D4D4" stroke-width="1"/>
+<text x="96" y="202" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">panels</text>
+<path d="M 148 202 L 168 202" stroke="#2a1a0e" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="172" y="170" width="96" height="64" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="220" y="202" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#2a1a0e">each</text>
+<path d="M 272 202 L 292 202" stroke="#2a1a0e" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="296" y="170" width="96" height="64" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="344" y="202" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#2a1a0e">failure</text>
+<path d="M 396 202 L 416 202" stroke="#2a1a0e" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="420" y="170" width="96" height="64" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="468" y="202" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#2a1a0e">mode</text>
+<path d="M 520 202 L 540 202" stroke="#2a1a0e" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="544" y="170" width="96" height="64" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="592" y="202" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#2a1a0e">metaphor</text>
+
+<line x1="48" y1="382" x2="652" y2="382" stroke="#D4D4D4" stroke-width="1"/>
+<text x="48" y="400" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="10" letter-spacing="0.08em" fill="#545454">FIGURE 0.4</text>
+</svg>

@@ -77,7 +77,8 @@ The test for whether your values are real: for each value, name two specific dec
 
 Three to five values. Each with at least two traceable decision implications.
 
-[FIGURE: A table showing the relationship between stated values and traceable decisions — columns: Value Statement, Specific Decision It Implies, What a Competitor Without This Value Would Do Differently. Rows for three example values. Student should see that values do work only when they constrain specific choices, not when they are aspirational labels.]
+![A table showing the relationship between stated values and traceable decisions — columns: Value Statement, Specific Decision It Implies,...](images/branding-and-ai-08-startup-brand-path-brand-strategy-fig-01.png)
+*Figure 0.1 — table showing the relationship between stated values and traceable decisions*
 
 ### 1.4 Unique Value Proposition
 
@@ -131,7 +132,8 @@ Each entry on the no-list is consistent with the Sage archetype. Each entry is a
 
 At least five entries. Each entry should name a specific thing the company will not do, name the archetype-consistent reason for declining, and name a competitor or category that made the opposite choice.
 
-[FIGURE: A two-column table showing Stripe's no-list on the left — specific declined choices — and on the right, what competitor categories made the opposite choice and what the consequence was. Student should see that each "no" produced a specific competitive advantage, not just stylistic consistency.]
+![A two-column table showing Stripe's no-list on the left — specific declined choices — and on the right, what competitor categories made...](images/branding-and-ai-08-startup-brand-path-brand-strategy-fig-02.png)
+*Figure 0.2 — two-column table showing Stripe's no-list on the left*
 
 ---
 
@@ -175,7 +177,8 @@ Apply this test to your own document before submitting it. Show it to a classmat
 
 The values section and the no-list must cohere. If a value is stated and no entry on the no-list follows from it, the value is not doing work. If an entry on the no-list cannot be traced to a value, the entry is a preference, not a commitment.
 
-[FIGURE: A worked example of the coherence test — three values from a hypothetical startup, each linked by arrows to two no-list entries, each of those entries linked to a predicted customer or product decision. Student should see the strategy as a constraint graph, not a list of independent commitments.]
+![A worked example of the coherence test — three values from a hypothetical startup, each linked by arrows to two no-list entries, each of...](images/branding-and-ai-08-startup-brand-path-brand-strategy-fig-03.png)
+*Figure 0.3 — worked example of the coherence test*
 
 ---
 
@@ -197,7 +200,12 @@ The second failure mode is a name that is technically fine but carries downstrea
 
 **The domain test.** Is the .com available, or affordably acquirable? The .com is still the primary trust signal for a company website. A .io or .ai domain is acceptable for a developer tool or an AI startup; it signals technical identity. But if the .com of your name exists and points to another company, your customers will mistype your URL repeatedly for the life of your company. Check the domain. If the .com is available, register it immediately — domain squatters watch trademark and startup filings.
 
-<!-- → TABLE: A name evaluation scorecard — rows: three candidate name slots; columns: Bar Test (pass/fail with notes), Lawyer Test (cleared/needs check), Domain Test (.com status), Archetype Alignment (yes/no with the archetype signal the name primes). Final column: Overall Recommendation. Intended as a worksheet for exercise A3. Student fills in the rows for their own candidates and has a documented rationale for whatever they choose. -->
+| Bar Test (pass/fail with notes) | Lawyer Test (cleared/needs check) | Domain Test ( |
+| --- | --- | --- |
+| Name | Connects name to the chapter's main distinction | Connects name to the chapter's main distinction |
+| Evaluation | Connects evaluation to the chapter's main distinction | Connects evaluation to the chapter's main distinction |
+| Scorecard | Connects scorecard to the chapter's main distinction | Connects scorecard to the chapter's main distinction |
+| Candidate | Connects candidate to the chapter's main distinction | Connects candidate to the chapter's main distinction |
 
 ### 3.3 Archetype alignment in naming
 
@@ -215,7 +223,12 @@ Before applying the three tests to a candidate name, apply the archetype filter.
 
 The archetype filter is a pre-screening tool. Candidate names that prime wrong-archetype associations are eliminated before the three tests. Only archetype-aligned candidates go through the full test sequence.
 
-<!-- → TABLE: An archetype-to-naming-pattern reference table — rows: all twelve archetypes; columns: Naming Tendency (what kinds of words fit), Examples of Names in the Wild, Words/Connotations to Avoid, One-Word Test (what feeling should the name produce?). The five archetypes with examples from §3.3 are filled in; the remaining seven are left blank as a student extension exercise. Student should be able to complete the blank rows using the archetype descriptions from Chapter 3. -->
+| Naming Tendency (what kinds of words fit) | Examples of Names in the Wild | Words/Connotations to Avoid | One-Word Test (what feeling should the name produce?) |
+| --- | --- | --- | --- |
+| Archetype | Example: archetype | Connects archetype to the chapter's main distinction | Connects archetype to the chapter's main distinction |
+| Naming | Example: naming | Connects naming to the chapter's main distinction | Connects naming to the chapter's main distinction |
+| Pattern | Example: pattern | Connects pattern to the chapter's main distinction | Connects pattern to the chapter's main distinction |
+| Reference | Example: reference | Connects reference to the chapter's main distinction | Connects reference to the chapter's main distinction |
 
 ### 3.4 Product naming vs. company naming
 
@@ -273,7 +286,8 @@ Before finalizing the document, run the coherence check across all sections. Thr
 
 3. Can a stranger predict the no-list from the values? This is the test from §2.3. If they cannot, revise until they can.
 
-[FIGURE: A visual layout of the one-page document — eight labeled sections with their maximum lengths noted, arranged as they would appear on a physical page. Student should see the spatial constraint and understand that every section is competing for the same finite space — concision is not a style preference but a structural requirement.]
+![A visual layout of the one-page document — eight labeled sections with their maximum lengths noted, arranged as they would appear on a...](images/branding-and-ai-08-startup-brand-path-brand-strategy-fig-04.png)
+*Figure 0.4 — visual layout of the one-page document*
 
 ---
 
@@ -514,3 +528,44 @@ Who was Bill Bernbach, and how do his disruptive-startup campaigns (*Think Small
 
 What changes? What gets better? What gets worse?
 
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 0.1 — table showing the relationship between stated values and traceable decisions
+
+Create a standalone D3 v7 HTML figure for "table showing the relationship between stated values and traceable decisions". Use a horizontal bar chart with 5 labeled categories with approximate values from 0 to 100. Marks: bars or rectangular panels, direct labels, and concise value labels. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/branding-and-ai-08-startup-brand-path-brand-strategy-fig-01.html`
+
+---
+
+### Figure 0.2 — two-column table showing Stripe's no-list on the left
+
+Create a standalone D3 v7 HTML figure for "two-column table showing Stripe's no-list on the left". Use a horizontal process diagram with 4 to 5 ordered stages with directed connectors. Marks: rectangular stage nodes and arrow connectors. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/branding-and-ai-08-startup-brand-path-brand-strategy-fig-02.html`
+
+---
+
+### Figure 0.3 — worked example of the coherence test
+
+Create a standalone D3 v7 HTML figure for "worked example of the coherence test". Use a horizontal bar chart with 5 labeled categories with approximate values from 0 to 100. Marks: bars or rectangular panels, direct labels, and concise value labels. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/branding-and-ai-08-startup-brand-path-brand-strategy-fig-03.html`
+
+---
+
+### Figure 0.4 — visual layout of the one-page document
+
+Create a standalone D3 v7 HTML figure for "visual layout of the one-page document". Use a node-link concept map with 5 nodes with 6 to 8 links. Marks: circles, links, and direct labels. Channels: position for sequence or category, length for quantitative emphasis when bars are used, color for the primary highlighted item only, and direct text labels for accessibility. Use a zero baseline for quantitative bars. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/branding-and-ai-08-startup-brand-path-brand-strategy-fig-04.html`

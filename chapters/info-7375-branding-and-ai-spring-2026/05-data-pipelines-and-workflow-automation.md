@@ -589,3 +589,60 @@ Who was Joan Robinson, and how does her concept of *monopsony* connect to the pl
 
 What changes? What gets better? What gets worse?
 
+## Prompts
+
+Use these prompts with Claude to generate interactive D3 v7 versions of the
+figures in this chapter. Each produces a standalone HTML file you can open
+in a browser and modify freely.
+
+**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+your Claude project context before using these prompts. They define the stack,
+naming conventions, color system, and typography the figures use.
+
+---
+
+### Figure 1 — Five-node pipeline diagram showing one contract failing and the...
+
+Create a standalone D3 v7 HTML figure for "Five-node pipeline diagram showing one contract failing and the...". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/05-data-pipelines-and-workflow-automation-fig-01.html`
+
+---
+
+### Figure 4 — Horizontal timeline of the Reddit API pricing change and its downstream...
+
+Create a standalone D3 v7 HTML figure for "Horizontal timeline of the Reddit API pricing change and its downstream...". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/05-data-pipelines-and-workflow-automation-fig-04.html`
+
+---
+
+### Figure 7 — Side-by-side comparison of a Python script with interwoven dependencies...
+
+Create a standalone D3 v7 HTML figure for "Side-by-side comparison of a Python script with interwoven dependencies...". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/05-data-pipelines-and-workflow-automation-fig-07.html`
+
+---
+
+### Figure 8 — Annotated mockup of the n8n node editor
+
+Create a standalone D3 v7 HTML figure for "Annotated mockup of the n8n node editor". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/05-data-pipelines-and-workflow-automation-fig-08.html`
+
+---
+
+### Figure 9 — Madison Intelligence Agent workflow architecture
+
+Create a standalone D3 v7 HTML figure for "Madison Intelligence Agent workflow architecture". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/05-data-pipelines-and-workflow-automation-fig-09.html`
+
+---
+
+### Figure 11 — Three-level stack
+
+Create a standalone D3 v7 HTML figure for "Three-level stack". Use a horizontal bar chart with 5 labeled categories and approximate values from 0 to 100. Marks: bars, direct labels, and concise value labels. Channels: category position, quantitative bar length, and color for the primary highlighted item only. Use a zero baseline. Include title, desc, role="img", aria-labelledby, ResizeObserver redraw, dark mode CSS variables, and reduced-motion safeguards. Deliver as one HTML file with inline CSS and the D3 7.9.0 CDN.
+
+> Reference implementation: `d3/05-data-pipelines-and-workflow-automation-fig-11.html`

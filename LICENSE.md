@@ -1,15 +1,11 @@
 # License
 
-Copyright © 2026 Humanitarians AI. All rights reserved.
+Copyright © 2026 Humanitarians AI Incorporated. All rights reserved.
 
-The text of **Madison Plus One** is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). You are free to share, adapt, and build upon this material, including for commercial purposes, provided you give appropriate credit to the original work and indicate if changes were made.
+Published by Humanitarians AI Incorporated, a 501(c)(3) nonprofit organization.
 
-Full license terms: [creativecommons.org/licenses/by/4.0](https://creativecommons.org/licenses/by/4.0/)
+All rights reserved. No part of this publication may be reproduced, distributed, stored in a retrieval system, or transmitted in any form or by any means without the prior written permission of the publisher, except for brief quotations in critical reviews, classroom discussion, accessibility use, and other noncommercial uses permitted by law.
 
-## Trademark Notice
+This license covers the manuscript text, front matter, back matter, exercises, figures, tables, prompts, and supporting educational materials unless a specific file states otherwise.
 
-The name **AI+1**, the **AI+1 series mark**, and the associated cover image design are trademarks of Humanitarians AI. The CC BY 4.0 license does not grant permission to use these marks. Derivative works must carry their own original title and cover design, and must credit this work as the source.
-
-## Suggested Attribution
-
-> *Adapted from Madison Plus One, part of the AI+1 series by Humanitarians AI (humanitarians.ai), used under CC BY 4.0.*
+For permissions, course adoption, platform integration, or Medhavy / Medhavi use, contact the publisher listed above.

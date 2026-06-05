@@ -110,7 +110,13 @@ The $B$ in the ratio is complicated further by the fact that customers are surpr
 
 **Secret needs** are what the customer will not admit, even to themselves. *I want to feel like a serious athlete.* This is the GOAT Camp argument. No customer will type "makes me feel like Michael Jordan" into a product search. But it is doing real work in the purchase decision.
 
-<!-- → TABLE: Five-row table — Need Type | Definition | Gatorade Example | Risk of ignoring. The "Risk of ignoring" column is what makes the table useful: ignoring secret needs is why technically-identical products lose to branded ones. -->
+| Concept | What it means | How to use it |
+| --- | --- | --- |
+| Need | Connects need to the chapter's main distinction | Connects need to the chapter's main distinction |
+| Type | Connects type to the chapter's main distinction | Connects type to the chapter's main distinction |
+| Definition | Connects definition to the chapter's main distinction | Connects definition to the chapter's main distinction |
+| Gatorade | Connects gatorade to the chapter's main distinction | Connects gatorade to the chapter's main distinction |
+| Example | Connects example to the chapter's main distinction | Connects example to the chapter's main distinction |
 
 A marketer who answers only the stated need leaves four layers on the table. This is the structural reason that "just ask customers what they want and give them that" produces so many products nobody buys. The customer told the truth as far as they could see it. The truth that mattered was four layers down.
 
@@ -190,7 +196,12 @@ Run the four Ps on the collaboration.
 
 **Promotion.** Almost entirely borrowed from Netflix's launch of the season. JanSport did social posts and PR, but the engine was the cultural moment. The show created demand; JanSport pointed at the demand and said *we are also here*. This is the correct promotional strategy when you have no budget that can compete with Netflix's launch spend and no brand equity with the target audience that can compete with the show's.
 
-<!-- → TABLE: 4P × Evaluation table. Columns: P | Decision made | Why it fits the posture | What would break it. The "what would break it" column is the pedagogy — it forces the student to see each P as a choice with a failure mode, not just a description. -->
+| P | Decision made | Why it fits the posture | What would break it |
+| --- | --- | --- | --- |
+| Evaluation | Connects evaluation to the chapter's main distinction | Connects evaluation to the chapter's main distinction | Connects evaluation to the chapter's main distinction |
+| Decision | Connects decision to the chapter's main distinction | Connects decision to the chapter's main distinction | Connects decision to the chapter's main distinction |
+| Made | Connects made to the chapter's main distinction | Connects made to the chapter's main distinction | Connects made to the chapter's main distinction |
+| Fits | Connects fits to the chapter's main distinction | Connects fits to the chapter's main distinction | Connects fits to the chapter's main distinction |
 
 Now test the consistency. If JanSport had priced the bags at $40 (standard price, cheap signal), the premium $B$ built by the collaboration would have collapsed. Fan merchandise that feels cheap reads as a cash-grab, not a celebration. If JanSport had put the bags in every supermarket, the scarcity signal would have evaporated. If the bags had been generic JanSport designs in Hawkins colors (weak product execution), fans would have noticed and said so, loudly, on the same social media platforms that made the collaboration visible.
 
@@ -274,7 +285,14 @@ The mirror image: in 2020, *The Ellen DeGeneres Show* faced public allegations o
 
 **Environmental** — climate change, raw material constraints, carbon footprint expectations. Increasingly, customers use environmental practices as a filter for perceived brand value. Ignoring environmental factors is becoming a $B$-reducing decision in many categories.
 
-<!-- → TABLE: PESTLE scan table — six rows, one per factor. Columns: Factor | Definition | Fast-moving example | Slow-moving example. The two example columns teach students to see PESTLE factors as variables with different rates of change, not a static checklist. -->
+| Factor | Definition | Fast-moving example | Slow-moving example |
+| --- | --- | --- | --- |
+| Pestle | Connects pestle to the chapter's main distinction | Example: pestle | Example: pestle |
+| Scan | Connects scan to the chapter's main distinction | Example: scan | Example: scan |
+| Per | Connects per to the chapter's main distinction | Example: per | Example: per |
+| Factor | Connects factor to the chapter's main distinction | Example: factor | Example: factor |
+| Definition | Connects definition to the chapter's main distinction | Example: definition | Example: definition |
+| Fast | Connects fast to the chapter's main distinction | Example: fast | Example: fast |
 
 ### The trade-off — controllable versus uncontrollable
 

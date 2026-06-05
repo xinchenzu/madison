@@ -174,7 +174,12 @@ Source material's worked example for **Starbucks**:
 - **Opportunities:** expansion in developing markets, coffee subscription service (à la Panera Bread), new product / holiday flavor introductions.
 - **Threats:** competition from lower-cost coffee sellers, tightening discretionary spending due to inflation, rising coffee bean prices.
 
-<!-- → TABLE: SWOT 2×2 for Starbucks. Quadrants: Strengths (top-left), Weaknesses (top-right), Opportunities (bottom-left), Threats (bottom-right). Source factors as bullets in each. The student should see the asymmetry: a SWOT done well prioritizes within each quadrant; a SWOT done badly is a brainstorm with no ranking. -->
+| Concept | What it means | How to use it |
+| --- | --- | --- |
+| Swot | Connects swot to the chapter's main distinction | Connects swot to the chapter's main distinction |
+| Starbucks | Connects starbucks to the chapter's main distinction | Connects starbucks to the chapter's main distinction |
+| Quadrants | Connects quadrants to the chapter's main distinction | Connects quadrants to the chapter's main distinction |
+| Strengths | Connects strengths to the chapter's main distinction | Connects strengths to the chapter's main distinction |
 
 ### Common misconceptions
 

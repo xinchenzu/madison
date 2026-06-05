@@ -59,7 +59,12 @@ The distinction matters because when the *how* ends up in the PRD, it gets treat
 
 The one-page PRD I want you to write has four sections. I will give you each section with the question it answers, the failure mode to avoid, and an example of what good looks like.
 
-<!-- → TABLE: PRD section anatomy — columns: section name, question it answers, common failure mode, example of weak version, example of strong version. Student should use this as a checklist when drafting their own PRD. -->
+| section name | question it answers | common failure mode | example of weak version | example of strong version |
+| --- | --- | --- | --- | --- |
+| Prd | Connects prd to the chapter's main distinction | Fails when prd is treated as settled instead of checked | Example: prd | Example: prd |
+| Section | Connects section to the chapter's main distinction | Fails when section is treated as settled instead of checked | Example: section | Example: section |
+| Anatomy | Connects anatomy to the chapter's main distinction | Fails when anatomy is treated as settled instead of checked | Example: anatomy | Example: anatomy |
+| Name | Connects name to the chapter's main distinction | Fails when name is treated as settled instead of checked | Example: name | Example: name |
 
 ### Section 1: Problem
 
@@ -236,7 +241,12 @@ The exercise at the end of this chapter asks you to write a one-page PRD for you
 - **Tool:** Describe what you will build in one sentence that a non-technical user can parse. Reference the Madison pattern you are implementing ("a self-hosted n8n pipeline, based on Madison's Intelligence Agent pattern, that...") and then specify what makes your version distinct.
 - **MVP boundary:** Use the corresponding Madison layer's scope as your ceiling, not your floor. Madison's Intelligence Agent processes 870 articles daily. Your v1 might process 50. That is not a failure — it is a hypothesis. If 50 articles provides validated value for your user, you expand. If it does not, you have learned something quickly without building a system that processes 870 articles no one reads.
 
-<!-- → TABLE: Madison layer to PRD template mapping — rows: five Madison layers; columns: layer name, target user in Madison's design, gap Madison leaves for non-technical users, suggested v1 scope for a student building on this layer, $100,000 no for each layer. Student should find their layer and use this as a PRD starter. -->
+| layer name | target user in Madison's design | gap Madison leaves for non-technical users | suggested v1 scope for a student building on this layer | $100 | 000 no for each layer |
+| --- | --- | --- | --- | --- | --- |
+| Madison | Connects madison to the chapter's main distinction | Connects madison to the chapter's main distinction | Connects madison to the chapter's main distinction | Connects madison to the chapter's main distinction | Connects madison to the chapter's main distinction |
+| Layer | Connects layer to the chapter's main distinction | Connects layer to the chapter's main distinction | Connects layer to the chapter's main distinction | Connects layer to the chapter's main distinction | Connects layer to the chapter's main distinction |
+| Prd | Connects prd to the chapter's main distinction | Connects prd to the chapter's main distinction | Connects prd to the chapter's main distinction | Connects prd to the chapter's main distinction | Connects prd to the chapter's main distinction |
+| Template | Connects template to the chapter's main distinction | Connects template to the chapter's main distinction | Connects template to the chapter's main distinction | Connects template to the chapter's main distinction | Connects template to the chapter's main distinction |
 
 ---
 
@@ -270,7 +280,12 @@ This is a tool description. A competent engineer knows what to build. A marketin
 
 That is the PRD. One page. Four sections. A defensible out list. A named $100,000 no. An engineer can build from it. A user can evaluate it. A product manager can test it against the Build-Measure-Learn loop.
 
-<!-- → TABLE: PRD iteration quality ladder — rows: each of the four PRD sections (Problem, Gap, Tool, MVP Boundary); columns: weak version (what students typically write first), failure mode it represents, strong version (what the worked example produces). Student should use this as a self-grading rubric before peer critique. -->
+| weak version (what students typically write first) | failure mode it represents | strong version (what the worked example produces) |
+| --- | --- | --- |
+| Prd | Fails when prd is treated as settled instead of checked | Example: prd |
+| Iteration | Fails when iteration is treated as settled instead of checked | Example: iteration |
+| Quality | Fails when quality is treated as settled instead of checked | Example: quality |
+| Ladder | Fails when ladder is treated as settled instead of checked | Example: ladder |
 
 Now write yours.
 

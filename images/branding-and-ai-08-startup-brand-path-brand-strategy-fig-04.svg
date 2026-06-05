@@ -1,0 +1,29 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-0-4 desc-0-4">
+<title id="title-0-4">visual layout of the one-page document</title>
+<desc id="desc-0-4">A visual layout of the one-page document — eight labeled sections with their maximum lengths noted, arranged as they would appear on a physical page. Student should see the spatial constraint and understand that every section is competing for the same finite space — concision is not a style preference but a structural requirement.</desc>
+<rect width="700" height="420" fill="#FFFFFF"/>
+<text x="48" y="54" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="13" font-weight="bold" fill="#2a1a0e">visual layout of the one-page document</text>
+<text x="48" y="78" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="10" fill="#545454"><tspan x="48" dy="0">A visual layout of the one-page document — eight labeled sections</tspan><tspan x="48" dy="15">with their maximum lengths noted, arranged as they would appear on</tspan><tspan x="48" dy="15">a physical page. Student should see the spatial constraint and</tspan><tspan x="48" dy="15">understand that every section is competing for the same finite</tspan></text>
+<rect x="84" y="102" width="532" height="250" fill="#F5EFE8" stroke="#D4D4D4" stroke-width="0.75"/>
+<line x1="350" y1="132" x2="350" y2="220" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="222" y1="228" x2="350" y2="220" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="350" y1="306" x2="350" y2="220" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="478" y1="228" x2="350" y2="220" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="350" y1="132" x2="222" y2="228" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="350" y1="132" x2="478" y2="228" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="350" y1="306" x2="222" y2="228" stroke="#D4D4D4" stroke-width="1"/>
+<line x1="350" y1="306" x2="478" y2="228" stroke="#D4D4D4" stroke-width="1"/>
+<circle cx="350" cy="132" r="34" fill="#1A3A5C"/>
+<text x="350" y="136" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">layout</text>
+<circle cx="222" cy="228" r="34" fill="#6B3520"/>
+<text x="222" y="232" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">page</text>
+<circle cx="350" cy="306" r="34" fill="#6B3520"/>
+<text x="350" y="310" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">document</text>
+<circle cx="478" cy="228" r="34" fill="#6B3520"/>
+<text x="478" y="232" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">eight</text>
+<circle cx="350" cy="220" r="42" fill="#C8102E"/>
+<text x="350" y="224" text-anchor="middle" font-family="'EB Garamond', Georgia, 'Times New Roman', serif" font-size="11" fill="#FFFFFF">sections</text>
+
+<line x1="48" y1="382" x2="652" y2="382" stroke="#D4D4D4" stroke-width="1"/>
+<text x="48" y="400" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="10" letter-spacing="0.08em" fill="#545454">FIGURE 0.4</text>
+</svg>

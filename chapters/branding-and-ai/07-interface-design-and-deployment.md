@@ -57,7 +57,12 @@ The word *interface* is doing at least four different jobs in conversations abou
 
 All four layers have to be coherent with each other and with the underlying system. The chapter will work through each layer, but the primary diagnostic tool — the alignment audit — applies to all four at once.
 
-<!-- → TABLE: Four interface layers — columns: layer number, layer name, what it includes, most common engineering mistake, failure mode when misaligned with system. Student should use this as a mental checklist when reviewing their own tool's interface. -->
+| layer number | layer name | what it includes | most common engineering mistake | failure mode when misaligned with system |
+| --- | --- | --- | --- | --- |
+| Interface | Connects interface to the chapter's main distinction | Connects interface to the chapter's main distinction | Connects interface to the chapter's main distinction | Fails when interface is treated as settled instead of checked |
+| Layers | Connects layers to the chapter's main distinction | Connects layers to the chapter's main distinction | Connects layers to the chapter's main distinction | Fails when layers is treated as settled instead of checked |
+| Layer | Connects layer to the chapter's main distinction | Connects layer to the chapter's main distinction | Connects layer to the chapter's main distinction | Fails when layer is treated as settled instead of checked |
+| Number | Connects number to the chapter's main distinction | Connects number to the chapter's main distinction | Connects number to the chapter's main distinction | Fails when number is treated as settled instead of checked |
 
 ---
 
@@ -95,7 +100,12 @@ Tone misalignment is the subtlest of the three because it operates below the lev
 
 The fix is tone-matching: read the system's actual outputs, then design the interface copy to match the register of those outputs. If the system produces outputs that are terse and specific, the interface should be terse and specific. If the system produces outputs that are conversational and hedged, the interface should be conversational and hedged.
 
-<!-- → TABLE: Misalignment taxonomy — rows: confidence misalignment, capability misalignment, tone misalignment; columns: definition, how engineers produce it, what users experience, specific fix. Student should be able to identify which type of misalignment is present in a given interface failure. -->
+| definition | how engineers produce it | what users experience | specific fix |
+| --- | --- | --- | --- |
+| Misalignment | Connects misalignment to the chapter's main distinction | Connects misalignment to the chapter's main distinction | Connects misalignment to the chapter's main distinction |
+| Taxonomy | Connects taxonomy to the chapter's main distinction | Connects taxonomy to the chapter's main distinction | Connects taxonomy to the chapter's main distinction |
+| Confidence | Connects confidence to the chapter's main distinction | Connects confidence to the chapter's main distinction | Connects confidence to the chapter's main distinction |
+| Capability | Connects capability to the chapter's main distinction | Connects capability to the chapter's main distinction | Connects capability to the chapter's main distinction |
 
 ---
 
@@ -177,7 +187,12 @@ If the user's job is to *try the model* — type an input, see an output, type a
 
 The mismatch to avoid: an orchestrated multi-agent system deployed behind a Gradio "type a prompt, get a result" interface. The architecture implies structured, reliable, inspectable behavior; the Gradio interaction model implies free-form exploration. Users will probe the exploration model and find the structure hidden underneath, which is confusing. If your Chapter 6 architecture is orchestrated, your interface should be Streamlit — structured inputs, visible outputs, inspectable state.
 
-<!-- → TABLE: Streamlit vs. Gradio selection guide — rows: selection criteria; columns: Streamlit, Gradio; rows include: user's primary job, interaction model implied, deployment path, best Madison layer match, what it looks like in demo, common mismatch to avoid. Student should be able to make the selection after reading this table. -->
+| Streamlit | Gradio |
+| --- | --- |
+| Streamlit | Connects streamlit to the chapter's main distinction |
+| Gradio | Connects gradio to the chapter's main distinction |
+| Selection | Connects selection to the chapter's main distinction |
+| Guide | Connects guide to the chapter's main distinction |
 
 ---
 
@@ -218,7 +233,12 @@ Here is what the audit looks like in practice, using the sentiment analysis pipe
 
 Five claims. Three of them needed fixes before the tool was aligned. None of the fixes required changing the system. All of them required the engineer to stop presenting the ideal case and start presenting the realistic case.
 
-<!-- → TABLE: Alignment audit worked example — rows: five interface claims from the sentiment pipeline; columns: claim as written, system reality, pass/fail (✓/✗), specific fix applied. Student should use this as a template for running their own audit: copy the table structure, replace the rows with their own tool's implicit promises. -->
+| claim as written | system reality | pass/fail (✓/✗) | specific fix applied |
+| --- | --- | --- | --- |
+| Alignment | Connects alignment to the chapter's main distinction | Connects alignment to the chapter's main distinction | Connects alignment to the chapter's main distinction |
+| Audit | Connects audit to the chapter's main distinction | Connects audit to the chapter's main distinction | Connects audit to the chapter's main distinction |
+| Worked | Connects worked to the chapter's main distinction | Connects worked to the chapter's main distinction | Connects worked to the chapter's main distinction |
+| Example | Connects example to the chapter's main distinction | Connects example to the chapter's main distinction | Connects example to the chapter's main distinction |
 
 ---
 
@@ -249,7 +269,12 @@ A portfolio-quality README for this course has six elements:
 
 The README is a portfolio artifact for Chapter 11. Write it now. Chapter 11 will ask you to revise it; start with something that reflects the tool accurately.
 
-<!-- → TABLE: README quality checklist — rows: six README elements; columns: element name, what it should contain, common failure mode, self-grading question. Student should be able to use this to evaluate their own README before submitting. -->
+| element name | what it should contain | common failure mode | self-grading question |
+| --- | --- | --- | --- |
+| Readme | Connects readme to the chapter's main distinction | Fails when readme is treated as settled instead of checked | Connects readme to the chapter's main distinction |
+| Quality | Connects quality to the chapter's main distinction | Fails when quality is treated as settled instead of checked | Connects quality to the chapter's main distinction |
+| Checklist | Connects checklist to the chapter's main distinction | Fails when checklist is treated as settled instead of checked | Connects checklist to the chapter's main distinction |
+| Elements | Connects elements to the chapter's main distinction | Fails when elements is treated as settled instead of checked | Connects elements to the chapter's main distinction |
 
 ---
 
@@ -265,7 +290,12 @@ The interface is also where the archetype becomes visible to the user. A Sage ar
 
 If the interface contradicts the archetype — if a Sage tool has a splashy, entertainment-forward interface, or if a Caregiver tool has an austere, efficiency-forward interface — the user picks up on the mismatch and the brand surface loses coherence. The interface should be the archetype, not just the tool.
 
-<!-- → TABLE: Archetype × interface layer alignment — rows: five archetypes (Sage, Creator, Hero, Caregiver, Magician); columns: visual surface signals, interaction model fit, deployment surface tone, brand surface copy style. Student should find their archetype row and use it as a design brief for each of the four interface layers. -->
+| visual surface signals | interaction model fit | deployment surface tone | brand surface copy style |
+| --- | --- | --- | --- |
+| Archetype | Connects archetype to the chapter's main distinction | Connects archetype to the chapter's main distinction | Example: archetype |
+| Interface | Connects interface to the chapter's main distinction | Connects interface to the chapter's main distinction | Example: interface |
+| Layer | Connects layer to the chapter's main distinction | Connects layer to the chapter's main distinction | Example: layer |
+| Alignment | Connects alignment to the chapter's main distinction | Connects alignment to the chapter's main distinction | Example: alignment |
 
 > The interface is the only part of your system the user experiences directly. Everything else — the pipeline, the model, the architecture, the data sources — is invisible to the user. The interface is all they have. Make every layer of it a promise the system can keep.
 

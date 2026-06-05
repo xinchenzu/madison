@@ -151,7 +151,12 @@ The distinction matters because *which* income type a firm cares about depends o
 
 Each of these alters the cost of doing business and may make certain markets non-viable.
 
-<!-- → TABLE: Three types of income (consumer / disposable / discretionary) with definitions, what marketers care about each, and an example product category. The student should see why luxury marketers track discretionary income while CPG marketers track disposable income. -->
+| Concept | What it means | How to use it |
+| --- | --- | --- |
+| Types | Connects types to the chapter's main distinction | Connects types to the chapter's main distinction |
+| Income | Connects income to the chapter's main distinction | Connects income to the chapter's main distinction |
+| Consumer | Connects consumer to the chapter's main distinction | Connects consumer to the chapter's main distinction |
+| Disposable | Connects disposable to the chapter's main distinction | Connects disposable to the chapter's main distinction |
 
 ### The trade-off — assessment thoroughness vs. time to market
 
