@@ -1,0 +1,74 @@
+"""Capture a local source snapshot or approval-required external source handoff for this converted n8n source node.
+
+Purpose: Capture a local source snapshot or approval-required external source handoff for this converted n8n source node.
+Input: JSON-compatible payload from stdin, --input, or a small sample.
+Output: JSON-compatible result written to data/raw/ai-agent-public-signal-monitor/http-github-search.json when --output is supplied.
+Side effects: Optional file write; external access is represented as a handoff spec and requires human approval.
+Idempotent: yes, because identical input produces the same normalized structure except run timestamps.
+Recipe: recipes/ai-agent-public-signal-monitor.md
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+WORKFLOW_NAME = 'AI Agent Public Signal Monitor'
+WORKFLOW_SLUG = 'ai-agent-public-signal-monitor'
+NODE_NAME = 'HTTP - GitHub Search'
+NODE_TYPE = 'n8n-nodes-base.httpRequest'
+CLASSIFICATION = 'ingest'
+DEFAULT_OUTPUT = 'data/raw/ai-agent-public-signal-monitor/http-github-search.json'
+
+
+def load_payload(sample: Any | None = None) -> dict[str, Any]:
+    parser = argparse.ArgumentParser(description=NODE_NAME)
+    parser.add_argument("--input", help="JSON string or path to a JSON file.")
+    parser.add_argument("--output", default=DEFAULT_OUTPUT, help="Output JSON path.")
+    parser.add_argument("--no-write", action="store_true", help="Print only; do not write output file.")
+    args = parser.parse_args()
+    if args.input:
+        candidate = Path(args.input)
+        data = json.loads(candidate.read_text(encoding="utf-8") if candidate.exists() else args.input)
+    else:
+        data = sample if sample is not None else {"sample": True, "node": NODE_NAME}
+    return {"data": data, "output": None if args.no_write else args.output}
+
+
+def write_json(data: Any, output_path: str | None) -> None:
+    if output_path:
+        path = Path(output_path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(data, indent=2, sort_keys=True, default=str) + "\n", encoding="utf-8")
+    print(json.dumps(data, indent=2, sort_keys=True, default=str))
+
+
+def http_github_search(payload: Any) -> dict[str, Any]:
+    """Capture a local source snapshot or approval-required external source handoff for this converted n8n source node.
+
+    Purpose: Capture a local source snapshot or approval-required external source handoff for this converted n8n source node.
+    Input: JSON-compatible payload from stdin, --input, or a small sample.
+    Output: JSON-compatible result for downstream Madison recipe steps.
+    Side effects: Optional file write; external access is represented as a handoff spec and requires human approval.
+    Idempotent: yes, because identical input produces the same normalized structure except run timestamps.
+    Recipe: recipes/ai-agent-public-signal-monitor.md
+    """
+    result: dict[str, Any] = {"workflow": WORKFLOW_NAME, "workflow_slug": WORKFLOW_SLUG, "node": NODE_NAME, "node_type": NODE_TYPE, "classification": CLASSIFICATION, "generated_at": datetime.now(timezone.utc).isoformat(), "input": payload}
+    if CLASSIFICATION == "ingest":
+        result.update({"status": "source_handoff", "live_call_performed": False, "human_check": "Confirm source URL/path, privacy boundary, credentials, and rate limits before live ingest.", "credential_policy": "Use environment variables only; never hardcode credentials.", "records": payload if isinstance(payload, list) else [payload]})
+    elif CLASSIFICATION == "gigo":
+        records = payload if isinstance(payload, list) else payload.get("records", payload.get("items", [])) if isinstance(payload, dict) else []
+        if not isinstance(records, list): records = [records]
+        normalized = [r for r in records if r not in (None, "")]
+        result.update({"status": "normalized", "record_count": len(normalized), "human_check": "Review rejected, duplicate, and missing-field counts before analysis.", "records": normalized})
+    else:
+        result.update({"status": "tool_handoff", "live_call_performed": False, "review_required": True, "human_check": "Confirm output contract and keep live export/send/write disabled unless signed off.", "output_contract": {"intended_node": NODE_NAME, "approved_for_live_action": False}})
+    return result
+
+
+if __name__ == "__main__":
+    payload = load_payload()
+    write_json(http_github_search(payload["data"]), payload["output"])

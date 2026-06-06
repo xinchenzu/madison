@@ -1,72 +1,72 @@
 [
   {
-    "nodes": 12,
+    "domain": "Public signal monitoring",
     "scripts": 9,
-    "slug": "nguyen-duc-a3-public-signal-pipeline",
+    "slug": "ai-agent-public-signal-monitor",
     "source": "pantry/Nguyen_Duc_A3_Workflow.json",
-    "workflow": "Nguyen Duc A3 Public Signal Pipeline"
+    "workflow": "AI Agent Public Signal Monitor"
   },
   {
-    "nodes": 6,
+    "domain": "Labor and hiring intelligence",
     "scripts": 5,
-    "slug": "bykov-denis-a3-workflow",
+    "slug": "data-center-hiring-signal-monitor",
     "source": "pantry/bykovdenis_454895_41780985_Bykov_Denis_A3_Workflow.json",
-    "workflow": "Bykov Denis A3 Workflow"
+    "workflow": "Data Center Hiring Signal Monitor"
   },
   {
-    "nodes": 16,
+    "domain": "Clinical persona synthesis",
     "scripts": 13,
-    "slug": "madison-persona-pipeline-a3",
+    "slug": "clinical-adaptive-fashion-persona-pipeline",
     "source": "pantry/krishnamoorthyraksha_333078_41797107_KrishnaMoorthy_Raksha_A3_Workflow-1.json",
-    "workflow": "Madison Persona Pipeline A3"
+    "workflow": "Clinical Adaptive Fashion Persona Pipeline"
   },
   {
-    "nodes": 13,
-    "scripts": 11,
-    "slug": "maddukuri-satwika-a3-workflow",
-    "source": "pantry/maddukurisatwika_352048_41799763_Maddukuri_Satwika_A3_Workflow.json",
-    "workflow": "Maddukuri Satwika A3 Workflow"
-  },
-  {
-    "nodes": 9,
-    "scripts": 7,
-    "slug": "cloud-pipeline-data-collection-assignment-3",
-    "source": "pantry/manyaratanaka_312461_41801533_Tanaka_A3_Workflow.json",
-    "workflow": "Cloud Pipeline Data Collection - Assignment 3"
-  },
-  {
-    "nodes": 6,
-    "scripts": 4,
-    "slug": "gayatri-market-intelligence-agent",
-    "source": "pantry/pokalegayatri_333110_41799405_Pokale_Gayatri_A3_Workflow.json",
-    "workflow": "Gayatri Market Intelligence Agent"
-  },
-  {
-    "nodes": 22,
-    "scripts": 19,
-    "slug": "sentinel-a3-datapipeline",
-    "source": "pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json",
-    "workflow": "Sentinel A3 DataPipeline"
-  },
-  {
-    "nodes": 9,
-    "scripts": 7,
-    "slug": "accessibility-monitor-data-collection-pipeline",
-    "source": "pantry/singhkanishknagendra_348738_41749683_Singh_Kanishk_A3_Workflow.json",
-    "workflow": "Accessibility Monitor - Data Collection Pipeline"
-  },
-  {
-    "nodes": 21,
-    "scripts": 15,
-    "slug": "singh-vaibhav-a3-intelligence-agent-data-collection",
-    "source": "pantry/singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json",
-    "workflow": "Singh Vaibhav A3 - Intelligence Agent Data Collection"
-  },
-  {
-    "nodes": 14,
+    "domain": "Cybersecurity persona data",
     "scripts": 8,
-    "slug": "zu-xinchen-a3-workflow",
+    "slug": "human-vulnerability-cybersecurity-persona-pipeline",
+    "source": "pantry/maddukurisatwika_352048_41799763_Maddukuri_Satwika_A3_Workflow.json",
+    "workflow": "Human Vulnerability Cybersecurity Persona Pipeline"
+  },
+  {
+    "domain": "Cloud market intelligence",
+    "scripts": 7,
+    "slug": "cloud-platform-release-and-jobs-monitor",
+    "source": "pantry/manyaratanaka_312461_41801533_Tanaka_A3_Workflow.json",
+    "workflow": "Cloud Platform Release And Jobs Monitor"
+  },
+  {
+    "domain": "Market news monitoring",
+    "scripts": 4,
+    "slug": "retail-and-ai-market-news-monitor",
+    "source": "pantry/pokalegayatri_333110_41799405_Pokale_Gayatri_A3_Workflow.json",
+    "workflow": "Retail And AI Market News Monitor"
+  },
+  {
+    "domain": "Cybersecurity dataset curation",
+    "scripts": 19,
+    "slug": "cybersecurity-breach-and-advisory-dataset-pipeline",
+    "source": "pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json",
+    "workflow": "Cybersecurity Breach And Advisory Dataset Pipeline"
+  },
+  {
+    "domain": "Accessibility intelligence",
+    "scripts": 7,
+    "slug": "accessibility-standards-and-rules-monitor",
+    "source": "pantry/singhkanishknagendra_348738_41749683_Singh_Kanishk_A3_Workflow.json",
+    "workflow": "Accessibility Standards And Rules Monitor"
+  },
+  {
+    "domain": "Brand reputation intelligence",
+    "scripts": 15,
+    "slug": "brand-reputation-news-intelligence-pipeline",
+    "source": "pantry/singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json",
+    "workflow": "Brand Reputation News Intelligence Pipeline"
+  },
+  {
+    "domain": "Social media marketing monitoring",
+    "scripts": 8,
+    "slug": "social-media-marketing-rss-monitor",
     "source": "pantry/zuxinchen_405407_41801846_Zu_Xinchen_A3_Workflow.json",
-    "workflow": "Zu Xinchen A3 Workflow"
+    "workflow": "Social Media Marketing RSS Monitor"
   }
 ]
