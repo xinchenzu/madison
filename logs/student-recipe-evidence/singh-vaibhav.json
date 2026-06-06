@@ -1,0 +1,662 @@
+{
+  "artifacts": {
+    "Singh_Vaibhav_A4_Workflow_v2.json": {
+      "json": {
+        "error": null,
+        "kind": "n8n_workflow",
+        "name": "Singh_Vaibhav_A4 \u2014 Madison Intelligence Agent (Collection + AI)",
+        "node_count": 30,
+        "nodes": [
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Run Workflow",
+            "operation": null,
+            "type": "n8n-nodes-base.manualTrigger",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS \u2014 TechCrunch",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://techcrunch.com/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS \u2014 Ars Technica",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://feeds.arstechnica.com/arstechnica/index"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS \u2014 The Verge",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://www.theverge.com/rss/index.xml"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS \u2014 Google News (Brand)",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://news.google.com/rss/search?q=brand+reputation+OR+brand+monitoring+OR+brand+voice+AI&hl=en-US&gl=US&ceid=US:en"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "HTTP \u2014 NewsAPI",
+            "operation": null,
+            "type": "n8n-nodes-base.httpRequest",
+            "url": "https://newsapi.org/v2/everything"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "HTTP \u2014 HuggingFace",
+            "operation": null,
+            "type": "n8n-nodes-base.httpRequest",
+            "url": "https://datasets-server.huggingface.co/rows?dataset=SetFit%2F20_newsgroups&config=default&split=train&offset=0&length=80"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm TechCrunch",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm Ars Technica",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm The Verge",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm Google News",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm NewsAPI",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm HuggingFace",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge TC+Ars",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge +Verge",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge +GNews",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge +NewsAPI",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge +HF",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Deduplicate & Validate",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Convert to CSV",
+            "operation": null,
+            "type": "n8n-nodes-base.convertToFile",
+            "url": null
+          },
+          {
+            "fileName": "/Users/vaibhavsingh/NEU/Summer Semester/Branding & AI/Assignments/Assignment 3/data.csv",
+            "fileSelector": null,
+            "name": "Save CSV",
+            "operation": "write",
+            "type": "n8n-nodes-base.readWriteFile",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Batch (15 items)",
+            "operation": null,
+            "type": "n8n-nodes-base.splitInBatches",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Build AI Prompt",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "GitHub Models \u2014 GPT-4o",
+            "operation": null,
+            "type": "n8n-nodes-base.httpRequest",
+            "url": "https://models.github.ai/inference/chat/completions"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Parse AI Response",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Rate Limit (2s)",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Aggregate Results",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Generate Report \u2014 GPT-4o",
+            "operation": null,
+            "type": "n8n-nodes-base.httpRequest",
+            "url": "https://models.github.ai/inference/chat/completions"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Format Report (HTML)",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": "/Users/vaibhavsingh/NEU/Summer Semester/Branding & AI/Assignments/Assignment 4/brand_health_report.html",
+            "fileSelector": null,
+            "name": "Save Report",
+            "operation": "write",
+            "type": "n8n-nodes-base.readWriteFile",
+            "url": null
+          }
+        ]
+      },
+      "name": "Singh_Vaibhav_A4_Workflow_v2.json",
+      "path": "pantry/Singh_Vaibhav_A4_Workflow_v2.json",
+      "suffix": ".json"
+    },
+    "singhvaibhav_351998_41725346_Assignment 2.pdf": {
+      "name": "singhvaibhav_351998_41725346_Assignment 2.pdf",
+      "path": "pantry/singhvaibhav_351998_41725346_Assignment 2.pdf",
+      "pdf": {
+        "error": null,
+        "pages": 1,
+        "text": "P l a n Y o u r M a d i s o n P r o j e c t L i k e a P r o .I N F O 7 3 7 5 \u00b7 A s s i g n m e n t 0 2 \u00b7 P R D & T e c h n i c a l A r c h i t e c t u r e \u00b7 Northeastern University \u00b7 MSCS \u00b7 Boston, MA Project: Madison Intelligence Agent Due: May 22, 2026 Vaibhav Singh P a r t 0 1 T h e r o l e I ' m a i m i n g a t .O n e r e a l B o s t o n - a r e a j o b I c o u l d a p p l y f o r i n 6 \u2013 1 2 m o n t h s . L I V E P O S T I N G \u00b7 B O S T O N , M A V a l i d i t y \u00b7 B o s t o n , M A ( F i n a n c i a l D i s t r i c t ) S r . A I E n g i n e e r \u2192 The Muse / JazzHR posting \u00b7 themuse.com/jobs/validity/sr-ai-engineer \u2192 Boston, MA \u00b7 Hybrid 3 days/wk \u00b7 Financial District HQ \u2192 201\u2013500 employees \u00b7 email data & sales intelligence SaaS \u2192 $160K\u2013$210K + bonus + stock options T o p 3 T e c h n i c a l R e q u i r e m e n t s 6+ y ears engineering e xperienc e shipping r eal pr oducts , with 1+ y ear building ag entic AI s y s t ems . This is the r equir ement that fits m y pr o file w el l . The y 'r e not asking f or a pur e ML back gr ound, the y w ant a senior engineer who has made the piv ot t o ag ents . The bar is \"ha v e y ou shipped ag entic AI int o pr oduction, \" not \" do y ou ha v e a PhD . \" My Mabl AI c o - op w ork (the Jir a AI T es t F ailur e Summar y tab), the L ang Chain pr o xy , and the Madison Int el lig enc e Ag ent wil l c ol lectiv el y satis f y the 1+ y ear claim b y the time I appl y . R1 Ev alua tion da tasets , labeling w orkflo w s , and ins trumenta tion t o impr o v e ag ent per f ormanc e . This is e xplicit in the job duties , not jus t a nic e -t o -ha v e . V alidity ships email deliv er ability and data quality pr oducts , wher e bad AI outputs ha v e dir ect cus t omer -facing c onsequenc es . The y need someone who think s about measuring quality , not jus t building f eatur es . The g olden dataset and e v al harnes s I'm building f or the Madison pr oject speak s dir ectl y t o this . R2 W il lingnes s t o learn M as tr a AI ( T ype S crip t ag entic fr ame w ork ) \u2014 e xperienc e with an y ag entic fr ame w ork ac c ep t ed. V alidity uses Mas tr a AI specifical l y , which is a T ype Scrip t -nativ e Lang G r aph al t ernativ e . I ha v en 't used Mas tr a , but I ha v e 5 + y ears o f pr oduction T ype Scrip t at B r o w ser Stack and solid L ang G r aph e xperienc e , so the learning cur v e is shal lo w . The y sa y \" wil lingnes s t o learn \" e xplicitl y , which means the y 'r e hiring f or engineering judgment, not Mas tr a c er tification. R 3 W h y t h i s r o l e ? V alidity is a Boston company \u2014 Financial District, thr ee days a week, which works, with a pr oduct that lives or dies on data quality. Emai l deliver abi lity and sales intelligence ar en't glamor ous AI domains, but the engineering bar is high because wr ong answers hurt paying customers immediately. The 1+ year agentic AI r equir ement is honest about wher e I actually am, the T ypeScript r equir ement plays to my Br owserStack backgr ound, and the eval focus lines up exactly with what I'm bui lding in the M adison pr oject. I t's the right size of str etch. H i r i n g M a n a g e r GS Geoff Schaef e r C T O \u00b7 V a l i d i t y \u00b7 Former C T O , I novalon \u00b7 25+ yrs engineering leadership \u00b7 Boston-area (WPI alumnus ) \u00b7 P lat f orm & cloud trans f ormation f ocus \u00b7 validity.com/leadership/ W ho he is . G eo ff Schaef er is V alidity 's CT O , r esponsible f or t echnolog y s tr at eg y , engineering , plat f orm oper ations , and security acr os s al l pr oducts . B ef or e V alidity he w as CT O at Ino v alon, a lar g e heal thcar e data and anal ytics c ompan y , wher e he led a major cloud migr ation, mo ving mos t o f their pr oducts o ff on- pr emises infr as tructur e ont o c ommer cial cloud. B ef or e that he r an engineering thr ough a gr o wth-and- ac quisition phase at A B ILI T Y N etw ork. H is degr ees ar e in Mechanical and Manufacturing Sy s t ems E ngineering fr om W PI, not c omput er scienc e , which is w or th noting : his ins tincts ar e about building r eliable s y s t ems at scale , not alg orithmic no v el ty . W ha t his backgr ound t el ls y ou. G eo ff has spent his car eer at data -hea vy SaaS c ompanies in r eg ulat ed or r eliability - critical domains , heal thcar e data at Ino v alon, email deliv er ability at V alidity . The pat t ern is : c omple x data pipelines , SL As that mat t er , lar g e ent erprise cus t omers who need things t o w ork. That's wh y the Sr . AI E ngineer r ole ask s specifical l y f or e v aluation datasets and ins trumentation, he 's not g oing t o be impr es sed b y a demo that w ork s onc e . H e w ants someone who can measur e and pr o v e that the AI is w orking c orr ectl y , in pr oduction. W h y this maps t o m y backgr ound. My B r o w ser Stack s t or y \u2014 z er o - do wntime K ubernet es migr ation f or 300K users , debug ging dashboar ds with E las ticsear ch and G r afana , r educing is sue r esolution time b y 30% , is e xactl y the oper ational cr edibility G eo ff 's pr o file sug g es ts he v alues . The AI engineering w ork is the ne w la y er , but the underl ying engineering discipline is what g ets y ou pas t the firs t c on v ersation. F r aming f or an intr o : \"I spent fiv e y ears shipping infr as tructur e f or mil lions o f de v elopers , and I'm no w appl ying that same rig or t o AI s y s t ems , s tar ting with e v al harnes ses , not jus t pr omp ts . \" C onnection appr oach. G eo ff is activ e on Link edIn under his V alidity CT O pr o file . The bes t angle is a dir ect not e aft er publishing a case s tudy on the Madison e v al harnes s , something lik e \"I buil t a g olden- dataset e v al pipeline f or an open-sour c e br and monit oring ag ent and w ant ed t o shar e what I learned about measuring ag entic output quality . \" That's a g enuine r eason t o r each out that demons tr at es the e v al - engineering skil l he 's hiring f or , r ather than jus t a c old application. P a r t 0 2 \u00b7 G a p A n a l y s i s \u00b7 \" W h a t ' s B e t w e e n Y o u a n d T h a t J o b ? \" H o n e s t d e l t a b e t w e e n n o w a n d h i r e d .V a l i d i t y ' s t e c h s t a c k m a p p e d t o w h e r e I a m r i g h t n o w . T h e y W a n t 1+ y ear shipping ag entic AI s y s t ems \u2014 with T ype Scrip t e xperienc e or g enuine wil lingnes s t o pick up Mas tr a AI, V alidity 's chosen fr ame w ork Ev alua tion fr ame w ork s f or LL M output q uality \u2014 s y s t ematic w a y s t o sc or e whether an ag ent is actual l y giving g ood ans w ers , not jus t an y ans w ers V ect or da tabases with h ybrid r etrie v al a t scale \u2014 not jus t \"I' v e hear d o f pgv ect or , \" but actual l y c onfig uring embeddings , tuning chunking s tr at eg y , and measuring whether r etrie v al is w orking n 8 n w orkflo w or ches tr a tion \u2014 familiarity with lo w / no - c ode aut omation t ools is lis t ed as pr ef err ed ; V alidity uses lightw eight t ooling f or r apid w orkflo w pr ot otyping alongside the c or e Python / T ype Scrip t engineering t eam I H a v e L ang Gr aph in c oursew ork and Mabl c o - op AI w ork (Jir a AI t ab); 5+ y ears T ypeScrip t at Br o w ser St ack; ha v en ' t used Mas tr a specific al l y Measur ed m odel q uality m etrics be f or e (S Q L v alidity f or T5 , F I D / IS f or DDP M) , but ne v er built a f or m al e v al harnes s f or open - ended agentic outputs wher e \" right \" is har der t o define U nders t ands e m beddings c onc ep tual l y and used the m in the R A G q ui z pr o j ect; ha v en ' t done the ungla m or ous w ork o f tuning a r etrie v al pipeline agains t a r eal bench m ark Str ong with Git H ub A ctions , Air f lo w , and C I / C D pipelines gener al l y; ne v er used n 8 n specific al l y \u2014 it's a di ff er ent abs tr action (visual , node - based , L ang C hain -nativ e in 2.0 ) G a p t o F i l l Close the Mas tr a AI g ap specifical l y , it's T ype Scrip t - na tiv e and the API is similar t o Lang Gr aph; the Madison pr oject sa tis fies the \"1+ y ear ag entic AI\" claim as a shipped, public ar tifact A g olden da taset + sc oring scrip t tha t can run aut oma tical l y on e v er y P R , measuring pr ecision / r ecal l on entity e x tr action and ca t ching r egr es sions bef or e the y ship H ands - on pgv ect or or Q dr ant : set ting up the inde x , choosing the right embedding model , running h ybrid sear ch ( semantic + k e y w or d ) , measuring r ecal l @k ag ains t the g olden da taset, and actual l y impr o ving it thr ough it er a tion n 8 n fluency : building a r eal ag entic w or k flo w in the visual can v as , e x por ting it as J S ON , w iring up the Supabase pgv ect or V ect or S t or e node , Anthr opic model node , and W ebhoo k trig g er \u2014 so I can spea k t o it in an int er vie w w ithout bluf fing M a d i s o n C o u l d H e l p B y \u2026 Madison Int el lig enc e Ag ent ships as a L ang Gr aph ag ent in Python, with a not e in the README mapping the ar chit ectur e t o Mas tr a AI c onc ep ts , demons tr at es fr ame w ork -agnos tic thinking , not jus t L ang Gr aph fluency C r eating a golden_eval/ dir ect or y in the Madison r epo : 50 hand-la b eled b r and-mention q ueries with e x pect ed output, plus a p yt es t - b ased sc or er that logs r esul ts t o a JSON L fi le \u2014 r eal e v al engineering , not v i b es - b ased t es ting T he Madison ing es t pipeline f or c es this w ork : scr ape \u2192 chunk \u2192 em b ed \u2192 upser t \u2192 r etrie v e \u2192 measur e . T he e v al harnes s closes the loop \u2014 I ' l l kno w if r ecal l @ 5 g oes fr om 6 0 % t o 8 0 % b ecause o f a chunking chang e , not jus t b ecause the output \" look s b et t er \" T he W eek 3 M V P is entir el y in n 8 n \u2014 this g ap closes dir ectl y . T he e x por t ed .js on w orkflo w g ets c ommit t ed t o M ad is on/n 8 n -w o rkf lo ws / and b ec omes a por t f olio ar tifact V a l i d i t y ' s T e c h S t a c k V alidity ' s c or e pr oducts , E v er es t ( email deli v er a b ility ) , Demand T ools ( S ales f"
+      },
+      "suffix": ".pdf"
+    },
+    "singhvaibhav_351998_41799853_Singh_Vaibhav_A3_Demo.pdf": {
+      "name": "singhvaibhav_351998_41799853_Singh_Vaibhav_A3_Demo.pdf",
+      "path": "pantry/singhvaibhav_351998_41799853_Singh_Vaibhav_A3_Demo.pdf",
+      "pdf": {
+        "error": null,
+        "pages": 10,
+        "text": "Assignment 3: Demo Walkthrough 8 annotated screenshots \u00b7 n8n workflow running end-to-end \u00b7 271 records from 4 source types INFO 7375 Branding & AI | Vaibhav Singh | May 29, 2026 | Madison Intelligence Agent Metric Value Clean records 271 (274 raw, 3 duplicates removed, 0 invalid) Source types 4: Tech RSS (50), Google News RSS (100), NewsAPI (80), HuggingFace (44) Quality rate 98.9% Output 115 kB CSV \u00b7 271 rows \u00d7 9 columns Workflow 18 nodes: trigger + 6 sources + 5 normalizers + 5 merges + dedup + csv + save Screenshot 01: Full Workflow Overview \u2014 All Nodes Green 18-node workflow executing end-to-end. 6 sources fan out from trigger, each feeds a normalizer. Merge chain accumulates 40\u219250\u2192150\u2192230\u2192274, then Dedup outputs 271 clean records as 115 kB CSV. \u2460 Green circle: Manual trigger fires all 6 source branches in parallel \u2461 Amber zone: 6 source nodes (3 RSS + Google News + NewsAPI + HuggingFace) \u2462 Blue zone: 5 normalizer Code nodes standardize to 9-column schema \u2463 Green zone: Merge chain \u2014 each node waits for both inputs before passing forward \u2464 Red zone: Dedup (274\u2192271) \u2192 Convert to CSV \u2192 Save (115 kB) Screenshot 02: Source: RSS \u2014 TechCrunch (20 articles) RSS Feed Read node with TechCrunch feed URL. No authentication. Output shows 20 recent articles. \u2460 Feed URL: https://techcrunch.com/feed/ \u2014 zero config, just the URL \u2461 20 articles with creator, title, link \u2014 Blue Origin explosion, Glean $300M, Waymo registrations Screenshot 03: Source: RSS \u2014 Google News Brand Search (100 articles) Google News RSS search for brand reputation + brand monitoring + brand voice AI. 100 articles from diverse publishers. \u2460 Search query encoded in RSS URL \u2014 brand monitoring keywords \u2461 100 items \u2014 brand-focused: 'Writer helps solve brand consistency', 'AI Brand Governance Crisis' Screenshot 04: Source: HTTP \u2014 NewsAPI (80 articles from 702 results) NewsAPI /v2/everything with brand monitoring query. Key fix: Authentication = None, API key as query parameter (not Bearer). \u2460 Authentication set to None \u2014 Bearer auth causes 401 errors with NewsAPI \u2461 API key passed as query parameter alongside q, language, sortBy, pageSize \u2462 702 total results, 80 fetched \u2014 articles from Digiday, Screen Rant, CBC News Screenshot 05: Normalizer: Raw RSS Input \u2192 JavaScript Code \u2192 Standardized 9-Column Output Three-panel view showing the transformation. Left = raw RSS fields. Center = normalizer logic. Right = clean schema output. \u2460 Raw input: creator, title, link, pubDate, contentSnippet, categories \u2014 inconsistent across feeds \u2461 JavaScript: date parsing, topic classification (regex), HTML stripping, reliability scoring \u2462 Clean output: id, title, source_name, source_url, published_date (YYYY-MM-DD), topic_category, content_snippet, reliability_score, collection_method Screenshot 06: Merge Chain: Accumulating All Sources (\u2192 230 items) Merge +NewsAPI receives 150 accumulated items on Input 1 and 80 NewsAPI items on Input 2. Append mode waits for both. \u2460 Input 1: 150 items accumulated (TC:20 + Ars:20 + Verge:10 + GNews:100) \u2461 Input 2: 80 items from NewsAPI normalizer \u2462 Output: 230 combined items, all with consistent 9-column schema Screenshot 07: Deduplicate & Validate: Quality Gate (274 \u2192 271) Code node validates every record: checks required fields, enforces YYYY-MM-DD dates, removes title-based duplicates. 3 caught. \u2460 Input: 274 items from Merge +HF (all 6 sources combined) \u2461 Validation code: title dedup (case-insensitive, first 60 chars), date regex, empty-field rejection \u2462 Output: 271 clean records across 11 pages \u2014 3 cross-source duplicates removed, 0 invalid Screenshot 08: Final Output: 115 kB CSV \u2014 Download Ready Binary CSV file visible on both input and output panels. Click Download to save as Singh_Vaibhav_A3_Data.csv. \u2460 Binary file info: File.csv, 115 kB, text/csv MIME type \u2461 Download button \u2014 saves the submission CSV file \u2462 Output panel confirms successful file processing Pipeline Summary This workflow collects 271 clean, deduplicated records from 4 source types into a 115 kB CSV. Every record has 9 standardized fields. The merge chain guarantees all sources complete before deduplication. Ready for Assignment 4: sentiment classification, entity extraction, and brand-health report generation. Vaibhav Singh | singh.vaibha@northeastern.edu | github.com/vaibhavsingh97"
+      },
+      "suffix": ".pdf"
+    },
+    "singhvaibhav_351998_41799854_Singh_Vaibhav_A3_Documentation.pdf": {
+      "name": "singhvaibhav_351998_41799854_Singh_Vaibhav_A3_Documentation.pdf",
+      "path": "pantry/singhvaibhav_351998_41799854_Singh_Vaibhav_A3_Documentation.pdf",
+      "pdf": {
+        "error": null,
+        "pages": 5,
+        "text": "Assignment 3: Data Collection Documentation INFO 7375 Branding & AI | Vaibhav Singh | May 29, 2026 | Madison Intelligence Agent 1. Data Inventory Project: Madison Intelligence Agent (Brand Reputation Monitor) Problem: Marketing teams lack an automated, open-source way to monitor brand voice consistency across news, social, and review channels. This data collection pipeline gathers the raw text data the Intelligence Agent needs to classify sentiment, extract entities, and generate brand-health reports. Source 1: News RSS Feeds (TechCrunch, Ars Technica, The Verge) Field Detail Type Tech news articles from major outlet RSS feeds Records 50 records (TechCrunch: 20, Ars Technica: 20, The Verge: 10) Purpose Primary brand-monitoring corpus: real articles mentioning companies, products, and technologies that the Intelligence Agent will classify for sentiment and entity extraction. Method Three n8n RSS Feed Read nodes, each feeding a dedicated Code normalizer node. No API key required. Each normalizer standardizes titles, dates (YYYY-MM-DD), and content snippets. Quality 100% complete \u2014 all 50 records have all 9 fields populated. RSS feeds are well-structured with reliable date parsing. Reliability Score 4/5 (established tech journalism outlets with editorial standards) Source 2: Google News RSS (brand monitoring search queries) Field Detail Type Brand-focused news articles from Google News RSS search feed Records 100 records \u2014 the largest single source in the pipeline Purpose Brand-specific content: articles about brand reputation, brand monitoring, and brand voice consistency from diverse outlets. These are the domain-relevant records the agent needs to understand brand health language. Google News aggregates from hundreds of publishers, giving source diversity that a single-outlet RSS feed cannot. Method n8n RSS Feed Read node pointed at Google News RSS search URL: news.google.com/rss/search?q=brand+reputation+OR+brand+monitoring+OR+brand+voice+AI. No API key required. Normalizer extracts source name from title suffix (e.g. 'Article Title - Reuters'). Quality ~95% complete. Google News titles reliably include the source outlet name. Content snippets are shorter than direct-feed RSS (title-only for some), so content_snippet falls back to the article title when the feed doesn't include a summary. Reliability Score 3-5 (varies by original outlet \u2014 Reuters/Bloomberg = 5, TechCrunch/Forbes = 4, unknown blogs = 3) Source 3: HuggingFace 20_newsgroups (benchmark dataset for eval) Field Detail Type Labeled text classification dataset from HuggingFace Hub (SetFit/20_newsgroups) Records 44 records (filtered from 80 fetched rows to relevant categories: technology, security, business) Field Detail Purpose Evaluation benchmark data. These records have known ground-truth topic labels, so the Intelligence Agent's topic classifier can be scored against labeled data. This is the golden dataset foundation for the eval harness described in Assignment 2. The 36 excluded records were in irrelevant categories (sports, religion, politics) that don't apply to brand monitoring. Method n8n HTTP Request node to HuggingFace Datasets Server API (datasets-server.huggingface.co/rows). No API key required. Code normalizer filters by category and maps newsgroup labels to the pipeline's topic taxonomy. Quality 100% complete (structured dataset with known labels). Content is older Usenet posts, not modern news, so topic labels are the primary value rather than text style. All 44 records have ground-truth topic_category labels. Reliability Score 3/5 (academic benchmark dataset, not live news) Summary Statistics (from actual workflow run \u2014 May 28, 2026) Metric Value Total raw records 194 (before deduplication) Clean records after dedup 192 Duplicates removed 2 (cross-source overlap between RSS feeds and Google News) Invalid records skipped 0 Quality rate 98.97% (192 / 194) Complete records (all 9 fields) 192 / 192 (100%) File size 82 kB (CSV) Sources 3 source types: RSS Feeds (50), Google News RSS (100), HuggingFace (44) Collection methods 3 (rss_feed, google_news_rss, huggingface_dataset) Date format YYYY-MM-DD \u2014 validated by regex in dedup node Ready for Assignment 4: Agent classification, entity extraction, report generation Pipeline Flow (all nodes green) Node Items Role Run Workflow 1 trigger Manual trigger \u2014 kicks off all 5 source branches in parallel RSS \u2014 TechCrunch 20 Fetch latest 20 articles from techcrunch.com/feed/ RSS \u2014 Ars Technica 20 Fetch latest 20 articles from Ars Technica RSS RSS \u2014 The Verge 10 Fetch latest 10 articles from The Verge RSS RSS \u2014 Google News 100 Search Google News RSS for brand reputation + monitoring + AI HTTP \u2014 HuggingFace 1 (JSON) Fetch 80 rows from 20_newsgroups via Datasets Server API Norm TechCrunch 20 Standardize fields, classify topic, set reliability=4 Norm Ars Technica 20 Standardize fields, classify topic, set reliability=4 Norm The Verge 10 Standardize fields, classify topic, set reliability=4 Norm Google News 100 Extract source name from title, variable reliability scoring Norm HuggingFace 44 Filter to relevant categories, map labels to taxonomy Node Items Role Merge TC+Ars 40 Append TechCrunch + Ars Technica items Merge +Verge 50 Append + The Verge items Merge +GNews 150 Append + Google News items Merge +HF 194 Append + HuggingFace items \u2014 all sources merged Deduplicate & Validate 192 Remove 2 dupes, validate dates + required fields Convert to CSV 192 Convert JSON items to CSV binary (82 kB) Save CSV 1 file Write to disk / download 2. Setup Guide n8n visual workflow (primary collection method). No API keys required \u2014 all sources are public. Step Action Notes 1 Install n8n npm install -g n8n (requires Node.js 18+) 2 Start n8n n8n start \u2014 then open http://localhost:5678 3 Import workflow Three-dot menu (top right) > Import from File > select Singh_Vaibhav_A3_Workflow.json 4 Execute workflow Click play button (top right). All 5 source branches fire in parallel. Watch merge nodes accumulate: 40 \u2192 50 \u2192 150 \u2192 194 \u2192 192 clean. 5 Download CSV Click Convert to CSV node > left panel shows 'data' binary (82 kB, text/csv) > click Download button. Save as Singh_Vaibhav_A3_Data.csv. 6 Export workflow Three-dot menu > Export > saves .json for Canvas submission Required Credentials Credential Required ? How to Get Cost Google News RSS No Public RSS URL, no authentication or signup. Free, unlimited HuggingFace token Yes Sign up at huggingface.co. Go to Settings > Access Tokens > create a read token. Paste it as a Bearer token header in the HTTP node. Free RSS feeds No TechCrunch, Ars Technica, The Verge \u2014 all public URLs. Free Common Errors and Fixes Error Cause Fix RSS feed returns empty Feed temporarily down Workflow continues with other sources via merge chain. Check feed URL in browser. HuggingFace 429 rate limit Too many requests in short window Wait 60 seconds and re-run. The API throttles burst requests but is generous overall. n8n won't start Port 5678 already in use Run: lsof -i :5678 then kill the process. Or: n8n start --port 5679 Save CSV 'not writable' n8n restricts filesystem access by default Click the Convert to CSV node and use the Download button on the binary output panel instead. Or restart n8n with: N8N_RESTRICT_FILE_ACCESS_TO=\"/Users/\" n8n start Error Cause Fix Convert to CSV shows 0 items Multi-input Code node timing issue in older n8n versions Use the merge chain architecture (current workflow) \u2014 each Merge node has exactly 2 inputs and waits for both before passing data forward. 3. Data Quality Report Quality Checklist Check Status Evidence 80%+ records complete PASS 100% of 192 records have all 9 fields populated. Validated in the Deduplicate & Validate code node \u2014 any record missing title, published_date, or source_name is rejected before output. Essential fields present PASS title, published_date, source_name present in 192/192 records (100%). Enforced by code-level validation, not just schema \u2014 the dedup node checks each field explicitly. No duplicate entries PASS Title-based deduplication removed 2 duplicates from 194 raw records (cross-source overlap between TechCrunch RSS and Google News). Dedup uses case-insensitive first-60-chars matching. Dates in YYYY-MM-DD PASS All 192 records use YYYY-MM-DD format. The normalizer nodes parse multiple input formats (RFC 2822, ISO 8601, etc.) and standardize to YYYY-MM-DD. The dedup node rejects any record where the date doesn't match the regex /^\\d{4}-\\d{2}-\\d{2}$/. Data relevant to problem PASS RSS feeds (50 records) provide brand/tech news directly relevant to brand monitoring. Google News (100 records) was searched specifically for 'brand reputation OR brand monitoring OR brand voice AI'. HuggingFace (44 records) provides labeled benchmark data for the eval harness. Data Schema Column Type Example Validation id str rss-tc-1 Unique prefix per source + counter title str Blue Origin's New Glenn rocket explodes during testing in Florida Max 150 chars, HTML stripped, required source_name str TechCrunch Required. Used for reliability scoring. source_url str https://techcrunch.com/2026/05/28/bl ue-origins-... Full URL to original article published_date str 2026-05-29 YYYY-MM-DD enforced by regex. Invalid = rejected. topic_category str technology ai_ml, brand_marketing, security, business, big_tech, technology content_snippet str The explosion is likely a major setback for Jeff Bezos'... First 200 chars, HTML stripped. Falls back to title. reliability_score int 4 1-5 scale. 5=Reuters. 4=TechCrunch. 3=unknown. collection_meth od str rss_feed rss_feed, google_news_rss, huggingface_dataset Error Handling The workflow handles source failures gracefully via the merge chain architecture. Each source branch runs independently. If one RSS feed is temporarily unavailable, the other 4 sources still produce data. The chain of Merge nodes (TC+Ars \u2192 +Verge \u2192 +GNews \u2192 +HF) waits for both inputs at each stage before passing data forward, ensuring no branch is skipped due "
+      },
+      "suffix": ".pdf"
+    },
+    "singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json": {
+      "json": {
+        "error": null,
+        "kind": "n8n_workflow",
+        "name": "Singh_Vaibhav_A3 \u2014 Intelligence Agent Data Collection",
+        "node_count": 21,
+        "nodes": [
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Run Workflow",
+            "operation": null,
+            "type": "n8n-nodes-base.manualTrigger",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS \u2014 TechCrunch",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://techcrunch.com/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS \u2014 Ars Technica",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://feeds.arstechnica.com/arstechnica/index"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS \u2014 The Verge",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://www.theverge.com/rss/index.xml"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS \u2014 Google News (Brand)",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://news.google.com/rss/search?q=brand+reputation+OR+brand+monitoring+OR+brand+voice+AI&hl=en-US&gl=US&ceid=US:en"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "HTTP \u2014 NewsAPI",
+            "operation": null,
+            "type": "n8n-nodes-base.httpRequest",
+            "url": "https://newsapi.org/v2/everything"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "HTTP \u2014 HuggingFace",
+            "operation": null,
+            "type": "n8n-nodes-base.httpRequest",
+            "url": "https://datasets-server.huggingface.co/rows?dataset=SetFit%2F20_newsgroups&config=default&split=train&offset=0&length=80"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm TechCrunch",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm Ars Technica",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm The Verge",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm Google News",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm NewsAPI",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Norm HuggingFace",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge TC+Ars",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge +Verge",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge +GNews",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge +NewsAPI",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge +HF",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Deduplicate & Validate",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Convert to CSV",
+            "operation": null,
+            "type": "n8n-nodes-base.convertToFile",
+            "url": null
+          },
+          {
+            "fileName": "/Users/vaibhavsingh/NEU/Summer Semester/Branding & AI/Assignments/Assignment 3/data.csv",
+            "fileSelector": null,
+            "name": "Save CSV",
+            "operation": "write",
+            "type": "n8n-nodes-base.readWriteFile",
+            "url": null
+          }
+        ]
+      },
+      "name": "singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json",
+      "path": "pantry/singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json",
+      "suffix": ".json"
+    },
+    "singhvaibhav_351998_41799856_Singh_Vaibhav_A3_Data.csv": {
+      "csv": {
+        "columns": [
+          "id",
+          "title",
+          "source_name",
+          "source_url",
+          "published_date",
+          "topic_category",
+          "content_snippet",
+          "reliability_score",
+          "collection_method"
+        ],
+        "error": null,
+        "row_count_estimate": 134,
+        "sample_rows": [
+          {
+            "collection_method": "rss_feed",
+            "content_snippet": "The explosion is likely a major setback for Jeff Bezos' spaceflight company, and its attempt to compete with SpaceX.",
+            "id": "rss-0001",
+            "published_date": "2026-05-29",
+            "reliability_score": "4",
+            "source_name": "TechCrunch",
+            "source_url": "https://techcrunch.com/2026/05/28/blue-origins-new-glenn-rocket-explodes-during-testing-in-florida/",
+            "title": "Blue Origin\u2019s New Glenn rocket explodes during testing in Florida",
+            "topic_category": "technology"
+          },
+          {
+            "collection_method": "rss_feed",
+            "content_snippet": "The enterprise AI search startup tripled its annual revenue even as tech giants entered the category.",
+            "id": "rss-0002",
+            "published_date": "2026-05-29",
+            "reliability_score": "4",
+            "source_name": "TechCrunch",
+            "source_url": "https://techcrunch.com/2026/05/28/gleans-top-line-crosses-300m-as-ai-budget-cutting-becomes-its-major-selling-point/",
+            "title": "Glean\u2019s top line crosses $300M as AI budget-cutting becomes its major selling point",
+            "topic_category": "ai_ml"
+          },
+          {
+            "collection_method": "rss_feed",
+            "content_snippet": "A new law and AV tracker tool gives the clearest accounting yet of how many robotaxis and self-driving trucks are in Texas.",
+            "id": "rss-0003",
+            "published_date": "2026-05-29",
+            "reliability_score": "4",
+            "source_name": "TechCrunch",
+            "source_url": "https://techcrunch.com/2026/05/28/waymo-dominates-texas-autonomous-vehicle-registrations-as-tesla-trails-behind/",
+            "title": "Waymo dominates autonomous vehicle registrations as Tesla trails behind",
+            "topic_category": "big_tech"
+          }
+        ]
+      },
+      "name": "singhvaibhav_351998_41799856_Singh_Vaibhav_A3_Data.csv",
+      "path": "pantry/singhvaibhav_351998_41799856_Singh_Vaibhav_A3_Data.csv",
+      "suffix": ".csv"
+    },
+    "singhvaibhav_351998_41924237_Assignment 4 Vaibhav Singh.zip": {
+      "name": "singhvaibhav_351998_41924237_Assignment 4 Vaibhav Singh.zip",
+      "path": "pantry/singhvaibhav_351998_41924237_Assignment 4 Vaibhav Singh.zip",
+      "suffix": ".zip",
+      "zip": {
+        "error": null,
+        "file_count": 63,
+        "files": [
+          "Assignment 4.pdf",
+          "__MACOSX/._Assignment 4.pdf",
+          "brand_health_report.html",
+          "__MACOSX/._brand_health_report.html",
+          "outputs/",
+          "__MACOSX/._outputs",
+          "outputs/.DS_Store",
+          "__MACOSX/outputs/._.DS_Store",
+          "outputs/gallery/",
+          "__MACOSX/outputs/._gallery",
+          "outputs/enriched_data.csv",
+          "__MACOSX/outputs/._enriched_data.csv",
+          "outputs/sentiment_summary.csv",
+          "__MACOSX/outputs/._sentiment_summary.csv",
+          "outputs/res 1.zip",
+          "outputs/entity_frequency.csv",
+          "__MACOSX/outputs/._entity_frequency.csv",
+          "outputs/scale_test/",
+          "__MACOSX/outputs/._scale_test",
+          "outputs/reports/",
+          "__MACOSX/outputs/._reports",
+          "outputs/gallery/analysis_card_14.html",
+          "__MACOSX/outputs/gallery/._analysis_card_14.html",
+          "outputs/gallery/analysis_card_02.html",
+          "__MACOSX/outputs/gallery/._analysis_card_02.html",
+          "outputs/gallery/analysis_card_03.html",
+          "__MACOSX/outputs/gallery/._analysis_card_03.html",
+          "outputs/gallery/analysis_card_15.html",
+          "__MACOSX/outputs/gallery/._analysis_card_15.html",
+          "outputs/gallery/analysis_card_12.html",
+          "__MACOSX/outputs/gallery/._analysis_card_12.html",
+          "outputs/gallery/analysis_card_04.html",
+          "__MACOSX/outputs/gallery/._analysis_card_04.html",
+          "outputs/gallery/analysis_card_08.html",
+          "__MACOSX/outputs/gallery/._analysis_card_08.html",
+          "outputs/gallery/analysis_card_09.html",
+          "__MACOSX/outputs/gallery/._analysis_card_09.html",
+          "outputs/gallery/analysis_card_05.html",
+          "__MACOSX/outputs/gallery/._analysis_card_05.html",
+          "outputs/gallery/analysis_card_13.html",
+          "__MACOSX/outputs/gallery/._analysis_card_13.html",
+          "outputs/gallery/analysis_card_06.html",
+          "__MACOSX/outputs/gallery/._analysis_card_06.html",
+          "outputs/gallery/analysis_card_10.html",
+          "__MACOSX/outputs/gallery/._analysis_card_10.html",
+          "outputs/gallery/analysis_card_11.html",
+          "__MACOSX/outputs/gallery/._analysis_card_11.html",
+          "outputs/gallery/analysis_card_07.html",
+          "__MACOSX/outputs/gallery/._analysis_card_07.html",
+          "outputs/gallery/analysis_card_01.html",
+          "__MACOSX/outputs/gallery/._analysis_card_01.html",
+          "outputs/scale_test/scale_test_results.md",
+          "__MACOSX/outputs/scale_test/._scale_test_results.md",
+          "outputs/scale_test/scale_test_results.csv",
+          "__MACOSX/outputs/scale_test/._scale_test_results.csv",
+          "outputs/reports/brand_health_report.html",
+          "__MACOSX/outputs/reports/._brand_health_report.html",
+          "outputs/reports/brand_health_report.md",
+          "__MACOSX/outputs/reports/._brand_health_report.md",
+          "scale_test_results.md",
+          "__MACOSX/._scale_test_results.md",
+          "Singh_Vaibhav_A4_Workflow_v2.json",
+          "__MACOSX/._Singh_Vaibhav_A4_Workflow_v2.json"
+        ],
+        "interesting": [
+          "Assignment 4.pdf",
+          "__MACOSX/._Assignment 4.pdf",
+          "brand_health_report.html",
+          "__MACOSX/._brand_health_report.html",
+          "outputs/enriched_data.csv",
+          "__MACOSX/outputs/._enriched_data.csv",
+          "outputs/sentiment_summary.csv",
+          "__MACOSX/outputs/._sentiment_summary.csv",
+          "outputs/entity_frequency.csv",
+          "__MACOSX/outputs/._entity_frequency.csv",
+          "outputs/gallery/analysis_card_14.html",
+          "__MACOSX/outputs/gallery/._analysis_card_14.html",
+          "outputs/gallery/analysis_card_02.html",
+          "__MACOSX/outputs/gallery/._analysis_card_02.html",
+          "outputs/gallery/analysis_card_03.html",
+          "__MACOSX/outputs/gallery/._analysis_card_03.html",
+          "outputs/gallery/analysis_card_15.html",
+          "__MACOSX/outputs/gallery/._analysis_card_15.html",
+          "outputs/gallery/analysis_card_12.html",
+          "__MACOSX/outputs/gallery/._analysis_card_12.html",
+          "outputs/gallery/analysis_card_04.html",
+          "__MACOSX/outputs/gallery/._analysis_card_04.html",
+          "outputs/gallery/analysis_card_08.html",
+          "__MACOSX/outputs/gallery/._analysis_card_08.html",
+          "outputs/gallery/analysis_card_09.html",
+          "__MACOSX/outputs/gallery/._analysis_card_09.html",
+          "outputs/gallery/analysis_card_05.html",
+          "__MACOSX/outputs/gallery/._analysis_card_05.html",
+          "outputs/gallery/analysis_card_13.html",
+          "__MACOSX/outputs/gallery/._analysis_card_13.html",
+          "outputs/gallery/analysis_card_06.html",
+          "__MACOSX/outputs/gallery/._analysis_card_06.html",
+          "outputs/gallery/analysis_card_10.html",
+          "__MACOSX/outputs/gallery/._analysis_card_10.html",
+          "outputs/gallery/analysis_card_11.html",
+          "__MACOSX/outputs/gallery/._analysis_card_11.html",
+          "outputs/gallery/analysis_card_07.html",
+          "__MACOSX/outputs/gallery/._analysis_card_07.html",
+          "outputs/gallery/analysis_card_01.html",
+          "__MACOSX/outputs/gallery/._analysis_card_01.html",
+          "outputs/scale_test/scale_test_results.md",
+          "__MACOSX/outputs/scale_test/._scale_test_results.md",
+          "outputs/scale_test/scale_test_results.csv",
+          "__MACOSX/outputs/scale_test/._scale_test_results.csv",
+          "outputs/reports/brand_health_report.html",
+          "__MACOSX/outputs/reports/._brand_health_report.html",
+          "outputs/reports/brand_health_report.md",
+          "__MACOSX/outputs/reports/._brand_health_report.md",
+          "scale_test_results.md",
+          "__MACOSX/._scale_test_results.md",
+          "Singh_Vaibhav_A4_Workflow_v2.json",
+          "__MACOSX/._Singh_Vaibhav_A4_Workflow_v2.json"
+        ]
+      }
+    }
+  },
+  "files": [
+    "pantry/Singh_Vaibhav_A4_Workflow_v2.json",
+    "pantry/singhvaibhav_351998_41725346_Assignment 2.pdf",
+    "pantry/singhvaibhav_351998_41799853_Singh_Vaibhav_A3_Demo.pdf",
+    "pantry/singhvaibhav_351998_41799854_Singh_Vaibhav_A3_Documentation.pdf",
+    "pantry/singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json",
+    "pantry/singhvaibhav_351998_41799856_Singh_Vaibhav_A3_Data.csv",
+    "pantry/singhvaibhav_351998_41924237_Assignment 4 Vaibhav Singh.zip"
+  ],
+  "slug": "singh-vaibhav",
+  "student": "Vaibhav Singh"
+}

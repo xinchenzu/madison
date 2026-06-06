@@ -1,0 +1,734 @@
+{
+  "artifacts": {
+    "zuxinchen_405407_41725986_Xinchen_Zu_Week2.png": {
+      "name": "zuxinchen_405407_41725986_Xinchen_Zu_Week2.png",
+      "path": "pantry/zuxinchen_405407_41725986_Xinchen_Zu_Week2.png",
+      "suffix": ".png"
+    },
+    "zuxinchen_405407_41801846_Zu_Xinchen_A3_Workflow.json": {
+      "json": {
+        "error": null,
+        "kind": "n8n_workflow",
+        "name": "My workflow",
+        "node_count": 14,
+        "nodes": [
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "When clicking \u2018Execute workflow\u2019",
+            "operation": null,
+            "type": "n8n-nodes-base.manualTrigger",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://blog.hubspot.com/marketing/rss.xml"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read1",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://sproutsocial.com/insights/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read2",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://blog.hootsuite.com/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge1",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Edit Fields",
+            "operation": null,
+            "type": "n8n-nodes-base.set",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Convert to File",
+            "operation": null,
+            "type": "n8n-nodes-base.convertToFile",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read3",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://www.socialmediaexaminer.com/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read4",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://www.searchenginejournal.com/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read5",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://www.searchenginejournal.com/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge2",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge3",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge4",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          }
+        ]
+      },
+      "name": "zuxinchen_405407_41801846_Zu_Xinchen_A3_Workflow.json",
+      "path": "pantry/zuxinchen_405407_41801846_Zu_Xinchen_A3_Workflow.json",
+      "suffix": ".json"
+    },
+    "zuxinchen_405407_41801847_DataFile.csv": {
+      "csv": {
+        "columns": [
+          "title",
+          "date",
+          "author",
+          "link",
+          "source"
+        ],
+        "error": null,
+        "row_count_estimate": 135,
+        "sample_rows": [
+          {
+            "author": "juthompson@hubspot.com (Justina Thompson)",
+            "date": "2026-05-27T19:31:42Z",
+            "link": "https://blog.hubspot.com/marketing/citations-in-aeo",
+            "source": "HubSpot",
+            "title": "The role of citations in AEO: Why citations matter more than backlinks for AI visibility"
+          },
+          {
+            "author": "",
+            "date": "2026-05-27T14:00:06Z",
+            "link": "https://blog.hubspot.com/marketing/introducing-the-hubspot-agent-cli",
+            "source": "HubSpot",
+            "title": "Introducing the HubSpot Agent CLI"
+          },
+          {
+            "author": "",
+            "date": "2026-05-27T11:00:03Z",
+            "link": "https://blog.hubspot.com/marketing/social-proof-master-class",
+            "source": "HubSpot",
+            "title": "A master class in persuasion from an unlikely place"
+          }
+        ]
+      },
+      "name": "zuxinchen_405407_41801847_DataFile.csv",
+      "path": "pantry/zuxinchen_405407_41801847_DataFile.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_405407_41801848_Assignment 3 Documentation.pdf": {
+      "name": "zuxinchen_405407_41801848_Assignment 3 Documentation.pdf",
+      "path": "pantry/zuxinchen_405407_41801848_Assignment 3 Documentation.pdf",
+      "pdf": {
+        "error": null,
+        "pages": 9,
+        "text": "Assignment 3 Documentation Project Title Marketing Intelligence Agent Project Overview Marketing professionals need access to current industry information from reliable sources. The purpose of this workflow is to automatically collect marketing and social media articles from multiple industry blogs and organize them into a structured dataset. This dataset can be used to monitor industry trends, identify emerging topics, and support future AI-powered marketing analysis. The workflow was built using n8n and collects data from multiple marketing-focused RSS feeds. After collecting the data, the workflow merges records from all sources, standardizes key fields, classifies article sources, and exports the final dataset as a CSV file. 1. Data Inventory Data Sources Source 1: HubSpot Marketing Blog RSS Type: Marketing and content strategy articles URL: https://blog.hubspot.com/marketing/rss.xml Records Collected: 50 Purpose: Collect information related to content marketing, SEO, AI marketing, lead generation, and digital marketing trends. Collection Method: RSS Feed Reader node in n8n Data Quality: 50 out of 50 records successfully collected. Source 2: Sprout Social Insights RSS Type: Social media marketing articles URL: https://sproutsocial.com/insights/feed/ Records Collected: 10 Purpose: Collect social media strategy insights, engagement trends, and platform-specific marketing updates. Collection Method: RSS Feed Reader node in n8n Data Quality: 10 out of 10 records successfully collected. Source 3: Hootsuite Blog RSS Type: Digital marketing and social media management content URL: https://blog.hootsuite.com/feed/ Records Collected: 10 Purpose: Collect information related to social media management, audience engagement, and digital marketing best practices. Collection Method: RSS Feed Reader node in n8n Data Quality: 10 out of 10 records successfully collected. Source 4: Social Media Examiner RSS Type: Social media marketing and industry analysis URL: https://www.socialmediaexaminer.com/feed/ Purpose: Collect marketing trends, social media updates, platform changes, and industry best practices. Collection Method: RSS Feed Reader node in n8n Data Quality: Records successfully collected and validated. Source 5: Search Engine Journal RSS Type: Digital marketing, SEO, and marketing technology content URL: https://www.searchenginejournal.com/feed/ Purpose: Collect information related to SEO, content marketing, AI, search marketing, and digital strategy. Collection Method: RSS Feed Reader node in n8n Data Quality: Records successfully collected and validated. Dataset Statistics Total Records Collected: 135 Total Clean Records: 135 Number of Sources: 5 Fields Included: \u2022 title \u2022 date \u2022 author \u2022 link \u2022 source Dataset Completeness: 100% Source Distribution: \u2022 HubSpot Marketing Blog RSS \u2022 Sprout Social Insights RSS \u2022 Hootsuite Blog RSS \u2022 Social Media Examiner RSS \u2022 Search Engine Journal RSS Assignment 4 Readiness The dataset created in this assignment can be be used as the foundation for a future Marketing Intelligence Agent. The structured records can support trend analysis, content recommendations, topic clustering, AI-generated summaries, and identification of emerging marketing trends across multiple industry sources. 2. Setup Guide Software Used Platform: n8n Purpose: Workflow automation and data collection. Workflow Structure Step 1: Manual Trigger Node: Manual Trigger Purpose: Start the workflow manually whenever new data collection is needed. Step 2: RSS Feed Collection Five RSS Feed Reader nodes were created. RSS Feed Sources: 1. HubSpot Marketing Blog RSS https://blog.hubspot.com/marketing/rss.xml 2. Sprout Social Insights RSS https://sproutsocial.com/insights/feed/ 3. Hootsuite Blog RSS https://blog.hootsuite.com/feed/ 4. Social Media Examiner RSS https://www.socialmediaexaminer.com/feed/ 5. Search Engine Journal RSS https://www.searchenginejournal.com/feed/ Purpose: Collect marketing, branding, social media, SEO, content strategy, and digital marketing articles from multiple trusted industry sources. Step 3: Merge Data Sources Node: Merge Purpose: Combine records from multiple RSS feeds into a single dataset. Step 4: Additional Merge Operations Nodes: Merge1, Merge2, Merge3, and additional merge nodes as needed. Purpose: Combine all collected records into one unified dataset. Result: 135 total records. Step 5: Data Cleanup and Standardization Node: Edit Fields Purpose: Remove unnecessary RSS metadata and standardize the dataset structure. Fields Retained: \u2022 title \u2022 date \u2022 author \u2022 link \u2022 source Additional Source Classification Logic: The workflow automatically identifies the source of each article based on the article URL. Examples: \u2022 URLs containing \"hubspot\" are labeled as HubSpot. \u2022 URLs containing \"sproutsocial\" are labeled as Sprout Social. \u2022 URLs containing \"hootsuite\" are labeled as Hootsuite. \u2022 URLs containing \"socialmediaexaminer\" are labeled as Social Media Examiner. \u2022 URLs containing \"searchenginejournal\" are labeled as Search Engine Journal. This creates a consistent source field that supports filtering and future analysis. Step 6: Export Data Node: Convert to File Operation: Convert to CSV Purpose: Generate a downloadable CSV file that can be used for reporting, analysis, and future assignments. Running the Workflow 1. Open n8n. 2. Click Execute Workflow. 3. Wait for all nodes to complete. 4. Open the Convert to File node. 5. Download the generated CSV file. 3. Data Quality Documentation Quality Check 1: Required Fields Verification Each record was checked to ensure the following fields were present: \u2022 title \u2022 date \u2022 link \u2022 source Result: 100% of records passed this check. Quality Check 2: Source Classification Every article was assigned a standardized source value. Source Categories: \u2022 HubSpot \u2022 Sprout Social \u2022 Hootsuite \u2022 Social Media Examiner \u2022 Search Engine Journal Result: 100% of records were successfully categorized. Quality Check 3: Data Standardization Field names were standardized across all sources. Standardized Fields: \u2022 title \u2022 date \u2022 author \u2022 link \u2022 source Result: Data from five different sources was converted into one consistent structure. Quality Check 4: Removal of Unnecessary Metadata RSS feeds contain many extra fields that are not needed for analysis. Examples of removed metadata: \u2022 content \u2022 contentEncoded \u2022 contentSnippet \u2022 RSS-specific formatting fields Result: The final dataset contains only relevant information required for future analysis. Quality Check 5: Dataset Validation Total Records: 135 Number of Sources: 5 Result: All records were successfully collected, processed, standardized, categorized, and exported. The final dataset exceeds the minimum assignment requirement and falls within the Strong (100\u2013200 records) category recommended in the assignment guidelines. Conclusion This project successfully created an automated marketing intelligence workflow using n8n. Data was collected from five trusted marketing industry sources, merged into a unified dataset, cleaned through field standardization, categorized by source, and exported as a CSV file. The final dataset contains 135 clean records collected from five marketing-related sources. The workflow is repeatable, scalable, and capable of supporting future AI-powered marketing analysis. By automating data collection and standardization, this workflow provides a reliable foundation for Assignment 4 and future marketing intelligence applications."
+      },
+      "suffix": ".pdf"
+    },
+    "zuxinchen_405407_41801851_DEMO - Assignment 3 Screenshot Walkthrough Xinchen Zu.pdf": {
+      "name": "zuxinchen_405407_41801851_DEMO - Assignment 3 Screenshot Walkthrough Xinchen Zu.pdf",
+      "path": "pantry/zuxinchen_405407_41801851_DEMO - Assignment 3 Screenshot Walkthrough Xinchen Zu.pdf",
+      "pdf": {
+        "error": null,
+        "pages": 6,
+        "text": "Figure 1. Complete Workflow Structure\uff1aThe complete workflow collects marketing intelligence data from five RSS sources, merges all records into a unified dataset, standardizes the fields, and exports the final results as a CSV file. Figure 2. RSS Data Collection\uff1aThe HubSpot RSS feed successfully collected marketing-related articles. Similar RSS Reader nodes were used to collect data from Sprout Social, Hootsuite, Social Media Examiner, and Search Engine Journal. Figure 3. Data Merge Process\uff1aRecords from multiple RSS feeds were merged into a single dataset using Merge nodes. This process combined data from all sources while preserving article information. Figure 4. Final Dataset Assembly\uff1aAdditional RSS sources were merged into the workflow to create a final dataset containing 135 marketing intelligence records collected from five industry sources. Figure 5. Data Cleanup and Standardization The Edit Fields node standardized the dataset by retaining only the most relevant fields: \u2022 title \u2022 date \u2022 author \u2022 link \u2022 source This step removed unnecessary RSS metadata and created a consistent structure across all sources. Figure 6. The final dataset was successfully exported as a CSV file for future analysis. Reflection This assignment helped me learn how to collect, merge, clean, and export structured data using n8n. I gained hands-on experience working with RSS feeds, workflow automation, data standardization, source classification, and CSV export. The final workflow successfully collected 135 marketing intelligence records from five trusted marketing industry sources, including HubSpot, Sprout Social, Hootsuite, Social Media Examiner, and Search Engine Journal. The workflow transformed data from multiple sources into a unified dataset that can support future trend analysis, content recommendations, and AI-powered marketing insights. This project improved my understanding of automated data collection and provided a strong foundation for building more advanced marketing intelligence workflows in future assignments."
+      },
+      "suffix": ".pdf"
+    },
+    "zuxinchen_LATE_405407_41930872_scale_test_results.md": {
+      "name": "zuxinchen_LATE_405407_41930872_scale_test_results.md",
+      "path": "pantry/zuxinchen_LATE_405407_41930872_scale_test_results.md",
+      "suffix": ".md"
+    },
+    "zuxinchen_LATE_405407_41930874_Demo Walkthrough.pdf": {
+      "name": "zuxinchen_LATE_405407_41930874_Demo Walkthrough.pdf",
+      "path": "pantry/zuxinchen_LATE_405407_41930874_Demo Walkthrough.pdf",
+      "pdf": {
+        "error": null,
+        "pages": 6,
+        "text": "Marketing Intelligence Agent v2 Demo Walkthrough Assignment 4 Project Overview The Marketing Intelligence Agent v2 is an enhanced n8n workflow that collects marketing articles from multiple RSS feeds, analyzes them using Google Gemini AI, and generates human-readable CSV reports. Compared with Assignment 3, this version introduces AI-powered analysis, random article selection, improved error handling, and workflow scale testing. Key capabilities include: \u2022 6 RSS sources integrated \u2022 Google Gemini AI analysis \u2022 Content category detection \u2022 Priority scoring \u2022 Marketing recommendations \u2022 Error handling for API failures \u2022 Human-readable CSV output generation Step 1: Execute the Workflow The workflow starts with a manual trigger and collects articles from multiple RSS feeds. The system merges all incoming data, standardizes the fields, and prepares the content for AI processing. Proof Step 2: AI Analysis The selected article is sent to Google Gemini AI. The AI model generates: \u2022 Category \u2022 Priority \u2022 One Sentence Summary \u2022 Marketing Recommendation This transforms raw RSS data into structured marketing intelligence. Proof Step 3: Generate Human-Readable Output After AI processing, the workflow exports the result into a CSV file. The generated file can be opened by non-technical users and used directly for marketing research. Example output includes: \u2022 Content Marketing \u2022 SEO Analysis \u2022 AI Video Editing \u2022 Chatbot Building \u2022 Deep Research Proof Step 4: Error Handling During testing, Google Gemini occasionally returned: 429 Too Many Requests Instead of stopping the workflow, the error branch captured the failure and continued processing. An error CSV file was generated automatically. This improvement increased workflow reliability and demonstrated real-world resilience. Proof Step 5: Output Gallery Multiple workflow executions produced a collection of final usable outputs. Generated files include: \u2022 13 successful marketing analysis CSV reports \u2022 3 API error handling CSV reports All outputs were downloaded and verified manually. Proof Scale Testing Results The workflow was tested under multiple real-world scenarios. Successful Tests \u2022 Multiple workflow executions \u2022 AI analysis completed \u2022 CSV export completed \u2022 Human-readable reports generated Error Tests \u2022 API rate limit reached \u2022 Error captured successfully \u2022 Workflow continued running \u2022 Error CSV generated Lessons Learned This project demonstrated that external AI services may fail unexpectedly because of API limits and quota restrictions. Instead of stopping completely, the workflow was redesigned to preserve useful information and continue processing. The final system is more reliable, scalable, and closer to a real-world automation pipeline. Final Outcome The enhanced Marketing Intelligence Agent v2 successfully demonstrates: \u2713 AI-enhanced workflow \u2713 Multi-source RSS aggregation \u2713 Error handling and recovery \u2713 Scale testing \u2713 Human-readable CSV outputs \u2713 Real-world workflow resilience"
+      },
+      "suffix": ".pdf"
+    },
+    "zuxinchen_LATE_405407_41930875_workflow_v2.json": {
+      "json": {
+        "error": null,
+        "kind": "n8n_workflow",
+        "name": "Marketing Intelligence Agent v2 - Assignment 4",
+        "node_count": 17,
+        "nodes": [
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "When clicking \u2018Execute workflow\u2019",
+            "operation": null,
+            "type": "n8n-nodes-base.manualTrigger",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://blog.hubspot.com/marketing/rss.xml"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read1",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://sproutsocial.com/insights/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read2",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://blog.hootsuite.com/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge1",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Edit Fields",
+            "operation": null,
+            "type": "n8n-nodes-base.set",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Convert to File",
+            "operation": null,
+            "type": "n8n-nodes-base.convertToFile",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read3",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://www.socialmediaexaminer.com/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read4",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://www.searchenginejournal.com/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read5",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://www.searchenginejournal.com/feed/"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge2",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge3",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge4",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Basic LLM Chain",
+            "operation": null,
+            "type": "@n8n/n8n-nodes-langchain.chainLlm",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Google Gemini Chat Model",
+            "operation": null,
+            "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Code in JavaScript",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930875_workflow_v2.json",
+      "path": "pantry/zuxinchen_LATE_405407_41930875_workflow_v2.json",
+      "suffix": ".json"
+    },
+    "zuxinchen_LATE_405407_41930876_marketing_analysis_error_handling_example1.csv": {
+      "csv": {
+        "columns": [
+          "title",
+          "date",
+          "author",
+          "link",
+          "source",
+          "error"
+        ],
+        "error": null,
+        "row_count_estimate": 1,
+        "sample_rows": [
+          {
+            "author": "",
+            "date": "2026-06-03T11:00:03Z",
+            "error": "The service is receiving too many requests from you",
+            "link": "https://blog.hubspot.com/marketing/content-format-types-that-earn-citations",
+            "source": "HubSpot",
+            "title": "On-page content formats answer engines actually favor [new research]"
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930876_marketing_analysis_error_handling_example1.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930876_marketing_analysis_error_handling_example1.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930877_marketing_analysis_error_handling_example2.csv": {
+      "csv": {
+        "columns": [
+          "title",
+          "date",
+          "author",
+          "link",
+          "source",
+          "error"
+        ],
+        "error": null,
+        "row_count_estimate": 2,
+        "sample_rows": [
+          {
+            "author": "",
+            "date": "2026-06-03T11:00:03Z",
+            "error": "The service is receiving too many requests from you",
+            "link": "https://blog.hubspot.com/marketing/content-format-types-that-earn-citations",
+            "source": "HubSpot",
+            "title": "On-page content formats answer engines actually favor [new research]"
+          },
+          {
+            "author": "",
+            "date": "2026-06-01T14:00:14Z",
+            "error": "The service is receiving too many requests from you",
+            "link": "https://blog.hubspot.com/marketing/ai-perception-reality-gap",
+            "source": "HubSpot",
+            "title": "The AI Perception-Reality Gap"
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930877_marketing_analysis_error_handling_example2.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930877_marketing_analysis_error_handling_example2.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930878_marketing_analysis_error_handling_example3.csv": {
+      "csv": {
+        "columns": [
+          "title",
+          "date",
+          "author",
+          "link",
+          "source",
+          "error"
+        ],
+        "error": null,
+        "row_count_estimate": 1,
+        "sample_rows": [
+          {
+            "author": "",
+            "date": "2026-06-03T11:00:03Z",
+            "error": "The service is receiving too many requests from you",
+            "link": "https://blog.hubspot.com/marketing/content-format-types-that-earn-citations",
+            "source": "HubSpot",
+            "title": "On-page content formats answer engines actually favor [new research]"
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930878_marketing_analysis_error_handling_example3.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930878_marketing_analysis_error_handling_example3.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930879_marketing_analysis_success_example1.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 7,
+        "sample_rows": [
+          {
+            "text": "Category: Content Marketing\n\nPriority: High\n\nOne Sentence Summary: New research from HubSpot indicates that search engines favor specific on-page content formats that are more likely to earn citations and drive organic traffic.\n\nMarketing Recommendation: Prioritize creating and optimizing content in formats such as lists, how-to guides, and articles that offer in-depth analysis and actionable advice, as these are demonstrably favored by search engines for earning citations and ranking well."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930879_marketing_analysis_success_example1.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930879_marketing_analysis_success_example1.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930880_marketing_analysis_success_example2.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 13,
+        "sample_rows": [
+          {
+            "text": "Here's the analysis of the HubSpot article:\n\nCategory:\nAI Marketing\n\nPriority:\nHigh\n\nOne Sentence Summary:\nThe article highlights the significant disconnect between the public's often exaggerated or misinformed perception of AI capabilities and its current, more practical realities, urging marketers to bridge this gap by focusing on tangible benefits and managing expectations.\n\nMarketing Recommendation:\nMarketers should proactively educate their audience about the actual, current applications and limitations of AI in their products/services to build trust, avoid overpromising, and set realistic expectations for customer satisfaction and adoption."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930880_marketing_analysis_success_example2.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930880_marketing_analysis_success_example2.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930881_marketing_analysis_success_example3.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 11,
+        "sample_rows": [
+          {
+            "text": "Category:\nContent Marketing\n\nPriority:\nHigh\n\nOne Sentence Summary:\nNew HubSpot research indicates that long-form content, such as in-depth articles, studies, and guides, is favored by search engines for earning citations, highlighting the importance of comprehensive and valuable content.\n\nMarketing Recommendation:\nFocus on creating in-depth, well-researched long-form content like comprehensive guides, original studies, and detailed articles to improve your website's authority and attract valuable backlinks from other authoritative sources."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930881_marketing_analysis_success_example3.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930881_marketing_analysis_success_example3.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930882_marketing_analysis_success_example4.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 11,
+        "sample_rows": [
+          {
+            "text": "Here's the analysis of the HubSpot article:\n\nCategory:\nSEO\n\nPriority:\nHigh\nOne Sentence Summary:\nNew HubSpot research indicates that search engines favor longer, more comprehensive on-page content formats that include citations, suggesting that depth and credibility are key to better search rankings.\nMarketing Recommendation:\nFocus on creating in-depth, authoritative content pieces that thoroughly cover a topic and support claims with credible citations to improve on-page SEO performance and organic visibility."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930882_marketing_analysis_success_example4.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930882_marketing_analysis_success_example4.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930884_marketing_analysis_success_example5.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 7,
+        "sample_rows": [
+          {
+            "text": "Category: AI Marketing\n\nPriority: High\n\nOne Sentence Summary: ChatGPT's citation method has been updated following the introduction of GPT-5.5, potentially impacting how users perceive and trust AI-generated information and the way content creators are credited.\n\nMarketing Recommendation: Marketers should monitor how the new citation method affects user engagement with ChatGPT-generated content, and explore strategies to leverage or adapt to this change in content creation and attribution for their own marketing efforts."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930884_marketing_analysis_success_example5.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930884_marketing_analysis_success_example5.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930885_marketing_analysis_success_example6.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 14,
+        "sample_rows": [
+          {
+            "text": "Category: SEO\n\nPriority: High\n\nOne Sentence Summary: Google's May 2024 Core Update has finished rolling out after a period of significant volatility, indicating potential shifts in search rankings and requiring immediate attention from website owners.\n\nMarketing Recommendation: Conduct a thorough analysis of website performance and rankings following the update, focusing on content quality, user experience, and adherence to Google's E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) guidelines, and be prepared to make adjustments to optimize for the new search landscape."
+          },
+          {
+            "text": "Category: AI Marketing / Content Marketing\n\nPriority: High\n\nOne Sentence Summary: A recent update to ChatGPT, potentially involving GPT-5.5, has significantly altered its citation practices, impacting how users can verify information from the AI.\n\nMarketing Recommendation: Businesses leveraging AI-generated content or chatbots should proactively monitor and test ChatGPT's citation capabilities to ensure the accuracy and trustworthiness of the information they present to their audience. They should also consider developing internal guidelines for verifying AI-generated content, especially when it pertains to factual claims or source attribution, and communicate these efforts to their customers."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930885_marketing_analysis_success_example6.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930885_marketing_analysis_success_example6.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930886_marketing_analysis_success_example7.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 7,
+        "sample_rows": [
+          {
+            "text": "Category: AI Marketing\n\nPriority: Medium\n\nOne Sentence Summary: This article explores how AI-powered video editing tools can streamline the production process and enhance the quality of videos, offering significant benefits for marketers.\n\nMarketing Recommendation: Explore and test AI video editing tools to identify those that can effectively reduce video production time and improve the overall quality of marketing video content, potentially leading to higher engagement and conversion rates."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930886_marketing_analysis_success_example7.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930886_marketing_analysis_success_example7.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930887_marketing_analysis_success_example8.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 7,
+        "sample_rows": [
+          {
+            "text": "Category: AI Marketing\n\nPriority: High\n\nOne Sentence Summary: This article from Social Media Examiner highlights how advanced AI can be leveraged for deep research to uncover competitive advantages and insights that competitors may be overlooking.\n\nMarketing Recommendation: Invest in and explore the implementation of advanced AI tools for market research and competitive analysis to identify unique selling propositions and unmet customer needs that can be exploited for marketing campaigns."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930887_marketing_analysis_success_example8.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930887_marketing_analysis_success_example8.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930888_marketing_analysis_success_example9.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 6,
+        "sample_rows": [
+          {
+            "text": "Here's the analysis of the article:\n\nCategory: AI Marketing\nPriority: Medium\nOne Sentence Summary: This article provides a beginner-friendly, step-by-step guide for users to create their first chatbot using the OpenClaw platform, focusing on practical implementation.\nMarketing Recommendation: For marketers interested in leveraging AI for customer engagement, this article highlights OpenClaw as an accessible tool to build basic chatbots, suggesting further content could explore advanced customization, integration with marketing platforms, and use case examples for lead generation and customer support."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930888_marketing_analysis_success_example9.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930888_marketing_analysis_success_example9.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930889_marketing_analysis_success_example10.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 9,
+        "sample_rows": [
+          {
+            "text": "Here's the analysis of the HubSpot article on AEO rank trackers:\n\nCategory: SEO\n\nPriority: High\n\nOne Sentence Summary: AEO (App Engine Optimization) rank trackers are crucial tools for marketers to monitor and improve their app's visibility and ranking within app stores, directly impacting discoverability and downloads.\n\nMarketing Recommendation: Marketers should invest in and actively utilize AEO rank trackers to understand their app's performance in app store search results, identify keyword opportunities, monitor competitor strategies, and ultimately optimize their app's presence for higher organic downloads."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930889_marketing_analysis_success_example10.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930889_marketing_analysis_success_example10.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930890_marketing_analysis_success_example11.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 6,
+        "sample_rows": [
+          {
+            "text": "Here's an analysis of the article:\n\nCategory: Content Marketing\nPriority: Medium\nOne Sentence Summary: The Outlier Video Method, powered by AI, helps creators identify successful video elements by analyzing data outliers to inform the creation of more effective original content.\nMarketing Recommendation: Marketers should explore AI-driven content analysis tools, like those implied by the Outlier Video Method, to identify patterns of success in their video content and leverage these insights to create more engaging and performant future videos."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930890_marketing_analysis_success_example11.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930890_marketing_analysis_success_example11.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930891_marketing_analysis_success_example12.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 9,
+        "sample_rows": [
+          {
+            "text": "Here's an analysis of the provided article in the requested format:\n\nCategory: AI Marketing\n\nPriority: Medium\n\nOne Sentence Summary: Google co-founder Sergey Brin believes a pathway to Artificial General Intelligence (AGI) exists but doesn't foresee capabilities beyond that level in the near future.\n\nMarketing Recommendation: Leverage this article to create content that demystifies AGI and positions your brand as a thought leader in the responsible development and application of AI, focusing on practical, achievable AI solutions rather than speculative future capabilities."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930891_marketing_analysis_success_example12.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930891_marketing_analysis_success_example12.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930892_marketing_analysis_success_example13.csv": {
+      "csv": {
+        "columns": [
+          "text"
+        ],
+        "error": null,
+        "row_count_estimate": 7,
+        "sample_rows": [
+          {
+            "text": "Category: SEO\n\nPriority: High\n\nOne Sentence Summary: A \"migration hangover\" is a temporary drop in website traffic and search rankings that can occur after a website migration, and it can be avoided or mitigated through careful planning and execution.\n\nMarketing Recommendation: Proactively plan and execute a comprehensive SEO strategy before, during, and after any website migration to minimize the risk of a traffic drop, including conducting thorough audits, meticulous redirects, and continuous monitoring."
+          }
+        ]
+      },
+      "name": "zuxinchen_LATE_405407_41930892_marketing_analysis_success_example13.csv",
+      "path": "pantry/zuxinchen_LATE_405407_41930892_marketing_analysis_success_example13.csv",
+      "suffix": ".csv"
+    },
+    "zuxinchen_LATE_405407_41930894_9811780751803_.pic.jpg": {
+      "name": "zuxinchen_LATE_405407_41930894_9811780751803_.pic.jpg",
+      "path": "pantry/zuxinchen_LATE_405407_41930894_9811780751803_.pic.jpg",
+      "suffix": ".jpg"
+    },
+    "zuxinchen_LATE_405407_41930896_9821780751803_.pic.jpg": {
+      "name": "zuxinchen_LATE_405407_41930896_9821780751803_.pic.jpg",
+      "path": "pantry/zuxinchen_LATE_405407_41930896_9821780751803_.pic.jpg",
+      "suffix": ".jpg"
+    },
+    "zuxinchen_LATE_405407_41930897_9831780751803_.pic.jpg": {
+      "name": "zuxinchen_LATE_405407_41930897_9831780751803_.pic.jpg",
+      "path": "pantry/zuxinchen_LATE_405407_41930897_9831780751803_.pic.jpg",
+      "suffix": ".jpg"
+    },
+    "zuxinchen_LATE_405407_41930898_9841780751803_.pic.jpg": {
+      "name": "zuxinchen_LATE_405407_41930898_9841780751803_.pic.jpg",
+      "path": "pantry/zuxinchen_LATE_405407_41930898_9841780751803_.pic.jpg",
+      "suffix": ".jpg"
+    },
+    "zuxinchen_LATE_405407_41930900_9851780751803_.pic.jpg": {
+      "name": "zuxinchen_LATE_405407_41930900_9851780751803_.pic.jpg",
+      "path": "pantry/zuxinchen_LATE_405407_41930900_9851780751803_.pic.jpg",
+      "suffix": ".jpg"
+    },
+    "zuxinchen_LATE_405407_41930901_9861780751803_.pic.jpg": {
+      "name": "zuxinchen_LATE_405407_41930901_9861780751803_.pic.jpg",
+      "path": "pantry/zuxinchen_LATE_405407_41930901_9861780751803_.pic.jpg",
+      "suffix": ".jpg"
+    }
+  },
+  "files": [
+    "pantry/zuxinchen_405407_41725986_Xinchen_Zu_Week2.png",
+    "pantry/zuxinchen_405407_41801846_Zu_Xinchen_A3_Workflow.json",
+    "pantry/zuxinchen_405407_41801847_DataFile.csv",
+    "pantry/zuxinchen_405407_41801848_Assignment 3 Documentation.pdf",
+    "pantry/zuxinchen_405407_41801851_DEMO - Assignment 3 Screenshot Walkthrough Xinchen Zu.pdf",
+    "pantry/zuxinchen_LATE_405407_41930872_scale_test_results.md",
+    "pantry/zuxinchen_LATE_405407_41930874_Demo Walkthrough.pdf",
+    "pantry/zuxinchen_LATE_405407_41930875_workflow_v2.json",
+    "pantry/zuxinchen_LATE_405407_41930876_marketing_analysis_error_handling_example1.csv",
+    "pantry/zuxinchen_LATE_405407_41930877_marketing_analysis_error_handling_example2.csv",
+    "pantry/zuxinchen_LATE_405407_41930878_marketing_analysis_error_handling_example3.csv",
+    "pantry/zuxinchen_LATE_405407_41930879_marketing_analysis_success_example1.csv",
+    "pantry/zuxinchen_LATE_405407_41930880_marketing_analysis_success_example2.csv",
+    "pantry/zuxinchen_LATE_405407_41930881_marketing_analysis_success_example3.csv",
+    "pantry/zuxinchen_LATE_405407_41930882_marketing_analysis_success_example4.csv",
+    "pantry/zuxinchen_LATE_405407_41930884_marketing_analysis_success_example5.csv",
+    "pantry/zuxinchen_LATE_405407_41930885_marketing_analysis_success_example6.csv",
+    "pantry/zuxinchen_LATE_405407_41930886_marketing_analysis_success_example7.csv",
+    "pantry/zuxinchen_LATE_405407_41930887_marketing_analysis_success_example8.csv",
+    "pantry/zuxinchen_LATE_405407_41930888_marketing_analysis_success_example9.csv",
+    "pantry/zuxinchen_LATE_405407_41930889_marketing_analysis_success_example10.csv",
+    "pantry/zuxinchen_LATE_405407_41930890_marketing_analysis_success_example11.csv",
+    "pantry/zuxinchen_LATE_405407_41930891_marketing_analysis_success_example12.csv",
+    "pantry/zuxinchen_LATE_405407_41930892_marketing_analysis_success_example13.csv",
+    "pantry/zuxinchen_LATE_405407_41930894_9811780751803_.pic.jpg",
+    "pantry/zuxinchen_LATE_405407_41930896_9821780751803_.pic.jpg",
+    "pantry/zuxinchen_LATE_405407_41930897_9831780751803_.pic.jpg",
+    "pantry/zuxinchen_LATE_405407_41930898_9841780751803_.pic.jpg",
+    "pantry/zuxinchen_LATE_405407_41930900_9851780751803_.pic.jpg",
+    "pantry/zuxinchen_LATE_405407_41930901_9861780751803_.pic.jpg"
+  ],
+  "slug": "zu-xinchen",
+  "student": "Xinchen Zu"
+}

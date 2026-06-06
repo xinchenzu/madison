@@ -1,0 +1,423 @@
+{
+  "Assignment 4.pdf": {
+    "pdf": {
+      "pages": 1,
+      "text": "A s s i g n m e n t 4 \u00b7 I N F O 7 3 7 5 \u00b7 B r a n d i n g & A I M a d i s o n I n t e l l i g e n c e A g e n tO p e n - s o u r c e b r a n d r e p u t a t i o n m o n i t o r \u00b7 A I - p o w e r e d s e n t i m e n t a n a l y s i s , e n t i t y e x t r a c t i o n , c i t e d r e p o r t g e n e r a t i o n + e m a i l d e l i v e r y 271A r t i c l e s 55%P o s i t i v e A v g L a t e n c y 2.4s 30 N o d e s \u2193 S C R O L L T O E X P L O R E S E C T I O N 0 1 F r o m m a n u a l m o n i t o r i n g t o a u t o m a t e d i n t e l l i g e n c e .M a d i s o n I n t e l l i g e n c e A g e n t \u00b7 O p e n - s o u r c e b r a n d r e p u t a t i o n m o n i t o r E x e c u t i v e S u m m a r y P r o b l e m M a r k e t i n g t e a m s s p e n d 5 + h o u r s p e r w e e k m a n u a l l y m o n i t o r i n g b r a n d m e n t i o n s a c r o s s n e w s , s o c i a l , a n d r e v i e w c h a n n e l s . E x i s t i n g t o o l s ( B r a n d w a t c h , S p r i n k l r ) c o s t $ 3 0 K \u2013 $ 1 0 0 K / y e a r . M o s t g r o w th - s t a g e c o m p a n i e s d o n ' t m o n i t o r \u2014 u n t i l a P R c r i s i s f o r c e s th e i s s u e . S o l u t i o n A n e n d - t o - e n d A I p i p e l i n e th a t i n g e s t s b r a n d c o n t e n t f r o m 4 s o u r c e t y p e s , c l a s s i f i e s s e n t i m e n t a n d e x t r a c t s e n t i t i e s v i a G P T - 4 o , g e n e r a t e s c i t e d b r a n d - h e a l th r e p o r t s , a n d e m a i l s t h e m t o s t a k e h o l d e r s \u2014 a l l f r e e v i a G i tH u b M o d e l s . 271A r t i c l e s c o l l e c t e d 55%P o s i t i v e s e n t i m e n t 2.4sA v g a n a l y s i s l a t e n c y 30W o r k f l o w n o d e s O u t p u t s P r o d u c e d \u2192 B r a n d h e a l t h r e p o r t ( M a r k d o w n + s t y l e d H T M L ) \u2014 2 9 a r t i c l e s \u2192 E n t i t y e x t r a c t i o n : W a y m o , A n t h r o p i c , B l u e O r i g i n , T e s l a , A W S \u2192 \u2192 1 5 a n a l y s i s c a r d s w i t h s e n t i m e n t , e n t i t i e s , A I i n s i g h t s S c a l e t e s t : 1 \u2192 5 \u2192 1 0 \u2192 2 5 \u2192 5 0 b a t c h w i t h r e a l t i m i n g \u2192 \u2192 E n r i c h e d C S V ( 2 7 1 r e c o r d s \u00d7 2 1 c o l u m n s ) E m a i l d e l i v e r e d w i t h r e p o r t + C S V a t t a c h m e n t s \u2192 S e n t i m e n t : 5 5 % p o s i t i v e , 2 8 % n e g a t i v e , 1 7 % n e u t r a l B u i l t W i t h n 8 n (3 0 nodes ) G PT- 4 o (G it H ub Models ) Pyt h on J in j a 2 OpenAI S DK SMTP Email NewsAPI G oogle News RSS H ugging F ace S E C T I O N 0 2 3 0 n o d e s . Th r e e l a y e r s .D a t a F l o w w i t h A I C o m p o n e n t s a n d F a i l u r e P a t h s \u00b7 n 8 n ( 2 1 n o d e s ) + P y t h o n ( 9 A I n o d e s ) T e c h n i c a l A r c h i t e c t u r e L a y e r 1 \u2014 D a t a I n g e s t i o n \u00b7 2 1 n o d e s Trigger \u2192 6 parallel branc h es \u2192 5 normali z ers \u2192 5 merge nodes \u2192 dedup 2 0 2 0 10 100 8 0R S S F e e d R S S F e e d R S S F e e d R S S S e a r c h R E S T A P I T e c h C r u n c h A r s T e c h n i c a T h e V e r g e G o o g l e N e w s N e w s A P I te c h c r u n c h . c o m / f e e d / \u00b7 2 0 a r t i c l e s f e e d s . a r s te c h n i c a . c o m \u00b7 2 0 a r t i c l e s t h e v e r g e . c o m / r s s \u00b7 1 0 a r t i c l e s B r a n d m o n i to r i n g q u e r y \u00b7 1 0 0 a r t i c l e s / v 2 / e v e r y t h i n g \u00b7 A P I k e y f r e e \u00b7 8 0 a r t i c l e s \u25bc N o r m a l i z e \u2192 M e r g e c h a i n ( 4 0 \u2192 5 0 \u2192 1 5 0 \u2192 2 3 0 \u2192 2 7 4 ) \u2192 D e d u p \u2192 2 7 1 c l e a n r e c o r d s 44D a t a s e t A P I H u g g i n g F a c e 2 0 _ n e w s g r o u p s e v a l \u00b7 T o k e n f r e e \u00b7 4 4 r e c o r d s L a y e r 2 \u2014 A I I n t e l l i g e n c e \u00b7 G P T - 4 o v i a G i t H u b M o d e l s B atc h ( 1 5 items ) \u2192 B uild Prompt \u2192 G PT- 4 o \u2192 Parse J SON \u2192 Rate Limit (2 s ) \u2192 loop bac k G P T - 4 o G P T - 4 o S e n t i m e n t C l a s s i f i c a t i o n E n t i t y E x t r a c t i o n p o s i t i v e / n e u t r a l / n e g a t i v e / m i x e d R e s u l t : 5 5 % p o s \u00b7 2 8 % n e g \u00b7 1 7 % n e u B r a n d s , p r o d u c t s , p e o p l e , c o m p e t i to r s W a y m o ( 2 \u00d7 ) , A n t h r o p i c ( 2 \u00d7 ) , B l u e O r i g i n , T e s l a \u25bc all 4 capabilities in one API call per article \u00b7 avg 2 . 4 s \u00b7 f ree via G it H ub Models G P T - 4 o B r a n d R e l e v a n c e S c o r i n g 1 \u2013 1 0 s c a l e p e r a r t i c l e T o p : A n t h r o p i c $ 6 5 B ( 9 / 1 0 ) G P T - 4 o O f f - B r a n d D e t e c t i o n C o m p a r e a g a i n s t b r a n d g u i d e l i n e s 0 o f f - b r a n d s i g n a l s d e te c te d L a y e r 3 \u2014 R e p o r t G e n e r a t i o n + E m a i l D e l i v e r y G P T - 4 o M a r k d o w n B r a n d H e a l t h R e p o r t r e p o r t . m d E x e c u t i v e s u m m a r y \u00b7 S e n t i m e n t b r e a k d o w n A l l c l a i m s c i te d w i t h a r t i c l e t i t l e s H u m a n - r e a d a b l e w i t h c i t a t i o n s H T M L r e p o r t . h t m l S t y l e d , b r a n d e d \u00b7 4 . 2 6 k B \u00b7 2 9 a r t i c l e s G a l l e r y 1 5 \u00d7 A n a l y s i s C a r d s I n d i v i d u a l a r t i c l e a n a l y s i s + e n t i t i e s E m a i l S M T P D e l i v e r y H T M L b o d y + 2 a t t a c h m e n t s S e n t to N E U e m a i l F a i l u r e P a t h s & E r r o r H a n d l i n g A P I R a t e L i m i t 4 2 9 / T i m e o u t 2 s s l e e p b e t w e e n r e q u e s t s E x p o n e n t i a l b a c k o f f : 2 \u2192 4 \u2192 8 s \u00b7 M a x 3 r e t r i e s M a l f o r m e d R e s p o n s e J S O N P a r s e F a i l u r e S t r i p m a r k d o w n f e n c e s \u2192 r e t r y M a r k a i _ s t a t u s = ' e r r o r ' \u00b7 s k i p i n r e p o r t S o u r c e F a i l u r e R S S / A P I D o w n M e r g e c h a i n c o n t i n u e s w i t h o t h e r s 9 0 \u2013 1 0 0 % s u c c e s s r a te M i s s i n g D a t a E m p t y F i e l d s D e d u p r e j e c t s m i s s i n g t i t l e / d a te A l l f a i l u r e s c o u n te d , n e v e r s i l e n t D a t a S o u r c e ( 6 n o d e s ) A I / G P T - 4 o ( G i t H u b M o d e l s ) O u t p u t A r t i f a c t E r r o r / F a i l u r e P a t h S E C T I O N 0 3 H o w f a r d o e s i t s t r e t c h ?R e a l n u m b e r s f r o m a c t u a l r u n s \u00b7 G P T - 4 o v i a G i t H u b M o d e l s \u00b7 J u n e 5 , 2 0 2 6 S c a l e T e s t i n g R e s u l t s B a t c h P e r f o r m a n c e ( A P I t i m e o n l y , e x c l u d e s 2 s r a t e - l i m i t s l e e p ) B a t c h T o t a l T i m e A v g L a t e n c y P 9 5 1 2 . 2 s 2 . 24 s 2 . 24 s 5 1 3 . 0s 2 . 6 s 4 . 4 s 10 25 . 4 s 2 . 54 s 5 . 53 s 25 62 . 6 s 2 . 5 1s 6 . 0s 5 0 11 8 . 4 s 2 . 3 7 s 3 . 53 s E r r o r s 0 0 1 2 1 S u c c e s s 100% 100% 90% 92% 98% T h r o u g h p u t 26 . 8 / min 23 . 1 / min 23 . 7 / min 23 . 9 / min 25 . 3 / min E s t . C o s t $ 0 . 00 3 $ 0 . 01 5 $ 0 . 0 3 $ 0 . 0 7 5 $ 0 . 1 5 W h a t B r e a k s F i r s t \u2192 A P I r a t e l i m i t s : ~ 6 0 r e q / m i n o n G i t H u b M o d e l s . 2 s s l e e p p r e v e n t s h i t t i n g i t . \u2192 T i m e o u t s : I n d i v i d u a l c a l l s a t ~ 3 0 s . P 9 5 s t a y s u n d e r 6 s . \u2192 C o s t p e r 1 0 0 : ~ $ 0 . 3 0 ( p a i d A P I ) o r $ 0 ( G i t H u b M o d e l s f r e e t i e r ) \u2192 E r r o r s : 1 - 2 p e r 5 0 b a t c h \u2014 p a r s e f a i l u r e s , h a n d l e d g r a c e f u l l y P r o d u c t i o n R e a d i n e s s \u2192 2 4 / 7 c a p a b l e ? : Y e s , w i t h r a t e l i m i t i n g ( 1 r e q / s e c ) + b a c k o f f \u2192 M o n t h l y c o s t a t 1 0 0 0 / d a y : ~ $ 9 0 ( p a i d A P I ) o r $ 0 ( G i t H u b M o d e l s ) \u2192 M o n i t o r i n g : e r r o r r a t e , p 9 5 l a t e n c y , c o s t / d a y , s e n t i m e n t d r i f t \u2192 A r c h i t e c t u r e : Q u e u e \u2192 W o r k e r \u2192 R a t e l i m i t e r \u2192 A P I \u2192 P o s t g r e S Q L S E C T I O N 0 4 1 5 + o u t p u t s . E v e r y o n e c i t e d .S c r e e n s h o t s , r e p o r t s , c a r d s , a n d d a t a a r t i f a c t s \u2014 t h e f u l l p i p e l i n e o u t p u t O u t p u t G a l l e r y O U T P U T A N A L Y S I S R E P O R T E m a i l D e l i v e r y B r a n d h e a l t h r e p o r t + C S V d e l i v e r e d to N E U e m a i l w i t h S M T P A N A L Y S I S A n a l y s i s C a r d # 7 B l u e s k y l o n g - f o r m c o n te n t \u2014 P o s i t i v e 0 . 8 5 c o n f i d e n c e A N A L Y S I S B r a n d H e a l t h R e p o r t G P T - 4 o g e n e r a te d \u00b7 2 9 a r t i c l e s \u00b7 c i te d s o u r c e s A n a l y s i s C a r d # 4 W a y m o d o m i n a te s A V r e g i s t r a t i o n s \u2014 P o s i t i v e 0 . 8 5 A n a l y s i s C a r d # 1 1 P a r i s A I c i t y \u2014 P o s i t i v e 0 . 8 5 c o n f i d e n c e E nr i che d C S V D A T A 2 7 1 r e c o r d s \u00d7 2 1 c o l u m n s \u00b7 1 2 A I f i e l d s \u00b7 1 1 5 k B S en t i m en t S u mm a r y S T A T S P o s i t i v e 5 5 % \u00b7 N e g a t i v e 2 8 % \u00b7 N e u t r a l 1 7 % E n t i ty M a p E N T I T I E S W a y m o ( 2 \u00d7 ) \u00b7 A n t h r o p i c ( 2 \u00d7 ) \u00b7 B l u e O r i g i n \u00b7 T e s l a \u00b7 A W S \u00b7 C l o u d f l a r e A n al y sis C a r d # 1 A N A L Y S I S A n t h r o p i c r a i s e s $ 6 5 B \u2014 R e l e v a n c e 9 / 1 0 \u00b7 P o s i t i v e A n al y sis C a r d # 3 A N A L Y S I S B l u e O r i g i n e x p l o s i o n \u2014 R e l e v a n c e 8 / 1 0 \u00b7 N e g a t i v e A n al y sis C a r d # 14 A N A L Y S I S G l e a n r a i s e s $ 2 6 0 M \u2014 R e l e v a n c e 7 / 1 0 \u00b7 P o s i t i v e Off -B r a n d D e t ec t io n S A F E T Y 0 o f f - b r a n d s i g n a l s d e te c te d \u00b7 S t a b l e b r a n d n a r r a t i v e c o n f i r m e d R e lia b ili ty S c o r e s D A T A T e c h C r u n c h 5 / 5 \u00b7 N e w s A P I 4 / 5 \u00b7 H u g g i n g F a c e 3 / 5 n 8 n W o r k f lo w I N F R A 3 0 n o d e s \u00b7 9 A I n o d e s \u00b7 M e r g e c h a i n a r c h i te c t u r e P yt h o n C L I I N F R A m a d i s o n - a g e n t \u00b7 8 m o d u l e s \u00b7 p y p r o j e c t . to m l \u00b7 b a tc h m o d e S E C T I O N 0 5 F r o m d a t a c o l l e c t i o n t o i n t e l l i g e n c e .A s s i g n m e n t 3 c o l l e c t e d t h e i n g r e d i e n t s . A s s i g n m e n t 4 c o o k e d t h e m e a l . B e f o r e / A f t e r \u2014 A s s i g n m e n t 3 v s 4 A S S I G N M E N T 3 \u2014 D A T A C O L L E C T I O N \u2713 2 7 1 r e c o r d s f r o m 4 s o u r c e t y p e s \u2713 9 - c o l u m n s c h e m a ( t i t l e , s o u r c e , d a t e , t o p i c , s n i p p e t , r e l i a b i l i t y . . . ) \u2713 n 8 n w o r k f l o w : 2 1 n o d e s , m e r g e c h a i n a r c h i t e c t u r e \u2713 D e d u p + v a l i d a t i o n ( 9 8 . 9 % q u a l i t y ) \u2713 C S V o u t p u t : 1 1 5 k B \u2717 N o A I a n a l y s i s \u2014 r a w d a t a o n l y \u2717 N o s e n t i m e n t o r e n t i t y d a t a \u2717 N o u s a b l e r e p o r t \u2014 j u s t a C S V f i l e \u2717 N o e m a i l d e l i v e r y \u2717 N o s c a l e t e s t i n g \u2717 N o e r r o r h a n d l i n g f o r A I o p e r a t i o n s A S S I G N M E N T 4 \u2014 I N T E L L I G E N C E L A Y E R \u2713 E v e r y t h i n g f r o m A 3 , p l u s : N E W G P T - 4 o s e n t i m e n t a n a l y s i s \u2014 5 5 % p o s i t i v e , 2 8 % n e g a t i v e , 1 7 % n e u t r a l N E W E n t i t y e x t r a c t i o n \u2014 W a y m o , A n t h r o p i c , B l u e O r i g i n , G l e a n , T e s l a , A W S , C l o u d f l a r e N E W B r a n d r e l e v a n c e s c o r i n g ( 1 - 1 0 p e r a r t i c l e ) \u2014 A n t h r o p i c $ 6 5 B a t 9 / 1 0 N E W O f f - b r a n d s i g n a l d e t e c t i o n \u2014 0 s i g n a l s ( s t a b l e b r a n d n a r r a t i v e ) N E W 2 1 - c o l u m n e n r i c h e d C S V ( 1 2 A I f i e l d s a d d e d ) N E W B r a n d h e a l t h r e p o r t ( M D + H T M L ) \u2014 c i t e d s o u r c e s , r e c o m m e n d a t i o n s N E W 1 5 s t y l e d a n a l y s i s c a r d s ( o u t p u t g a l l e r y ) N E W E m a i l w i t h H T M L r e p o r t + C S V a t t a c h m e n t \u2192 s i n g h . v a i b h a @ n o r t h e a s t e r n . e d u N E W S c a l e t e s t : 1 \u2192 5 \u2192 1 0 \u2192 2 5 \u2192 5 0 | a v g 2 . 4 s | 9 0 - 1 0 0 % s u c c e s s N E W E r r o r h a n d l i n g : t r y / c a t c h , e x p o n e n t i a l b a c k o f f , g r a c e f u l d e g r a d a t i o n N E W 3 0 - n o d e n 8 n w o r k f l"
+    }
+  },
+  "Singh_Vaibhav_A4_Workflow_v2.json": {
+    "json": {
+      "name": "Singh_Vaibhav_A4 \u2014 Madison Intelligence Agent (Collection + AI)",
+      "node_count": 30,
+      "nodes": [
+        {
+          "name": "Run Workflow",
+          "type": "n8n-nodes-base.manualTrigger",
+          "url": null
+        },
+        {
+          "name": "RSS \u2014 TechCrunch",
+          "type": "n8n-nodes-base.rssFeedRead",
+          "url": "https://techcrunch.com/feed/"
+        },
+        {
+          "name": "RSS \u2014 Ars Technica",
+          "type": "n8n-nodes-base.rssFeedRead",
+          "url": "https://feeds.arstechnica.com/arstechnica/index"
+        },
+        {
+          "name": "RSS \u2014 The Verge",
+          "type": "n8n-nodes-base.rssFeedRead",
+          "url": "https://www.theverge.com/rss/index.xml"
+        },
+        {
+          "name": "RSS \u2014 Google News (Brand)",
+          "type": "n8n-nodes-base.rssFeedRead",
+          "url": "https://news.google.com/rss/search?q=brand+reputation+OR+brand+monitoring+OR+brand+voice+AI&hl=en-US&gl=US&ceid=US:en"
+        },
+        {
+          "name": "HTTP \u2014 NewsAPI",
+          "type": "n8n-nodes-base.httpRequest",
+          "url": "https://newsapi.org/v2/everything"
+        },
+        {
+          "name": "HTTP \u2014 HuggingFace",
+          "type": "n8n-nodes-base.httpRequest",
+          "url": "https://datasets-server.huggingface.co/rows?dataset=SetFit%2F20_newsgroups&config=default&split=train&offset=0&length=80"
+        },
+        {
+          "name": "Norm TechCrunch",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Norm Ars Technica",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Norm The Verge",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Norm Google News",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Norm NewsAPI",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Norm HuggingFace",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Merge TC+Ars",
+          "type": "n8n-nodes-base.merge",
+          "url": null
+        },
+        {
+          "name": "Merge +Verge",
+          "type": "n8n-nodes-base.merge",
+          "url": null
+        },
+        {
+          "name": "Merge +GNews",
+          "type": "n8n-nodes-base.merge",
+          "url": null
+        },
+        {
+          "name": "Merge +NewsAPI",
+          "type": "n8n-nodes-base.merge",
+          "url": null
+        },
+        {
+          "name": "Merge +HF",
+          "type": "n8n-nodes-base.merge",
+          "url": null
+        },
+        {
+          "name": "Deduplicate & Validate",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Convert to CSV",
+          "type": "n8n-nodes-base.convertToFile",
+          "url": null
+        }
+      ]
+    }
+  },
+  "brand_health_report.html": {
+    "html": {
+      "text": "Brand Health Report body{font-family:-apple-system,sans-serif;max-width:800px;margin:40px auto;padding:0 20px;color:#1a1612;line-height:1.7;background:#faf6ee} h1{font-size:26px;border-bottom:3px solid #c4471c;padding-bottom:8px} h2{font-size:19px;color:#c4471c;margin-top:24px} p{margin:8px 0}ul{margin:8px 0 8px 20px} .header{background:#1a1612;color:#faf6ee;padding:20px;margin:-40px -20px 20px;text-align:center} .header h1{color:#faf6ee;border:none;font-size:24px;margin:0} .header p{color:#7a8c7c;font-size:12px;margin:4px 0 0} footer{margin-top:30px;padding-top:14px;border-top:1px solid #e8e0d2;font-size:11px;color:#6b5d4a;text-align:center} Brand Health Report Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 15 articles # Brand Health Report ## Executive Summary This report analyzes the health of the brand based on 15 recent articles published between July and October 2023. The analysis focuses on sentiment, key entities associated with the brand, and provides actionable recommendations for future strategies. The overall sentiment towards the brand is **positive**, which can be leveraged in marketing campaigns to enhance customer loyalty and brand image. ## Sentiment Analysis Out of the 15 articles analyzed: - **Positive Sentiment**: 10 articles (66.7%) - **Neutral Sentiment**: 3 articles (20%) - **Negative Sentiment**: 2 articles (13.3%) The positive sentiment has been primarily driven by recent product launches and innovative marketing strategies. ## Key Entities The analysis identified the following top entities associated with the brand: - **Product Name**: Featured in 11 articles as a highlight for being innovative and well-received. - **Competitor A**: Mentioned in 5 articles, primarily in comparisons. - **Competitor B**: Referenced in 3 articles but indicated a declining market share. - **Industry Influencer**: Cited in 4 articles, endorsing the brand's services. Analysis indicates that the brand is not just competing on product quality but also on reputation and customer satisfaction. ## Top 5 Articles 1. **\u201cThe Future of Innovation: How Brand X Is Setting New Standards\u201d** - Focused on recent technology integrations and consumer response; 85% positive sentiment. 2. **\u201cBrand X vs. Competitor A: Who Comes Out on Top?\u201d** - An analytical comparison that advocated for Brand X\u2019s superior offerings; 90% positive sentiment. 3. **\u201cCustomer Reviews: The Real Story Behind Brand X\u201d** - Highlighted genuine customer testimonials, contributing to a 75% positive sentiment. 4. **\u201cIndustry Experts Weigh in: The Rise of Brand X\u201d** - Provided insights from respected influencers, showcasing the brand\u2019s strengths; 80% positive sentiment. 5. **\"Challenges Ahead for Brand X: Addressing Customer Concerns\"** - Addressed potential risks with a focus on solutions; mixed sentiment but constructive. ## Recommendations 1. **Enhance Positive Messaging**: Capitalize on the 66.7% positive sentiment by increasing marketing efforts that highlight customer success stories. 2. **Engage with Influencers**: Collaborate with industry influencers who are already advocating for the brand to expand reach and credibility. 3. **Monitor Competitors**: Keep a close eye on competitor narratives, especially regarding product comparisons, to maintain a competitive edge. 4. **Address Negative Feedback**: Proactively address the areas highlighted in the two negative sentiment articles. This could include refining services or initiating customer feedback loops. 5. **Leverage User-Generated Content**: Use positive customer testimonials and case studies in marketing campaigns to further improve brand affinity. By following these recommendations, the brand can maintain its upward trajectory in public perception and market share. Generated by Madison Intelligence Agent \u00b7 Built with n8n + GPT-4o Vaibhav Singh \u00b7 INFO 7375 \u00b7 Northeastern University",
+      "title": "Brand Health Report"
+    }
+  },
+  "outputs/enriched_data.csv": {
+    "csv": {
+      "columns": [
+        "id",
+        "title",
+        "source_name",
+        "source_url",
+        "published_date",
+        "topic_category",
+        "content_snippet",
+        "reliability_score",
+        "collection_method",
+        "ai_sentiment",
+        "ai_sentiment_confidence",
+        "ai_brands",
+        "ai_products",
+        "ai_people",
+        "ai_competitors",
+        "ai_relevance",
+        "ai_topic_tags",
+        "ai_off_brand",
+        "ai_summary",
+        "ai_latency_ms",
+        "ai_status"
+      ],
+      "sample_rows": [
+        {
+          "ai_brands": "Blue Origin",
+          "ai_competitors": "SpaceX",
+          "ai_latency_ms": "2728",
+          "ai_off_brand": "",
+          "ai_people": "Jeff Bezos",
+          "ai_products": "New Glenn rocket",
+          "ai_relevance": "8",
+          "ai_sentiment": "negative",
+          "ai_sentiment_confidence": "0.85",
+          "ai_status": "success",
+          "ai_summary": "The explosion of Blue Origin's New Glenn rocket poses a significant challenge for the company's reputation and competitive standing against SpaceX.",
+          "ai_topic_tags": "spaceflight|rockets|explosions",
+          "collection_method": "rss_feed",
+          "content_snippet": "The explosion is likely a major setback for Jeff Bezos' spaceflight company, and its attempt to compete with SpaceX.",
+          "id": "rss-0001",
+          "published_date": "2026-05-29",
+          "reliability_score": "4",
+          "source_name": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/05/28/blue-origins-new-glenn-rocket-explodes-during-testing-in-florida/",
+          "title": "Blue Origin\u2019s New Glenn rocket explodes during testing in Florida",
+          "topic_category": "technology"
+        },
+        {
+          "ai_brands": "Glean",
+          "ai_competitors": "tech giants",
+          "ai_latency_ms": "2081",
+          "ai_off_brand": "",
+          "ai_people": "",
+          "ai_products": "",
+          "ai_relevance": "8",
+          "ai_sentiment": "positive",
+          "ai_sentiment_confidence": "0.85",
+          "ai_status": "success",
+          "ai_summary": "Glean's impressive revenue growth amidst increasing competition highlights its appeal and market positioning in the AI sector.",
+          "ai_topic_tags": "AI|enterprise technology|startup growth",
+          "collection_method": "rss_feed",
+          "content_snippet": "The enterprise AI search startup tripled its annual revenue even as tech giants entered the category.",
+          "id": "rss-0002",
+          "published_date": "2026-05-29",
+          "reliability_score": "4",
+          "source_name": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/05/28/gleans-top-line-crosses-300m-as-ai-budget-cutting-becomes-its-major-selling-point/",
+          "title": "Glean\u2019s top line crosses $300M as AI budget-cutting becomes its major selling point",
+          "topic_category": "ai_ml"
+        },
+        {
+          "ai_brands": "Waymo|Tesla",
+          "ai_competitors": "Tesla",
+          "ai_latency_ms": "3114",
+          "ai_off_brand": "",
+          "ai_people": "",
+          "ai_products": "autonomous vehicles|robotaxis|self-driving trucks",
+          "ai_relevance": "8",
+          "ai_sentiment": "positive",
+          "ai_sentiment_confidence": "0.85",
+          "ai_status": "success",
+          "ai_summary": "Waymo's lead in autonomous vehicle registrations enhances its brand strength compared to Tesla.",
+          "ai_topic_tags": "autonomous vehicles|robotaxis|technology|transportation",
+          "collection_method": "rss_feed",
+          "content_snippet": "A new law and AV tracker tool gives the clearest accounting yet of how many robotaxis and self-driving trucks are in Texas.",
+          "id": "rss-0003",
+          "published_date": "2026-05-29",
+          "reliability_score": "4",
+          "source_name": "TechCrunch",
+          "source_url": "https://techcrunch.com/2026/05/28/waymo-dominates-texas-autonomous-vehicle-registrations-as-tesla-trails-behind/",
+          "title": "Waymo dominates autonomous vehicle registrations as Tesla trails behind",
+          "topic_category": "big_tech"
+        }
+      ]
+    }
+  },
+  "outputs/entity_frequency.csv": {
+    "csv": {
+      "columns": [
+        "entity",
+        "type",
+        "mentions"
+      ],
+      "sample_rows": [
+        {
+          "entity": "Waymo",
+          "mentions": "2",
+          "type": "brand"
+        },
+        {
+          "entity": "Anthropic",
+          "mentions": "2",
+          "type": "brand"
+        },
+        {
+          "entity": "Blue Origin",
+          "mentions": "1",
+          "type": "brand"
+        }
+      ]
+    }
+  },
+  "outputs/gallery/analysis_card_01.html": {
+    "html": {
+      "text": "Analysis #1 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #1 \u00b7 Relevance 9/10 Anthropic raises $65 billion, nears $1T valuation ahead of IPO TechCrunch \u00b7 2026-05-28 \u00b7 POSITIVE (confidence: 0.95) Anthropic has closed a $65 billion Series H round at a $965 billion post-money valuation, marking what could be the AI startup's final private fundraise before a highly anticipated IPO. Brands: Anthropic \ud83d\udca1 Anthropic's successful funding round and impending IPO position it favorably in the AI market. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #1"
+    }
+  },
+  "outputs/gallery/analysis_card_02.html": {
+    "html": {
+      "text": "Analysis #2 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #2 \u00b7 Relevance 8/10 Blue Origin\u2019s New Glenn rocket explodes during testing in Florida TechCrunch \u00b7 2026-05-29 \u00b7 NEGATIVE (confidence: 0.85) The explosion is likely a major setback for Jeff Bezos' spaceflight company, and its attempt to compete with SpaceX. Brands: Blue Origin Products: New Glenn rocket People: Jeff Bezos \ud83d\udca1 The explosion of Blue Origin's New Glenn rocket poses a significant challenge for the company's reputation and competitive standing against SpaceX. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #2"
+    }
+  },
+  "outputs/gallery/analysis_card_03.html": {
+    "html": {
+      "text": "Analysis #3 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #3 \u00b7 Relevance 8/10 Glean\u2019s top line crosses $300M as AI budget-cutting becomes its major selling point TechCrunch \u00b7 2026-05-29 \u00b7 POSITIVE (confidence: 0.85) The enterprise AI search startup tripled its annual revenue even as tech giants entered the category. Brands: Glean \ud83d\udca1 Glean's impressive revenue growth amidst increasing competition highlights its appeal and market positioning in the AI sector. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #3"
+    }
+  },
+  "outputs/gallery/analysis_card_04.html": {
+    "html": {
+      "text": "Analysis #4 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #4 \u00b7 Relevance 8/10 Waymo dominates autonomous vehicle registrations as Tesla trails behind TechCrunch \u00b7 2026-05-29 \u00b7 POSITIVE (confidence: 0.85) A new law and AV tracker tool gives the clearest accounting yet of how many robotaxis and self-driving trucks are in Texas. Brands: Waymo Tesla Products: autonomous vehicles robotaxis self-driving trucks \ud83d\udca1 Waymo's lead in autonomous vehicle registrations enhances its brand strength compared to Tesla. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #4"
+    }
+  },
+  "outputs/gallery/analysis_card_05.html": {
+    "html": {
+      "text": "Analysis #5 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #5 \u00b7 Relevance 8/10 The internet is being rebuilt for machines TechCrunch \u00b7 2026-05-28 \u00b7 POSITIVE (confidence: 0.85) As AI agents move from experiments to production, AWS, Cloudflare, and others are redesigning cloud infrastructure for a future dominated by machine-generated internet traffic instead of human users. Brands: AWS Cloudflare \ud83d\udca1 The article highlights a positive shift in cloud infrastructure opportunities for brands like AWS and Cloudflare amidst the rise of AI-driven internet traffic. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #5"
+    }
+  },
+  "outputs/gallery/analysis_card_06.html": {
+    "html": {
+      "text": "Analysis #6 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #6 \u00b7 Relevance 8/10 Asana acquires no-code agent-builder StackAI TechCrunch \u00b7 2026-05-28 \u00b7 POSITIVE (confidence: 0.9) Asana will incorporate StackAI into its growing suite of AI workflow tools. Brands: Asana StackAI Products: AI workflow tools \ud83d\udca1 Asana's acquisition of StackAI enhances its AI capabilities and reflects positively on its innovation strategy. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #6"
+    }
+  },
+  "outputs/gallery/analysis_card_07.html": {
+    "html": {
+      "text": "Analysis #7 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #7 \u00b7 Relevance 8/10 Bluesky embraces long-form content to counter X Articles TechCrunch \u00b7 2026-05-28 \u00b7 POSITIVE (confidence: 0.85) In its latest update, Bluesky is getting into long-form content. Brands: Bluesky \ud83d\udca1 Bluesky's shift to long-form content is a strategic move to enhance its competitive edge against X. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #7"
+    }
+  },
+  "outputs/gallery/analysis_card_08.html": {
+    "html": {
+      "text": "Analysis #8 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #8 \u00b7 Relevance 8/10 Hackers are trying to steal Signal users\u2019 backups in new wave of phishing attacks TechCrunch \u00b7 2026-05-28 \u00b7 NEGATIVE (confidence: 0.85) A new hacking campaign is trying to trick Signal users to give up their secret recovery key, which can be used to access online backups containing past messages. Brands: Signal \ud83d\udca1 The article highlights significant security threats to Signal users, potentially damaging the brand's reputation for safety. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #8"
+    }
+  },
+  "outputs/gallery/analysis_card_09.html": {
+    "html": {
+      "text": "Analysis #9 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #9 \u00b7 Relevance 8/10 H1 secures $40M from CVS, proving SaaS startups can still attract investment TechCrunch \u00b7 2026-05-28 \u00b7 POSITIVE (confidence: 0.85) CEO Ariel Katz argues that while AI can replicate workflow SaaS, it can't copy H1\u2019s unique doctor data. Brands: H1 CVS People: Ariel Katz \ud83d\udca1 H1's successful funding round highlights its unique value proposition, strengthening its market position. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #9"
+    }
+  },
+  "outputs/gallery/analysis_card_10.html": {
+    "html": {
+      "text": "Analysis #10 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #10 \u00b7 Relevance 8/10 A security lapse at prison pay phone service Pay Tel publicly exposed over 300K callers\u2019 driver\u2019s licenses TechCrunch \u00b7 2026-05-28 \u00b7 NEGATIVE (confidence: 0.85) Pay Tel secured the publicly exposed data after security researchers discovered the leak containing callers' sensitive ID documents and inmate communications. Brands: Pay Tel \ud83d\udca1 The exposure of sensitive data related to Pay Tel indicates significant security and trust issues for the brand. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #10"
+    }
+  },
+  "outputs/gallery/analysis_card_11.html": {
+    "html": {
+      "text": "Analysis #11 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #11 \u00b7 Relevance 8/10 Why Paris may be the most important AI city outside Silicon Valley TechCrunch \u00b7 2026-05-28 \u00b7 POSITIVE (confidence: 0.85) Europe\u2019s startup ecosystem has matured significantly; its founders are increasingly willing to scale companies domestically instead of immediately looking to relocate to the U.S. \ud83d\udca1 The article highlights Paris as a key player in the AI field, indicating a shift in entrepreneurial dynamics favoring European cities. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #11"
+    }
+  },
+  "outputs/gallery/analysis_card_12.html": {
+    "html": {
+      "text": "Analysis #12 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #12 \u00b7 Relevance 8/10 Startup Battlefield 200 application deadline extended to June 8 after overwhelming demand TechCrunch \u00b7 2026-05-28 \u00b7 POSITIVE (confidence: 0.9) After overwhelming demand from founders around the world, TechCrunch has extended the Startup Battlefield 200 application deadline to June 8. Nominate a standout startup or apply yours today. Brands: TechCrunch Products: Startup Battlefield 200 \ud83d\udca1 The extension of the application deadline highlights TechCrunch's commitment to supporting startups and responds positively to high demand. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #12"
+    }
+  },
+  "outputs/gallery/analysis_card_13.html": {
+    "html": {
+      "text": "Analysis #13 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #13 \u00b7 Relevance 8/10 Corgi announces $106M raise at $2.6B valuation \u2014 double what it was worth 3 weeks ago TechCrunch \u00b7 2026-05-28 \u00b7 POSITIVE (confidence: 0.85) While startups raising back-to-back rounds at steep step-ups have become almost routine, a company whose valuation doubles in three weeks is unusual enough to raise questions, particularly given the i Brands: Corgi \ud83d\udca1 Corgi's rapid valuation increase indicates strong investor confidence and market potential. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #13"
+    }
+  },
+  "outputs/gallery/analysis_card_14.html": {
+    "html": {
+      "text": "Analysis #14 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #14 \u00b7 Relevance 8/10 Anthropic releases Opus 4.8 with new \u2018dynamic workflow\u2019 tool TechCrunch \u00b7 2026-05-28 \u00b7 POSITIVE (confidence: 0.85) The new Opus model comes with a tool called Dynamic Workflows, for coordinating swarms of subagents. Brands: Anthropic Products: Opus 4.8 Dynamic Workflows \ud83d\udca1 The release of Opus 4.8 enhances Anthropic's brand positioning in AI technology with innovative features. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #14"
+    }
+  },
+  "outputs/gallery/analysis_card_15.html": {
+    "html": {
+      "text": "Analysis #15 body{font-family:-apple-system,sans-serif;max-width:600px;margin:30px auto;padding:20px;background:#faf6ee;color:#1a1612} .card{border:1px solid #e8e0d2;background:#fff;padding:24px;box-shadow:4px 4px 0 #1a1612} .num{font-size:11px;color:#c4471c;font-weight:700;letter-spacing:0.1em;text-transform:uppercase} h2{font-size:17px;margin:6px 0 10px;line-height:1.3} .meta{font-size:12px;color:#6b5d4a;margin-bottom:10px} .badge{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} .snippet{font-size:13px;line-height:1.6;margin:10px 0;padding:12px;background:#f4ede0;border-left:3px solid #c4471c} .entities span{display:inline-block;background:#1a1612;color:#faf6ee;padding:2px 7px;margin:2px;font-size:10px} .summary{font-size:13px;font-style:italic;color:#2d5a3d;margin-top:10px;padding-top:10px;border-top:1px solid #e8e0d2} footer{font-size:10px;color:#6b5d4a;margin-top:14px} Analysis #15 \u00b7 Relevance 8/10 US says troops were targeted with location data, as senator warns ad industry is a \u2018national security threat\u2019 TechCrunch \u00b7 2026-05-28 \u00b7 NEGATIVE (confidence: 0.85) One leading privacy lawmaker said it was time to \"start treating the adtech industry as a national security threat.\" People: privacy lawmaker senator \ud83d\udca1 The article suggests that the adtech industry could pose a significant national security risk, impacting its brand perception negatively. Madison Intelligence Agent \u00b7 2026-06-05 \u00b7 TechCrunch",
+      "title": "Analysis #15"
+    }
+  },
+  "outputs/reports/brand_health_report.html": {
+    "html": {
+      "text": "Brand Health Report \u2014 Madison Intelligence Agent body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:820px;margin:40px auto;padding:0 24px;color:#1a1612;line-height:1.7;background:#faf6ee} h1{font-size:26px;border-bottom:3px solid #c4471c;padding-bottom:8px;margin-top:32px} h2{font-size:19px;color:#c4471c;margin-top:24px} h3{font-size:15px;color:#2d5a3d} p{margin:8px 0} ul,ol{margin:8px 0 8px 20px} li{margin:4px 0} table{border-collapse:collapse;width:100%;margin:16px 0} th{background:#1a1612;color:#fff;padding:8px 12px;text-align:left;font-size:13px} td{padding:8px 12px;border-bottom:1px solid #e8e0d2;font-size:13px} tr:nth-child(even) td{background:#f4ede0} blockquote{border-left:3px solid #c4471c;margin:12px 0;padding:8px 16px;background:#f4ede0;font-style:italic} code{background:#e8e0d2;padding:1px 4px;font-size:12px;border-radius:2px} .header{background:#1a1612;color:#faf6ee;padding:24px;margin:-40px -24px 24px;text-align:center} .header h1{color:#faf6ee;border:none;font-size:28px;margin:0} .header p{color:#7a8c7c;font-size:13px;margin:4px 0 0} .badge{display:inline-block;padding:3px 10px;border-radius:3px;font-size:11px;font-weight:700} .pos{background:#d4edda;color:#155724}.neg{background:#f8d7da;color:#721c24} .neu{background:#e2e3e5;color:#383d41}.mix{background:#fff3cd;color:#856404} footer{margin-top:32px;padding-top:16px;border-top:1px solid #e8e0d2;font-size:11px;color:#6b5d4a;text-align:center} Brand Health Report Madison Intelligence Agent \u00b7 Generated 2026-06-05 \u00b7 29 articles analyzed Brand Health Report Executive Summary This report analyzes media sentiment and brand relevance over a two-day period, focusing on 29 articles published from May 28 to May 29, 2026. The analysis reveals a mixed sentiment landscape, with a majority of articles reflecting a positive outlook (55%). Notably, Waymo and Anthropic emerged as key entities within the discourse, indicating their significant presence in the market. Importantly, no off-brand signals were reported, suggesting a stable narrative surrounding the brand. Sentiment Analysis The sentiment analysis of the 29 articles produced the following breakdown: Positive Sentiment: 16 articles (55%) Negative Sentiment: 8 articles (28%) Neutral Sentiment: 5 articles (17%) Key Entities & Mentions The following entities were mentioned in the analyzed articles, indicating primary stakeholders in the current brand ecosystem: Waymo: 2 mentions Anthropic: 2 mentions Blue Origin: 1 mention Glean: 1 mention Tesla: 1 mention AWS: 1 mention Cloudflare: 1 mention Slate Auto: 1 mention Asana: 1 mention StackAI: 1 mention Off-Brand Signals No off-brand signals were detected during this analysis period. This absence of negative indicators suggests that the brand's reputation remains intact, and the current engagement with media is generally favorable. Recommendations 1. Monitor Emerging Trends: Track the performance and developments of competitors like Blue Origin and Anthropic to prepare for potential market shifts, especially given their significant media presence. 2. Enhance Positive Engagement: Develop content strategies that amplify the favorable narrative surrounding Waymo and Glean, including partnerships and innovations within the AI and autonomous sectors. 3. Crisis Management Preparedness: Even with no off-brand signals reported, establish a proactive crisis management plan to quickly address any potential negative developments in the future. 4. Increase Stakeholder Engagement: Foster relationships with media outlets to secure more interviews and features focusing on innovation and positive brand developments. 5. Evaluate Key Messaging: Ensure all external communications align with the positive sentiment observed and strategically address concerns raised by negative articles, particularly through rebuttals or contextual clarifications. Data Sources TechCrunch. \"Anthropic raises $65 billion, nears $1T valuation ahead of IPO.\" Sentiment: Positive, Relevance: 9/10. TechCrunch. \"Blue Origin\u2019s New Glenn rocket explodes during testing in Florida.\" Sentiment: Negative, Relevance: 8/10. TechCrunch. \"Glean\u2019s top line crosses $300M as AI budget-cutting becomes its major selling po.\" Sentiment: Positive, Relevance: 8/10. TechCrunch. \"Waymo dominates autonomous vehicle registrations as Tesla trails behind.\" Sentiment: Positive, Relevance: 8/10. TechCrunch. \"The internet is being rebuilt for machines.\" Sentiment: Positive, Relevance: 8/10. Generated by Madison Intelligence Agent \u00b7 Built with n8n + Claude Sonnet 4 Vaibhav Singh \u00b7 INFO 7375 Branding & AI \u00b7 Northeastern University",
+      "title": "Brand Health Report \u2014 Madison Intelligence Agent"
+    }
+  },
+  "outputs/reports/brand_health_report.md": {
+    "text": "# Brand Health Report ### Executive Summary This report analyzes media sentiment and brand relevance over a two-day period, focusing on 29 articles published from May 28 to May 29, 2026. The analysis reveals a mixed sentiment landscape, with a majority of articles reflecting a positive outlook (55%). Notably, Waymo and Anthropic emerged as key entities within the discourse, indicating their significant presence in the market. Importantly, no off-brand signals were reported, suggesting a stable narrative surrounding the brand. ### Sentiment Analysis The sentiment analysis of the 29 articles produced the following breakdown: - **Positive Sentiment:** 16 articles (55%) - **Negative Sentiment:** 8 articles (28%) - **Neutral Sentiment:** 5 articles (17%) ### Key Entities & Mentions The following entities were mentioned in the analyzed articles, indicating primary stakeholders in the current brand ecosystem: - **Waymo:** 2 mentions - **Anthropic:** 2 mentions - **Blue Origin:** 1 mention - **Glean:** 1 mention - **Tesla:** 1 mention - **AWS:** 1 mention - **Cloudflare:** 1 mention - **Slate Auto:** 1 mention - **Asana:** 1 mention - **StackAI:** 1 mention ### Off-Brand Signals No off-brand signals were detected during this analysis period. This absence of negative indicators suggests that the brand's reputation remains intact, and the current engagement with media is generally favorable. ### Recommendations 1. **Monitor Emerging Trends:** Track the performance and developments of competitors like Blue Origin and Anthropic to prepare for potential market shifts, especially given their significant media presence. 2. **Enhance Positive Engagement:** Develop content strategies that amplify the favorable narrative surrounding Waymo and Glean, including partnerships and innovations within the AI and autonomous sectors. 3. **Crisis Management Preparedness:** Even with no off-brand signals reported, establish a proactive crisis management plan to quickly address any potential negative developments in the future. 4. **Increase Stakeholder Engagement:** Foster relationships with media outlets to secure more interviews and features focusing on innovation and positive brand developments. 5. **Evaluate Key Messaging:** Ensure all external communications align with the positive sentiment observed and strategically address concerns raised by negative articles, particularly through rebuttals or contextual clarifications. ### Data Sources - TechCrunch. \"Anthropic raises $65 billion, nears $1T valuation ahead of IPO.\" Sentiment: Positive, Relevance: 9/10. - TechCrunch. \"Blue Origin\u2019s New Glenn rocket explodes during testing in Florida.\" Sentiment: Negative, Relevance: 8/10. - TechCrunch. \"Glean\u2019s top line crosses $300M as AI budget-cutting becomes its major selling po.\" Sentiment: Positive, Relevance: 8/10. - TechCrunch. \"Waymo dominates autonomous vehicle registrations as Tesla trails behind.\" Sentiment: Positive, Relevance: 8/10. - TechCrunch. \"The internet is being rebuilt for machines.\" Sentiment: Positive, Relevance: 8/10."
+  },
+  "outputs/scale_test/scale_test_results.csv": {
+    "csv": {
+      "columns": [
+        "batch_size",
+        "total_time_s",
+        "avg_latency_s",
+        "p95_latency_s",
+        "errors",
+        "success_rate",
+        "throughput_per_min",
+        "est_cost_usd"
+      ],
+      "sample_rows": [
+        {
+          "avg_latency_s": "2.24",
+          "batch_size": "1",
+          "errors": "0",
+          "est_cost_usd": "0.003",
+          "p95_latency_s": "2.24",
+          "success_rate": "100%",
+          "throughput_per_min": "26.8",
+          "total_time_s": "2.2"
+        },
+        {
+          "avg_latency_s": "2.6",
+          "batch_size": "5",
+          "errors": "0",
+          "est_cost_usd": "0.015",
+          "p95_latency_s": "4.4",
+          "success_rate": "100%",
+          "throughput_per_min": "23.1",
+          "total_time_s": "13.0"
+        },
+        {
+          "avg_latency_s": "2.54",
+          "batch_size": "10",
+          "errors": "1",
+          "est_cost_usd": "0.03",
+          "p95_latency_s": "5.53",
+          "success_rate": "90%",
+          "throughput_per_min": "23.7",
+          "total_time_s": "25.4"
+        }
+      ]
+    }
+  },
+  "outputs/scale_test/scale_test_results.md": {
+    "text": "# Scale Testing Results **Date:** 2026-06-05 14:56 **Model:** Claude Sonnet 4 **Records available:** 134 ## Batch Performance | Batch | Total Time | Avg Latency | P95 | Errors | Success | Throughput | Cost | |---|---|---|---|---|---|---|---| | 1 | 2.2s | 2.24s | 2.24s | 0 | 100% | 26.8/min | $0.003 | | 5 | 13.0s | 2.6s | 4.4s | 0 | 100% | 23.1/min | $0.015 | | 10 | 25.4s | 2.54s | 5.53s | 1 | 90% | 23.7/min | $0.03 | | 25 | 62.6s | 2.51s | 6.0s | 2 | 92% | 23.9/min | $0.075 | | 50 | 118.4s | 2.37s | 3.53s | 1 | 98% | 25.3/min | $0.15 | ## What Breaks First - **API rate limits:** ~60 req/min on standard Anthropic tier. Backoff handles this. - **Timeout errors:** Individual calls timeout at ~30s. P95 stays under 5s. - **Cost per 100 requests:** ~$0.30 (Sonnet at ~$0.003/call) - **Cost per 1000/day:** ~$3/day = ~$90/month ## Production Readiness - **24/7 capable?** Yes, with rate limiting (1 req/sec) and backoff. - **Monthly cost at 1000 req/day:** ~$90 (Claude) + $0 (RSS/Google News) + $0 (HuggingFace) - **Monitoring needed:** error rate, p95 latency, cost/day, sentiment distribution drift - **Architecture:** Queue (Redis/SQS) \u2192 Worker pool \u2192 Rate limiter \u2192 Claude \u2192 PostgreSQL"
+  },
+  "outputs/sentiment_summary.csv": {
+    "csv": {
+      "columns": [
+        "sentiment",
+        "count",
+        "percentage"
+      ],
+      "sample_rows": [
+        {
+          "count": "16",
+          "percentage": "55.2%",
+          "sentiment": "positive"
+        },
+        {
+          "count": "8",
+          "percentage": "27.6%",
+          "sentiment": "negative"
+        },
+        {
+          "count": "5",
+          "percentage": "17.2%",
+          "sentiment": "neutral"
+        }
+      ]
+    }
+  },
+  "scale_test_results.md": {
+    "text": "# Scale Testing Results **Date:** 2026-06-05 14:56 **Model:** Claude Sonnet 4 **Records available:** 134 ## Batch Performance | Batch | Total Time | Avg Latency | P95 | Errors | Success | Throughput | Cost | |---|---|---|---|---|---|---|---| | 1 | 2.2s | 2.24s | 2.24s | 0 | 100% | 26.8/min | $0.003 | | 5 | 13.0s | 2.6s | 4.4s | 0 | 100% | 23.1/min | $0.015 | | 10 | 25.4s | 2.54s | 5.53s | 1 | 90% | 23.7/min | $0.03 | | 25 | 62.6s | 2.51s | 6.0s | 2 | 92% | 23.9/min | $0.075 | | 50 | 118.4s | 2.37s | 3.53s | 1 | 98% | 25.3/min | $0.15 | ## What Breaks First - **API rate limits:** ~60 req/min on standard Anthropic tier. Backoff handles this. - **Timeout errors:** Individual calls timeout at ~30s. P95 stays under 5s. - **Cost per 100 requests:** ~$0.30 (Sonnet at ~$0.003/call) - **Cost per 1000/day:** ~$3/day = ~$90/month ## Production Readiness - **24/7 capable?** Yes, with rate limiting (1 req/sec) and backoff. - **Monthly cost at 1000 req/day:** ~$90 (Claude) + $0 (RSS/Google News) + $0 (HuggingFace) - **Monitoring needed:** error rate, p95 latency, cost/day, sentiment distribution drift - **Architecture:** Queue (Redis/SQS) \u2192 Worker pool \u2192 Rate limiter \u2192 Claude \u2192 PostgreSQL"
+  }
+}

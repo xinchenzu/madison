@@ -33,3 +33,12 @@ workflow changes.
 - **Outputs:** Meaningful workflow names such as `data-center-hiring-signal-monitor`, `brand-reputation-news-intelligence-pipeline`, and `accessibility-standards-and-rules-monitor`; refreshed `logs/n8n-pantry-conversion-summary.json`.
 - **Result:** Correction complete; 135 total Madison ingest/gigo/tool scripts compile with zero failures; no credential literals or GIGO/tool network imports found in generated recipe/script surfaces.
 - **Open issues:** Original n8n JSON files remain untouched and may still contain submitted machine paths or embedded credentials; recipes mark those as human-gated `[TO DO]` replacements before live execution.
+
+## 2026-06-06 -- Build comprehensive student project recipes
+
+- **Skill:** Student-level Madison project recipe synthesis from workflows, documentation PDFs, CSVs, HTML reports, and zip outputs.
+- **Inputs:** Pantry A2/A3/A4 PDFs, n8n JSON workflows, CSV outputs, HTML reports, and expanded zip submissions for ten students.
+- **Commands:** Extracted PDF text with bundled `pypdf`, summarized CSVs with bundled `pandas`, parsed HTML/zip artifacts, built per-student evidence caches under `logs/student-recipe-evidence/`, and wrote one stranger-readable recipe per student under `recipes/students/`.
+- **Outputs:** Ten student recipes plus `logs/student-recipes-summary.json`.
+- **Result:** Student recipes created with student name, project purpose, long-term goal, evidence inventory, data sources, verification, quality checks, step-by-step AI/human workflow, reports/logs, phase gates, stop conditions, and `[TO DO]` production gaps.
+- **Open issues:** Several original submissions contain local machine paths, zipped artifacts, row-count discrepancies, or embedded credentials in source workflows; student recipes flag these as `[TO DO]` before production.

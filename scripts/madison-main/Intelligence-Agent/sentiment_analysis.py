@@ -11,6 +11,7 @@ import re
 from collections import Counter
 from scipy import stats
 import json
+import os
 import requests
 from typing import Dict, List, Tuple, Optional
 import warnings
@@ -20,9 +21,8 @@ warnings.filterwarnings('ignore')
 # CONFIGURATION
 # ============================================
 
-# Your actual, legitimate OpenAI API key
-# NOTE: The 401 Unauthorized error indicates an issue with your OpenAI account's billing or key validity.
-OPENAI_API_KEY = 'sk-your_actual_key_here'
+# Configure the API key through the environment, never in source control.
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 SPREADSHEET_ID = '1Uc8ZT586FafrP38p8grNuhP5_lz5wfExqfHrnlvdfQM'
 
 # Colors for visualizations

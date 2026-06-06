@@ -1,0 +1,430 @@
+{
+  "artifacts": {
+    "ranahammad_320831_41716422_Rana_Hammad_Week2.zip": {
+      "name": "ranahammad_320831_41716422_Rana_Hammad_Week2.zip",
+      "path": "pantry/ranahammad_320831_41716422_Rana_Hammad_Week2.zip",
+      "suffix": ".zip",
+      "zip": {
+        "error": null,
+        "file_count": 5,
+        "files": [
+          "Assignment2.png",
+          "Assignment2.1.png",
+          "Assignment2.2.png",
+          "Assignment2.3.png",
+          "Assignment2_Overview.png"
+        ],
+        "interesting": []
+      }
+    },
+    "ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json": {
+      "json": {
+        "error": null,
+        "kind": "n8n_workflow",
+        "name": "Sentinel_A3_DataPipeline",
+        "node_count": 22,
+        "nodes": [
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "When clicking \u2018Execute workflow\u2019",
+            "operation": null,
+            "type": "n8n-nodes-base.manualTrigger",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": "C:\\Users\\Hammad\\.n8n-files\\breaches_raw.csv",
+            "name": "Read/Write Files from Disk",
+            "operation": null,
+            "type": "n8n-nodes-base.readWriteFile",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Extract from File",
+            "operation": null,
+            "type": "n8n-nodes-base.extractFromFile",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Code in JavaScript",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Convert to File",
+            "operation": "toJson",
+            "type": "n8n-nodes-base.convertToFile",
+            "url": null
+          },
+          {
+            "fileName": "C:\\Users\\Hammad\\.n8n-files\\breaches_normalized.json",
+            "fileSelector": null,
+            "name": "Read/Write Files from Disk1",
+            "operation": "write",
+            "type": "n8n-nodes-base.readWriteFile",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "CISA RSS Read",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Code in JavaScript1",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Convert to File1",
+            "operation": "toJson",
+            "type": "n8n-nodes-base.convertToFile",
+            "url": null
+          },
+          {
+            "fileName": "C:\\Users\\Hammad\\.n8n-files\\cisa_normalized.json",
+            "fileSelector": null,
+            "name": "Read/Write Files from Disk2",
+            "operation": "write",
+            "type": "n8n-nodes-base.readWriteFile",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "HTTP Request",
+            "operation": null,
+            "type": "n8n-nodes-base.httpRequest",
+            "url": "https://www.kaggle.com/api/v1/datasets/list"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Code in JavaScript2",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Convert to File2",
+            "operation": "toJson",
+            "type": "n8n-nodes-base.convertToFile",
+            "url": null
+          },
+          {
+            "fileName": "C:\\Users\\Hammad\\.n8n-files\\controls_normalized.json",
+            "fileSelector": null,
+            "name": "Read/Write Files from Disk3",
+            "operation": "write",
+            "type": "n8n-nodes-base.readWriteFile",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Merge",
+            "operation": null,
+            "type": "n8n-nodes-base.merge",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Code in JavaScript3",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Code in JavaScript4",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "If",
+            "operation": null,
+            "type": "n8n-nodes-base.if",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Convert to File3",
+            "operation": "toJson",
+            "type": "n8n-nodes-base.convertToFile",
+            "url": null
+          },
+          {
+            "fileName": "C:\\Users\\Hammad\\.n8n-files\\a3_data_clean.json",
+            "fileSelector": null,
+            "name": "Read/Write Files from Disk4",
+            "operation": "write",
+            "type": "n8n-nodes-base.readWriteFile",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Convert to File4",
+            "operation": "toJson",
+            "type": "n8n-nodes-base.convertToFile",
+            "url": null
+          },
+          {
+            "fileName": "C:\\Users\\Hammad\\.n8n-files\\a3_data_rejects.json",
+            "fileSelector": null,
+            "name": "Read/Write Files from Disk5",
+            "operation": "write",
+            "type": "n8n-nodes-base.readWriteFile",
+            "url": null
+          }
+        ]
+      },
+      "name": "ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json",
+      "path": "pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json",
+      "suffix": ".json"
+    },
+    "ranahammad_320831_41799388_Rana_Hammad_A3_Documentation.pdf": {
+      "name": "ranahammad_320831_41799388_Rana_Hammad_A3_Documentation.pdf",
+      "path": "pantry/ranahammad_320831_41799388_Rana_Hammad_A3_Documentation.pdf",
+      "pdf": {
+        "error": null,
+        "pages": 17,
+        "text": "Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 1 of 17 Sentinel GRC Ops Assignment 3: Multi-Source Data Collection Pipeline INFO 7375 \u2014 Branding & AI Hammad Rana Submission: May 29, 2026 Submission Summary Project: Sentinel GRC Ops \u2014 Madison-pattern multi-agent GRC analyst assistant Pipeline: 3 distinct data sources \u2192 unified schema \u2192 467 normalized records Output: 465 clean records (99.6% pass rate) + 2 isolated rejects with traceable quality flags Build tool: n8n 1.118 (self-hosted, Windows) \u2014 17 nodes, end-to-end automation Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 2 of 17 Contents Section Title Page 1 Project Overview 3 2 Environment Setup 4 3 Data Source Inventory 5 4 Unified Schema & Normalization Strategy 7 5 Workflow Demonstration 9 6 Data Quality Documentation 13 7 Submission Package 15 Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 3 of 17 1. Project Overview 1.1 Project Context Sentinel GRC Ops is a Madison-pattern multi-agent assistant designed for the WHOOP Governance, Risk, and Compliance Analyst role (Boston, LinkedIn Job ID 4412788796). Where Madison automated email triage for a single user, Sentinel routes inbound compliance signals \u2014 vendor questionnaires, breach disclosures, regulatory advisories \u2014 through specialized agents that map them to a 10 -control catalog drawn from ISO 27001 Annex A, SOC 2 Trust Service Criteria, and GDPR Articles. Assignment 3 builds the data layer that power s this system. Three distinct sources were ingested, normalized to a shared schema, deduplicated, and validated. The resulting consolidated dataset becomes the reference corpus the Sentinel-Lite agents will reason over. 1.2 Why These Three Sources Each source was chosen to map onto a specific analytical capability the deployed Sentinel system would require: \u2022 Source 1 \u2014 Historical breach catalog (Information is Beautiful, 417 records): trains the Mapping Agent to recognize attack patterns and sector -specific exposure profiles across more than two decades of incidents. \u2022 Source 2 \u2014 Live dataset registry (Kaggle API, 20 records): demonstrates authenticated programmatic discovery \u2014 the same pattern the Intake Agent uses to identify new evidence sources. \u2022 Source 3 \u2014 Real-time advisory feed (CISA RSS, 30 records): supplies the Memo Agent with current vulnerability context \u2014 CVE IDs, vendor advisories, KEV catalog additions. 1.3 Methodological Choices Three decisions made early shaped the entire pipeline: \u2022 All 417 breach records retained, not trimmed. The Information is Beautiful dataset is pre-curated; arbitrary down sampling would have degraded a quality signal that the researchers had already applied. Volume capping was rejected in favor of quality preservation. \u2022 Severity decoupled from volume. The 1 \u20135 sensitivity scale from Information is Beautiful was mapped to Low/Medium/High/Critical based on the nature of compromised data \u2014 not on the number of records affected. A 100 -record leak of biometric data is more sensitive than a 100 - million-record password dump. Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 4 of 17 \u2022 Three ingestion patterns, deliberately. File read for batch historical data, authenticated HTTP for the API registry, and RSS pulling for the live advisory feed. This proves the right -tool-per-source discipline that the deployed Sentinel architecture requires. 2. Environment Setup 2.1 Tooling Stack Component Version / Source Purpose n8n 1.118 (self-hosted, npm) Visual workflow orchestration Node.js 20.x LTS n8n runtime Kaggle API token User-generated, 2026 cohort Authenticated dataset registry access File workspace C:\\Users\\Hammad\\.n8n-files\\ n8n-restricted I/O directory Project workspace Desktop\\INFO7375\\Project_Sentinel\\ Submission staging Source dataset (S1) Kaggle: balloon race breaches Historical incidents CSV Source endpoint (S2) kaggle.com/api/v1/datasets/list Live dataset registry Source feed (S3) cisa.gov/cybersecurity- advisories/all.xml Live CISA RSS 2.2 Installation Sequence The full install ran from a clean Windows account. n8n was installed globally via npm: Npm install -g n8n n8n start # owner account created at http://localhost:5678 n8n by default restricts filesystem access to a sandboxed directory. Rather than disable that security boundary (which the deployed Sentinel architecture would never do), the source data was staged inside the sandbox: # Sandboxed workspace n8n is allowed to read/write C:\\Users\\Hammad\\.n8n-files\\ \u251c\u2500\u2500 breaches_raw.csv (Source 1 \u2014 staged from Kaggle) \u2514\u2500\u2500 (output files written here at runtime) 2.3 Credential Configuration A Kaggle API token was created via the Account settings page (kaggle.com/settings \u2192 API \u2192 Create New Token). The token downloads as kaggle.json containing a username and key pair. Both values were Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 5 of 17 registered in n8n as a Basic Auth credential named \"Kaggle API\" \u2014 username in the user field, key in the password field \u2014 and referenced from the HTTP Request node by credential reference only. The raw token never appears in the workflow JSON. Security note \u2014 token rotation An earlier screenshot in the build process inadvertently exposed the original token in chat. The token was revoked through the Kaggle interface within minutes, and a fresh token was generated and reconfigured. The exposed token never reached version control. This incident reinforced one of the operational habits the deployed Sentinel system is designed to enforce: credentials in dedicated stores, never in screenshots, never in source. Figure 1: n8n installation and first launch. Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 6 of 17 Figure 2: Owner account creation at localhost:5678. Figure 3: Kaggle API token generation (key redacted). Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 7 of 17 3. Data Source Inventory The pipeline ingests three distinct sources covering different time horizons (historical / catalog / live) and different access patterns (file / authenticated API / RSS feed). Final consolidated yield: 467 normalized records, 99.6% passing schema validation. 3.1 Source Summary # Source Type Records Access pattern 1 Information is Beautiful \u2014 World's Biggest Data Breaches Curated CSV (Kaggle hosted) 417 File read (manual download \u2192 workspace stage) 2 Kaggle Datasets Registry Live REST API 20 GET /api/v1/datasets/list with Basic Auth 3 CISA Cybersecurity Advisories Live RSS feed 30 RSS poll (no auth) 3.2 Source 1 \u2014 Historical Breach Catalog Attribute Value Origin Information is Beautiful \u2014 \"World's Biggest Data Breaches & Hacks\" Distribution Hosted on Kaggle as part of a balloon-race visualization dataset File format CSV (UTF-8, comma-delimited, header row + 1 metadata row stripped) Raw size 141 KB Raw row count 418 (1 metadata row + 417 real records) Normalized output 417 records, 100% conversion success Severity logic 1\u20135 sensitivity_score from source \u2192 Low / Medium / High / Critical Update cadence Source is curated; treated as static snapshot for this assignment 3.3 Source 2 \u2014 Kaggle Datasets Registry Attribute Value Endpoint https://www.kaggle.com/api/v1/datasets/list Authentication Basic Auth (Kaggle username + API key) Query parameters search=cybersecurity, page=1, pageSize=100 Response format JSON array of dataset metadata objects Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 8 of 17 Attribute Value Returned records 20 (Kaggle's default page cap for this endpoint) Normalized output 20 records, 100% conversion success Severity logic Derived from usabilityRating: \u22650.9 \u2192 High, \u22650.7 \u2192 Medium, else Low Update cadence Live \u2014 re-run yields different rankings as Kaggle ranking shifts 3.4 Source 3 \u2014 CISA Advisories Attribute Value Feed URL https://www.cisa.gov/cybersecurity-advisories/all.xml Format RSS 2.0 Authentication None (public feed) Returned items 30 most recent advisories Normalized output 30 records, 100% conversion success Severity heuristic Keyword scan (\"critical\", \"zero-day\", \"actively exploited\") \u2192 High; \"high\" or CVSS \u22657 \u2192 High; else Medium Vendor extraction First word of advisory title (e.g., \"ABB\", \"Schneider\", \"Siemens\") HTML cleanup Stripped from description field; preserved in details.raw_html Update cadence Live \u2014 CISA publishes daily during business hours 3.5 Methodology Note \u2014 Why CISA Only An initial design called for both CISA and Krebs on Security as live advisory sources. During build, Krebs proved unstable to ingest reliably alongside CISA in the same Merge convergence pattern \u2014 the Krebs RSS structure differs from CISA's enough that the normalization layer would have needed a third code path. Rather than ship a fragile second feed for the sake of source-count optics, the pipeline was consolidated on CISA, which produces structured advisories with CVE IDs and vendor attribution \u2014 the exact shape the Memo Agent needs. The Krebs path remains designed-but-deferred; adding it back is a one-node extension. Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 9 of 17 4. Unified Schema & Normalization Strategy 4.1 The Schema All three sources are normalized into a single record shape. The schema separates universal fields (identifiers, timestamps, classifications) from source-specific payload, which is preserved under details for downstream agents that need richer context. { record_id: \"BREACH-2022-0001\" | \"KAGGLE-0000\" | \"RSS-CISA-0000\", source: \"kaggle_breaches\" | \"kaggle_api\" | \"rss_cisa\", source_type: \"historical_breach\" | \"control_catalog\" | \"live_advisory\", collected_at: ISO 8601 timestamp (UTC), date: \"YYYY-MM-DD\" (event date or publication date), entity: Affected entity / vendor / dataset owner, category: \"third-party\" | \"cybersecurity_dataset\" | \"cisa\", severity: \"Low\" | \"Medium\" | \"High\" | \"Critical\" | \"N/A\", description: Plain-text summary, raw_url: Source URL, quality_flags: [] | [\"missing_severity\", \"missing_source_url\", ...], details: { ...source-spec"
+      },
+      "suffix": ".pdf"
+    },
+    "ranahammad_320831_41799389_Rana_Hammad_A3_Demo.pdf": {
+      "name": "ranahammad_320831_41799389_Rana_Hammad_A3_Demo.pdf",
+      "path": "pantry/ranahammad_320831_41799389_Rana_Hammad_A3_Demo.pdf",
+      "pdf": {
+        "error": null,
+        "pages": 17,
+        "text": "Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 1 of 17 Sentinel GRC Ops Assignment 3: Multi-Source Data Collection Pipeline INFO 7375 \u2014 Branding & AI Hammad Rana Submission: May 29, 2026 Submission Summary Project: Sentinel GRC Ops \u2014 Madison-pattern multi-agent GRC analyst assistant Pipeline: 3 distinct data sources \u2192 unified schema \u2192 467 normalized records Output: 465 clean records (99.6% pass rate) + 2 isolated rejects with traceable quality flags Build tool: n8n 1.118 (self-hosted, Windows) \u2014 17 nodes, end-to-end automation Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 2 of 17 Contents Section Title Page 1 Project Overview 3 2 Environment Setup 4 3 Data Source Inventory 5 4 Unified Schema & Normalization Strategy 7 5 Workflow Demonstration 9 6 Data Quality Documentation 13 7 Submission Package 15 Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 3 of 17 1. Project Overview 1.1 Project Context Sentinel GRC Ops is a Madison-pattern multi-agent assistant designed for the WHOOP Governance, Risk, and Compliance Analyst role (Boston, LinkedIn Job ID 4412788796). Where Madison automated email triage for a single user, Sentinel routes inbound compliance signals \u2014 vendor questionnaires, breach disclosures, regulatory advisories \u2014 through specialized agents that map them to a 10 -control catalog drawn from ISO 27001 Annex A, SOC 2 Trust Service Criteria, and GDPR Articles. Assignment 3 builds the data layer that power s this system. Three distinct sources were ingested, normalized to a shared schema, deduplicated, and validated. The resulting consolidated dataset becomes the reference corpus the Sentinel-Lite agents will reason over. 1.2 Why These Three Sources Each source was chosen to map onto a specific analytical capability the deployed Sentinel system would require: \u2022 Source 1 \u2014 Historical breach catalog (Information is Beautiful, 417 records): trains the Mapping Agent to recognize attack patterns and sector -specific exposure profiles across more than two decades of incidents. \u2022 Source 2 \u2014 Live dataset registry (Kaggle API, 20 records): demonstrates authenticated programmatic discovery \u2014 the same pattern the Intake Agent uses to identify new evidence sources. \u2022 Source 3 \u2014 Real-time advisory feed (CISA RSS, 30 records): supplies the Memo Agent with current vulnerability context \u2014 CVE IDs, vendor advisories, KEV catalog additions. 1.3 Methodological Choices Three decisions made early shaped the entire pipeline: \u2022 All 417 breach records retained, not trimmed. The Information is Beautiful dataset is pre-curated; arbitrary down sampling would have degraded a quality signal that the researchers had already applied. Volume capping was rejected in favor of quality preservation. \u2022 Severity decoupled from volume. The 1 \u20135 sensitivity scale from Information is Beautiful was mapped to Low/Medium/High/Critical based on the nature of compromised data \u2014 not on the number of records affected. A 100 -record leak of biometric data is more sensitive than a 100 - million-record password dump. Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 4 of 17 \u2022 Three ingestion patterns, deliberately. File read for batch historical data, authenticated HTTP for the API registry, and RSS pulling for the live advisory feed. This proves the right -tool-per-source discipline that the deployed Sentinel architecture requires. 2. Environment Setup 2.1 Tooling Stack Component Version / Source Purpose n8n 1.118 (self-hosted, npm) Visual workflow orchestration Node.js 20.x LTS n8n runtime Kaggle API token User-generated, 2026 cohort Authenticated dataset registry access File workspace C:\\Users\\Hammad\\.n8n-files\\ n8n-restricted I/O directory Project workspace Desktop\\INFO7375\\Project_Sentinel\\ Submission staging Source dataset (S1) Kaggle: balloon race breaches Historical incidents CSV Source endpoint (S2) kaggle.com/api/v1/datasets/list Live dataset registry Source feed (S3) cisa.gov/cybersecurity- advisories/all.xml Live CISA RSS 2.2 Installation Sequence The full install ran from a clean Windows account. n8n was installed globally via npm: Npm install -g n8n n8n start # owner account created at http://localhost:5678 n8n by default restricts filesystem access to a sandboxed directory. Rather than disable that security boundary (which the deployed Sentinel architecture would never do), the source data was staged inside the sandbox: # Sandboxed workspace n8n is allowed to read/write C:\\Users\\Hammad\\.n8n-files\\ \u251c\u2500\u2500 breaches_raw.csv (Source 1 \u2014 staged from Kaggle) \u2514\u2500\u2500 (output files written here at runtime) 2.3 Credential Configuration A Kaggle API token was created via the Account settings page (kaggle.com/settings \u2192 API \u2192 Create New Token). The token downloads as kaggle.json containing a username and key pair. Both values were Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 5 of 17 registered in n8n as a Basic Auth credential named \"Kaggle API\" \u2014 username in the user field, key in the password field \u2014 and referenced from the HTTP Request node by credential reference only. The raw token never appears in the workflow JSON. Security note \u2014 token rotation An earlier screenshot in the build process inadvertently exposed the original token in chat. The token was revoked through the Kaggle interface within minutes, and a fresh token was generated and reconfigured. The exposed token never reached version control. This incident reinforced one of the operational habits the deployed Sentinel system is designed to enforce: credentials in dedicated stores, never in screenshots, never in source. Figure 1: n8n installation and first launch. Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 6 of 17 Figure 2: Owner account creation at localhost:5678. Figure 3: Kaggle API token generation (key redacted). Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 7 of 17 3. Data Source Inventory The pipeline ingests three distinct sources covering different time horizons (historical / catalog / live) and different access patterns (file / authenticated API / RSS feed). Final consolidated yield: 467 normalized records, 99.6% passing schema validation. 3.1 Source Summary # Source Type Records Access pattern 1 Information is Beautiful \u2014 World's Biggest Data Breaches Curated CSV (Kaggle hosted) 417 File read (manual download \u2192 workspace stage) 2 Kaggle Datasets Registry Live REST API 20 GET /api/v1/datasets/list with Basic Auth 3 CISA Cybersecurity Advisories Live RSS feed 30 RSS poll (no auth) 3.2 Source 1 \u2014 Historical Breach Catalog Attribute Value Origin Information is Beautiful \u2014 \"World's Biggest Data Breaches & Hacks\" Distribution Hosted on Kaggle as part of a balloon-race visualization dataset File format CSV (UTF-8, comma-delimited, header row + 1 metadata row stripped) Raw size 141 KB Raw row count 418 (1 metadata row + 417 real records) Normalized output 417 records, 100% conversion success Severity logic 1\u20135 sensitivity_score from source \u2192 Low / Medium / High / Critical Update cadence Source is curated; treated as static snapshot for this assignment 3.3 Source 2 \u2014 Kaggle Datasets Registry Attribute Value Endpoint https://www.kaggle.com/api/v1/datasets/list Authentication Basic Auth (Kaggle username + API key) Query parameters search=cybersecurity, page=1, pageSize=100 Response format JSON array of dataset metadata objects Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 8 of 17 Attribute Value Returned records 20 (Kaggle's default page cap for this endpoint) Normalized output 20 records, 100% conversion success Severity logic Derived from usabilityRating: \u22650.9 \u2192 High, \u22650.7 \u2192 Medium, else Low Update cadence Live \u2014 re-run yields different rankings as Kaggle ranking shifts 3.4 Source 3 \u2014 CISA Advisories Attribute Value Feed URL https://www.cisa.gov/cybersecurity-advisories/all.xml Format RSS 2.0 Authentication None (public feed) Returned items 30 most recent advisories Normalized output 30 records, 100% conversion success Severity heuristic Keyword scan (\"critical\", \"zero-day\", \"actively exploited\") \u2192 High; \"high\" or CVSS \u22657 \u2192 High; else Medium Vendor extraction First word of advisory title (e.g., \"ABB\", \"Schneider\", \"Siemens\") HTML cleanup Stripped from description field; preserved in details.raw_html Update cadence Live \u2014 CISA publishes daily during business hours 3.5 Methodology Note \u2014 Why CISA Only An initial design called for both CISA and Krebs on Security as live advisory sources. During build, Krebs proved unstable to ingest reliably alongside CISA in the same Merge convergence pattern \u2014 the Krebs RSS structure differs from CISA's enough that the normalization layer would have needed a third code path. Rather than ship a fragile second feed for the sake of source-count optics, the pipeline was consolidated on CISA, which produces structured advisories with CVE IDs and vendor attribution \u2014 the exact shape the Memo Agent needs. The Krebs path remains designed-but-deferred; adding it back is a one-node extension. Sentinel GRC Ops \u2014 Assignment 3 Hammad Rana | INFO 7375 Page 9 of 17 4. Unified Schema & Normalization Strategy 4.1 The Schema All three sources are normalized into a single record shape. The schema separates universal fields (identifiers, timestamps, classifications) from source-specific payload, which is preserved under details for downstream agents that need richer context. { record_id: \"BREACH-2022-0001\" | \"KAGGLE-0000\" | \"RSS-CISA-0000\", source: \"kaggle_breaches\" | \"kaggle_api\" | \"rss_cisa\", source_type: \"historical_breach\" | \"control_catalog\" | \"live_advisory\", collected_at: ISO 8601 timestamp (UTC), date: \"YYYY-MM-DD\" (event date or publication date), entity: Affected entity / vendor / dataset owner, category: \"third-party\" | \"cybersecurity_dataset\" | \"cisa\", severity: \"Low\" | \"Medium\" | \"High\" | \"Critical\" | \"N/A\", description: Plain-text summary, raw_url: Source URL, quality_flags: [] | [\"missing_severity\", \"missing_source_url\", ...], details: { ...source-spec"
+      },
+      "suffix": ".pdf"
+    },
+    "ranahammad_320831_41799390_Rana_Hammad_a3_data_clean.json": {
+      "json": {
+        "error": null,
+        "keys": null,
+        "kind": "list",
+        "length": 465,
+        "sample": [
+          {
+            "_branch": "clean",
+            "category": "cybersecurity_dataset",
+            "collected_at": "2026-05-29T22:04:50.257Z",
+            "date": "2025-03-16",
+            "description": "A comprehensive dataset tracking cybersecurity incidents, attack vectors, threat",
+            "details": {
+              "creator": "Atharva Soundankar",
+              "dataset_title": "\ud83c\udf10 Global Cybersecurity Threats (2015-2024)",
+              "kaggle_ref": "atharvasoundankar/global-cybersecurity-threats-2015-2024",
+              "license": "CC0: Public Domain",
+              "original_last_updated": "2025-03-16T04:23:13.343Z",
+              "owner": "Atharva Soundankar",
+              "owner_ref": "atharvasoundankar",
+              "subtitle": "A comprehensive dataset tracking cybersecurity incidents, attack vectors, threat",
+              "total_bytes": 48178,
+              "usability_rating": 1
+            },
+            "entity": "Atharva Soundankar",
+            "quality_flags": [],
+            "raw_url": "https://www.kaggle.com/datasets/atharvasoundankar/global-cybersecurity-threats-2015-2024",
+            "record_id": "KAGGLE-0000",
+            "severity": "High",
+            "source": "kaggle_api",
+            "source_type": "control_catalog"
+          },
+          {
+            "_branch": "clean",
+            "category": "cybersecurity_dataset",
+            "collected_at": "2026-05-29T22:04:50.257Z",
+            "date": "2026-02-19",
+            "description": "Labeled network traffic data for intrusion and threat detection research",
+            "details": {
+              "creator": "Dhrubang Talukdar",
+              "dataset_title": "Cybersecurity Threat Detection Dataset",
+              "kaggle_ref": "dhrubangtalukdar/cybersecurity-threat-detection-dataset",
+              "license": "MIT",
+              "original_last_updated": "2026-02-19T16:55:02.173Z",
+              "owner": "Dhrubang Talukdar",
+              "owner_ref": "dhrubangtalukdar",
+              "subtitle": "Labeled network traffic data for intrusion and threat detection research",
+              "total_bytes": 395243,
+              "usability_rating": 1
+            },
+            "entity": "Dhrubang Talukdar",
+            "quality_flags": [],
+            "raw_url": "https://www.kaggle.com/datasets/dhrubangtalukdar/cybersecurity-threat-detection-dataset",
+            "record_id": "KAGGLE-0001",
+            "severity": "High",
+            "source": "kaggle_api",
+            "source_type": "control_catalog"
+          }
+        ]
+      },
+      "name": "ranahammad_320831_41799390_Rana_Hammad_a3_data_clean.json",
+      "path": "pantry/ranahammad_320831_41799390_Rana_Hammad_a3_data_clean.json",
+      "suffix": ".json"
+    },
+    "ranahammad_320831_41882330_Rana_Hammad_A4_Demo.pdf": {
+      "name": "ranahammad_320831_41882330_Rana_Hammad_A4_Demo.pdf",
+      "path": "pantry/ranahammad_320831_41882330_Rana_Hammad_A4_Demo.pdf",
+      "pdf": {
+        "error": null,
+        "pages": 6,
+        "text": "\u25a0\u25a0 Sentinel GRC Ops Assignment 4 \u2014 Demo Walkthrough Scale Your Thing & Add Intelligence INFO 7375 \u2014 Branding & AI | Hammad Rana | June 2026 30 0 10 11 $0.00 Total Records Critical High Medium Run Cost Live CISA advisories analyzed with Groq AI \u00b7 ISO 27001 / SOC 2 / GDPR control mapping Built with n8n 2.21.7 + Groq API (llama-3.1-8b-instant) \u00b7 Self-hosted Windows Step 1 \u2014 Workflow Overview The Sentinel_A4_Intelligence workflow contains 6 nodes running end-to-end in under 600ms. Starting from a Manual Trigger, it pulls 30 live CISA advisories, normalizes them, sends each to Groq AI for GRC analysis, parses the AI response, generates an HTML report, and writes it to disk automatically. Manual Trigger RSS Read (CISA) Code JS1 Normalize HTTP Request Groq AI Code JS2 Parse AI HTML Report + Write Kick off on demand Pull 30 live advisories Extract entity, severity, date Send to llama-3.1-8b-instant Extract control mapping + action Save styled briefing to disk Figure 1: Sentinel_A4_Intelligence workflow \u2014 6 nodes, runs in <600ms Key Configuration Details Node Key Setting Value RSS Read Feed URL https://www.cisa.gov/cybersecurity-advisories/all.xml HTTP Request Endpoint https://api.groq.com/openai/v1/chat/completions HTTP Request Model llama-3.1-8b-instant HTTP Request Retry on Fail ON \u2014 3 attempts, 1000ms wait HTTP Request On Error Continue (workflow never crashes) Code JS1 Batch Size slice(0, 10) \u2014 configurable for scale testing Write to Disk Output Path C:/Users/Hammad/.n8n-files/sentinel_grc_briefing.html Step 2 \u2014 AI Intelligence in Action Each CISA advisory is passed to Groq's llama-3.1-8b-instant model with a structured GRC analyst prompt. The AI returns three fields per record: a control mapping, a reasoned severity assessment, and a specific recommended action. This transforms raw RSS data into actionable GRC intelligence. AI Prompt Design System: You are a GRC analyst. Analyze the security record and respond ONLY with valid JSON containing three fields: control_mapping (which ISO 27001 or SOC 2 or GDPR control applies), severity_assessment (your reasoned severity: Low/Medium/High/Critical), and recommended_action (one sentence action item). No explanation, just the JSON object. User: Entity: {entity} | Severity: {severity} | Description: {description} Figure 2: GRC analyst prompt sent to Groq AI for each record Sample AI Responses \u2014 Live CISA Advisories (June 2, 2026) CISA/ATG High Control: ISO 27001 A.12.6.1 (Asset Management) Action: Implement asset management controls to ensure ATG systems are properly inventoried and risk-assessed. Oracle Medium Control: ISO 27001 A.12.6.1 \u2014 Information Security Policies Action: Review and update vulnerability management policy to include CVE-2024-21182 Oracle WebLogic. Palo Alto Medium Control: ISO 27001 A.12.6.1 Action: Implement a vulnerability management process to remediate CVE-2026-0257 in PAN-OS. KMW High Control: AC-2 (ISO 27001) \u2014 Access Control Action: Apply patch or update for KMW KM-IP CCTV Security Cameras to mitigate unauthorized access. Fourth Frontier High Control: ISO 27001 A.12.6.1 + A.12.6.2 Action: Immediately update the Fourth Frontier X Mobile App to prevent unauthorized access to patient data. Figure 3: 5 sample AI-generated GRC analysis cards from the June 2 workflow run Step 3 \u2014 HTML Report Output The final output is a styled HTML briefing report saved to disk automatically. A non-technical compliance officer can open this file directly in any browser \u2014 no JSON parsing, no n8n access required. This is what 'usable output' means. Report Structure Section Content Purpose Header Run date, data source, model used Audit trail \u2014 who ran this and when Stats Cards Total records, Critical, High, Medium counts Executive summary at a glance Advisory Cards 10 color-coded cards with full AI analysis Actionable intelligence per advisory Footer Assignment info, author name Document identification Severity Color Coding CRITICAL HIGH MEDIUM LOW Immediate action required Patch within 48 hours Address within 30 days Monitor and schedule patch Output File Details Property Value File name sentinel_grc_briefing.html Location C:/Users/Hammad/.n8n-files/sentinel_grc_briefing.html Format Self-contained HTML with inline CSS Opens in Any browser \u2014 Chrome, Firefox, Edge Regenerated Every workflow run (overwrites previous) Size ~15-20 KB per 10 records Step 4 \u2014 Scale Testing Results The workflow was run with three different batch sizes to document real performance characteristics. Batch size is controlled by changing slice(0, N) in Code in JavaScript1. Batch Exec Time AI Calls Status Notes 10 records 522\u2013572ms 10/10 Full Success Optimal for production demo 20 records 209ms ~8/20 Rate Limit Hit Groq free tier throttles 30 records 46ms ~2/30 Fallback Active Fast fail, graceful degradation Figure 4: Scale test results \u2014 real execution times from n8n Executions tab Key Finding: Graceful Degradation When Groq's free tier rate limit is hit, the workflow does NOT crash. The error handling (Retry on Fail + Continue on Error) ensures that rate-limited records receive a sensible default control mapping (ISO 27001 A.12.6.1) instead of an error. This is production-grade behavior \u2014 the report is always generated regardless of API availability. Production Cost Estimate Scenario Requests/Day Cost/Month Notes Current (free tier) ~10-30 $0.00 Groq free tier Small team (paid) 100 ~$0.07 $0.08/1M tokens Production (paid) 1,000 ~$0.70 Enterprise ready Replaces manual work \u2014 $50-200/hr GRC analyst hourly rate Step 5 \u2014 Business Value & ROI Without Sentinel GRC Ops With Sentinel GRC Ops GRC analyst manually reviews CISA feed daily Automated: 30 advisories processed in <600ms Manually maps each CVE to ISO 27001 controls AI maps controls automatically with reasoning Writes remediation notes by hand Specific action items generated per vendor 2-3 hours of analyst time per week <1 minute, runs on demand or scheduled $50-200/hr analyst cost $0.00/run on free tier Estimated ROI: Replaces 2-3 hours/week of manual GRC analyst work. At $75/hr average analyst rate, that is $450-$675/month in saved labor \u2014 for a tool that costs $0.07/month to run. Submission Checklist \u2713 Enhanced n8n workflow with AI features \u2713 10+ examples of actual usable outputs (HTML report cards) \u2713 Scale testing results with real numbers \u25a0 Executive summary (Figma \u2014 1 page) \u25a0 Technical architecture diagram (Figma) \u2713 Demo walkthrough (this PDF) \u2713 Word documentation with graphics \u2713 scale_test_results.md with real timing data \u25a0 = Complete in Figma today \u2713 = Already done Sentinel GRC Ops Assignment 4 | INFO 7375 Hammad Rana | June 2026"
+      },
+      "suffix": ".pdf"
+    },
+    "ranahammad_320831_41882331_Rana_Hammad_A4_Documentation.docx": {
+      "name": "ranahammad_320831_41882331_Rana_Hammad_A4_Documentation.docx",
+      "path": "pantry/ranahammad_320831_41882331_Rana_Hammad_A4_Documentation.docx",
+      "suffix": ".docx"
+    },
+    "ranahammad_320831_41882332_Rana_Hammad_A4_Figma.pdf": {
+      "name": "ranahammad_320831_41882332_Rana_Hammad_A4_Figma.pdf",
+      "path": "pantry/ranahammad_320831_41882332_Rana_Hammad_A4_Figma.pdf",
+      "pdf": {
+        "error": null,
+        "pages": 2,
+        "text": ""
+      },
+      "suffix": ".pdf"
+    },
+    "ranahammad_320831_41882334_Rana_Hammad_A4_OutputGallery.pdf": {
+      "name": "ranahammad_320831_41882334_Rana_Hammad_A4_OutputGallery.pdf",
+      "path": "pantry/ranahammad_320831_41882334_Rana_Hammad_A4_OutputGallery.pdf",
+      "pdf": {
+        "error": null,
+        "pages": 3,
+        "text": "\u25a0\u25a0 Sentinel GRC Ops \u2014 Output Gallery 10 Live CISA Advisory Analysis Cards Generated: Jun 02 2026 | n8n + Groq AI 10 0 1 9 Total Records Critical High Medium \u25a0 Security Records & GRC Analysis Example 1 of 10 \u25a0 CISA/ATG Medium \u25a0 RSS-CISA-0001 | \u25a0 2026-06-02 | \u25a0 live_advisory CISA and Partners urge hardening of Automatic Tank Gauge Systems against cyber threats. \u25a0\u25a0 Control Mapping: ISO 27001 A.12.6.1 (Asset Management) \u25a0 Recommended Action: Implement asset management controls to ensure ATG systems are properly inventoried and risk-assessed. Example 2 of 10 \u25a0 CISA/KEV Medium \u25a0 RSS-CISA-0002 | \u25a0 2026-06-02 | \u25a0 live_advisory CISA adds Linux and Android CVEs to Known Exploited Vulnerabilities catalog. \u25a0\u25a0 Control Mapping: ISO 27001 A.12.6.1 (Information security policies) \u25a0 Recommended Action: Implement a vulnerability management process to identify and remediate the newly added vulnerabilities in the KEV Catalog. Example 3 of 10 \u25a0 Oracle Medium \u25a0 RSS-CISA-0003 | \u25a0 2026-06-02 | \u25a0 live_advisory Oracle WebLogic Server unspecified vulnerability added to KEV catalog. \u25a0\u25a0 Control Mapping: ISO 27001 A.12.6.1 - Information Security Policies \u25a0 Recommended Action: Review and update the vulnerability management policy to include the newly added CVE-2024-21182 Oracle WebLogic Server Unspecified Vulnerability. Example 4 of 10 \u25a0 Palo Alto Medium \u25a0 RSS-CISA-0004 | \u25a0 2026-06-02 | \u25a0 live_advisory PAN-OS authentication bypass vulnerability CVE-2026-0257 actively exploited. \u25a0\u25a0 Control Mapping: ISO 27001 A.12.6.1 \u25a0 Recommended Action: Implement a vulnerability management process to identify and remediate the CVE-2026-0257 vulnerability in the PAN-OS system. Example 5 of 10 \u25a0 KMW High \u25a0 RSS-CISA-0005 | \u25a0 2026-06-02 | \u25a0 live_advisory KMW KM-IP CCTV Security Camera contains critical access control vulnerabilities. \u25a0\u25a0 Control Mapping: AC-2 (ISO 27001) - Access Control \u25a0 Recommended Action: Implement a patch or update for KMW CCTV Security Cameras KM-IP to mitigate unauthorized access. Example 6 of 10 \u25a0 ABB Medium \u25a0 RSS-CISA-0006 | \u25a0 2026-06-02 | \u25a0 live_advisory ABB firmware vulnerabilities in industrial control systems require immediate patching. \u25a0\u25a0 Control Mapping: ISO 27001 A.12.6.1 (Information security policies) \u25a0 Recommended Action: ABB should ensure that the firmware update is applied to all affected product versions to prevent potential security breaches. Example 7 of 10 \u25a0 USR-IOT Medium \u25a0 RSS-CISA-0007 | \u25a0 2026-06-02 | \u25a0 live_advisory Jinan USR IOT Technology RS232/485 to Wi-Fi converter contains exploitable vulnerabilities. \u25a0\u25a0 Control Mapping: ISO 27001 A.12.6.1 \u25a0 Recommended Action: Implement a vulnerability management process to identify and remediate the affected versions of Jinan USR IOT Technology Limited devices. Example 8 of 10 \u25a0 ABB (ICS) Medium \u25a0 RSS-CISA-0008 | \u25a0 2026-06-02 | \u25a0 live_advisory ABB information security policy vulnerabilities identified in ICS advisory. \u25a0\u25a0 Control Mapping: ISO 27001 A.12.6.1 \u25a0 Recommended Action: Update affected product versions to the latest patch to mitigate the identified vulnerabilities. Example 9 of 10 \u25a0 Fourth Frontier Medium \u25a0 RSS-CISA-0009 | \u25a0 2026-06-02 | \u25a0 live_advisory Fourth Frontier X Mobile App critical vulnerability risks unauthorized access to patient data. \u25a0\u25a0 Control Mapping: ISO 27001 A.12.6.1 \u25a0 Recommended Action: Implement input validation and sanitization to prevent malicious data from being written to clinical readings. Example 10 of 10 \u25a0 Schneider Medium \u25a0 RSS-CISA-0010 | \u25a0 2026-06-02 | \u25a0 live_advisory Schneider Electric EcostruxureTM Machine Expert HVAC vulnerability requires immediate patching. \u25a0\u25a0 Control Mapping: ISO 27001 A.12.6.1 (Information security policies) \u25a0 Recommended Action: Review and update the vulnerability management policy to ensure it addresses the EcostruxureTM Machine Expert HVAC product vulnerability. Sentinel GRC Ops | Assignment 4 | INFO 7375 | Hammad Rana | June 2026"
+      },
+      "suffix": ".pdf"
+    },
+    "ranahammad_320831_41882335_Rana_Hammad_A4_scale_test_results.md": {
+      "name": "ranahammad_320831_41882335_Rana_Hammad_A4_scale_test_results.md",
+      "path": "pantry/ranahammad_320831_41882335_Rana_Hammad_A4_scale_test_results.md",
+      "suffix": ".md"
+    },
+    "ranahammad_320831_41882337_Rana_Hammad_A4_Workflow.json": {
+      "json": {
+        "error": null,
+        "kind": "n8n_workflow",
+        "name": "Sentinel_A4_Intelligence",
+        "node_count": 7,
+        "nodes": [
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "When clicking \u2018Execute workflow\u2019",
+            "operation": null,
+            "type": "n8n-nodes-base.manualTrigger",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Code in JavaScript1",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "HTTP Request",
+            "operation": null,
+            "type": "n8n-nodes-base.httpRequest",
+            "url": "https://api.groq.com/openai/v1/chat/completions"
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Code in JavaScript2",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "Code in JavaScript3",
+            "operation": null,
+            "type": "n8n-nodes-base.code",
+            "url": null
+          },
+          {
+            "fileName": null,
+            "fileSelector": null,
+            "name": "RSS Read",
+            "operation": null,
+            "type": "n8n-nodes-base.rssFeedRead",
+            "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+          },
+          {
+            "fileName": "C:\\Users\\Hammad\\.n8n-files\\sentinel_grc_briefing.html",
+            "fileSelector": null,
+            "name": "Read/Write Files from Disk",
+            "operation": "write",
+            "type": "n8n-nodes-base.readWriteFile",
+            "url": null
+          }
+        ]
+      },
+      "name": "ranahammad_320831_41882337_Rana_Hammad_A4_Workflow.json",
+      "path": "pantry/ranahammad_320831_41882337_Rana_Hammad_A4_Workflow.json",
+      "suffix": ".json"
+    },
+    "ranahammad_320831_41882338_sentinel_grc_briefing.html": {
+      "html": {
+        "error": null,
+        "text": "Sentinel GRC Briefing \ud83d\udee1\ufe0f Sentinel GRC Ops \u2014 Daily Briefing Generated: Tue Jun 02 2026 | Powered by n8n + Groq AI | WHOOP GRC Analyst Role 10 Total Records 0 Critical 1 High 9 Medium \ud83d\udcca Security Records & GRC Analysis \ud83c\udfe2 CISA/ATG Medium \ud83d\udccb RSS-CISA-0001 | \ud83d\udcc5 2026-06-02 | \ud83d\udd0d live_advisory CISA and Partners urge hardening of Automatic Tank Gauge Systems against cyber threats. \ud83d\uddc2\ufe0f Control Mapping: ISO 27001 A.12.6.1 (Asset Management) \u2705 Recommended Action: Implement asset management controls to ensure Automatic Tank Gauge Systems are properly inventoried and risk-assessed. \ud83c\udfe2 CISA/KEV Medium \ud83d\udccb RSS-CISA-0002 | \ud83d\udcc5 2026-06-02 | \ud83d\udd0d live_advisory CISA adds Linux and Android CVEs to Known Exploited Vulnerabilities catalog. \ud83d\uddc2\ufe0f Control Mapping: ISO 27001 A.12.6.1 (Information security policies) \u2705 Recommended Action: Implement a vulnerability management process to identify and remediate the newly added vulnerabilities in the KEV Catalog. \ud83c\udfe2 Oracle Medium \ud83d\udccb RSS-CISA-0003 | \ud83d\udcc5 2026-06-02 | \ud83d\udd0d live_advisory Oracle WebLogic Server unspecified vulnerability added to KEV catalog. \ud83d\uddc2\ufe0f Control Mapping: ISO 27001 A.12.6.1 - Information Security Policies \u2705 Recommended Action: Review and update the vulnerability management policy to include the newly added CVE-2024-21182 Oracle WebLogic Server Unspecified Vulnerability \ud83c\udfe2 Palo Alto Medium \ud83d\udccb RSS-CISA-0004 | \ud83d\udcc5 2026-06-02 | \ud83d\udd0d live_advisory PAN-OS authentication bypass vulnerability CVE-2026-0257 actively exploited. \ud83d\uddc2\ufe0f Control Mapping: ISO 27001 A.12.6.1 \u2705 Recommended Action: Implement a vulnerability management process to identify and remediate the CVE-2026-0257 vulnerability in the PAN-OS system. \ud83c\udfe2 KMW High \ud83d\udccb RSS-CISA-0005 | \ud83d\udcc5 2026-06-02 | \ud83d\udd0d live_advisory KMW KM-IP CCTV Security Camera contains critical access control vulnerabilities. \ud83d\uddc2\ufe0f Control Mapping: AC-2(ISO 27001) - Access Control \u2705 Recommended Action: Implement a patch or update for KMW CCTV Security Cameras KM-IP to mitigate unauthorized access. \ud83c\udfe2 ABB Medium \ud83d\udccb RSS-CISA-0006 | \ud83d\udcc5 2026-06-02 | \ud83d\udd0d live_advisory ABB firmware vulnerabilities in industrial control systems require immediate patching. \ud83d\uddc2\ufe0f Control Mapping: ISO 27001 A.12.6.1 (Information security policies) \u2705 Recommended Action: ABB should ensure that the firmware update is applied to all affected product versions to prevent potential security breaches. \ud83c\udfe2 USR-IOT Medium \ud83d\udccb RSS-CISA-0007 | \ud83d\udcc5 2026-06-02 | \ud83d\udd0d live_advisory Jinan USR IOT Technology RS232/485 to Wi-Fi converter contains exploitable vulnerabilities. \ud83d\uddc2\ufe0f Control Mapping: ISO 27001 A.12.6.1 \u2705 Recommended Action: Implement a vulnerability management process to identify and remediate the affected versions of Jinan USR IOT Technology Limited devices. \ud83c\udfe2 ABB Medium \ud83d\udccb RSS-CISA-0008 | \ud83d\udcc5 2026-06-02 | \ud83d\udd0d live_advisory ABB information security policy vulnerabilities identified in ICS advisory. \ud83d\uddc2\ufe0f Control Mapping: ISO 27001 A.12.6.1 \u2705 Recommended Action: Update affected product versions to the latest patch to mitigate the identified vulnerabilities. \ud83c\udfe2 Fourth Frontier Medium \ud83d\udccb RSS-CISA-0009 | \ud83d\udcc5 2026-06-02 | \ud83d\udd0d live_advisory Fourth Frontier X Mobile App critical vulnerability risks unauthorized access to patient data. \ud83d\uddc2\ufe0f Control Mapping: ISO 27001 A.12.6.1 \u2705 Recommended Action: Implement input validation and sanitization to prevent malicious data from being written to clinical readings. \ud83c\udfe2 Schneider Medium \ud83d\udccb RSS-CISA-0010 | \ud83d\udcc5 2026-06-02 | \ud83d\udd0d live_advisory Schneider Electric EcostruxureTM Machine Expert HVAC vulnerability requires immediate patching. \ud83d\uddc2\ufe0f Control Mapping: ISO 27001 A.12.6.1 (Information security policies) \u2705 Recommended Action: Review and update the vulnerability management policy to ensure it addresses the EcostruxureTM Machine Expert HVAC product vulnerability Sentinel GRC Ops | Assignment 4 | INFO 7375 | Hammad Rana",
+        "title": "Sentinel GRC Briefing"
+      },
+      "name": "ranahammad_320831_41882338_sentinel_grc_briefing.html",
+      "path": "pantry/ranahammad_320831_41882338_sentinel_grc_briefing.html",
+      "suffix": ".html"
+    }
+  },
+  "files": [
+    "pantry/ranahammad_320831_41716422_Rana_Hammad_Week2.zip",
+    "pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json",
+    "pantry/ranahammad_320831_41799388_Rana_Hammad_A3_Documentation.pdf",
+    "pantry/ranahammad_320831_41799389_Rana_Hammad_A3_Demo.pdf",
+    "pantry/ranahammad_320831_41799390_Rana_Hammad_a3_data_clean.json",
+    "pantry/ranahammad_320831_41882330_Rana_Hammad_A4_Demo.pdf",
+    "pantry/ranahammad_320831_41882331_Rana_Hammad_A4_Documentation.docx",
+    "pantry/ranahammad_320831_41882332_Rana_Hammad_A4_Figma.pdf",
+    "pantry/ranahammad_320831_41882334_Rana_Hammad_A4_OutputGallery.pdf",
+    "pantry/ranahammad_320831_41882335_Rana_Hammad_A4_scale_test_results.md",
+    "pantry/ranahammad_320831_41882337_Rana_Hammad_A4_Workflow.json",
+    "pantry/ranahammad_320831_41882338_sentinel_grc_briefing.html"
+  ],
+  "slug": "rana-hammad",
+  "student": "Hammad Rana"
+}

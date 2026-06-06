@@ -1,0 +1,479 @@
+{
+  "submit/Nguyen_Duc_A4_Documentation.pdf": {
+    "pdf": {
+      "pages": 15,
+      "text": "Assignment 4: Scale Your Thing & Add Intelligence Duc Nguyen - 002325579 INFO7375 - Branding & AI Project: Madison Signal Intelligence I. Project and Problem Madison Signal Intelligence builds on my Assignment 3 public-signal data pipeline. Assignment 3 collected public AI-agent signals from Hacker News, DEV Community, and GitHub, normalized those records into one schema, deduplicated them, and exported a reusable CSV. Assignment 4 turns that collection workflow into an intelligence workflow. Instead of only collecting raw public signals, Madison now uses OpenAI to classify each signal, score its priority, explain why it matters, and recommend an action a founder or engineer could use. II. What Changed From Assignment 3 Assignment 3 output: normalized public-signal data. Assignment 4 output: AI-ranked signal intelligence plus human-readable reports. The new workflow adds: - An OpenAI analysis step for trend clustering, priority scoring, confidence, decision, insight, and recommended action. - Validation before AI processing so missing required fields do not break the run. - Fallback parsing and scoring when the AI response is malformed, missing, or times out. - Human-readable outputs: ranked CSV, HTML report, signal cards, documentation, and professional package PDF. - Scale testing documentation that records what worked, what failed, and what should change for production. III. Data Inventory The workflow keeps the Assignment 3 collection layer and reuses the same three public sources. Source 1: Hacker News via Algolia API - Type: public developer discussion and news posts. - Amount: 60 records. - Purpose: capture developer conversation around AI agents, automation, and AI infrastructure. - Collection method: n8n HTTP Request node. Source 2: DEV Community API - Type: developer articles and technical discussions. - Amount: 60 records. - Purpose: capture public technical writing about AI, agents, MCP, developer workflow, and productivity. - Collection method: n8n HTTP Request node. Source 3: GitHub Repository Search API - Type: open-source repository adoption signal. - Amount: 60 records. - Purpose: capture active AI-agent and AI-infrastructure projects with public engagement signals. - Collection method: n8n HTTP Request node. Data statistics: - 180 public records available from the collection layer. - 12 records used in the final stable AI batch. - 12 AI-scored output records returned with ai_status = ok. - Output files generated as CSV and HTML report. IV. AI Intelligence Layer The AI step uses OpenAI gpt-4o-mini through an n8n HTTP Request node. The prompt asks the model to behave as Madison, an AI-infrastructure public-signal analyst, and return strict JSON. For each selected record, the AI produces: - trend_cluster: agent_frameworks, runtime_reliability, developer_workflow, retrieval_search, security_risk, open_source_adoption, or market_signal. - madison_priority: High, Medium, or Low. - madison_score: number from 0 to 1. - confidence: number from 0 to 1. - ai_decision: one-sentence decision about the signal. - ai_insight: one-sentence explanation of why the signal matters. - recommended_action: one-sentence action a human can take. Example AI output: record: manaflow-ai/cmux trend_cluster: developer_workflow madison_priority: High madison_score: 0.9 confidence: 0.85 ai_decision: This tool enhances the developer experience by integrating AI coding agents. recommended_action: Promote this tool to developers looking for improved coding workflows. This is a clear improvement over Assignment 3 because the workflow now interprets the data and recommends action instead of only exporting raw normalized records. V. Complete Workflow Run Input Data: - Hacker News posts about AI agents. - DEV Community articles about AI, MCP, agents, and developer productivity. - GitHub repositories related to AI agents and infrastructure. - 180 public records available from the Assignment 3-style collection flow. Processing: - Normalize source-specific fields into one schema. - Merge all three source branches. - Deduplicate and validate records. - Select a stable AI batch. - Send the batch to OpenAI for classification, scoring, and recommendations. - Parse strict JSON and use fallback logic if needed. - Generate human-readable CSV and HTML outputs. Final Output: - Nguyen_Duc_A4_Ranked_Signal_Intelligence.csv - Nguyen_Duc_A4_Madison_Report.html - outputs/signal_cards/ with 15 example signal cards - Nguyen_Duc_A4_Final_Submission.pdf - demo_walkthrough.pdf - professional_package/Nguyen_Duc_A4_Professional_Package.pdf Proof Output Exists: The final CSV contains 12 AI-scored rows with ai_status = ok. The HTML report can be opened by a non-technical person and read without opening n8n or parsing raw JSON. VI. Output Gallery The output gallery is built from the final usable outputs. Examples include: 1. manaflow-ai/cmux - High-priority developer workflow signal. 2. risingwavelabs/risingwave - High-priority real-time agent infrastructure signal. 3. How Are Developers Actually Using AI At Work? - Medium-priority developer workflow signal. 4. I Spent 10x Longer Debugging AI Code Than Writing It - Medium-priority developer pain signal. 5. An LLM API call, in 4 GIFs - Low-priority beginner education signal. 6. AI Didn't Make Software Engineering Easier. It Made the Hard Parts Harder. - Medium-priority engineering workflow signal. 7. Asymptote-Labs/agent-beacon - High-priority open-source adoption signal. 8. webMCP Live Demo - Medium-priority web/AI workflow signal. 9. I Used to Get Excited About New Tools Now I Feel Tired. - Medium-priority developer fatigue signal. 10. Engineering Agent Memory - Medium-priority agent framework signal. 11. Does AI Behave Like a Toxic Ex? - Low-priority developer workflow signal. 12. Congrats to the OpenClaw Challenge Winners! - Medium-priority open-source adoption signal. VII. Error Handling What could go wrong: - API rate limit exceeded. - AI returns a malformed response. - Input data missing required fields. - AI timeout or network issue. - Local file write permission failure. How we handle it: - HTTP collection nodes use continueOnFail where appropriate. - Cleanup validates required fields before AI analysis. - The OpenAI HTTP node uses continueOnFail. - Parser node uses try/catch logic. - If AI response is malformed or missing, fallback scoring still produces usable output. - n8n execution history records failed nodes and error details. Production follow-up: - Add retry with exponential backoff. - Send notification when fallback scoring is used. - Store failed records in a separate error-output file. - Monitor latency, timeout rate, and token usage. VIII. Scale Testing Results Single request: 10.62 seconds. 12-record request: 24.25 seconds total. 50-record request: failed at 60 seconds with OpenAI HTTP timeout. Maximum stable AI batch in current setup: 12 records. Full source collection capacity: 180 records. What breaks first: The AI API call breaks first when too many records are sent in one request. The 50-record batch timed out after 60 seconds. The source collection and normalization steps completed, but the AI request became the bottleneck. Production readiness: This could run 24/7 only after production batching is added. The workflow is stable for small batches, but production should split AI work into 10-12 record batches, retry failed batches with exponential backoff, log token usage, and monitor latency and timeout rate. Cost note: Cost per 100 API requests was approximately $0.01 based on the OpenAI usage dashboard for the Assignment 4 testing window. The dashboard showed 102 requests, 22,303 total tokens, and about $0.01 total spend. Token-level per-run cost was not logged inside n8n, so a production version should still log prompt tokens, completion tokens, model name, and computed cost per AI batch. OpenAI usage proof: This screenshot confirms the AI layer used real OpenAI API calls and supports the cost estimate for scale testing. It should be used as evidence together with the n8n workflow run screenshot and final CSV/HTML output. IX. Professional Package The interview-ready package includes: - Executive summary slide in Figma/FigJam. - Technical architecture diagram showing source APIs, normalization, OpenAI analysis, parsing, fallback paths, and final outputs. - Output gallery with usable examples. - Scale testing frame showing single, 12-record, and 50-record results. - Demo walkthrough frame with key talking points and backup plan. - Professional package PDF with five frames. Business value delivered: Madison reduces weekly public-signal research from several hours of manual source review into a ranked intelligence brief that can be scanned in under 10 minutes. X. Excellence Extension: Madison v3 Wow Layer The stable v2 workflow is the core submission. I also created a v3 excellence extension to show how Madison could become a stronger production and portfolio system. The v3 extension covers: - Multi-agent debate: Analyst Agent, Skeptic Agent, Operator Agent, and Judge Agent reason before the final priority decision. - Learning from feedback: a feedback-memory block tells Madison which types of signals humans previously found useful. - Delivery payload: the workflow generates a Slack/email digest preview so the intelligence reaches a human without opening n8n. - ROI math: the business case estimates 3 hours/week of manual review reduced to 10 minutes/week, or about $567/month of time value saved at $50/hour. - Production architecture: batch queue, record_id cache, retry with exponential backoff, token/cost logging, and delivery monitoring. Where the multi-agent output is proven: The multi-agent output is visible in the v3 CSV file, not only in the n8n prompt. Open outputs/Nguyen_Duc_A4_Wow_Ranked_Signal_Intelligence.csv and scroll to columns N through R: - Column N: analyst_vote - Column O: skeptic_risk - Column P: operator_action - Column Q: judge_decision - Column R: feedback_learning_reason These columns show the separate Analyst, Skeptic, Operator, and Judge perspectives for each signal. The field wow_features also marks the run as multi_agent_debate, feedback_learning, fallback_scoring, delivery_payload, and roi_case. Additional files created for the excellence layer: - workflow_v3_wow_extension.json - excellence_upgrade.md - excellence_upgrade_visual.html - roi_calculator.csv - outputs/Nguyen_Duc_A4_Wow_Email_Slack_Digest.html - outputs/slack_payload_preview.json XI. How I Would Discuss the Excellence Layer In the live walkthrough or FigJam discussion, I would explain the v3 layer as an optional production upgrade on top of the stable v2 submission. Key points to highlight: - The base v2 workflow already meets the assignment requirements: it collects public signals, uses OpenAI to classify and score them, handles failures, and outputs readable CSV/HTML files. - The v3 layer is the excellence version: it asks OpenAI to reason through Analyst, Skeptic, Operator, and Judge perspectives before making a final decision. - The proof is in the output CSV, not only the prompt. Columns N through R show analyst_vote, skeptic_risk, operator_action, judge_decision, and feedback_learning_reason for each signal. - The v3 layer also adds a Slack/email digest preview, so the intelligence can reach a human without opening n8n. - The ROI calculation makes the business value concrete: reducing 3 hours/week of manual review to about 10 minutes/week saves about $567/month at a $50/hour time value. - The production architecture is honest about scale: use batch queues, record_id caching, retry with exponential backoff, token/cost logging, and delivery monitoring. One-sentence pitch: Madison v2 proves the workflow works; Madison v3 shows how it could become a production-grade decision-ops system for AI-infrastructure teams. Excellence Screenshot Placeholders Figure E1. Four-agent debate prompt."
+    }
+  },
+  "submit/README.md": {
+    "text": "# INFO7375 Assignment 4 Submit Folder Use this folder as the clean submission package. Zip it later if Canvas needs one upload. ## regular/ Core Assignment 4 package. This is the required 80-point submission. Includes: - `workflow_v2.json` - enhanced n8n workflow with AI intelligence and error fallback - `Nguyen_Duc_A4_Final_Submission.pdf` - complete written package - `Nguyen_Duc_A4_Documentation.pdf` - supporting documentation - `scale_test_results.md` - real scale test numbers - `outputs/Nguyen_Duc_A4_Ranked_Signal_Intelligence.csv` - final usable CSV output - `outputs/Nguyen_Duc_A4_Madison_Report.html` - final human-readable report - `outputs/signal_cards/` - 15 output gallery examples - `professional_package/Nguyen_Duc_A4_Professional_Package.pdf` - executive summary, architecture, walkthrough, evidence board - `professional_package/png/` - PNG frames for FigJam/Figma ## wow_excellence/ Optional excellence layer. Submit or link this to support the competitive 20-point \"wow\" section. Includes: - `workflow_v3_wow_extension.json` - optional v3 workflow with multi-agent debate prompt - `outputs/Nguyen_Duc_A4_Wow_Ranked_Signal_Intelligence.csv` - v3 CSV with agent-output columns N-R - `outputs/Nguyen_Duc_A4_Wow_Multi_Agent_Proof.html` - proof page showing Analyst, Skeptic, Operator, Judge cards - `outputs/Nguyen_Duc_A4_Wow_Email_Slack_Digest.html` - human delivery / Slack-email digest proof This is intentionally minimal. The screenshots and written explanation belong in the Google Doc and FigJam board. ## figma_assets/ Convenience folder for the PNG frames you can paste into FigJam/Figma. These are duplicates of the professional package PNGs so they are easy to find. ## What To Submit In Canvas Recommended: - Figma/FigJam board link - Google Doc or exported PDF link - This `submit/` folder as a zip, or upload the files separately Do not submit Assignment 1-3 files unless the instructor asks for background context."
+  },
+  "submit/regular/outputs/Nguyen_Duc_A4_Madison_Report.html": {
+    "html": {
+      "text": "Madison Signal Intelligence Madison Signal Intelligence Report Built with n8n + AI analysis. Signals analyzed: 12. High-priority signals: 1. Average Madison score: 0.54. Assignment 4 upgrades Madison from a CSV collector into a ranked intelligence workflow. Rank Priority Trend Signal Score Action 1 High security risk Armur-Ai/Pentest-Swarm-AI 0.9 Consider investing in or collaborating with this project to enhance security offerings. 2 Medium developer workflow How Are Developers Actually Using AI At Work? 0.6 Conduct further research on AI integration in developer tools. 3 Medium developer workflow I Spent 10x Longer Debugging AI Code Than Writing It 0.5 Explore solutions to improve debugging processes for AI-generated code. 4 Low developer workflow An LLM API call, in 4 GIFs 0.4 Develop educational resources targeting beginners in LLM usage. 5 Medium developer workflow AI Didn't Make Software Engineering Easier. It Made the Hard Parts Harder. 0.55 Investigate user feedback on AI tools to identify areas for improvement. 6 Low developer workflow Is This How We'll Build Websites Soon? (webMCP Live Demo \ud83d\ude80) 0.45 Monitor trends in web development methodologies for potential adoption. 7 Medium developer workflow I Used to Get Excited About New Tools Now I Feel Tired. 0.5 Engage with developers to understand their needs and concerns about AI tools. 8 Medium agent frameworks Engineering Agent Memory 0.55 Invest in research and development focused on agent memory systems. 9 Low developer workflow Does AI Behave Like a Toxic Ex? 0.4 Consider addressing developer concerns in AI communications. 10 Medium open source adoption Congrats to the OpenClaw Challenge Winners! 0.6 Support and promote community challenges to enhance open-source contributions. 11 Medium developer workflow Rediscovering Domain-Driven Design, one MCP server at a time 0.55 Encourage the adoption of established design patterns in new projects. 12 Medium retrieval search How we're using Gemini Embeddings to build a smarter, community-driven feed on DEV 0.5 Explore the implementation of advanced algorithms in user feeds.",
+      "title": "Madison Signal Intelligence"
+    }
+  },
+  "submit/regular/outputs/Nguyen_Duc_A4_Ranked_Signal_Intelligence.csv": {
+    "csv": {
+      "columns": [
+        "record_id",
+        "source_name",
+        "source_type",
+        "title",
+        "text",
+        "tags",
+        "url",
+        "posted_at",
+        "engagement_score",
+        "trend_cluster",
+        "madison_priority",
+        "madison_score",
+        "confidence",
+        "ai_decision",
+        "ai_insight",
+        "recommended_action",
+        "ai_status",
+        "analyzed_at"
+      ],
+      "sample_rows": [
+        {
+          "ai_decision": "This project represents a significant advancement in automated security testing.",
+          "ai_insight": "The use of AI agents for penetration testing indicates a growing trend in security automation.",
+          "ai_status": "ok",
+          "analyzed_at": "2026-06-05T13:03:18.564Z",
+          "confidence": "0.85",
+          "engagement_score": "2034",
+          "madison_priority": "High",
+          "madison_score": "0.9",
+          "posted_at": "2026-06-05",
+          "recommended_action": "Consider investing in or collaborating with this project to enhance security offerings.",
+          "record_id": "777597786",
+          "source_name": "github",
+          "source_type": "developer_repo",
+          "tags": "Go",
+          "text": "Autonomous penetration testing using a swarm of AI agents. Orchestrates recon, classification, exploitation, and reporting specialists with ReAct reasoning \u2014 supports bug bounty, c...",
+          "title": "Armur-Ai/Pentest-Swarm-AI",
+          "trend_cluster": "security_risk",
+          "url": "https://github.com/Armur-Ai/Pentest-Swarm-AI"
+        },
+        {
+          "ai_decision": "The article highlights the evolving role of AI in developer workflows.",
+          "ai_insight": "Understanding how developers use AI can inform product development and training.",
+          "ai_status": "ok",
+          "analyzed_at": "2026-06-05T13:03:18.564Z",
+          "confidence": "0.7",
+          "engagement_score": "404",
+          "madison_priority": "Medium",
+          "madison_score": "0.6",
+          "posted_at": "2026-05-27",
+          "recommended_action": "Conduct further research on AI integration in developer tools.",
+          "record_id": "3759724",
+          "source_name": "dev_to",
+          "source_type": "developer_article",
+          "tags": "discuss, ai",
+          "text": "JSNation is coming soon, and besides my talk (I\u2019ll drop the link in the comments so I don\u2019t spam you...",
+          "title": "How Are Developers Actually Using AI At Work?",
+          "trend_cluster": "developer_workflow",
+          "url": "https://dev.to/sylwia-lask/how-are-developers-actually-using-ai-at-work-4g9c"
+        },
+        {
+          "ai_decision": "The challenges of debugging AI-generated code are significant.",
+          "ai_insight": "This indicates a need for better tools and practices in AI-assisted programming.",
+          "ai_status": "ok",
+          "analyzed_at": "2026-06-05T13:03:18.564Z",
+          "confidence": "0.65",
+          "engagement_score": "186",
+          "madison_priority": "Medium",
+          "madison_score": "0.5",
+          "posted_at": "2026-05-28",
+          "recommended_action": "Explore solutions to improve debugging processes for AI-generated code.",
+          "record_id": "3771991",
+          "source_name": "dev_to",
+          "source_type": "developer_article",
+          "tags": "ai, programming, productivity, discuss",
+          "text": "AI wrote the code in 30 seconds  Three lines A simple function I prompted it generated I copied It...",
+          "title": "I Spent 10x Longer Debugging AI Code Than Writing It",
+          "trend_cluster": "developer_workflow",
+          "url": "https://dev.to/harsh2644/i-spent-10x-longer-debugging-ai-code-than-writing-it-15h4"
+        }
+      ]
+    }
+  },
+  "submit/regular/outputs/signal_cards/signal_card_01.md": {
+    "text": "# Signal Card 01: aboul3ata/lazyweb-skill **Priority:** Medium **Madison score:** 0.81 **Confidence:** 0.86 **Trend cluster:** Developer Workflow **Source:** github / developer_repo **Original URL:** https://github.com/aboul3ata/lazyweb-skill ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Medium-priority developer workflow signal ## Insight Developer attention is shifting from novelty to useful workflow leverage, so outputs must be actionable and low-friction. ## Recommended Action Track in the ranked table and review for the next weekly brief. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_02.md": {
+    "text": "# Signal Card 02: canyonroad/agentsh **Priority:** Medium **Madison score:** 0.81 **Confidence:** 0.86 **Trend cluster:** Developer Workflow **Source:** github / developer_repo **Original URL:** https://github.com/canyonroad/agentsh ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Medium-priority developer workflow signal ## Insight Developer attention is shifting from novelty to useful workflow leverage, so outputs must be actionable and low-friction. ## Recommended Action Track in the ranked table and review for the next weekly brief. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_03.md": {
+    "text": "# Signal Card 03: statewright/statewright **Priority:** Medium **Madison score:** 0.78 **Confidence:** 0.85 **Trend cluster:** Developer Workflow **Source:** github / developer_repo **Original URL:** https://github.com/statewright/statewright ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Medium-priority developer workflow signal ## Insight Developer attention is shifting from novelty to useful workflow leverage, so outputs must be actionable and low-friction. ## Recommended Action Track in the ranked table and review for the next weekly brief. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_04.md": {
+    "text": "# Signal Card 04: ZhixiangLuo/10xProductivity **Priority:** Medium **Madison score:** 0.77 **Confidence:** 0.85 **Trend cluster:** Runtime Reliability **Source:** github / developer_repo **Original URL:** https://github.com/ZhixiangLuo/10xProductivity ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Medium-priority runtime reliability signal ## Insight Agent systems are exposing runtime and permission friction; Madison can position around dependable operations, not just collection. ## Recommended Action Track in the ranked table and review for the next weekly brief. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_05.md": {
+    "text": "# Signal Card 05: AI Isn't Stupid. Your Setup Is. \ud83d\udee0\ufe0f **Priority:** Medium **Madison score:** 0.67 **Confidence:** 0.81 **Trend cluster:** Developer Workflow **Source:** dev_to / developer_article **Original URL:** https://dev.to/anchildress1/ai-isnt-stupid-your-setup-is-16cn ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Medium-priority developer workflow signal ## Insight Developer attention is shifting from novelty to useful workflow leverage, so outputs must be actionable and low-friction. ## Recommended Action Track in the ranked table and review for the next weekly brief. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_06.md": {
+    "text": "# Signal Card 06: macro-inc/macro **Priority:** Medium **Madison score:** 0.63 **Confidence:** 0.80 **Trend cluster:** Developer Workflow **Source:** github / developer_repo **Original URL:** https://github.com/macro-inc/macro ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Medium-priority developer workflow signal ## Insight Developer attention is shifting from novelty to useful workflow leverage, so outputs must be actionable and low-friction. ## Recommended Action Track in the ranked table and review for the next weekly brief. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_07.md": {
+    "text": "# Signal Card 07: Show HN: Continue? Y/N: A 60-second game about AI agent permission fatigue **Priority:** Medium **Madison score:** 0.63 **Confidence:** 0.80 **Trend cluster:** Runtime Reliability **Source:** hacker_news / discussion **Original URL:** https://llmgame.scalex.dev ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Medium-priority runtime reliability signal ## Insight Agent systems are exposing runtime and permission friction; Madison can position around dependable operations, not just collection. ## Recommended Action Track in the ranked table and review for the next weekly brief. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_08.md": {
+    "text": "# Signal Card 08: SonicBotMan/SoloFlow **Priority:** Medium **Madison score:** 0.63 **Confidence:** 0.80 **Trend cluster:** Agent Frameworks **Source:** github / developer_repo **Original URL:** https://github.com/SonicBotMan/SoloFlow ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Medium-priority agent frameworks signal ## Insight Developers are comparing agent-building stacks, which makes reliability and workflow evidence more valuable than generic AI claims. ## Recommended Action Track in the ranked table and review for the next weekly brief. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_09.md": {
+    "text": "# Signal Card 09: Am I a Developer or Just a Prompt Engineer? **Priority:** Low **Madison score:** 0.59 **Confidence:** 0.78 **Trend cluster:** Developer Workflow **Source:** dev_to / developer_article **Original URL:** https://dev.to/harsh2644/am-i-a-developer-or-just-a-prompt-engineer-4ece ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Low-priority developer workflow signal ## Insight Developer attention is shifting from novelty to useful workflow leverage, so outputs must be actionable and low-friction. ## Recommended Action Archive as context unless the trend repeats across sources. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_10.md": {
+    "text": "# Signal Card 10: daniel3303/Equibles **Priority:** Low **Madison score:** 0.58 **Confidence:** 0.78 **Trend cluster:** Developer Workflow **Source:** github / developer_repo **Original URL:** https://github.com/daniel3303/Equibles ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Low-priority developer workflow signal ## Insight Developer attention is shifting from novelty to useful workflow leverage, so outputs must be actionable and low-friction. ## Recommended Action Archive as context unless the trend repeats across sources. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_11.md": {
+    "text": "# Signal Card 11: How Are Developers Actually Using AI At Work? **Priority:** Low **Madison score:** 0.54 **Confidence:** 0.77 **Trend cluster:** Developer Workflow **Source:** dev_to / developer_article **Original URL:** https://dev.to/sylwia-lask/how-are-developers-actually-using-ai-at-work-4g9c ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Low-priority developer workflow signal ## Insight Developer attention is shifting from novelty to useful workflow leverage, so outputs must be actionable and low-friction. ## Recommended Action Archive as context unless the trend repeats across sources. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_12.md": {
+    "text": "# Signal Card 12: Why I'm Building SaaS in 2026 **Priority:** Low **Madison score:** 0.53 **Confidence:** 0.77 **Trend cluster:** Developer Workflow **Source:** dev_to / developer_article **Original URL:** https://dev.to/arunkant/why-im-building-saas-in-2026-55hn ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Low-priority developer workflow signal ## Insight Developer attention is shifting from novelty to useful workflow leverage, so outputs must be actionable and low-friction. ## Recommended Action Archive as context unless the trend repeats across sources. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_13.md": {
+    "text": "# Signal Card 13: Build Your Own AI Butler - A Scheduled Agent That Runs Itself! **Priority:** Low **Madison score:** 0.53 **Confidence:** 0.77 **Trend cluster:** Developer Workflow **Source:** dev_to / developer_article **Original URL:** https://dev.to/aws/build-your-own-ai-butler-a-scheduled-agent-that-runs-itself-3dmk ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Low-priority developer workflow signal ## Insight Developer attention is shifting from novelty to useful workflow leverage, so outputs must be actionable and low-friction. ## Recommended Action Archive as context unless the trend repeats across sources. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_14.md": {
+    "text": "# Signal Card 14: ClankerNation/OpenAgents **Priority:** Low **Madison score:** 0.52 **Confidence:** 0.76 **Trend cluster:** Developer Workflow **Source:** github / developer_repo **Original URL:** https://github.com/ClankerNation/OpenAgents ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Low-priority developer workflow signal ## Insight Developer attention is shifting from novelty to useful workflow leverage, so outputs must be actionable and low-friction. ## Recommended Action Archive as context unless the trend repeats across sources. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/outputs/signal_cards/signal_card_15.md": {
+    "text": "# Signal Card 15: From Years to Hours **Priority:** Low **Madison score:** 0.52 **Confidence:** 0.76 **Trend cluster:** Runtime Reliability **Source:** dev_to / developer_article **Original URL:** https://dev.to/annaspies/from-years-to-hours-joe ## What Was Produced Madison converted this raw public signal into a ranked intelligence card for founder-stage AI infrastructure research. ## AI Decision Low-priority runtime reliability signal ## Insight Agent systems are exposing runtime and permission friction; Madison can position around dependable operations, not just collection. ## Recommended Action Archive as context unless the trend repeats across sources. ## Quality Check This card is human-readable, source-linked, and ready to screenshot for the Assignment 4 output gallery."
+  },
+  "submit/regular/scale_test_results.md": {
+    "text": "# Scale Testing Results ## Test Setup - Workflow: `Madison Signal Intelligence v2` - Sources: Hacker News, DEV Community, GitHub Search - AI service: OpenAI `gpt-4o-mini` - Final output path: `~/Downloads/info7375-a4-outputs/` - Final AI batch size: 12 top-ranked records ## Scale Testing Results - Single request: 10.62 seconds - 12-record request: 24.25 seconds total - 50-record request: failed at 60 seconds with OpenAI HTTP timeout - Maximum stable AI batch in the current n8n setup: 12 records - Full collection capacity before AI analysis: 180 records from Assignment 3-style source collection ## What Breaks First - API rate limits hit at: not reached during the final 12-record run - Memory issues at: not observed - Timeout errors at: 50 records in one OpenAI prompt, after 60 seconds - Cost per 100 API requests: approximately $0.01 based on the OpenAI usage dashboard for the Assignment 4 testing window. The dashboard showed 102 requests, 22,303 total tokens, and about $0.01 total spend. Token-level per-run cost was not logged inside n8n, so a production version should still log prompt tokens, completion tokens, model name, and computed cost for every AI batch. ## Production Readiness Could this run 24/7? Partially. The workflow can collect, clean, analyze, and export public-signal intelligence, but a production version should not send all records to AI in one request. The 50-record timeout showed that the AI layer needs batching. Required production changes: - Batch AI analysis in groups of 10-12 records. - Add retry with exponential backoff for AI timeouts. - Store per-record error status instead of only n8n execution history. - Add monitoring for OpenAI latency, timeout rate, and cost. - Log OpenAI token usage per run so cost per 100 requests is measured instead of estimated. - Add a notification when a run falls back to deterministic scoring. ## OpenAI Usage Evidence The OpenAI dashboard screenshot should be included in the Google Doc or FigJam board as scale-test evidence. It shows: - 102 API requests - 22,303 total tokens - Approximately $0.01 total spend This confirms the workflow used real OpenAI API calls and supports the cost estimate. ## Final Result The final workflow completed with 12 AI-scored records and `ai_status=ok` for every row. It produced: - `Nguyen_Duc_A4_Ranked_Signal_Intelligence.csv` - `Nguyen_Duc_A4_Madison_Report.html`"
+  },
+  "submit/regular/workflow_v2.json": {
+    "json": {
+      "name": "Madison Signal Intelligence v2",
+      "node_count": 18,
+      "nodes": [
+        {
+          "name": "Manual Trigger",
+          "type": "n8n-nodes-base.manualTrigger",
+          "url": null
+        },
+        {
+          "name": "HTTP - Hacker News",
+          "type": "n8n-nodes-base.httpRequest",
+          "url": "https://hn.algolia.com/api/v1/search_by_date?query=ai%20agents&tags=story&hitsPerPage=60"
+        },
+        {
+          "name": "HTTP - DEV Community",
+          "type": "n8n-nodes-base.httpRequest",
+          "url": "https://dev.to/api/articles?tag=ai&per_page=60&top=30"
+        },
+        {
+          "name": "HTTP - GitHub Search",
+          "type": "n8n-nodes-base.httpRequest",
+          "url": "https://api.github.com/search/repositories?q=ai+agent+in:name,description&sort=updated&order=desc&per_page=60"
+        },
+        {
+          "name": "Normalize - Hacker News",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Normalize - DEV Community",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Normalize - GitHub",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Merge - HN + DEV",
+          "type": "n8n-nodes-base.merge",
+          "url": null
+        },
+        {
+          "name": "Merge - All Sources",
+          "type": "n8n-nodes-base.merge",
+          "url": null
+        },
+        {
+          "name": "Clean, Deduplicate, Validate",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Prepare AI Batch Prompt",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "HTTP - OpenAI Signal Intelligence",
+          "type": "n8n-nodes-base.httpRequest",
+          "url": "https://api.openai.com/v1/chat/completions"
+        },
+        {
+          "name": "Parse AI Response with Fallback",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Convert Intelligence to CSV",
+          "type": "n8n-nodes-base.convertToFile",
+          "url": null
+        },
+        {
+          "name": "Write Intelligence CSV",
+          "type": "n8n-nodes-base.readWriteFile",
+          "url": null
+        },
+        {
+          "name": "Build HTML Report",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Convert HTML Report to File",
+          "type": "n8n-nodes-base.convertToFile",
+          "url": null
+        },
+        {
+          "name": "Write HTML Report",
+          "type": "n8n-nodes-base.readWriteFile",
+          "url": null
+        }
+      ]
+    }
+  },
+  "submit/wow_excellence/outputs/Nguyen_Duc_A4_Wow_Email_Slack_Digest.html": {
+    "html": {
+      "text": "Madison Weekly Signal Digest Madison Weekly Signal Digest Automated delivery payload for Slack/email. Top 3 signals selected from 12 AI-scored records. 1. I Spent 10x Longer Debugging AI Code Than Writing It The signal reveals a pressing issue that warrants immediate attention and potential solutions. Action: Investigate tools or solutions that can alleviate debugging challenges. 2. AI Didn't Make Software Engineering Easier. It Made the Hard Parts Harder. The signal is significant as it points to a widespread issue in the developer community. Action: Identify tools or methodologies that can simplify the engineering process. 3. matthiasn/lotti The signal is valuable but requires further observation to determine its impact on the market. Action: Monitor engagement and community contributions to assess growth potential. Measured ROI Case Manual review: 3 hours/week at $50/hour. Madison review: 10 minutes/week. Estimated value saved: $142/week or $567/month. Production upgrade path: batch queue, cache by record_id, retry failed batches, token/cost logging, and Slack/email delivery.",
+      "title": "Madison Weekly Signal Digest"
+    }
+  },
+  "submit/wow_excellence/outputs/Nguyen_Duc_A4_Wow_Multi_Agent_Proof.html": {
+    "html": {
+      "text": "Madison v3 Multi-Agent Proof :root { --dark:#07100d; --ink:#101817; --paper:#f4f3ef; --green:#62f28f; --muted:#68716c; --white:#fff; } * { box-sizing:border-box; } body { margin:0; background:#202020; font-family:Inter, Arial, sans-serif; color:var(--ink); } .page { width:1280px; margin:0 auto; background:var(--paper); min-height:100vh; } header { background:var(--dark); color:var(--white); padding:34px 46px 30px; } .eyebrow { color:var(--green); font:800 13px Consolas, monospace; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; } h1 { margin:0; font-size:42px; line-height:1.04; } .sub { margin-top:10px; color:#c8cfca; font-size:17px; } .summary { display:grid; grid-template-columns:repeat(5, 1fr); gap:10px; padding:18px 46px; background:#e9ece8; } .metric { background:var(--ink); color:var(--white); border-radius:6px; padding:14px; } .metric strong { display:block; font-size:24px; margin-bottom:4px; } .content { padding:24px 46px 40px; display:grid; gap:16px; } .signal { background:var(--white); border:1px solid #cfd4ce; border-radius:8px; padding:18px; } .signal-head { display:grid; grid-template-columns:54px 1fr; gap:12px; align-items:start; margin-bottom:12px; } .rank { display:inline-flex; align-items:center; justify-content:center; background:var(--ink); color:var(--green); height:42px; width:42px; border-radius:4px; font-weight:900; } h2 { margin:0 0 4px; font-size:20px; } .signal-head p { margin:0; color:var(--muted); font-weight:700; } .agents { display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; } .agent { border-radius:6px; padding:12px; min-height:122px; border:1px solid #d8ded9; } .agent strong { display:block; margin-bottom:8px; font-size:14px; text-transform:uppercase; letter-spacing:.5px; } .agent p { margin:0; font-size:14px; line-height:1.3; } .analyst { background:#eef7ff; } .skeptic { background:#fff1f1; } .operator { background:#f2fff4; } .judge { background:#f8f2ff; } .feedback { margin-top:10px; background:#101817; color:#fff; border-radius:6px; padding:11px 12px; font-size:14px; } .note { padding:0 46px 24px; color:#dbe7df; background:var(--dark); font-size:14px; } // Assignment 4 excellence proof \u00b7 Madison v3 Multi-agent debate output is visible per signal. Each ranked signal includes separate Analyst, Skeptic, Operator, Judge, and feedback-learning fields generated by the v3 workflow. 4 agent perspectives 12 AI-scored rows 5 wow fields $567 monthly ROI case 1 Slack/email digest #1 matthiasn/lotti Medium priority \u00b7 open source adoption \u00b7 score 0.6 Analyst Agent This open-source project could enhance developer productivity by providing a local AI agent for task management. Skeptic Agent The project's long-term viability and community support are uncertain, which could hinder adoption. Operator Agent Monitor engagement and community contributions to assess growth potential. Judge Agent The signal is valuable but requires further observation to determine its impact on the market. Feedback learning: The engagement score is moderate, indicating potential but not overwhelming interest. #2 How Are Developers Actually Using AI At Work? Low priority \u00b7 market signal \u00b7 score 0.3 Analyst Agent The article discusses AI usage among developers but lacks concrete data or actionable insights. Skeptic Agent The engagement score is low, suggesting limited interest or relevance to broader trends. Operator Agent Consider sharing the article for awareness but do not prioritize further analysis. Judge Agent The signal does not provide sufficient strategic value to warrant a higher priority. Feedback learning: The low engagement score aligns with past feedback indicating low priority for similar content. #3 macro-inc/macro Medium priority \u00b7 open source adoption \u00b7 score 0.5 Analyst Agent This unified interface could streamline workflows, making it commercially appealing. Skeptic Agent The complexity of integrating multiple tools may deter potential users. Operator Agent Evaluate user feedback and adoption rates to gauge market interest. Judge Agent The signal shows promise but requires further validation of its market fit. Feedback learning: The potential for improving developer workflows aligns with past feedback on prioritizing such signals. #4 lthoangg/OpenAgentd Medium priority \u00b7 open source adoption \u00b7 score 0.5 Analyst Agent This self-hosted AI agent OS could empower developers to create customized solutions. Skeptic Agent Self-hosting may limit adoption due to technical barriers for less experienced users. Operator Agent Track community engagement and contributions to assess its growth trajectory. Judge Agent The signal is relevant but needs further monitoring to understand its market impact. Feedback learning: The potential for addressing developer workflow friction aligns with previously noted priorities. #5 I Spent 10x Longer Debugging AI Code Than Writing It High priority \u00b7 developer workflow \u00b7 score 0.8 Analyst Agent The significant time spent debugging AI code highlights a critical pain point for developers. Skeptic Agent The anecdotal nature of the experience may not represent broader trends. Operator Agent Investigate tools or solutions that can alleviate debugging challenges. Judge Agent The signal reveals a pressing issue that warrants immediate attention and potential solutions. Feedback learning: The emphasis on developer workflow pain aligns with past feedback to raise priority for such signals. #6 An LLM API call, in 4 GIFs Low priority \u00b7 developer workflow \u00b7 score 0.4 Analyst Agent The GIF format may limit the depth of understanding for developers. Skeptic Agent The content may not provide substantial insights or actionable information. Operator Agent Share the content for light engagement but do not prioritize further analysis. Judge Agent The signal lacks depth and strategic value, leading to a low priority. Feedback learning: The low engagement score suggests limited interest, consistent with past feedback. Proof fields: analyst_vote, skeptic_risk, operator_action, judge_decision, feedback_learning_reason. Source file: Nguyen_Duc_A4_Wow_Ranked_Signal_Intelligence.csv",
+      "title": "Madison v3 Multi-Agent Proof"
+    }
+  },
+  "submit/wow_excellence/outputs/Nguyen_Duc_A4_Wow_Ranked_Signal_Intelligence.csv": {
+    "csv": {
+      "columns": [
+        "record_id",
+        "source_name",
+        "source_type",
+        "title",
+        "text",
+        "tags",
+        "url",
+        "posted_at",
+        "engagement_score",
+        "trend_cluster",
+        "madison_priority",
+        "madison_score",
+        "confidence",
+        "analyst_vote",
+        "skeptic_risk",
+        "operator_action",
+        "judge_decision",
+        "feedback_learning_reason",
+        "ai_decision",
+        "ai_insight",
+        "recommended_action",
+        "ai_status",
+        "analyzed_at",
+        "wow_features"
+      ],
+      "sample_rows": [
+        {
+          "ai_decision": "Prioritize monitoring for further developments.",
+          "ai_insight": "The project aligns with trends in local AI solutions but needs community backing.",
+          "ai_status": "ok",
+          "analyst_vote": "This open-source project could enhance developer productivity by providing a local AI agent for task management.",
+          "analyzed_at": "2026-06-05T17:08:10.195Z",
+          "confidence": "0.7",
+          "engagement_score": "1229",
+          "feedback_learning_reason": "The engagement score is moderate, indicating potential but not overwhelming interest.",
+          "judge_decision": "The signal is valuable but requires further observation to determine its impact on the market.",
+          "madison_priority": "Medium",
+          "madison_score": "0.6",
+          "operator_action": "Monitor engagement and community contributions to assess growth potential.",
+          "posted_at": "2026-06-05",
+          "recommended_action": "Set up alerts for updates and community activity on this repository.",
+          "record_id": "54041620",
+          "skeptic_risk": "The project's long-term viability and community support are uncertain, which could hinder adoption.",
+          "source_name": "github",
+          "source_type": "developer_repo",
+          "tags": "Dart",
+          "text": "Open-source private logbook with a local agentic layer. Long-living AI agents read what you record and propose what to do next. Hardware permitting, the models runs locally too. Ma...",
+          "title": "matthiasn/lotti",
+          "trend_cluster": "open_source_adoption",
+          "url": "https://github.com/matthiasn/lotti",
+          "wow_features": "multi_agent_debate, feedback_learning, fallback_scoring, delivery_payload, roi_case"
+        },
+        {
+          "ai_decision": "Deprioritize this signal for immediate action.",
+          "ai_insight": "The article may reflect a niche interest but lacks broader implications.",
+          "ai_status": "ok",
+          "analyst_vote": "The article discusses AI usage among developers but lacks concrete data or actionable insights.",
+          "analyzed_at": "2026-06-05T17:08:10.196Z",
+          "confidence": "0.5",
+          "engagement_score": "404",
+          "feedback_learning_reason": "The low engagement score aligns with past feedback indicating low priority for similar content.",
+          "judge_decision": "The signal does not provide sufficient strategic value to warrant a higher priority.",
+          "madison_priority": "Low",
+          "madison_score": "0.3",
+          "operator_action": "Consider sharing the article for awareness but do not prioritize further analysis.",
+          "posted_at": "2026-05-27",
+          "recommended_action": "Share the article for informational purposes but focus on higher-engagement signals.",
+          "record_id": "3759724",
+          "skeptic_risk": "The engagement score is low, suggesting limited interest or relevance to broader trends.",
+          "source_name": "dev_to",
+          "source_type": "developer_article",
+          "tags": "discuss, ai",
+          "text": "JSNation is coming soon, and besides my talk (I\u2019ll drop the link in the comments so I don\u2019t spam you...",
+          "title": "How Are Developers Actually Using AI At Work?",
+          "trend_cluster": "market_signal",
+          "url": "https://dev.to/sylwia-lask/how-are-developers-actually-using-ai-at-work-4g9c",
+          "wow_features": "multi_agent_debate, feedback_learning, fallback_scoring, delivery_payload, roi_case"
+        },
+        {
+          "ai_decision": "Monitor for user adoption and feedback.",
+          "ai_insight": "The integration of various tools could address existing workflow pain points.",
+          "ai_status": "ok",
+          "analyst_vote": "This unified interface could streamline workflows, making it commercially appealing.",
+          "analyzed_at": "2026-06-05T17:08:10.196Z",
+          "confidence": "0.6",
+          "engagement_score": "241",
+          "feedback_learning_reason": "The potential for improving developer workflows aligns with past feedback on prioritizing such signals.",
+          "judge_decision": "The signal shows promise but requires further validation of its market fit.",
+          "madison_priority": "Medium",
+          "madison_score": "0.5",
+          "operator_action": "Evaluate user feedback and adoption rates to gauge market interest.",
+          "posted_at": "2026-06-05",
+          "recommended_action": "Conduct a survey to assess interest in this unified interface among developers.",
+          "record_id": "1092407718",
+          "skeptic_risk": "The complexity of integrating multiple tools may deter potential users.",
+          "source_name": "github",
+          "source_type": "developer_repo",
+          "tags": "Rust",
+          "text": "Macro is a unified interface for email, messages, tasks, calls, agents, pull requests, docs, crm \u2014 linked together with shared AI memory.",
+          "title": "macro-inc/macro",
+          "trend_cluster": "open_source_adoption",
+          "url": "https://github.com/macro-inc/macro",
+          "wow_features": "multi_agent_debate, feedback_learning, fallback_scoring, delivery_payload, roi_case"
+        }
+      ]
+    }
+  },
+  "submit/wow_excellence/workflow_v3_wow_extension.json": {
+    "json": {
+      "name": "Madison Signal Intelligence v3 - Wow Extension",
+      "node_count": 21,
+      "nodes": [
+        {
+          "name": "Manual Trigger",
+          "type": "n8n-nodes-base.manualTrigger",
+          "url": null
+        },
+        {
+          "name": "HTTP - Hacker News",
+          "type": "n8n-nodes-base.httpRequest",
+          "url": "https://hn.algolia.com/api/v1/search_by_date?query=ai%20agents&tags=story&hitsPerPage=60"
+        },
+        {
+          "name": "HTTP - DEV Community",
+          "type": "n8n-nodes-base.httpRequest",
+          "url": "https://dev.to/api/articles?tag=ai&per_page=60&top=30"
+        },
+        {
+          "name": "HTTP - GitHub Search",
+          "type": "n8n-nodes-base.httpRequest",
+          "url": "https://api.github.com/search/repositories?q=ai+agent+in:name,description&sort=updated&order=desc&per_page=60"
+        },
+        {
+          "name": "Normalize - Hacker News",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Normalize - DEV Community",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Normalize - GitHub",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Merge - HN + DEV",
+          "type": "n8n-nodes-base.merge",
+          "url": null
+        },
+        {
+          "name": "Merge - All Sources",
+          "type": "n8n-nodes-base.merge",
+          "url": null
+        },
+        {
+          "name": "Clean, Deduplicate, Validate",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Prepare AI Batch Prompt",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "HTTP - OpenAI Signal Intelligence",
+          "type": "n8n-nodes-base.httpRequest",
+          "url": "https://api.openai.com/v1/chat/completions"
+        },
+        {
+          "name": "Parse AI Response with Fallback",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Convert Intelligence to CSV",
+          "type": "n8n-nodes-base.convertToFile",
+          "url": null
+        },
+        {
+          "name": "Write Intelligence CSV",
+          "type": "n8n-nodes-base.readWriteFile",
+          "url": null
+        },
+        {
+          "name": "Build HTML Report",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Convert HTML Report to File",
+          "type": "n8n-nodes-base.convertToFile",
+          "url": null
+        },
+        {
+          "name": "Write HTML Report",
+          "type": "n8n-nodes-base.readWriteFile",
+          "url": null
+        },
+        {
+          "name": "Build Wow Delivery Digest",
+          "type": "n8n-nodes-base.code",
+          "url": null
+        },
+        {
+          "name": "Convert Wow Delivery Digest to File",
+          "type": "n8n-nodes-base.convertToFile",
+          "url": null
+        }
+      ]
+    }
+  }
+}
