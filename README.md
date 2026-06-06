@@ -27,3 +27,12 @@ See [LICENSE.md](LICENSE.md) for permissions and restrictions.
 ## Medhavy / Medhavi Integration
 
 This book is intended for Kindle, online reading, and integration with Medhavy, an AI-powered intelligent textbook system. The static manuscript provides the durable text; Medhavy can provide adaptive practice, glossary support, study paths, and feedback loops.
+
+## Documentation
+
+- [Documentation index](docs/README.md)
+- [Repository structure](docs/repo-structure.md)
+- [Operations](docs/operations.md)
+- [Skills](docs/skills.md)
+- [Workflows](docs/workflows.md)
+- [Figures and assets](docs/figures-and-assets.md)
