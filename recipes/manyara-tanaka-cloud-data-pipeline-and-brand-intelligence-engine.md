@@ -30,11 +30,11 @@ Manyara Tanaka built a Madison Cloud Data Pipeline Module that collects cloud pl
 
 ## Phase Gates
 
-1. Source gate: All required source paths are present or explicitly marked with a typed TODO. Test: `test -f "recipes/students/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md" && rg -n "\[TODO: DEFINE]" "recipes/students/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md" || true`. Human capacity: [TO].
+1. Source gate: All required source paths are present or explicitly marked with a typed TODO. Test: `test -f "recipes/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md" && rg -n "\[TODO: DEFINE]" "recipes/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md" || true`. Human capacity: [TO].
 2. Scope gate: The run declares `sample` mode or an approved live mode before ingest begins. Test: `python3 -m json.tool data/raw/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine/run-envelope.json`. Human capacity: [PF].
 3. Data-shape gate: Every raw and verified JSON output parses before downstream scripts run. Test: `find data/raw/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine data/verified/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine -name "*.json" -print -exec python3 -m json.tool {} \;`. Human capacity: [PA].
-4. Script-readiness gate: Every step script exists or is represented by a typed development TODO. Test: `test -f scripts/ingest/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine-ingest-inputs.py || rg --fixed-strings "[TODO: DEV]" "recipes/students/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md"`. Human capacity: [IJ].
-5. Approval gate: Live network calls, external writes, credentials, production databases, emails, dashboards, publishing, or model calls with sensitive data require an approval record. Test: `test -f logs/gate-decisions/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine-approval.json || rg --fixed-strings "[TODO: APPROVE]" "recipes/students/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md"`. Human capacity: [EI].
+4. Script-readiness gate: Every step script exists or is represented by a typed development TODO. Test: `test -f scripts/ingest/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine-ingest-inputs.py || rg --fixed-strings "[TODO: DEV]" "recipes/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md"`. Human capacity: [IJ].
+5. Approval gate: Live network calls, external writes, credentials, production databases, emails, dashboards, publishing, or model calls with sensitive data require an approval record. Test: `test -f logs/gate-decisions/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine-approval.json || rg --fixed-strings "[TODO: APPROVE]" "recipes/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md"`. Human capacity: [EI].
 6. Report gate: Agent log and human report are written with the required fields and sections. Test: `test -f logs/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine-[DATE].json && test -f reports/generated/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine-[DATE].md`. Human capacity: [TO].
 
 ## Steps
@@ -146,7 +146,7 @@ Sample mode (no live network calls, no writes):
 
 | Source | Verification command | Notes |
 |---|---|---|
-| `recipes/students/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md` | `test -f "recipes/students/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md"` | Current recipe file used as spec-first provenance. |
+| `recipes/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md` | `test -f "recipes/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md"` | Current recipe file used as spec-first provenance. |
 
 ## Existing Recipe Notes Preserved For Implementation
 
@@ -156,7 +156,7 @@ Manyara Tanaka built a Madison Cloud Data Pipeline Module that collects cloud pl
 
 1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "pantry/manyaratanaka_312461_41801533_Tanaka_A3_Workflow.json"`; if this fails, close [TODO: DATA SOURCE] by restoring or moving the workflow JSON before live mode.
    Human capacity: [PF].
-2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/students/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md`.
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine.md`.
    Human capacity: [PA].
 3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run manyara-tanaka-cloud-data-pipeline-and-brand-intelligence-engine --mode dialogic --sample`.
    Human capacity: [TO].

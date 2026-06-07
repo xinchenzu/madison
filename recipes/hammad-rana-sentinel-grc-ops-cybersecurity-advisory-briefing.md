@@ -28,11 +28,11 @@ Hammad Rana built Sentinel GRC Ops, a Madison-pattern multi-agent assistant for 
 
 ## Phase Gates
 
-1. Source gate: All required source paths are present or explicitly marked with a typed TODO. Test: `test -f "recipes/students/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md" && rg -n "\[TODO: DEFINE]" "recipes/students/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md" || true`. Human capacity: [TO].
+1. Source gate: All required source paths are present or explicitly marked with a typed TODO. Test: `test -f "recipes/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md" && rg -n "\[TODO: DEFINE]" "recipes/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md" || true`. Human capacity: [TO].
 2. Scope gate: The run declares `sample` mode or an approved live mode before ingest begins. Test: `python3 -m json.tool data/raw/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing/run-envelope.json`. Human capacity: [PF].
 3. Data-shape gate: Every raw and verified JSON output parses before downstream scripts run. Test: `find data/raw/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing data/verified/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing -name "*.json" -print -exec python3 -m json.tool {} \;`. Human capacity: [PA].
-4. Script-readiness gate: Every step script exists or is represented by a typed development TODO. Test: `test -f scripts/ingest/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing-ingest-inputs.py || rg --fixed-strings "[TODO: DEV]" "recipes/students/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md"`. Human capacity: [IJ].
-5. Approval gate: Live network calls, external writes, credentials, production databases, emails, dashboards, publishing, or model calls with sensitive data require an approval record. Test: `test -f logs/gate-decisions/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing-approval.json || rg --fixed-strings "[TODO: APPROVE]" "recipes/students/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md"`. Human capacity: [EI].
+4. Script-readiness gate: Every step script exists or is represented by a typed development TODO. Test: `test -f scripts/ingest/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing-ingest-inputs.py || rg --fixed-strings "[TODO: DEV]" "recipes/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md"`. Human capacity: [IJ].
+5. Approval gate: Live network calls, external writes, credentials, production databases, emails, dashboards, publishing, or model calls with sensitive data require an approval record. Test: `test -f logs/gate-decisions/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing-approval.json || rg --fixed-strings "[TODO: APPROVE]" "recipes/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md"`. Human capacity: [EI].
 6. Report gate: Agent log and human report are written with the required fields and sections. Test: `test -f logs/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing-[DATE].json && test -f reports/generated/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing-[DATE].md`. Human capacity: [TO].
 
 ## Steps
@@ -144,7 +144,7 @@ Sample mode (no live network calls, no writes):
 
 | Source | Verification command | Notes |
 |---|---|---|
-| `recipes/students/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md` | `test -f "recipes/students/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md"` | Current recipe file used as spec-first provenance. |
+| `recipes/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md` | `test -f "recipes/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md"` | Current recipe file used as spec-first provenance. |
 
 ## Existing Recipe Notes Preserved For Implementation
 
@@ -154,7 +154,7 @@ Hammad Rana built Sentinel GRC Ops, a Madison-pattern multi-agent assistant for 
 
 1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json"`.
    Human capacity: [PF].
-2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/students/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md`.
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md`.
    Human capacity: [PA].
 3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing --mode dialogic --sample`.
    Human capacity: [TO].

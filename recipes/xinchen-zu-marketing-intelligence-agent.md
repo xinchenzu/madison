@@ -32,11 +32,11 @@ Xinchen Zu built a Marketing Intelligence Agent that collects marketing and soci
 
 ## Phase Gates
 
-1. Source gate: All required source paths are present or explicitly marked with a typed TODO. Test: `test -f "recipes/students/xinchen-zu-marketing-intelligence-agent.md" && rg -n "\[TODO: DEFINE]" "recipes/students/xinchen-zu-marketing-intelligence-agent.md" || true`. Human capacity: [TO].
+1. Source gate: All required source paths are present or explicitly marked with a typed TODO. Test: `test -f "recipes/xinchen-zu-marketing-intelligence-agent.md" && rg -n "\[TODO: DEFINE]" "recipes/xinchen-zu-marketing-intelligence-agent.md" || true`. Human capacity: [TO].
 2. Scope gate: The run declares `sample` mode or an approved live mode before ingest begins. Test: `python3 -m json.tool data/raw/xinchen-zu-marketing-intelligence-agent/run-envelope.json`. Human capacity: [PF].
 3. Data-shape gate: Every raw and verified JSON output parses before downstream scripts run. Test: `find data/raw/xinchen-zu-marketing-intelligence-agent data/verified/xinchen-zu-marketing-intelligence-agent -name "*.json" -print -exec python3 -m json.tool {} \;`. Human capacity: [PA].
-4. Script-readiness gate: Every step script exists or is represented by a typed development TODO. Test: `test -f scripts/ingest/xinchen-zu-marketing-intelligence-agent-ingest-inputs.py || rg --fixed-strings "[TODO: DEV]" "recipes/students/xinchen-zu-marketing-intelligence-agent.md"`. Human capacity: [IJ].
-5. Approval gate: Live network calls, external writes, credentials, production databases, emails, dashboards, publishing, or model calls with sensitive data require an approval record. Test: `test -f logs/gate-decisions/xinchen-zu-marketing-intelligence-agent-approval.json || rg --fixed-strings "[TODO: APPROVE]" "recipes/students/xinchen-zu-marketing-intelligence-agent.md"`. Human capacity: [EI].
+4. Script-readiness gate: Every step script exists or is represented by a typed development TODO. Test: `test -f scripts/ingest/xinchen-zu-marketing-intelligence-agent-ingest-inputs.py || rg --fixed-strings "[TODO: DEV]" "recipes/xinchen-zu-marketing-intelligence-agent.md"`. Human capacity: [IJ].
+5. Approval gate: Live network calls, external writes, credentials, production databases, emails, dashboards, publishing, or model calls with sensitive data require an approval record. Test: `test -f logs/gate-decisions/xinchen-zu-marketing-intelligence-agent-approval.json || rg --fixed-strings "[TODO: APPROVE]" "recipes/xinchen-zu-marketing-intelligence-agent.md"`. Human capacity: [EI].
 6. Report gate: Agent log and human report are written with the required fields and sections. Test: `test -f logs/xinchen-zu-marketing-intelligence-agent-[DATE].json && test -f reports/generated/xinchen-zu-marketing-intelligence-agent-[DATE].md`. Human capacity: [TO].
 
 ## Steps
@@ -148,7 +148,7 @@ Sample mode (no live network calls, no writes):
 
 | Source | Verification command | Notes |
 |---|---|---|
-| `recipes/students/xinchen-zu-marketing-intelligence-agent.md` | `test -f "recipes/students/xinchen-zu-marketing-intelligence-agent.md"` | Current recipe file used as spec-first provenance. |
+| `recipes/xinchen-zu-marketing-intelligence-agent.md` | `test -f "recipes/xinchen-zu-marketing-intelligence-agent.md"` | Current recipe file used as spec-first provenance. |
 
 ## Existing Recipe Notes Preserved For Implementation
 
@@ -158,7 +158,7 @@ Xinchen Zu built a Marketing Intelligence Agent that collects marketing and soci
 
 1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "pantry/zuxinchen_405407_41801846_Zu_Xinchen_A3_Workflow.json"`.
    Human capacity: [PF].
-2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/students/xinchen-zu-marketing-intelligence-agent.md`.
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/xinchen-zu-marketing-intelligence-agent.md`.
    Human capacity: [PA].
 3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run xinchen-zu-marketing-intelligence-agent --mode dialogic --sample`.
    Human capacity: [TO].

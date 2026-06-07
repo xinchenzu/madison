@@ -29,11 +29,11 @@ Gayatri Pokale built a Market Intelligence Agent that monitors business, Amazon,
 
 ## Phase Gates
 
-1. Source gate: All required source paths are present or explicitly marked with a typed TODO. Test: `test -f "recipes/students/gayatri-pokale-market-intelligence-agent-sector-email-routing.md" && rg -n "\[TODO: DEFINE]" "recipes/students/gayatri-pokale-market-intelligence-agent-sector-email-routing.md" || true`. Human capacity: [TO].
+1. Source gate: All required source paths are present or explicitly marked with a typed TODO. Test: `test -f "recipes/gayatri-pokale-market-intelligence-agent-sector-email-routing.md" && rg -n "\[TODO: DEFINE]" "recipes/gayatri-pokale-market-intelligence-agent-sector-email-routing.md" || true`. Human capacity: [TO].
 2. Scope gate: The run declares `sample` mode or an approved live mode before ingest begins. Test: `python3 -m json.tool data/raw/gayatri-pokale-market-intelligence-agent-sector-email-routing/run-envelope.json`. Human capacity: [PF].
 3. Data-shape gate: Every raw and verified JSON output parses before downstream scripts run. Test: `find data/raw/gayatri-pokale-market-intelligence-agent-sector-email-routing data/verified/gayatri-pokale-market-intelligence-agent-sector-email-routing -name "*.json" -print -exec python3 -m json.tool {} \;`. Human capacity: [PA].
-4. Script-readiness gate: Every step script exists or is represented by a typed development TODO. Test: `test -f scripts/ingest/gayatri-pokale-market-intelligence-agent-sector-email-routing-ingest-inputs.py || rg --fixed-strings "[TODO: DEV]" "recipes/students/gayatri-pokale-market-intelligence-agent-sector-email-routing.md"`. Human capacity: [IJ].
-5. Approval gate: Live network calls, external writes, credentials, production databases, emails, dashboards, publishing, or model calls with sensitive data require an approval record. Test: `test -f logs/gate-decisions/gayatri-pokale-market-intelligence-agent-sector-email-routing-approval.json || rg --fixed-strings "[TODO: APPROVE]" "recipes/students/gayatri-pokale-market-intelligence-agent-sector-email-routing.md"`. Human capacity: [EI].
+4. Script-readiness gate: Every step script exists or is represented by a typed development TODO. Test: `test -f scripts/ingest/gayatri-pokale-market-intelligence-agent-sector-email-routing-ingest-inputs.py || rg --fixed-strings "[TODO: DEV]" "recipes/gayatri-pokale-market-intelligence-agent-sector-email-routing.md"`. Human capacity: [IJ].
+5. Approval gate: Live network calls, external writes, credentials, production databases, emails, dashboards, publishing, or model calls with sensitive data require an approval record. Test: `test -f logs/gate-decisions/gayatri-pokale-market-intelligence-agent-sector-email-routing-approval.json || rg --fixed-strings "[TODO: APPROVE]" "recipes/gayatri-pokale-market-intelligence-agent-sector-email-routing.md"`. Human capacity: [EI].
 6. Report gate: Agent log and human report are written with the required fields and sections. Test: `test -f logs/gayatri-pokale-market-intelligence-agent-sector-email-routing-[DATE].json && test -f reports/generated/gayatri-pokale-market-intelligence-agent-sector-email-routing-[DATE].md`. Human capacity: [TO].
 
 ## Steps
@@ -145,7 +145,7 @@ Sample mode (no live network calls, no writes):
 
 | Source | Verification command | Notes |
 |---|---|---|
-| `recipes/students/gayatri-pokale-market-intelligence-agent-sector-email-routing.md` | `test -f "recipes/students/gayatri-pokale-market-intelligence-agent-sector-email-routing.md"` | Current recipe file used as spec-first provenance. |
+| `recipes/gayatri-pokale-market-intelligence-agent-sector-email-routing.md` | `test -f "recipes/gayatri-pokale-market-intelligence-agent-sector-email-routing.md"` | Current recipe file used as spec-first provenance. |
 
 ## Existing Recipe Notes Preserved For Implementation
 
@@ -155,7 +155,7 @@ Gayatri Pokale built a Market Intelligence Agent that monitors business, Amazon,
 
 1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "pantry/pokalegayatri_333110_41799405_Pokale_Gayatri_A3_Workflow.json"`; if this fails, close [TODO: DATA SOURCE] by restoring or moving the workflow JSON before live mode.
    Human capacity: [PF].
-2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/students/gayatri-pokale-market-intelligence-agent-sector-email-routing.md`.
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/gayatri-pokale-market-intelligence-agent-sector-email-routing.md`.
    Human capacity: [PA].
 3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run gayatri-pokale-market-intelligence-agent-sector-email-routing --mode dialogic --sample`.
    Human capacity: [TO].

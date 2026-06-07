@@ -34,11 +34,11 @@ Vaibhav Singh built an open-source Madison Intelligence Agent for brand reputati
 
 ## Phase Gates
 
-1. Source gate: All required source paths are present or explicitly marked with a typed TODO. Test: `test -f "recipes/students/vaibhav-singh-brand-reputation-intelligence-agent.md" && rg -n "\[TODO: DEFINE]" "recipes/students/vaibhav-singh-brand-reputation-intelligence-agent.md" || true`. Human capacity: [TO].
+1. Source gate: All required source paths are present or explicitly marked with a typed TODO. Test: `test -f "recipes/vaibhav-singh-brand-reputation-intelligence-agent.md" && rg -n "\[TODO: DEFINE]" "recipes/vaibhav-singh-brand-reputation-intelligence-agent.md" || true`. Human capacity: [TO].
 2. Scope gate: The run declares `sample` mode or an approved live mode before ingest begins. Test: `python3 -m json.tool data/raw/vaibhav-singh-brand-reputation-intelligence-agent/run-envelope.json`. Human capacity: [PF].
 3. Data-shape gate: Every raw and verified JSON output parses before downstream scripts run. Test: `find data/raw/vaibhav-singh-brand-reputation-intelligence-agent data/verified/vaibhav-singh-brand-reputation-intelligence-agent -name "*.json" -print -exec python3 -m json.tool {} \;`. Human capacity: [PA].
-4. Script-readiness gate: Every step script exists or is represented by a typed development TODO. Test: `test -f scripts/ingest/vaibhav-singh-brand-reputation-intelligence-agent-ingest-inputs.py || rg --fixed-strings "[TODO: DEV]" "recipes/students/vaibhav-singh-brand-reputation-intelligence-agent.md"`. Human capacity: [IJ].
-5. Approval gate: Live network calls, external writes, credentials, production databases, emails, dashboards, publishing, or model calls with sensitive data require an approval record. Test: `test -f logs/gate-decisions/vaibhav-singh-brand-reputation-intelligence-agent-approval.json || rg --fixed-strings "[TODO: APPROVE]" "recipes/students/vaibhav-singh-brand-reputation-intelligence-agent.md"`. Human capacity: [EI].
+4. Script-readiness gate: Every step script exists or is represented by a typed development TODO. Test: `test -f scripts/ingest/vaibhav-singh-brand-reputation-intelligence-agent-ingest-inputs.py || rg --fixed-strings "[TODO: DEV]" "recipes/vaibhav-singh-brand-reputation-intelligence-agent.md"`. Human capacity: [IJ].
+5. Approval gate: Live network calls, external writes, credentials, production databases, emails, dashboards, publishing, or model calls with sensitive data require an approval record. Test: `test -f logs/gate-decisions/vaibhav-singh-brand-reputation-intelligence-agent-approval.json || rg --fixed-strings "[TODO: APPROVE]" "recipes/vaibhav-singh-brand-reputation-intelligence-agent.md"`. Human capacity: [EI].
 6. Report gate: Agent log and human report are written with the required fields and sections. Test: `test -f logs/vaibhav-singh-brand-reputation-intelligence-agent-[DATE].json && test -f reports/generated/vaibhav-singh-brand-reputation-intelligence-agent-[DATE].md`. Human capacity: [TO].
 
 ## Steps
@@ -150,7 +150,7 @@ Sample mode (no live network calls, no writes):
 
 | Source | Verification command | Notes |
 |---|---|---|
-| `recipes/students/vaibhav-singh-brand-reputation-intelligence-agent.md` | `test -f "recipes/students/vaibhav-singh-brand-reputation-intelligence-agent.md"` | Current recipe file used as spec-first provenance. |
+| `recipes/vaibhav-singh-brand-reputation-intelligence-agent.md` | `test -f "recipes/vaibhav-singh-brand-reputation-intelligence-agent.md"` | Current recipe file used as spec-first provenance. |
 
 ## Existing Recipe Notes Preserved For Implementation
 
@@ -160,7 +160,7 @@ Vaibhav Singh built an open-source Madison Intelligence Agent for brand reputati
 
 1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "pantry/singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json"`; if this fails, close [TODO: DATA SOURCE] by restoring or moving the workflow JSON before live mode.
    Human capacity: [PF].
-2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/students/vaibhav-singh-brand-reputation-intelligence-agent.md`.
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/vaibhav-singh-brand-reputation-intelligence-agent.md`.
    Human capacity: [PA].
 3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run vaibhav-singh-brand-reputation-intelligence-agent --mode dialogic --sample`.
    Human capacity: [TO].
