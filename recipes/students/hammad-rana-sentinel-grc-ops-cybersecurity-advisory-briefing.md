@@ -1,77 +1,76 @@
 # Hammad Rana - Sentinel GRC Ops Cybersecurity Advisory Briefing
 
-## What This Project Is
+## Purpose
 
 Hammad Rana built Sentinel GRC Ops, a Madison-pattern multi-agent assistant for governance, risk, and compliance. Assignment 3 created a 467-record data layer from historical breach data, Kaggle cybersecurity dataset discovery, and CISA advisories, producing 465 clean records and 2 rejects. Assignment 4 focused on live CISA advisories, using Groq AI to map each advisory to ISO 27001 / SOC 2 / GDPR-style controls and generate a browser-readable GRC briefing.
 
-## Long-Term Goal
+## Source Inventory
 
-The project aligns with a WHOOP Governance, Risk, and Compliance Analyst role. The long-term goal is an assistant that routes vendor questionnaires, breach disclosures, and regulatory advisories through specialized agents mapped to a 10-control catalog from ISO 27001 Annex A, SOC 2 Trust Service Criteria, and GDPR Articles.
+| Source Node | Node Type | Source URL or Path | Human Check |
+|---|---|---|---|
+| Information is Beautiful breach catalog | Local CSV / historical breach data | [TODO: DATA SOURCE] Confirm source URL/path for Information is Beautiful breach catalog. | Verify source license, sensitivity mapping, and no arbitrary downsampling. |
+| Kaggle cybersecurity dataset catalog API | Authenticated/public API pattern | [TODO: DATA SOURCE] Confirm source URL/path for Kaggle cybersecurity dataset catalog API. | Credential/auth boundary must be approved; verify dataset relevance. |
+| CISA Cybersecurity Advisories RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for CISA Cybersecurity Advisories RSS. | Verify CISA URL, dates, vendors, severity, CVE/KEV fields. |
+| Groq llama-3.1-8b-instant | AI service | [TODO: DATA SOURCE] Confirm source URL/path for Groq llama-3.1-8b-instant. | Approve API key, prompt, control catalog, retry behavior. |
 
-## Evidence Used To Build This Recipe
+## Node Classification
 
-| Artifact | What it contributes |
-| --- | --- |
-| A3 documentation/demo PDFs | Project context, three-source inventory, 467 normalized records, 99.6% pass rate, quality flags. |
-| A3 clean JSON | Clean cybersecurity/GRC data output. |
-| A4 demo PDF | Six-node live CISA workflow, Groq API, 10 advisory cards, under-600ms run, retry/on-error settings. |
-| A4 output gallery PDF | 10 generated CISA advisory analysis cards with control mapping and recommended actions. |
-| A4 HTML briefing | Browser-readable Sentinel GRC briefing. |
+| Node Name | Node Type | Classification |
+|---|---|---|
+| Original workflow node map | [TODO: DEV] Parse original n8n JSON. | [TODO: DEFINE] Classify parsed nodes as ingest, gigo, tool, conductor, or report. |
 
-## Data Sources And Verification
+## Inputs
 
-| Source | Type | Records / Scope | Use In Project | Verification / Human Check |
-| --- | --- | --- | --- | --- |
-| Information is Beautiful breach catalog | Local CSV / historical breach data | 417 records retained in A3 docs | Historical breach patterns and sector exposure profiles. | Verify source license, sensitivity mapping, and no arbitrary downsampling. |
-| Kaggle cybersecurity dataset catalog API | Authenticated/public API pattern | 20 records in A3 docs | Programmatic discovery of cybersecurity evidence sources. | Credential/auth boundary must be approved; verify dataset relevance. |
-| CISA Cybersecurity Advisories RSS | Public RSS | 30 records in A3; 10 live records analyzed in A4 demo | Current vulnerability/advisory context. | Verify CISA URL, dates, vendors, severity, CVE/KEV fields. |
-| Groq llama-3.1-8b-instant | AI service | 10/10 success at production demo batch; rate limit around larger batches | Maps advisory to controls, severity, recommended action. | Approve API key, prompt, control catalog, retry behavior. |
-
-## Recommended Sources To Add
-
-| Recommended Sources | What Snickerdoodle Should Save |
-| --- | --- |
-| Cybersecurity RSS feeds such as Krebs and CISA | Threat type, brand affected, date, severity if available, source URL. |
-| Threat intelligence datasets from Kaggle | Threat type, affected sector or brand, date, severity, source/provenance. |
-| Brand mention datasets | Brand affected, mention context, date, source URL, severity or risk label if available. |
-
-## Data Schema And Quality Checks
-
-A3 normalizes three source types to a shared GRC schema and reports 467 normalized records, 465 clean records, 2 rejects, and 99.6% pass rate. A4 narrows scope to live CISA advisories and produces control_mapping, severity_assessment, and recommended_action per record. Demo scale notes show 10 records at full success; larger batches hit Groq free-tier/rate-limit constraints. Human review must check that AI control mappings are plausible, not authoritative compliance determinations.
-
-## Recipe Steps
-
-| Step | Labor | Input | Output | Human Check |
-| --- | --- | --- | --- | --- |
-| Confirm GRC scope | Human | A3/A4 docs | Approved control catalog and use case | Confirm this is advisory triage support, not legal/compliance certification. |
-| Load historical breach data | AI | Local breach CSV | Raw breach records | Check sensitivity mapping and source license. |
-| Fetch dataset catalog | AI | Kaggle API | Cybersecurity dataset discovery records | Check authentication and relevance. |
-| Fetch CISA advisories | AI | CISA RSS | Current advisory records | Check advisory date, entity/vendor, severity/CVE fields. |
-| Normalize and deduplicate | AI | Three source branches | Unified GRC records | Review rejects and quality flags. |
-| Split clean/rejects | AI + Human | Deduplicated records | Clean and rejected datasets | Human verifies reject reasons are traceable. |
-| Run Groq GRC analysis | AI with Human gate | CISA advisory records | Control mapping, severity, action | Human reviews control mapping against ISO/SOC2/GDPR catalog. |
-| Generate HTML briefing | AI | AI-analyzed advisories | Sentinel GRC briefing HTML | Human checks every recommendation before operational use. |
-
-## AI Layer And Human Judgment
-
-Groq llama-3.1-8b-instant receives a structured GRC analyst prompt and returns JSON with control_mapping, severity_assessment, and recommended_action. The AI layer is useful for triage, but a human GRC reviewer must validate mappings because standards interpretation is high-stakes.
-
-## Reports, Logs, And Outputs
-
-| Output | Audience | Purpose | Required Checks |
-| --- | --- | --- | --- |
-| A3 clean/reject JSON | Data reviewer | Validated evidence corpus for Sentinel agents. | Check pass rate, reject reasons, dedupe keys. |
-| A4 Sentinel GRC briefing HTML | Compliance officer / analyst | Readable advisory cards with controls and actions. | Validate control mappings and severity. |
-| Output gallery PDF | Reviewer | Evidence of 10 generated advisory cards. | Check examples against live CISA advisories. |
-| Scale/performance notes | Operator | Documents batch behavior and rate limits. | Do not exceed stable batch without queue/backoff. |
+| Input | Type | Source | Required? |
+|---|---|---|---|
+| Original n8n workflow JSON | JSON | [TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json | Yes |
+| Information is Beautiful breach catalog | Local CSV / historical breach data | [TODO: DATA SOURCE] Confirm source URL/path for Information is Beautiful breach catalog. | Yes |
+| Kaggle cybersecurity dataset catalog API | Authenticated/public API pattern | [TODO: DATA SOURCE] Confirm source URL/path for Kaggle cybersecurity dataset catalog API. | Yes |
+| CISA Cybersecurity Advisories RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for CISA Cybersecurity Advisories RSS. | Yes |
+| Groq llama-3.1-8b-instant | AI service | [TODO: DATA SOURCE] Confirm source URL/path for Groq llama-3.1-8b-instant. | Yes |
 
 ## Phase Gates
 
-1. Control catalog gate: human approves ISO/SOC2/GDPR/NIST mapping vocabulary. [IJ]
-2. Source gate: CISA and breach/catalog sources verified before analysis. [PA]
-3. Reject gate: 2 rejected records or future rejects have traceable quality flags. [IJ]
-4. AI gate: Groq credential and prompt approved; AI mapping treated as advisory. [EI]
-5. Operational gate: no recommendation sent to production GRC process without human sign-off. [EI]
+1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json"`.
+   Human capacity: [PF].
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/students/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md`.
+   Human capacity: [PA].
+3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing --mode dialogic --sample`.
+   Human capacity: [TO].
+4. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing data/verified/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+5. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing.md`.
+   Human capacity: [EI].
+
+## Steps
+
+1. Step name: Verify provenance and source intent. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json.
+   Output: provenance fields: workflow_path, exists, parsed_ok, title_matches_pipeline, source_inventory_checked.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Map workflow or specification to scripts. Labor: AI with Human gate.
+   Script called: `scripts/gigo/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing__map-workflow-or-specification-to-scripts.py`
+   Input: recipe inputs and provenance evidence.
+   Output: implementation map fields: steps, script_paths, missing_specs, typed_todos.
+   Where output goes: data/verified/.
+3. Step name: Produce human report. Labor: AI with Human review.
+   Script called: `scripts/tools/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing__produce-human-report.py`
+   Input: agent log plus raw and verified outputs.
+   Output: markdown report sections: run summary, source inventory, inputs used, validation results, flags, typed TODOs, decision recommendation.
+   Where output goes: reports/generated/.
+
+## Output Contract
+
+### Agent output
+File: `logs/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
+
+### Human report
+File: `reports/generated/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `Hammad Rana - Sentinel GRC Ops Cybersecurity Advisory Briefing` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
@@ -81,18 +80,47 @@ Groq llama-3.1-8b-instant receives a structured GRC analyst prompt and returns J
 - Kaggle/API credential handling is unclear.
 - Report implies compliance certification.
 
-## [TO DO] Items Before Production
+## Snickerdoodle
 
-- [TO DO] Store the 10-control catalog as a verified local reference.
-- [TO DO] Add citations from each advisory card to source CISA URL.
-- [TO DO] Add stable batch/rate-limit policy for Groq.
-- [TO DO] Replace Windows local paths with Madison repo paths.
+### Run Commands
+Full dialogic run:
+`snickerdoodle run hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Map workflow or specification to scripts | `snickerdoodle run hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing --step map-workflow-or-specification-to-scripts` |  |
+| Produce human report | `snickerdoodle run hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing --step produce-human-report` | `--no-write` |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Map workflow or specification to scripts | `scripts/gigo/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing__map-workflow-or-specification-to-scripts.py` | gigo |
+| Produce human report | `scripts/tools/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing__produce-human-report.py` | tool |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing/` | JSON |
+| Verified data | `data/verified/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing/` | JSON |
+| Agent log | `logs/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing-[DATE].json` | JSON |
+| Human report | `reports/generated/hammad-rana-sentinel-grc-ops-cybersecurity-advisory-briefing-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |
 
 ## Provenance
 
-- pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json
-- pantry/ranahammad_320831_41799388_Rana_Hammad_A3_Documentation.pdf
-- pantry/ranahammad_320831_41799390_Rana_Hammad_a3_data_clean.json
-- pantry/ranahammad_320831_41882330_Rana_Hammad_A4_Demo.pdf
-- pantry/ranahammad_320831_41882337_Rana_Hammad_A4_Workflow.json
-- pantry/ranahammad_320831_41882338_sentinel_grc_briefing.html
+Original workflow JSON: `[TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json`

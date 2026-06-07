@@ -4,57 +4,53 @@
 
 Generates 3-5 buyer personas from the approved audience definition. Personas must map back to segments in `audience-verified.json` and remain grounded in verified audience telemetry.
 
-This is Phase 3 of the draft Madison branding marketing pipeline.
-
-## Node Classification
-
-| Node Name | Node Type | Classification | Snickerdoodle |
-|---|---|---|---|
-| Persona Generation | `persona-generator-agent` | gigo | Needs script: `scripts/gigo/madison-gigo-persona-generation.py`; output JSON: `data/verified/madison-branding-marketing-pipeline/personas-verified.json`. |
-| Gate G2 Review | `human-review` | conductor | Needs gate log: `logs/gate-G2-personas.json`; human approves personas before copy generation. |
-
 ## Inputs
 
-| Input | Type | Source | Required? | Human Check |
-|---|---|---|---|---|
-| Verified audience | JSON | `data/verified/madison-branding-marketing-pipeline/audience-verified.json` | Yes | Confirm Gate G1 passed. |
-| Client brief | JSON | `data/raw/madison-branding-marketing-pipeline/brief.json` | Yes | Confirm brand, objective, and channels still match the persona task. |
-
-## Persona Schema
-
-```json
-{
-  "persona_id": "string",
-  "name": "string",
-  "segment_id": "string",
-  "motivations": [],
-  "pain_points": [],
-  "channel_preference": [],
-  "messaging_implications": "string",
-  "generational_cohort": "string"
-}
-```
-
-## Validation Rules
-
-- Generate 3-5 personas.
-- Each persona must map to at least one `segment_id` in `audience-verified.json`.
-- Reject personas with demographic assumptions not supported by the audience definition.
-- Flag personas that do not include motivations, pain points, channel preference, and messaging implications.
-- Generational cohort should feed the Generational Messaging Optimizer, but must not become a stereotype shortcut.
+| Input | Type | Source | Required? |
+|---|---|---|---|
+| Verified audience | JSON | `data/verified/madison-branding-marketing-pipeline/audience-verified.json` | Yes |
+| Client brief | JSON | `data/raw/madison-branding-marketing-pipeline/brief.json` | Yes |
 
 ## Phase Gates
 
-1. Audience gate: Gate G1 must be approved before persona generation begins. Human capacity: [PF].
-2. Traceability gate: every persona must map to a verified audience segment. Human capacity: [PA].
-3. Assumption gate: human reviews demographic and behavioral assumptions. Human capacity: [IJ].
-4. Gate G2: human approves personas for accuracy and brand fit before copy generation. Human capacity: [EI].
+1. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/madison-persona-generation.md`.
+   Human capacity: [PA].
+2. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run madison-persona-generation --mode dialogic --sample`.
+   Human capacity: [TO].
+3. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/madison-persona-generation data/verified/madison-persona-generation -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+4. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/madison-persona-generation.md`.
+   Human capacity: [EI].
 
 ## Steps
 
-1. Step name: Verify audience approval. Labor: AI. Script called: none. Input: `logs/gate-G1-audience.json`. Output: gate readiness check. Where output goes: `logs/`.
-2. Step name: Generate personas. Labor: AI with Human gate. Script called: `scripts/gigo/madison-gigo-persona-generation.py`. Input: `audience-verified.json` and `brief.json`. Output: `personas-verified.json`. Where output goes: `data/verified/madison-branding-marketing-pipeline/`.
-3. Step name: Gate G2 review. Labor: Human. Script called: none. Input: `personas-verified.json`. Output: gate decision. Where output goes: `logs/gate-G2-personas.json`.
+1. Step name: Verify audience approval. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: logs/gate-G1-audience.json.
+   Output: approval check with gate status and reviewer_capacity.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Generate personas. Labor: AI with Human gate.
+   Script called: `scripts/gigo/madison-gigo-persona-generation.py`
+   Input: audience-verified.json and brief.json.
+   Output: personas-verified JSON array with persona_id, name, segment_id, motivations, pain_points, channel_preference, messaging_implications, generational_cohort.
+   Where output goes: data/verified/madison-branding-marketing-pipeline/.
+3. Step name: Gate G2 review. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: personas-verified.json.
+   Output: gate decision with persona corrections, assumptions flagged, and approval status.
+   Where output goes: logs/gate-G2-personas.json.
+
+## Output Contract
+
+### Agent output
+File: `logs/madison-persona-generation-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
+
+### Human report
+File: `reports/generated/madison-persona-generation-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `Madison Persona Generation` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
@@ -64,8 +60,41 @@ This is Phase 3 of the draft Madison branding marketing pipeline.
 - Stop if personas contain unsupported demographic assumptions.
 - Stop if Gate G2 is not approved.
 
-## [TO DO] Items Before Production
+## Snickerdoodle
 
-- [TO DO] Define persona validation schema.
-- [TO DO] Define approved language for generational cohorts.
-- [TO DO] Add persona evidence citation IDs back to audience segments.
+### Run Commands
+Full dialogic run:
+`snickerdoodle run madison-persona-generation --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run madison-persona-generation --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Generate personas | `snickerdoodle run madison-persona-generation --step generate-personas` |  |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate madison-persona-generation --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate madison-persona-generation --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate madison-persona-generation --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Generate personas | `scripts/gigo/madison-gigo-persona-generation.py` | gigo |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/madison-persona-generation/` | JSON |
+| Verified data | `data/verified/madison-persona-generation/` | JSON |
+| Agent log | `logs/madison-persona-generation-[DATE].json` | JSON |
+| Human report | `reports/generated/madison-persona-generation-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |

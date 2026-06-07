@@ -4,51 +4,49 @@
 
 Audits generated campaign templates before launch handoff. The Email QA Agent checks links, variables, scheduling logic, HTML validity, copy, and launch readiness. The Email Accessibility Agent checks WCAG, ADA, AODA, Section 508, and EN 301 549.
 
-This is Phase 6 of the draft Madison branding marketing pipeline.
-
-## Node Classification
-
-| Node Name | Node Type | Classification | Snickerdoodle |
-|---|---|---|---|
-| QA Audit | `email-qa-agent` | gigo | Needs script: `scripts/gigo/madison-gigo-qa-audit.py`; output JSON: `data/verified/madison-branding-marketing-pipeline/qa-audit-report.json`. |
-| Accessibility Audit | `email-accessibility-agent` | gigo | Included in `madison-gigo-qa-audit.py`; outputs field-by-field accessibility results. |
-| Gate G4 Review | `human-review` | conductor | Needs gate log: `logs/gate-G4-qa.json`; all FAIL items must be resolved and re-run. |
-
 ## Inputs
 
-| Input | Type | Source | Required? | Human Check |
-|---|---|---|---|---|
-| Copy variants | JSON | `data/verified/madison-branding-marketing-pipeline/copy-variants-verified.json` | Yes | Confirm variants are final enough for QA. |
-| Email templates | ZML/HTML files | `data/verified/madison-branding-marketing-pipeline/email-templates/` | Yes | Confirm all campaign variants have templates. |
-| Campaign structure | JSON | `data/verified/madison-branding-marketing-pipeline/campaign-structure-verified.json` | Yes | Confirm schedule and journey logic are available. |
-
-## Validation Rules
-
-- Check links.
-- Check variables and personalization logic.
-- Check scheduling logic.
-- Check HTML validity.
-- Check launch readiness.
-- Check WCAG, ADA, AODA, Section 508, and EN 301 549.
-- Any item marked FAIL is a blocker.
+| Input | Type | Source | Required? |
+|---|---|---|---|
+| Copy variants | JSON | `data/verified/madison-branding-marketing-pipeline/copy-variants-verified.json` | Yes |
+| Email templates | ZML/HTML files | `data/verified/madison-branding-marketing-pipeline/email-templates/` | Yes |
+| Campaign structure | JSON | `data/verified/madison-branding-marketing-pipeline/campaign-structure-verified.json` | Yes |
 
 ## Phase Gates
 
-1. Template gate: all expected templates must exist before QA. Human capacity: [PA].
-2. Accessibility gate: accessibility results must be field-by-field, not summary-only. Human capacity: [IJ].
-3. Blocker gate: any FAIL item blocks launch handoff. Human capacity: [EI].
-4. Gate G4: human reviews QA report; gate does not pass with open blockers. Human capacity: [PF].
+1. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/madison-qa-accessibility-audit.md`.
+   Human capacity: [PA].
+2. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run madison-qa-accessibility-audit --mode dialogic --sample`.
+   Human capacity: [TO].
+3. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/madison-qa-accessibility-audit data/verified/madison-qa-accessibility-audit -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+4. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/madison-qa-accessibility-audit.md`.
+   Human capacity: [EI].
 
 ## Steps
 
-1. Step name: Run QA and accessibility audit. Labor: AI with Human gate. Script called: `scripts/gigo/madison-gigo-qa-audit.py`. Input: copy variants, email templates, campaign structure. Output: `qa-audit-report.json` and human QA report. Where output goes: `data/verified/madison-branding-marketing-pipeline/` and `reports/generated/`.
-2. Step name: Gate G4 review. Labor: Human. Script called: none. Input: `qa-audit-report.json` and generated QA markdown. Output: gate decision. Where output goes: `logs/gate-G4-qa.json`.
+1. Step name: Run QA and accessibility audit. Labor: AI with Human gate.
+   Script called: `scripts/gigo/madison-gigo-qa-audit.py`
+   Input: copy-variants-verified.json, email templates, and campaign-structure-verified.json.
+   Output: qa-audit-report JSON fields: template_id, check_id, standard, status, severity, remediation, blocker_flag plus markdown QA report.
+   Where output goes: data/verified/madison-branding-marketing-pipeline/.
+2. Step name: Gate G4 review. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: qa-audit-report.json and generated QA markdown.
+   Output: gate decision with blocker count, remediation notes, and approval status.
+   Where output goes: logs/gate-G4-qa.json.
 
-## Outputs
+## Output Contract
 
-`data/verified/madison-branding-marketing-pipeline/qa-audit-report.json`
+### Agent output
+File: `logs/madison-qa-accessibility-audit-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
 
-`reports/generated/madison-qa-audit-[timestamp].md`
+### Human report
+File: `reports/generated/madison-qa-accessibility-audit-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `Madison QA And Accessibility Audit` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
@@ -57,8 +55,41 @@ This is Phase 6 of the draft Madison branding marketing pipeline.
 - Stop if any FAIL item is open.
 - Stop if Gate G4 is not approved.
 
-## [TO DO] Items Before Production
+## Snickerdoodle
 
-- [TO DO] Define QA report schema.
-- [TO DO] Define accessibility checklist fields.
-- [TO DO] Add re-run protocol after FAIL remediation.
+### Run Commands
+Full dialogic run:
+`snickerdoodle run madison-qa-accessibility-audit --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run madison-qa-accessibility-audit --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Run QA and accessibility audit | `snickerdoodle run madison-qa-accessibility-audit --step run-qa-and-accessibility-audit` |  |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate madison-qa-accessibility-audit --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate madison-qa-accessibility-audit --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate madison-qa-accessibility-audit --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Run QA and accessibility audit | `scripts/gigo/madison-gigo-qa-audit.py` | gigo |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/madison-qa-accessibility-audit/` | JSON |
+| Verified data | `data/verified/madison-qa-accessibility-audit/` | JSON |
+| Agent log | `logs/madison-qa-accessibility-audit-[DATE].json` | JSON |
+| Human report | `reports/generated/madison-qa-accessibility-audit-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |

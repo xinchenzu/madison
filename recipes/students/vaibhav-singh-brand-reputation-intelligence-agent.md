@@ -1,82 +1,82 @@
 # Vaibhav Singh - Brand Reputation Intelligence Agent
 
-## What This Project Is
+## Purpose
 
 Vaibhav Singh built an open-source Madison Intelligence Agent for brand reputation monitoring. Assignment 3 collected brand-relevant text from RSS feeds, Google News, NewsAPI, and Hugging Face rows, normalized records into a nine-field schema, deduplicated them, and exported a CSV. Assignment 4 added AI-powered sentiment analysis, entity extraction, cited brand-health reporting, analysis cards, scale testing, and email delivery.
 
-## Long-Term Goal
+## Source Inventory
 
-The A2 evidence targets a Boston Sr. AI Engineer role at Validity, emphasizing production agentic AI, TypeScript/agent frameworks, data quality, evaluation, and customer-facing consequences of bad AI outputs. The project demonstrates a measurable AI monitoring product rather than a toy scraper.
+| Source Node | Node Type | Source URL or Path | Human Check |
+|---|---|---|---|
+| TechCrunch RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for TechCrunch RSS. | Verify feed, dates, content snippets. |
+| Ars Technica RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Ars Technica RSS. | Verify feed and date parsing. |
+| The Verge RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for The Verge RSS. | Verify feed and date parsing. |
+| Google News brand query RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Google News brand query RSS. | Verify query, source titles, duplicate handling. |
+| NewsAPI | API | [TODO: DATA SOURCE] Confirm source URL/path for NewsAPI. | Credential via env var only; validate relevance and API limits. |
+| Hugging Face SetFit/20 Newsgroups rows | Public dataset API | [TODO: DATA SOURCE] Confirm source URL/path for Hugging Face SetFit/20 Newsgroups rows. | Check dataset terms and relevance to brand monitoring. |
+| GPT/Claude model in A4 | AI service | [TODO: DATA SOURCE] Confirm source URL/path for GPT/Claude model in A4. | Approve model, cost, prompt, and email delivery. |
 
-## Evidence Used To Build This Recipe
+## Node Classification
 
-| Artifact | What it contributes |
-| --- | --- |
-| A2 PDF | Target role: Sr. AI Engineer; production agentic AI, Mastra willingness, quality/eval thinking. |
-| A3 documentation/demo PDFs | Brand Reputation Monitor data inventory, 271 clean records in demo, source quality, 18-node workflow. |
-| A3 CSV | 134 parseable records in pantry with id, title, source_name, source_url, published_date, topic_category, content_snippet, reliability_score, collection_method. |
-| A4 zip PDF/report/CSVs | 271 articles, 55% positive sentiment, 30-node workflow, enriched CSV, sentiment summary, entity frequency, scale tests, brand health report. |
-| A4 workflow v2 JSON | 30-node collection plus AI workflow. |
+| Node Name | Node Type | Classification |
+|---|---|---|
+| Original workflow node map | [TODO: DEV] Parse original n8n JSON. | [TODO: DEFINE] Classify parsed nodes as ingest, gigo, tool, conductor, or report. |
 
-## Data Sources And Verification
+## Inputs
 
-| Source | Type | Records / Scope | Use In Project | Verification / Human Check |
-| --- | --- | --- | --- | --- |
-| TechCrunch RSS | Public RSS | 20 articles in A3 docs/demo | Technology and company news corpus. | Verify feed, dates, content snippets. |
-| Ars Technica RSS | Public RSS | 20 articles in A3 docs/demo | Technology coverage. | Verify feed and date parsing. |
-| The Verge RSS | Public RSS | 10 articles in A3 docs/demo | Technology/product coverage. | Verify feed and date parsing. |
-| Google News brand query RSS | Public RSS | 100 records in A3 demo | Brand reputation/monitoring/voice AI query results. | Verify query, source titles, duplicate handling. |
-| NewsAPI | API | 80 records in A3 demo | News corpus with query parameters. | Credential via env var only; validate relevance and API limits. |
-| Hugging Face SetFit/20 Newsgroups rows | Public dataset API | 44 records in A3 demo | Supplemental text classification corpus. | Check dataset terms and relevance to brand monitoring. |
-| GPT/Claude model in A4 | AI service | Enriched 271 records; scale tests up to 50 batch | Sentiment, entities, relevance, topic tags, report generation. | Approve model, cost, prompt, and email delivery. |
-
-## Recommended Sources To Add
-
-| Recommended Sources | What Snickerdoodle Should Save |
-| --- | --- |
-| Multiple news RSS feeds | Article title, source, date, topic category, source URL, reliability score if available. |
-| NewsAPI | Article title, source, date, topic category, source URL, reliability score if available. |
-| Public benchmark datasets from HuggingFace | Record ID, text/title, source dataset, topic category, reliability or label metadata if available. |
-
-## Data Schema And Quality Checks
-
-A3 documentation reports 274 raw records, 3 duplicates removed, 0 invalid, 271 clean records, 98.9% quality, and a 9-column schema. The pantry A3 CSV currently has 134 rows, so production must reconcile the submitted CSV with the documented 271-row demo/A4 enriched output. A4 enriched_data.csv uses 21 columns including AI sentiment, confidence, brands, products, people, competitors, relevance, topic tags, off-brand flag, summary, latency, and status. Scale tests show batches 1, 5, 10, 25, and 50 with 90-100% success and estimated costs.
-
-## Recipe Steps
-
-| Step | Labor | Input | Output | Human Check |
-| --- | --- | --- | --- | --- |
-| Confirm brand-monitoring use case | Human | A2/A3/A4 docs | Approved brand/reputation scope | Confirm target stakeholders and that outputs are not PR/legal advice. |
-| Collect source text | AI | RSS, Google News, NewsAPI, Hugging Face | Raw text records | Check source permissions, API keys, source counts. |
-| Normalize each source | AI | Raw payloads | Nine-field records | Review dates, source_name, source_url, topic_category, reliability_score. |
-| Merge and deduplicate | AI | Normalized branches | Clean corpus | Review duplicate count and invalid records. |
-| Export A3 CSV | AI | Clean corpus | Brand reputation data CSV | Reconcile 134 parseable pantry rows vs 271 documented records. |
-| Run AI enrichment | AI with Human gate | Clean corpus | Sentiment/entities/relevance summaries | Approve model, prompt, cost, and failure handling. |
-| Generate brand-health report | AI | AI-enriched records | HTML/Markdown report, analysis cards | Human verifies findings cite articles and entity extraction is plausible. |
-| Deliver/email report | AI with Human gate | Report and CSV attachments | Email payload or sent report | Live email requires explicit approval. |
-
-## AI Layer And Human Judgment
-
-A4 uses an AI model to classify sentiment, extract brands/products/people/competitors, score relevance, create topic tags, detect off-brand content, summarize articles, and generate a brand-health report. The evidence mentions GPT-4o/GitHub Models in the PDF and Claude Sonnet 4 in scale-test output, so production must pin the actual provider/model before live runs.
-
-## Reports, Logs, And Outputs
-
-| Output | Audience | Purpose | Required Checks |
-| --- | --- | --- | --- |
-| A3 brand data CSV | Data reviewer | Clean source corpus for brand monitoring. | Reconcile row count and required fields. |
-| A4 enriched_data.csv | Analyst / agent | AI-enriched 21-column records. | Check ai_status, latency, confidence, entity correctness. |
-| Sentiment summary CSV | Marketing stakeholder | Sentiment distribution: 55.2% positive in sample. | Check denominator and date range. |
-| Entity frequency CSV | Brand analyst | Top mentioned brands/entities. | Verify extraction against article text. |
-| Brand health HTML report and cards | Human decision-maker | Readable cited report and gallery. | Check recommendations and citations before action. |
-| Scale test results | Operator | Latency, p95, errors, throughput, cost. | Model/provider discrepancy must be resolved. |
+| Input | Type | Source | Required? |
+|---|---|---|---|
+| Original n8n workflow JSON | JSON | [TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json | Yes |
+| TechCrunch RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for TechCrunch RSS. | Yes |
+| Ars Technica RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Ars Technica RSS. | Yes |
+| The Verge RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for The Verge RSS. | Yes |
+| Google News brand query RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Google News brand query RSS. | Yes |
+| NewsAPI | API | [TODO: DATA SOURCE] Confirm source URL/path for NewsAPI. | Yes |
+| Hugging Face SetFit/20 Newsgroups rows | Public dataset API | [TODO: DATA SOURCE] Confirm source URL/path for Hugging Face SetFit/20 Newsgroups rows. | Yes |
+| GPT/Claude model in A4 | AI service | [TODO: DATA SOURCE] Confirm source URL/path for GPT/Claude model in A4. | Yes |
 
 ## Phase Gates
 
-1. Source gate: each RSS/API/dataset source approved and credential-safe. [TO], [EI]
-2. Row-count gate: reconcile 134 local CSV rows, 271 documented clean records, and A4 enriched outputs. [PA]
-3. Model gate: pin actual AI provider/model and cost. [EI]
-4. Claim gate: sentiment/entity claims must cite articles and confidence. [IJ]
-5. Delivery gate: no email delivery without reviewed content and approved recipients. [EI]
+1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "pantry/singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json"`; if this fails, close [TODO: DATA SOURCE] by restoring or moving the workflow JSON before live mode.
+   Human capacity: [PF].
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/students/vaibhav-singh-brand-reputation-intelligence-agent.md`.
+   Human capacity: [PA].
+3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run vaibhav-singh-brand-reputation-intelligence-agent --mode dialogic --sample`.
+   Human capacity: [TO].
+4. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/vaibhav-singh-brand-reputation-intelligence-agent data/verified/vaibhav-singh-brand-reputation-intelligence-agent -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+5. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/vaibhav-singh-brand-reputation-intelligence-agent.md`.
+   Human capacity: [EI].
+
+## Steps
+
+1. Step name: Verify provenance and source intent. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: pantry/singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json.
+   Output: provenance fields: workflow_path, exists, parsed_ok, title_matches_pipeline, source_inventory_checked.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Map workflow or specification to scripts. Labor: AI with Human gate.
+   Script called: `scripts/gigo/vaibhav-singh-brand-reputation-intelligence-agent__map-workflow-or-specification-to-scripts.py`
+   Input: recipe inputs and provenance evidence.
+   Output: implementation map fields: steps, script_paths, missing_specs, typed_todos.
+   Where output goes: data/verified/.
+3. Step name: Produce human report. Labor: AI with Human review.
+   Script called: `scripts/tools/vaibhav-singh-brand-reputation-intelligence-agent__produce-human-report.py`
+   Input: agent log plus raw and verified outputs.
+   Output: markdown report sections: run summary, source inventory, inputs used, validation results, flags, typed TODOs, decision recommendation.
+   Where output goes: reports/generated/.
+
+## Output Contract
+
+### Agent output
+File: `logs/vaibhav-singh-brand-reputation-intelligence-agent-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
+
+### Human report
+File: `reports/generated/vaibhav-singh-brand-reputation-intelligence-agent-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `Vaibhav Singh - Brand Reputation Intelligence Agent` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
@@ -86,18 +86,47 @@ A4 uses an AI model to classify sentiment, extract brands/products/people/compet
 - Report recommends brand action without cited evidence.
 - Email sends before approval.
 
-## [TO DO] Items Before Production
+## Snickerdoodle
 
-- [TO DO] Reconcile 134-row pantry CSV with 271-record A3/A4 documentation.
-- [TO DO] Pin actual A4 model/provider.
-- [TO DO] Add citation IDs from report findings to source rows.
-- [TO DO] Move email settings to approved config/env.
+### Run Commands
+Full dialogic run:
+`snickerdoodle run vaibhav-singh-brand-reputation-intelligence-agent --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run vaibhav-singh-brand-reputation-intelligence-agent --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Map workflow or specification to scripts | `snickerdoodle run vaibhav-singh-brand-reputation-intelligence-agent --step map-workflow-or-specification-to-scripts` |  |
+| Produce human report | `snickerdoodle run vaibhav-singh-brand-reputation-intelligence-agent --step produce-human-report` | `--no-write` |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate vaibhav-singh-brand-reputation-intelligence-agent --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate vaibhav-singh-brand-reputation-intelligence-agent --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate vaibhav-singh-brand-reputation-intelligence-agent --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Map workflow or specification to scripts | `scripts/gigo/vaibhav-singh-brand-reputation-intelligence-agent__map-workflow-or-specification-to-scripts.py` | gigo |
+| Produce human report | `scripts/tools/vaibhav-singh-brand-reputation-intelligence-agent__produce-human-report.py` | tool |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/vaibhav-singh-brand-reputation-intelligence-agent/` | JSON |
+| Verified data | `data/verified/vaibhav-singh-brand-reputation-intelligence-agent/` | JSON |
+| Agent log | `logs/vaibhav-singh-brand-reputation-intelligence-agent-[DATE].json` | JSON |
+| Human report | `reports/generated/vaibhav-singh-brand-reputation-intelligence-agent-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |
 
 ## Provenance
 
-- pantry/singhvaibhav_351998_41725346_Assignment 2.pdf
-- pantry/singhvaibhav_351998_41799854_Singh_Vaibhav_A3_Documentation.pdf
-- pantry/singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json
-- pantry/singhvaibhav_351998_41799856_Singh_Vaibhav_A3_Data.csv
-- pantry/Singh_Vaibhav_A4_Workflow_v2.json
-- pantry/singhvaibhav_351998_41924237_Assignment 4 Vaibhav Singh.zip
+Original workflow JSON: `[TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/singhvaibhav_351998_41799855_Singh_Vaibhav_A3_workflow.json`

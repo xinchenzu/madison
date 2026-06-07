@@ -8,8 +8,8 @@ Normalizes local breach records, CISA advisories, and Kaggle cybersecurity datas
 
 | Source Node | Node Type | Source URL or Path | Human Check |
 |---|---|---|---|
-| Read local breach CSV source | `n8n-nodes-base.readWriteFile` | `C:\Users\Hammad\.n8n-files\breaches_raw.csv` | Confirm local file exists in the Madison repo or replace machine-specific path. |
-| Extract local breach CSV rows | `n8n-nodes-base.extractFromFile` | `[TO DO] Source not explicit in n8n node.` | Human must identify or replace this source before first real run. |
+| Read local breach CSV source | `n8n-nodes-base.readWriteFile` | [TODO: DATA SOURCE] Replace machine-specific local path with repo-local path or confirmed fixture: `C:\Users\Hammad\.n8n-files\breaches_raw.csv` | Confirm local file exists in the Madison repo or replace machine-specific path. |
+| Extract local breach CSV rows | `n8n-nodes-base.extractFromFile` | `[TODO: DATA SOURCE] Source not explicit in n8n node.` | Human must identify or replace this source before first real run. |
 | Fetch CISA cybersecurity advisories | `n8n-nodes-base.rssFeedRead` | `https://www.cisa.gov/cybersecurity-advisories/all.xml` | Confirm source is allowed, current, and rate-safe before live fetch. |
 | Fetch Kaggle cybersecurity dataset catalog | `n8n-nodes-base.httpRequest` | `https://www.kaggle.com/api/v1/datasets/list` | Confirm source is allowed, current, and rate-safe before live fetch. |
 
@@ -44,78 +44,233 @@ Normalizes local breach records, CISA advisories, and Kaggle cybersecurity datas
 
 | Input | Type | Source | Required? |
 |---|---|---|---|
-| Original n8n workflow JSON | JSON | `pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json` | Yes |
-| Read local breach CSV source | Source payload | `C:\Users\Hammad\.n8n-files\breaches_raw.csv` | Yes |
-| Extract local breach CSV rows | Source payload | `[TO DO] Source not explicit in n8n node.` | Yes |
+| Original n8n workflow JSON | JSON | [TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json | Yes |
+| Read local breach CSV source | Source payload | [TODO: DATA SOURCE] Replace machine-specific local path with repo-local path or confirmed fixture: `C:\Users\Hammad\.n8n-files\breaches_raw.csv` | Yes |
+| Extract local breach CSV rows | Source payload | `[TODO: DATA SOURCE] Source not explicit in n8n node.` | Yes |
 | Fetch CISA cybersecurity advisories | Source payload | `https://www.cisa.gov/cybersecurity-advisories/all.xml` | Yes |
 | Fetch Kaggle cybersecurity dataset catalog | Source payload | `https://www.kaggle.com/api/v1/datasets/list` | Yes |
 
 ## Phase Gates
 
-1. Source identity gate: verify that `pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json` is the intended workflow and that this recipe title describes the actual work. Test: `test -f "pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json"` and compare the Source Inventory against the original n8n JSON. Human capacity: [PF], [TO].
-2. Source permission gate: approve, replace, or mark `[TO DO]` for every URL, API, RSS feed, local file, and machine-specific path. Test: gate decision recorded in `logs/gate-decisions/`; any embedded credential is redacted and migrated to an env var before live use. Human capacity: [EI].
-3. Sample ingest gate: run every ingest node in local/sample handoff mode before live requests. Test: `python3 <ingest-script> --no-write` exits successfully and reports `live_call_performed: false`. Human capacity: [PA], [TO].
-4. Data-shape gate: raw outputs parse as JSON and contain the fields needed by cleanup. Test: `python3 -m json.tool <raw-output>` plus human spot check of three records. Human capacity: [PA], [IJ].
-5. Cleanup rule gate: GIGO outputs expose record count, rejects, duplicates, missing fields, and required-field assumptions. Test: inspect `data/verified/cybersecurity-breach-and-advisory-dataset-pipeline/`; if critical fields are undefined, add `[TO DO] define required fields` and stop. Human capacity: [IJ].
-6. Claim gate: reports must separate source-backed claims from interpretation. Test: every finding cites source/verified records or is marked `[TO DO] needs evidence`. Human capacity: [IJ], [EI].
-7. Live-action gate: file exports, dashboards, emails, model calls, API writes, and local machine paths remain local handoff contracts until explicitly approved. Test: output contract says `approved_for_live_action: false` unless signed off. Human capacity: [EI].
+1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json"`; if this fails, close [TODO: DATA SOURCE] by restoring or moving the workflow JSON before live mode.
+   Human capacity: [PF].
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/cybersecurity-breach-and-advisory-dataset-pipeline.md`.
+   Human capacity: [PA].
+3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --mode dialogic --sample`.
+   Human capacity: [TO].
+4. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/cybersecurity-breach-and-advisory-dataset-pipeline data/verified/cybersecurity-breach-and-advisory-dataset-pipeline -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+5. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/cybersecurity-breach-and-advisory-dataset-pipeline.md`.
+   Human capacity: [EI].
 
 ## Steps
 
-1. Step name: Verify provenance and source intent. Labor: AI plus Human. Script called: none. Input: `pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json`. Output: provenance and title check. Where output goes: `logs/`. Human check: confirm this recipe is named for the work it does and not for a submitter or assignment label.
-2. Step name: Read local breach CSV source. Labor: AI with Human gate. Script called: `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__read-local-breach-csv-source.py`. Input: prior step output or approved local sample. Output: ingest result JSON. Where output goes: `data/raw/`. Human check: confirm source URL/path, allowed live access, credential handling, and sample-vs-live boundary.
-3. Step name: Extract local breach CSV rows. Labor: AI with Human gate. Script called: `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__extract-local-breach-csv-rows.py`. Input: prior step output or approved local sample. Output: ingest result JSON. Where output goes: `data/raw/`. Human check: confirm source URL/path, allowed live access, credential handling, and sample-vs-live boundary.
-4. Step name: Normalize local breach records. Labor: AI with Human gate. Script called: `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__normalize-local-breach-records.py`. Input: prior step output or approved local sample. Output: gigo result JSON. Where output goes: `data/verified/`. Human check: inspect cleanup assumptions, rejects, duplicates, missing fields, and critical-field definitions.
-5. Step name: Prepare normalized breach JSON. Labor: AI with Human gate. Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-normalized-breach-json.py`. Input: prior step output or approved local sample. Output: tool result JSON. Where output goes: `logs/`. Human check: approve output contract and ensure no live export/write/send occurs without sign-off.
-6. Step name: Write normalized breach JSON handoff. Labor: AI with Human gate. Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-normalized-breach-json-handoff.py`. Input: prior step output or approved local sample. Output: tool result JSON. Where output goes: `logs/`. Human check: approve output contract and ensure no live export/write/send occurs without sign-off.
-7. Step name: Fetch CISA cybersecurity advisories. Labor: AI with Human gate. Script called: `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__fetch-cisa-cybersecurity-advisories.py`. Input: prior step output or approved local sample. Output: ingest result JSON. Where output goes: `data/raw/`. Human check: confirm source URL/path, allowed live access, credential handling, and sample-vs-live boundary.
-8. Step name: Normalize CISA advisory records. Labor: AI with Human gate. Script called: `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__normalize-cisa-advisory-records.py`. Input: prior step output or approved local sample. Output: gigo result JSON. Where output goes: `data/verified/`. Human check: inspect cleanup assumptions, rejects, duplicates, missing fields, and critical-field definitions.
-9. Step name: Prepare normalized CISA advisory JSON. Labor: AI with Human gate. Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-normalized-cisa-advisory-json.py`. Input: prior step output or approved local sample. Output: tool result JSON. Where output goes: `logs/`. Human check: approve output contract and ensure no live export/write/send occurs without sign-off.
-10. Step name: Write normalized CISA advisory JSON handoff. Labor: AI with Human gate. Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-normalized-cisa-advisory-json-handoff.py`. Input: prior step output or approved local sample. Output: tool result JSON. Where output goes: `logs/`. Human check: approve output contract and ensure no live export/write/send occurs without sign-off.
-11. Step name: Fetch Kaggle cybersecurity dataset catalog. Labor: AI with Human gate. Script called: `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__fetch-kaggle-cybersecurity-dataset-catalog.py`. Input: prior step output or approved local sample. Output: ingest result JSON. Where output goes: `data/raw/`. Human check: confirm source URL/path, allowed live access, credential handling, and sample-vs-live boundary.
-12. Step name: Normalize Kaggle cybersecurity catalog records. Labor: AI with Human gate. Script called: `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__normalize-kaggle-cybersecurity-catalog-records.py`. Input: prior step output or approved local sample. Output: gigo result JSON. Where output goes: `data/verified/`. Human check: inspect cleanup assumptions, rejects, duplicates, missing fields, and critical-field definitions.
-13. Step name: Prepare normalized cybersecurity catalog JSON. Labor: AI with Human gate. Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-normalized-cybersecurity-catalog-json.py`. Input: prior step output or approved local sample. Output: tool result JSON. Where output goes: `logs/`. Human check: approve output contract and ensure no live export/write/send occurs without sign-off.
-14. Step name: Write normalized cybersecurity catalog JSON handoff. Labor: AI with Human gate. Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-normalized-cybersecurity-catalog-json-handoff.py`. Input: prior step output or approved local sample. Output: tool result JSON. Where output goes: `logs/`. Human check: approve output contract and ensure no live export/write/send occurs without sign-off.
-15. Step name: Deduplicate merged cybersecurity records. Labor: AI with Human gate. Script called: `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__deduplicate-merged-cybersecurity-records.py`. Input: prior step output or approved local sample. Output: gigo result JSON. Where output goes: `data/verified/`. Human check: inspect cleanup assumptions, rejects, duplicates, missing fields, and critical-field definitions.
-16. Step name: Split clean and rejected cybersecurity records. Labor: AI with Human gate. Script called: `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__split-clean-and-rejected-cybersecurity-records.py`. Input: prior step output or approved local sample. Output: gigo result JSON. Where output goes: `data/verified/`. Human check: inspect cleanup assumptions, rejects, duplicates, missing fields, and critical-field definitions.
-17. Step name: Prepare clean cybersecurity JSON. Labor: AI with Human gate. Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-clean-cybersecurity-json.py`. Input: prior step output or approved local sample. Output: tool result JSON. Where output goes: `logs/`. Human check: approve output contract and ensure no live export/write/send occurs without sign-off.
-18. Step name: Write clean cybersecurity JSON handoff. Labor: AI with Human gate. Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-clean-cybersecurity-json-handoff.py`. Input: prior step output or approved local sample. Output: tool result JSON. Where output goes: `logs/`. Human check: approve output contract and ensure no live export/write/send occurs without sign-off.
-19. Step name: Prepare rejected cybersecurity JSON. Labor: AI with Human gate. Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-rejected-cybersecurity-json.py`. Input: prior step output or approved local sample. Output: tool result JSON. Where output goes: `logs/`. Human check: approve output contract and ensure no live export/write/send occurs without sign-off.
-20. Step name: Write rejected cybersecurity JSON handoff. Labor: AI with Human gate. Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-rejected-cybersecurity-json-handoff.py`. Input: prior step output or approved local sample. Output: tool result JSON. Where output goes: `logs/`. Human check: approve output contract and ensure no live export/write/send occurs without sign-off.
-21. Step name: Produce human report. Labor: AI with Human review. Script called: none; conductor fills `reports/templates/cybersecurity-breach-and-advisory-dataset-pipeline.md`. Input: run log and verified outputs. Output: decision report. Where output goes: `reports/generated/`. Human check: read sources, findings, anomalies, `[TO DO]` gaps, and decisions before treating findings as evidence.
-
-## Human Review Checklist
-
-- Confirm the title and purpose match what the workflow actually does.
-- Confirm each source is approved, still reachable, and appropriate for the intended use.
-- Replace machine-specific local paths with Madison repo paths or mark `[TO DO] replace source`.
-- Replace any credential embedded in the original n8n JSON with an environment variable before live use.
-- Inspect at least three raw records and three verified records before accepting a run.
-- Review duplicate, rejected, and missing-field counts.
-- Confirm the final report separates evidence from interpretation.
-- Confirm no live export, API call, file write outside the repo, or credentialed action occurs without approval.
+1. Step name: Verify provenance and source intent. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json.
+   Output: provenance fields: workflow_path, exists, parsed_ok, title_matches_pipeline, source_inventory_checked.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Read local breach CSV source. Labor: AI with Human gate.
+   Script called: `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__read-local-breach-csv-source.py`
+   Input: approved upstream output or sample fixture.
+   Output: raw JSON fields: source_name, source_url_or_path, fetched_at, record_count, records, errors.
+   Where output goes: data/raw/.
+3. Step name: Extract local breach CSV rows. Labor: AI with Human gate.
+   Script called: `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__extract-local-breach-csv-rows.py`
+   Input: approved upstream output or sample fixture.
+   Output: raw JSON fields: source_name, source_url_or_path, fetched_at, record_count, records, errors.
+   Where output goes: data/raw/.
+4. Step name: Normalize local breach records. Labor: AI with Human gate.
+   Script called: `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__normalize-local-breach-records.py`
+   Input: approved upstream output or sample fixture.
+   Output: verified JSON fields: record_count, records, rejects, duplicates, missing_fields, validation_flags.
+   Where output goes: data/verified/.
+5. Step name: Prepare normalized breach JSON. Labor: AI with Human gate.
+   Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-normalized-breach-json.py`
+   Input: approved upstream output or sample fixture.
+   Output: local handoff JSON fields: action, approved_for_live_action:false, input_refs, output_refs, flags.
+   Where output goes: logs/.
+6. Step name: Write normalized breach JSON handoff. Labor: AI with Human gate.
+   Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-normalized-breach-json-handoff.py`
+   Input: approved upstream output or sample fixture.
+   Output: local handoff JSON fields: action, approved_for_live_action:false, input_refs, output_refs, flags.
+   Where output goes: logs/.
+7. Step name: Fetch CISA cybersecurity advisories. Labor: AI with Human gate.
+   Script called: `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__fetch-cisa-cybersecurity-advisories.py`
+   Input: approved upstream output or sample fixture.
+   Output: raw JSON fields: source_name, source_url_or_path, fetched_at, record_count, records, errors.
+   Where output goes: data/raw/.
+8. Step name: Normalize CISA advisory records. Labor: AI with Human gate.
+   Script called: `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__normalize-cisa-advisory-records.py`
+   Input: approved upstream output or sample fixture.
+   Output: verified JSON fields: record_count, records, rejects, duplicates, missing_fields, validation_flags.
+   Where output goes: data/verified/.
+9. Step name: Prepare normalized CISA advisory JSON. Labor: AI with Human gate.
+   Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-normalized-cisa-advisory-json.py`
+   Input: approved upstream output or sample fixture.
+   Output: local handoff JSON fields: action, approved_for_live_action:false, input_refs, output_refs, flags.
+   Where output goes: logs/.
+10. Step name: Write normalized CISA advisory JSON handoff. Labor: AI with Human gate.
+   Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-normalized-cisa-advisory-json-handoff.py`
+   Input: approved upstream output or sample fixture.
+   Output: local handoff JSON fields: action, approved_for_live_action:false, input_refs, output_refs, flags.
+   Where output goes: logs/.
+11. Step name: Fetch Kaggle cybersecurity dataset catalog. Labor: AI with Human gate.
+   Script called: `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__fetch-kaggle-cybersecurity-dataset-catalog.py`
+   Input: approved upstream output or sample fixture.
+   Output: raw JSON fields: source_name, source_url_or_path, fetched_at, record_count, records, errors.
+   Where output goes: data/raw/.
+12. Step name: Normalize Kaggle cybersecurity catalog records. Labor: AI with Human gate.
+   Script called: `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__normalize-kaggle-cybersecurity-catalog-records.py`
+   Input: approved upstream output or sample fixture.
+   Output: verified JSON fields: record_count, records, rejects, duplicates, missing_fields, validation_flags.
+   Where output goes: data/verified/.
+13. Step name: Prepare normalized cybersecurity catalog JSON. Labor: AI with Human gate.
+   Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-normalized-cybersecurity-catalog-json.py`
+   Input: approved upstream output or sample fixture.
+   Output: local handoff JSON fields: action, approved_for_live_action:false, input_refs, output_refs, flags.
+   Where output goes: logs/.
+14. Step name: Write normalized cybersecurity catalog JSON handoff. Labor: AI with Human gate.
+   Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-normalized-cybersecurity-catalog-json-handoff.py`
+   Input: approved upstream output or sample fixture.
+   Output: local handoff JSON fields: action, approved_for_live_action:false, input_refs, output_refs, flags.
+   Where output goes: logs/.
+15. Step name: Deduplicate merged cybersecurity records. Labor: AI with Human gate.
+   Script called: `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__deduplicate-merged-cybersecurity-records.py`
+   Input: approved upstream output or sample fixture.
+   Output: verified JSON fields: record_count, records, rejects, duplicates, missing_fields, validation_flags.
+   Where output goes: data/verified/.
+16. Step name: Split clean and rejected cybersecurity records. Labor: AI with Human gate.
+   Script called: `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__split-clean-and-rejected-cybersecurity-records.py`
+   Input: approved upstream output or sample fixture.
+   Output: verified JSON fields: record_count, records, rejects, duplicates, missing_fields, validation_flags.
+   Where output goes: data/verified/.
+17. Step name: Prepare clean cybersecurity JSON. Labor: AI with Human gate.
+   Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-clean-cybersecurity-json.py`
+   Input: approved upstream output or sample fixture.
+   Output: local handoff JSON fields: action, approved_for_live_action:false, input_refs, output_refs, flags.
+   Where output goes: logs/.
+18. Step name: Write clean cybersecurity JSON handoff. Labor: AI with Human gate.
+   Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-clean-cybersecurity-json-handoff.py`
+   Input: approved upstream output or sample fixture.
+   Output: local handoff JSON fields: action, approved_for_live_action:false, input_refs, output_refs, flags.
+   Where output goes: logs/.
+19. Step name: Prepare rejected cybersecurity JSON. Labor: AI with Human gate.
+   Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-rejected-cybersecurity-json.py`
+   Input: approved upstream output or sample fixture.
+   Output: local handoff JSON fields: action, approved_for_live_action:false, input_refs, output_refs, flags.
+   Where output goes: logs/.
+20. Step name: Write rejected cybersecurity JSON handoff. Labor: AI with Human gate.
+   Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-rejected-cybersecurity-json-handoff.py`
+   Input: approved upstream output or sample fixture.
+   Output: local handoff JSON fields: action, approved_for_live_action:false, input_refs, output_refs, flags.
+   Where output goes: logs/.
+21. Step name: Produce human report. Labor: AI with Human review.
+   Script called: `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__produce-human-report.py`
+   Input: agent log plus raw and verified outputs.
+   Output: markdown report sections: run summary, source inventory, inputs used, validation results, flags, typed TODOs, decision recommendation.
+   Where output goes: reports/generated/.
 
 ## Output Contract
 
 ### Agent output
-
-The agent output goes to `logs/cybersecurity-breach-and-advisory-dataset-pipeline-[DATE].json` and contains `workflow`, `source_json`, `source_inventory`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `handoffs`, `flags`, `todo_items`, `stop_conditions`, and `generated_at`.
+File: `logs/cybersecurity-breach-and-advisory-dataset-pipeline-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
 
 ### Human report
-
-The human report goes to `reports/generated/cybersecurity-breach-and-advisory-dataset-pipeline-[DATE].md`. It surfaces the source list, cleanup changes, supported claims, `[TO DO]` gaps, and decisions that require a human boss.
+File: `reports/generated/cybersecurity-breach-and-advisory-dataset-pipeline-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `Cybersecurity Breach And Advisory Dataset Pipeline` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
 - Stop if the recipe title or purpose does not match the original workflow intent.
 - Stop if `pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json` is missing or cannot be parsed.
-- Stop if a source URL/path is unknown, stale, private, machine-specific, credential-bearing, or not approved; add `[TO DO] replace source` and halt live mode.
-- Stop if the workflow does not define critical fields for validation; add `[TO DO] define required fields` before production.
+- Stop if a source URL/path is unknown, stale, private, machine-specific, credential-bearing, or not approved; add `[TODO: APPROVE] replace source` and halt live mode.
+- Stop if the workflow does not define critical fields for validation; add `[TODO: DEFINE] define required fields` before production.
 - Stop if GIGO outputs do not expose record counts, rejects, duplicates, or missing fields.
 - Stop if a final claim is not traceable to source or verified records.
 - Stop if generated reports would expose credentials, private tokens, private local paths, or unapproved personal data.
 - Stop if any live model, database, email, dashboard, file export, or API write is requested without explicit human approval.
 
+## Snickerdoodle
+
+### Run Commands
+Full dialogic run:
+`snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Read local breach CSV source | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step read-local-breach-csv-source` | `--sample` |
+| Extract local breach CSV rows | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step extract-local-breach-csv-rows` | `--sample` |
+| Normalize local breach records | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step normalize-local-breach-records` |  |
+| Prepare normalized breach JSON | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step prepare-normalized-breach-json` | `--no-write` |
+| Write normalized breach JSON handoff | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step write-normalized-breach-json-handoff` | `--no-write` |
+| Fetch CISA cybersecurity advisories | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step fetch-cisa-cybersecurity-advisories` | `--sample` |
+| Normalize CISA advisory records | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step normalize-cisa-advisory-records` |  |
+| Prepare normalized CISA advisory JSON | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step prepare-normalized-cisa-advisory-json` | `--no-write` |
+| Write normalized CISA advisory JSON handoff | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step write-normalized-cisa-advisory-json-handoff` | `--no-write` |
+| Fetch Kaggle cybersecurity dataset catalog | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step fetch-kaggle-cybersecurity-dataset-catalog` | `--sample` |
+| Normalize Kaggle cybersecurity catalog records | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step normalize-kaggle-cybersecurity-catalog-records` |  |
+| Prepare normalized cybersecurity catalog JSON | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step prepare-normalized-cybersecurity-catalog-json` | `--no-write` |
+| Write normalized cybersecurity catalog JSON handoff | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step write-normalized-cybersecurity-catalog-json-handoff` | `--no-write` |
+| Deduplicate merged cybersecurity records | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step deduplicate-merged-cybersecurity-records` |  |
+| Split clean and rejected cybersecurity records | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step split-clean-and-rejected-cybersecurity-records` |  |
+| Prepare clean cybersecurity JSON | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step prepare-clean-cybersecurity-json` | `--no-write` |
+| Write clean cybersecurity JSON handoff | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step write-clean-cybersecurity-json-handoff` | `--no-write` |
+| Prepare rejected cybersecurity JSON | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step prepare-rejected-cybersecurity-json` | `--no-write` |
+| Write rejected cybersecurity JSON handoff | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step write-rejected-cybersecurity-json-handoff` | `--no-write` |
+| Produce human report | `snickerdoodle run cybersecurity-breach-and-advisory-dataset-pipeline --step produce-human-report` | `--no-write` |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate cybersecurity-breach-and-advisory-dataset-pipeline --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate cybersecurity-breach-and-advisory-dataset-pipeline --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate cybersecurity-breach-and-advisory-dataset-pipeline --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Read local breach CSV source | `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__read-local-breach-csv-source.py` | ingest |
+| Extract local breach CSV rows | `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__extract-local-breach-csv-rows.py` | ingest |
+| Normalize local breach records | `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__normalize-local-breach-records.py` | gigo |
+| Prepare normalized breach JSON | `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-normalized-breach-json.py` | tool |
+| Write normalized breach JSON handoff | `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-normalized-breach-json-handoff.py` | tool |
+| Fetch CISA cybersecurity advisories | `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__fetch-cisa-cybersecurity-advisories.py` | ingest |
+| Normalize CISA advisory records | `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__normalize-cisa-advisory-records.py` | gigo |
+| Prepare normalized CISA advisory JSON | `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-normalized-cisa-advisory-json.py` | tool |
+| Write normalized CISA advisory JSON handoff | `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-normalized-cisa-advisory-json-handoff.py` | tool |
+| Fetch Kaggle cybersecurity dataset catalog | `scripts/ingest/cybersecurity-breach-and-advisory-dataset-pipeline__fetch-kaggle-cybersecurity-dataset-catalog.py` | ingest |
+| Normalize Kaggle cybersecurity catalog records | `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__normalize-kaggle-cybersecurity-catalog-records.py` | gigo |
+| Prepare normalized cybersecurity catalog JSON | `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-normalized-cybersecurity-catalog-json.py` | tool |
+| Write normalized cybersecurity catalog JSON handoff | `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-normalized-cybersecurity-catalog-json-handoff.py` | tool |
+| Deduplicate merged cybersecurity records | `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__deduplicate-merged-cybersecurity-records.py` | gigo |
+| Split clean and rejected cybersecurity records | `scripts/gigo/cybersecurity-breach-and-advisory-dataset-pipeline__split-clean-and-rejected-cybersecurity-records.py` | gigo |
+| Prepare clean cybersecurity JSON | `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-clean-cybersecurity-json.py` | tool |
+| Write clean cybersecurity JSON handoff | `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-clean-cybersecurity-json-handoff.py` | tool |
+| Prepare rejected cybersecurity JSON | `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__prepare-rejected-cybersecurity-json.py` | tool |
+| Write rejected cybersecurity JSON handoff | `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__write-rejected-cybersecurity-json-handoff.py` | tool |
+| Produce human report | `scripts/tools/cybersecurity-breach-and-advisory-dataset-pipeline__produce-human-report.py` | tool |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/cybersecurity-breach-and-advisory-dataset-pipeline/` | JSON |
+| Verified data | `data/verified/cybersecurity-breach-and-advisory-dataset-pipeline/` | JSON |
+| Agent log | `logs/cybersecurity-breach-and-advisory-dataset-pipeline-[DATE].json` | JSON |
+| Human report | `reports/generated/cybersecurity-breach-and-advisory-dataset-pipeline-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |
+
 ## Provenance
 
-Original workflow JSON: `pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json`
+Original workflow JSON: `[TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/ranahammad_320831_41799387_Rana_Hammad_A3_Workflow.json`

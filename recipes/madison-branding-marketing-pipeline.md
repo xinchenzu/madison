@@ -4,80 +4,56 @@
 
 Draft Snickerdoodle recipe for a Madison branding and marketing pipeline. The first defined step ingests a client brief and converts it into structured JSON that later audience, channel, creative, budget, compliance, and reporting steps can use.
 
-This is a rough starting recipe that will be expanded later. Anything not yet specified is marked `[TO DO]`.
-
-## Node Classification
-
-| Node Name | Node Type | Classification | Snickerdoodle |
-|---|---|---|---|
-| Ingest Client Brief | `client-brief-intake` | ingest | Needs script: `scripts/ingest/madison-ingest-client-brief.py`; output is JSON at `data/raw/madison-branding-marketing-pipeline/brief.json`. |
-| Pipeline Conductor | `[TO DO]` | conductor | This recipe is the draft conductor markdown; later add run order, downstream steps, and phase gates. |
-| Human Report | `[TO DO]` | conductor | Needs markdown template at `reports/templates/madison-branding-marketing-pipeline.md`; generated report should go to `reports/generated/`. |
-
-## Ingest Brief
-
-Role: ingest
-
-Script: `scripts/ingest/madison-ingest-client-brief.py`
-
-What it does: reads the client brief as PDF, document, or structured JSON intake form. Extracts brand name, campaign objective, target audience description, requested channels, budget range, timeline, suppression rules, and brand safety constraints.
-
-Output: `data/raw/madison-branding-marketing-pipeline/brief.json`
-
-Rejects: if the brief is missing objective, channel list, or audience description, the run stops and logs the error.
-
-## Minimum `brief.json` Schema
-
-```json
-{
-  "brand": "string",
-  "objective": "string",
-  "audience_description": "string",
-  "channels": ["email", "sms", "push", "paid_social", "display", "ctv"],
-  "budget_range": "string",
-  "timeline": "string",
-  "suppressions": [],
-  "brand_safety_notes": "string"
-}
-```
-
 ## Inputs
 
-| Input | Type | Source | Required? | Human Check |
-|---|---|---|---|---|
-| Client brief | PDF, document, or JSON | `[TO DO] intake location` | Yes | Confirm this is the approved client brief and not a draft, duplicate, or stale version. |
-| Channel list | Structured field or extracted text | Client brief | Yes | Confirm requested channels are allowed for the campaign and client relationship. |
-| Audience description | Structured field or extracted text | Client brief | Yes | Confirm audience language is usable, non-discriminatory, and not inferred beyond the brief. |
-| Suppression rules | Structured field or extracted text | Client brief | No | Confirm opt-outs, category exclusions, and legal constraints are preserved exactly. |
-| Brand safety constraints | Structured field or extracted text | Client brief | No | Confirm sensitive topics, prohibited claims, and approval rules are captured. |
+| Input | Type | Source | Required? |
+|---|---|---|---|
+| Client brief | PDF, document, or JSON | `[TODO: DATA SOURCE] intake location` | Yes |
+| Channel list | Structured field or extracted text | Client brief | Yes |
+| Audience description | Structured field or extracted text | Client brief | Yes |
+| Suppression rules | Structured field or extracted text | Client brief | No |
+| Brand safety constraints | Structured field or extracted text | Client brief | No |
 
 ## Phase Gates
 
-1. Brief identity gate: verify the intake file is the intended client brief. Test: source path exists and the run log records filename, timestamp, and checksum. Human capacity: [PF], [TO].
-2. Required-field gate: stop if `objective`, `channels`, or `audience_description` is missing or empty. Test: `brief.json` validates against the minimum schema. Human capacity: [PA].
-3. Source-format gate: PDF/doc extraction must preserve enough text for human review; if extraction is garbled, add `[TO DO] manual brief transcription` and stop. Human capacity: [IJ].
-4. Brand-safety gate: suppressions and brand safety notes must be copied into the JSON before downstream generation begins. Test: human compares source brief to `brief.json`. Human capacity: [EI].
-5. Live-action gate: no campaign send, ad upload, audience export, model call, dashboard write, or client-facing report happens from this ingest step. Human capacity: [EI].
+1. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/madison-branding-marketing-pipeline.md`.
+   Human capacity: [PA].
+2. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run madison-branding-marketing-pipeline --mode dialogic --sample`.
+   Human capacity: [TO].
+3. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/madison-branding-marketing-pipeline data/verified/madison-branding-marketing-pipeline -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+4. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/madison-branding-marketing-pipeline.md`.
+   Human capacity: [EI].
 
 ## Steps
 
-1. Step name: Verify brief provenance. Labor: AI plus Human. Script called: none. Input: approved intake file. Output: provenance entry. Where output goes: `logs/`. Human check: confirm source is the current client-approved brief.
-2. Step name: Ingest Client Brief. Labor: AI with Human gate. Script called: `scripts/ingest/madison-ingest-client-brief.py`. Input: PDF, document, or structured JSON intake form. Output: `brief.json`. Where output goes: `data/raw/madison-branding-marketing-pipeline/`. Human check: confirm objective, audience, channels, suppressions, and brand-safety constraints are accurate.
-3. Step name: Produce ingest report. Labor: AI with Human review. Script called: none; conductor fills `[TO DO] reports/templates/madison-branding-marketing-pipeline.md`. Input: run log and `brief.json`. Output: concise markdown report. Where output goes: `reports/generated/`. Human check: review rejects, missing fields, assumptions, and `[TO DO]` gaps.
+1. Step name: Verify brief provenance. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: approved intake file.
+   Output: provenance entry with source_file, source_checksum, and approval status.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Ingest Client Brief. Labor: AI with Human gate.
+   Script called: `scripts/ingest/madison-ingest-client-brief.py`
+   Input: PDF, document, or structured JSON intake form.
+   Output: brief JSON fields: brand, objective, audience_description, channels, budget_range, timeline, suppressions, brand_safety_notes.
+   Where output goes: data/raw/madison-branding-marketing-pipeline/.
+3. Step name: Produce ingest report. Labor: AI with Human review.
+   Script called: `scripts/tools/madison-branding-marketing-pipeline__produce-ingest-report.py`
+   Input: brief.json and run log.
+   Output: markdown sections: brief summary, missing fields, suppressions, brand safety constraints, next-step readiness.
+   Where output goes: reports/generated/.
 
 ## Output Contract
 
-### Raw Data
+### Agent output
+File: `logs/madison-branding-marketing-pipeline-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
 
-`data/raw/madison-branding-marketing-pipeline/brief.json` contains the minimum schema fields and may include later optional fields as the recipe expands.
-
-### Run Log
-
-`logs/madison-branding-marketing-pipeline-[DATE].json` should contain `workflow`, `mode`, `source_file`, `source_checksum`, `steps_completed`, `rejects`, `flags`, `todo_items`, `stop_conditions`, and `generated_at`.
-
-### Human Report
-
-`reports/generated/madison-branding-marketing-pipeline-[DATE].md` should summarize what was ingested, what was rejected, what constraints were captured, and what the next downstream step needs.
+### Human report
+File: `reports/generated/madison-branding-marketing-pipeline-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `Madison Branding Marketing Pipeline` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
@@ -88,11 +64,43 @@ Rejects: if the brief is missing objective, channel list, or audience descriptio
 - Stop if the brief contains credentials, private tokens, or unapproved personal data that would be copied into outputs.
 - Stop if any downstream live campaign action is requested before human approval.
 
-## [TO DO] Items Before Production
+## Snickerdoodle
 
-- [TO DO] Create `scripts/ingest/madison-ingest-client-brief.py`.
-- [TO DO] Define approved intake folder and filename convention.
-- [TO DO] Add JSON schema validation for `brief.json`.
-- [TO DO] Create `reports/templates/madison-branding-marketing-pipeline.md`.
-- [TO DO] Add downstream GIGO steps for audience, channel, budget, claims, and brand-safety validation.
-- [TO DO] Add downstream tool handoffs for campaign plan, report draft, and approval packet.
+### Run Commands
+Full dialogic run:
+`snickerdoodle run madison-branding-marketing-pipeline --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run madison-branding-marketing-pipeline --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Ingest Client Brief | `snickerdoodle run madison-branding-marketing-pipeline --step ingest-client-brief` | `--sample` |
+| Produce ingest report | `snickerdoodle run madison-branding-marketing-pipeline --step produce-ingest-report` | `--no-write` |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate madison-branding-marketing-pipeline --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate madison-branding-marketing-pipeline --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate madison-branding-marketing-pipeline --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Ingest Client Brief | `scripts/ingest/madison-ingest-client-brief.py` | ingest |
+| Produce ingest report | `scripts/tools/madison-branding-marketing-pipeline__produce-ingest-report.py` | tool |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/madison-branding-marketing-pipeline/` | JSON |
+| Verified data | `data/verified/madison-branding-marketing-pipeline/` | JSON |
+| Agent log | `logs/madison-branding-marketing-pipeline-[DATE].json` | JSON |
+| Human report | `reports/generated/madison-branding-marketing-pipeline-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |

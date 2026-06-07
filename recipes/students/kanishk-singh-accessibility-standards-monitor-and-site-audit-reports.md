@@ -1,99 +1,128 @@
 # Kanishk Singh - Accessibility Standards Monitor And Site Audit Reports
 
-## What This Project Is
+## Purpose
 
 Kanishk Singh built an Accessibility Monitor that collects accessibility rules, WCAG criteria, and accessibility-community updates, then extends into site-level accessibility reports. Assignment 3 produced a standards/rules dataset from axe-core, W3C WCAG JSON, WebAIM, and A11y Project sources. Assignment 4 generated accessibility audit reports for many sample domains, with human-readable HTML output.
 
-## Long-Term Goal
+## Source Inventory
 
-The A2 evidence frames Kanishk around product-quality engineering, full-stack systems, RAG/LLM orchestration, and problem-first engineering judgment. This project is long-term proof that he can build an evidence-backed accessibility intelligence layer, not just run superficial audits.
+| Source Node | Node Type | Source URL or Path | Human Check |
+|---|---|---|---|
+| axe-core rules via GitHub/raw content | Code/API source | [TODO: DATA SOURCE] Confirm source URL/path for axe-core rules via GitHub/raw content. | Verify GitHub URLs, rate limits, rule JSON parsing, and license. |
+| W3C WCAG 2.1 JSON | Public JSON | [TODO: DATA SOURCE] Confirm source URL/path for W3C WCAG 2.1 JSON. | Verify URL https://www.w3.org/WAI/WCAG21/wcag.json and schema. |
+| WebAIM Blog RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for WebAIM Blog RSS. | Verify feed and article relevance. |
+| A11y Project RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for A11y Project RSS. | Verify feed and article relevance. |
+| Sample domain audit targets | HTML/site report inputs | [TODO: DATA SOURCE] Confirm source URL/path for Sample domain audit targets. | Human must approve target list and testing ethics before live audits. |
 
-## Evidence Used To Build This Recipe
+## Node Classification
 
-| Artifact | What it contributes |
-| --- | --- |
-| A2 PDF | Skills/context around React, TypeScript, Node, Java/Spring, AWS, LangChain, RAG, embeddings, and problem diagnosis. |
-| A3 workflow JSON and HTML | Accessibility data collection pipeline and presentation. |
-| A3 CSV | 184 accessibility records with record_id, source, type, rule_id, wcag_criterion, conformance_level, title, description, help_url, tags. |
-| A4 HTML documentation/demo | Accessibility Monitor v2 workflow and walkthrough. |
-| A4 report gallery | HTML reports for many domains such as tempo-music.app, ironclad-legal.com, orchard-health.org, nimbus-cloud.io, etc. |
+| Node Name | Node Type | Classification |
+|---|---|---|
+| Original workflow node map | [TODO: DEV] Parse original n8n JSON. | [TODO: DEFINE] Classify parsed nodes as ingest, gigo, tool, conductor, or report. |
 
-## Data Sources And Verification
+## Inputs
 
-| Source | Type | Records / Scope | Use In Project | Verification / Human Check |
-| --- | --- | --- | --- | --- |
-| axe-core rules via GitHub/raw content | Code/API source | [TO DO] exact count from workflow run | Automated accessibility rule metadata. | Verify GitHub URLs, rate limits, rule JSON parsing, and license. |
-| W3C WCAG 2.1 JSON | Public JSON | [TO DO] source count | Official success criteria and conformance levels. | Verify URL https://www.w3.org/WAI/WCAG21/wcag.json and schema. |
-| WebAIM Blog RSS | Public RSS | [TO DO] source count | Practical accessibility guidance and updates. | Verify feed and article relevance. |
-| A11y Project RSS | Public RSS | [TO DO] source count | Community accessibility education and patterns. | Verify feed and article relevance. |
-| Sample domain audit targets | HTML/site report inputs | A4 gallery includes many domains | Generates site-level reports from accessibility knowledge. | Human must approve target list and testing ethics before live audits. |
-
-## Recommended Sources To Add
-
-| Recommended Sources | What Snickerdoodle Should Save |
-| --- | --- |
-| WCAG guideline datasets | Rule ID, description, success criteria, conformance level: A, AA, or AAA. |
-| Public accessibility audit reports | Rule ID, issue description, affected pattern, conformance level, audit date, source. |
-| Web standards documentation | Standard name, rule or section ID, description, conformance level, update date. |
-
-## Data Schema And Quality Checks
-
-A3 CSV has 184 rows with rule/source/type metadata, WCAG criterion, conformance level, description, help URL, and tags. The workflow includes a quality gate requiring at least 50 records. Quality checks should include deduplication, required field validation, rule-to-WCAG mapping, minimum record count, and separation between standards evidence and site-specific findings. A4 reports need source citations for each flagged issue and must not imply legal compliance certification.
-
-## Recipe Steps
-
-| Step | Labor | Input | Output | Human Check |
-| --- | --- | --- | --- | --- |
-| Confirm accessibility objective | Human | A2/A3/A4 artifacts | Approved audit/monitor scope | Confirm whether run is standards monitoring, site auditing, or both. |
-| Collect accessibility standards | AI | axe-core, WCAG JSON, WebAIM, A11y Project | Raw rule/article records | Check source availability, license, and no forbidden scraping. |
-| Normalize and deduplicate | AI | Raw records | Canonical accessibility dataset | Review rule_id, wcag_criterion, conformance_level, help_url, tags. |
-| Run quality gate | AI + Human | Canonical dataset | Pass/fail quality log | Minimum 50 records and required fields must pass. |
-| Export standards dataset | AI | Verified dataset | Accessibility CSV | Human checks 184-row evidence and source mix. |
-| Prepare site audit targets | Human + AI | Approved domain list | Audit target queue | Human confirms permission/ethical boundary for targets. |
-| Generate site reports | AI | Audit results plus standards dataset | HTML accessibility reports | Human checks findings, severity, and remediation advice. |
-
-## AI Layer And Human Judgment
-
-The available evidence emphasizes deterministic accessibility standards and HTML reports rather than a clearly named LLM step. If an AI layer is used in v2 to summarize or prioritize issues, it must cite the underlying rule/WCAG criterion and mark uncertain interpretations as [TO DO] needs review.
-
-## Reports, Logs, And Outputs
-
-| Output | Audience | Purpose | Required Checks |
-| --- | --- | --- | --- |
-| Accessibility standards CSV | Accessibility engineer | Reusable standards/rules knowledge base. | Check 184 rows and required fields. |
-| Quality gate log | Operator | Minimum records and validation pass/fail. | Stop if under 50 records. |
-| Site accessibility HTML reports | Product/site owners | Readable audit output for each target domain. | Check target permission, issue evidence, severity, remediation. |
-| Demo/walkthrough HTML | Reviewer | Explains workflow behavior. | Check claims against generated reports. |
+| Input | Type | Source | Required? |
+|---|---|---|---|
+| Original n8n workflow JSON | JSON | [TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/singhkanishknagendra_348738_41749683_Singh_Kanishk_A3_Workflow.json | Yes |
+| axe-core rules via GitHub/raw content | Code/API source | [TODO: DATA SOURCE] Confirm source URL/path for axe-core rules via GitHub/raw content. | Yes |
+| W3C WCAG 2.1 JSON | Public JSON | [TODO: DATA SOURCE] Confirm source URL/path for W3C WCAG 2.1 JSON. | Yes |
+| WebAIM Blog RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for WebAIM Blog RSS. | Yes |
+| A11y Project RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for A11y Project RSS. | Yes |
+| Sample domain audit targets | HTML/site report inputs | [TODO: DATA SOURCE] Confirm source URL/path for Sample domain audit targets. | Yes |
 
 ## Phase Gates
 
-1. Source gate: W3C/GitHub/RSS sources verified and license-safe. [PA]
-2. Minimum-record gate: fail if standards dataset has fewer than 50 usable records. [TO]
-3. Mapping gate: each rule maps to WCAG/help_url or is marked [TO DO]. [IJ]
-4. Audit ethics gate: domain targets approved before live scanning. [EI]
-5. Report gate: no legal compliance claim without human accessibility expert review. [EI]
+1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "pantry/singhkanishknagendra_348738_41749683_Singh_Kanishk_A3_Workflow.json"`; if this fails, close [TODO: DATA SOURCE] by restoring or moving the workflow JSON before live mode.
+   Human capacity: [PF].
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/students/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports.md`.
+   Human capacity: [PA].
+3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run kanishk-singh-accessibility-standards-monitor-and-site-audit-reports --mode dialogic --sample`.
+   Human capacity: [TO].
+4. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports data/verified/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+5. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports.md`.
+   Human capacity: [EI].
+
+## Steps
+
+1. Step name: Verify provenance and source intent. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: pantry/singhkanishknagendra_348738_41749683_Singh_Kanishk_A3_Workflow.json.
+   Output: provenance fields: workflow_path, exists, parsed_ok, title_matches_pipeline, source_inventory_checked.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Map workflow or specification to scripts. Labor: AI with Human gate.
+   Script called: `scripts/gigo/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports__map-workflow-or-specification-to-scripts.py`
+   Input: recipe inputs and provenance evidence.
+   Output: implementation map fields: steps, script_paths, missing_specs, typed_todos.
+   Where output goes: data/verified/.
+3. Step name: Produce human report. Labor: AI with Human review.
+   Script called: `scripts/tools/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports__produce-human-report.py`
+   Input: agent log plus raw and verified outputs.
+   Output: markdown report sections: run summary, source inventory, inputs used, validation results, flags, typed TODOs, decision recommendation.
+   Where output goes: reports/generated/.
+
+## Output Contract
+
+### Agent output
+File: `logs/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
+
+### Human report
+File: `reports/generated/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `Kanishk Singh - Accessibility Standards Monitor And Site Audit Reports` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
 - Standards source unavailable or schema changed.
 - Dataset below 50 records.
-- Rule lacks source/help_url and is not marked [TO DO].
+- Rule lacks source/help_url and is not marked [TODO: DEFINE] .
 - Target domain not approved.
 - Report implies ADA/WCAG legal compliance certification.
 
-## [TO DO] Items Before Production
+## Snickerdoodle
 
-- [TO DO] Extract exact A4 audit scoring algorithm from HTML/JS if needed.
-- [TO DO] Add source citations per issue in every report.
-- [TO DO] Add target approval log for domain gallery.
-- [TO DO] Define severity rubric.
+### Run Commands
+Full dialogic run:
+`snickerdoodle run kanishk-singh-accessibility-standards-monitor-and-site-audit-reports --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run kanishk-singh-accessibility-standards-monitor-and-site-audit-reports --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Map workflow or specification to scripts | `snickerdoodle run kanishk-singh-accessibility-standards-monitor-and-site-audit-reports --step map-workflow-or-specification-to-scripts` |  |
+| Produce human report | `snickerdoodle run kanishk-singh-accessibility-standards-monitor-and-site-audit-reports --step produce-human-report` | `--no-write` |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate kanishk-singh-accessibility-standards-monitor-and-site-audit-reports --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate kanishk-singh-accessibility-standards-monitor-and-site-audit-reports --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate kanishk-singh-accessibility-standards-monitor-and-site-audit-reports --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Map workflow or specification to scripts | `scripts/gigo/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports__map-workflow-or-specification-to-scripts.py` | gigo |
+| Produce human report | `scripts/tools/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports__produce-human-report.py` | tool |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports/` | JSON |
+| Verified data | `data/verified/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports/` | JSON |
+| Agent log | `logs/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports-[DATE].json` | JSON |
+| Human report | `reports/generated/kanishk-singh-accessibility-standards-monitor-and-site-audit-reports-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |
 
 ## Provenance
 
-- pantry/singhkanishknagendra_348738_41723979_Singh_Kanishk_Week2.pdf
-- pantry/singhkanishknagendra_348738_41749683_Singh_Kanishk_A3_Workflow.json
-- pantry/singhkanishknagendra_348738_41749684_Assignment3_Singh_Kanishk.html
-- pantry/singhkanishknagendra_348738_41749685_accessibility_data_latest.csv
-- pantry/singhkanishknagendra_348738_41876941_Assignment4_Singh_Kanishk.html
-- pantry/singhkanishknagendra_348738_41876944_workflow_v2.json
-- pantry/singhkanishknagendra_348738_41876946_report_tempo-music.app_2026-06-04.html and related report gallery
+Original workflow JSON: `[TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/singhkanishknagendra_348738_41749683_Singh_Kanishk_A3_Workflow.json`

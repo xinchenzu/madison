@@ -4,44 +4,50 @@
 
 Generates post-launch performance reporting after a campaign has been live for a defined window. The Analytics - Insights Studio Agent queries cross-channel performance data and produces comparative trend breakdowns.
 
-This is Phase 9 of the draft Madison branding marketing pipeline.
-
-## Node Classification
-
-| Node Name | Node Type | Classification | Snickerdoodle |
-|---|---|---|---|
-| Performance Report | `insights-studio-agent` | tool | Needs script: `scripts/tools/madison-tool-performance-report.py`; outputs markdown report and JSON log. |
-
 ## Inputs
 
-| Input | Type | Source | Required? | Human Check |
-|---|---|---|---|---|
-| Launch approval | JSON | `logs/gate-G5-launch.json` | Yes | Confirm campaign was approved for launch. |
-| Campaign ID | String | `[TO DO] campaign tracking source` | Yes | Confirm the ID maps to the correct launched campaign. |
-| Reporting window | Date range | `[TO DO] define window` | Yes | Confirm campaign has been live long enough for meaningful reporting. |
-| Insights Studio data | Query result | Madison Insights Studio | Yes | Confirm query is read-only and authorized. |
-
-## Reporting Limitation
-
-Madison does not measure downstream real-world performance for propensity scores. It provides internal AUC validation only and no closed-loop outcome tracking. Every performance report must note this gap explicitly.
+| Input | Type | Source | Required? |
+|---|---|---|---|
+| Launch approval | JSON | `logs/gate-G5-launch.json` | Yes |
+| Campaign ID | String | `[TODO: DATA SOURCE] campaign tracking source` | Yes |
+| Reporting window | Date range | `[TODO: DEFINE] define window` | Yes |
+| Insights Studio data | Query result | Madison Insights Studio | Yes |
 
 ## Phase Gates
 
-1. Launch gate: Gate G5 must exist before post-launch reporting. Human capacity: [PF].
-2. Reporting-window gate: run manually after a defined campaign-live window. Human capacity: [TO].
-3. Read-only gate: Insights Studio query must not mutate campaign state. Human capacity: [EI].
-4. Limitation gate: report must disclose the propensity-score closed-loop tracking gap. Human capacity: [IJ].
+1. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/madison-performance-reporting.md`.
+   Human capacity: [PA].
+2. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run madison-performance-reporting --mode dialogic --sample`.
+   Human capacity: [TO].
+3. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/madison-performance-reporting data/verified/madison-performance-reporting -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+4. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/madison-performance-reporting.md`.
+   Human capacity: [EI].
 
 ## Steps
 
-1. Step name: Verify launch record. Labor: AI plus Human. Script called: none. Input: `logs/gate-G5-launch.json` and campaign ID. Output: reporting readiness check. Where output goes: `logs/`.
-2. Step name: Generate performance report. Labor: AI with Human review. Script called: `scripts/tools/madison-tool-performance-report.py`. Input: campaign ID, reporting window, Insights Studio data. Output: markdown report and JSON log. Where output goes: `reports/generated/` and `logs/`.
+1. Step name: Verify launch record. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: logs/gate-G5-launch.json and campaign ID.
+   Output: reporting readiness fields: campaign_id, reporting_window, launch_approval_status.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Generate performance report. Labor: AI with Human review.
+   Script called: `scripts/tools/madison-tool-performance-report.py`
+   Input: campaign ID, reporting window, Insights Studio data.
+   Output: markdown report sections plus JSON log fields: campaign_id, window_start, window_end, channel_metrics, trend_breakdown, propensity_score_limitation.
+   Where output goes: reports/generated/.
 
-## Outputs
+## Output Contract
 
-`reports/generated/madison-performance-report-[timestamp].md`
+### Agent output
+File: `logs/madison-performance-reporting-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
 
-`logs/madison-performance-log-[timestamp].json`
+### Human report
+File: `reports/generated/madison-performance-reporting-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `Madison Performance Reporting` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
@@ -51,9 +57,41 @@ Madison does not measure downstream real-world performance for propensity scores
 - Stop if report omits the limitation about propensity-score outcome tracking.
 - Stop if the tool attempts to mutate campaign state.
 
-## [TO DO] Items Before Production
+## Snickerdoodle
 
-- [TO DO] Define post-launch reporting window.
-- [TO DO] Define campaign ID source.
-- [TO DO] Define Insights Studio query schema.
-- [TO DO] Define required trend breakdown fields.
+### Run Commands
+Full dialogic run:
+`snickerdoodle run madison-performance-reporting --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run madison-performance-reporting --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Generate performance report | `snickerdoodle run madison-performance-reporting --step generate-performance-report` | `--no-write` |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate madison-performance-reporting --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate madison-performance-reporting --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate madison-performance-reporting --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Generate performance report | `scripts/tools/madison-tool-performance-report.py` | tool |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/madison-performance-reporting/` | JSON |
+| Verified data | `data/verified/madison-performance-reporting/` | JSON |
+| Agent log | `logs/madison-performance-reporting-[DATE].json` | JSON |
+| Human report | `reports/generated/madison-performance-reporting-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |

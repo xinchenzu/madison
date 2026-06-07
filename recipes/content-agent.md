@@ -4,52 +4,72 @@
 
 The content-agent workflow turns a marketing brief into three brand-aligned content variants, scores those variants for production readiness, produces visual concepts for approved variants, and runs a weekly Reddit engagement scan for content intelligence. This recipe preserves the imported workflow behavior while replacing live webhooks, OpenAI calls, Discord posts, and binary responses with explicit local contracts and human phase gates.
 
+## Source Inventory
+
+| Source Node | Node Type | Source URL or Path | Human Check |
+|---|---|---|---|
+| Original workflow sources | [TODO: DEV] Parse original workflow node types. | [TODO: DATA SOURCE] Extract source URLs or paths from original workflow JSON. | Confirm source is allowed, current, and rate-safe before live fetch. |
+
+## Node Classification
+
+| Node Name | Node Type | Classification |
+|---|---|---|
+| Original workflow node map | [TODO: DEV] Parse original n8n JSON. | [TODO: DEFINE] Classify parsed nodes as ingest, gigo, tool, conductor, or report. |
+
 ## Inputs
 
 | Input | Type | Source | Required? |
 |---|---|---|---|
-| Brief payload | JSON object | Webhook body or local sample | Yes for generation |
+| Original n8n workflow JSON | JSON | data/madison-main/n8n-workflows/originals/content-agent-full-workflow.json | Yes |
+| Brief payload | JSON object | Webhook body or local sample | Yes |
 | Brand voice | JSON object | `scripts/tools/content-agent-brand-voice.py` | Yes |
-| Generation output | JSON object or text | Approved model response or sample fixture | Yes for quality check |
-| Reddit search rows | JSON array | Reddit API export via `scripts/ingest/content-agent-get-reddit-posts.py` | Yes for weekly engagement scan |
+| Generation output | JSON object or text | Approved model response or sample fixture | Yes |
+| Reddit search rows | JSON array | Reddit API export via `scripts/ingest/content-agent-get-reddit-posts.py` | Yes |
 | Quality threshold | Number | Local argument, default `130` | Yes |
 | Alert destination | Local JSON/Markdown contract | Report tool | Yes |
 
 ## Phase Gates
 
-1. Source gate: the original workflow JSON must exist at `data/madison-main/n8n-workflows/originals/content-agent-full-workflow.json`; verify with `test -f "data/madison-main/n8n-workflows/originals/content-agent-full-workflow.json"`. Human capacity: [TO].
-2. Brief gate: a human must confirm the brief, audience, offer, reading level, taboos, and brand boundary before generation. Human capacity: [PF].
-3. Model gate: live generation must not run until a human approves the prompt and model/provider boundary; sample mode is required before live mode. Human capacity: [EI].
-4. Quality gate: generated output must parse as JSON and contain exactly three variants with non-empty `headline`, `body`, `cta`, and `image_prompt` fields. Human capacity: [PA].
-5. Production gate: variants that fail scoring or validation go to human review; variants that pass can move to visual concepting but still require human clearance before publication. Human capacity: [IJ].
-6. Reddit ingest gate: Reddit data must be captured through ingest and normalized before engagement scoring; no downstream tool should fetch external data. Human capacity: [TO].
-7. Alert gate: Discord-style alerts are written as local report contracts unless a human explicitly approves live posting. Human capacity: [EI].
-8. Report gate: every run must produce both a parseable log and a human-readable report. Human capacity: [TO].
+1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "data/madison-main/n8n-workflows/originals/content-agent-full-workflow.json"`.
+   Human capacity: [PF].
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/content-agent.md`.
+   Human capacity: [PA].
+3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run content-agent --mode dialogic --sample`.
+   Human capacity: [TO].
+4. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/content-agent data/verified/content-agent -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+5. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/content-agent.md`.
+   Human capacity: [EI].
 
 ## Steps
 
-1. Step name: Receive brief. Labor: AI. Script called: none; conductor captures webhook or local payload. Input: brief JSON. Output: run envelope. Where output goes: `logs/`.
-2. Step name: Apply brand voice. Labor: AI. Script called: `scripts/tools/content-agent-brand-voice.py`. Input: optional brand overrides. Output: normalized brand voice JSON. Where output goes: `data/verified/content-agent/brand-voice.json`.
-3. Step name: Build generation prompt. Labor: AI. Script called: `scripts/tools/content-agent-build-prompt.py`. Input: brief plus brand voice. Output: prompt contract. Where output goes: `logs/content-agent-prompt.json`.
-4. Step name: Generate variants. Labor: AI/Human-cleared model. Script called: none for live generation; sample fixture in `scripts/tools/content-agent-quality-check.py`. Input: prompt contract. Output: model response. Where output goes: `logs/`.
-5. Step name: Normalize variants. Labor: AI. Script called: `scripts/tools/content-agent-quality-check.py`. Input: model response. Output: one JSON row per variant. Where output goes: `data/verified/content-agent/variants.json`.
-6. Step name: Score variants. Labor: AI. Script called: `scripts/tools/content-agent-score-variants.py`. Input: normalized variants. Output: scored variants with `popper_pass` and `quality_score`. Where output goes: `data/verified/content-agent/scored-variants.json`.
-7. Step name: Split review lanes. Labor: AI. Script called: `scripts/tools/content-agent-split-variants.py`. Input: scored variants. Output: approved and needs-review JSON/CSV files. Where output goes: `data/verified/content-agent/`.
-8. Step name: Create visual concepts. Labor: AI. Script called: `scripts/tools/content-agent-visual-concepts.py`. Input: approved variants plus brand voice. Output: visual concept prompts. Where output goes: `data/verified/content-agent/visual-concepts.json`.
-9. Step name: Ingest Reddit posts. Labor: AI. Script called: `scripts/ingest/content-agent-get-reddit-posts.py`. Input: Reddit search API, local export, or sample rows. Output: normalized post JSON. Where output goes: `data/raw/content-agent/reddit-posts.json`.
-10. Step name: Compute engagement. Labor: AI. Script called: `scripts/tools/content-agent-compute-engagement.py`. Input: normalized Reddit posts. Output: scored and flagged post rows. Where output goes: `data/verified/content-agent/reddit-engagement.json`.
-11. Step name: Produce alert contracts. Labor: AI. Script called: `scripts/tools/content-agent-prepare-alerts.py`. Input: scored variants and scored posts. Output: Discord-style local alert payloads. Where output goes: `logs/content-agent-alerts.json`.
-12. Step name: Produce human report. Labor: AI. Script called: none; conductor fills `reports/templates/content-agent.md`. Input: prompt, variant, engagement, and alert logs. Output: concise run report. Where output goes: `reports/generated/`.
+1. Step name: Verify provenance and source intent. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: data/madison-main/n8n-workflows/originals/content-agent-full-workflow.json.
+   Output: provenance fields: workflow_path, exists, parsed_ok, title_matches_pipeline, source_inventory_checked.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Map workflow or specification to scripts. Labor: AI with Human gate.
+   Script called: `scripts/gigo/content-agent__map-workflow-or-specification-to-scripts.py`
+   Input: recipe inputs and provenance evidence.
+   Output: implementation map fields: steps, script_paths, missing_specs, typed_todos.
+   Where output goes: data/verified/.
+3. Step name: Produce human report. Labor: AI with Human review.
+   Script called: `scripts/tools/content-agent__produce-human-report.py`
+   Input: agent log plus raw and verified outputs.
+   Output: markdown report sections: run summary, source inventory, inputs used, validation results, flags, typed TODOs, decision recommendation.
+   Where output goes: reports/generated/.
 
 ## Output Contract
 
 ### Agent output
-
-The agent log goes to `logs/content-agent-[DATE].json` and contains: `workflow`, `run-id`, `brief-id`, `mode`, `prompt-path`, `variants-path`, `approved-count`, `needs-review-count`, `visual-concepts-path`, `reddit-posts-checked`, `flagged-posts-count`, `alert-contract-path`, `flags`, `stop-conditions`, and `generated-at`.
+File: `logs/content-agent-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
 
 ### Human report
-
-The human report goes to `reports/generated/content-agent-[DATE].md`. It states what brief was processed, which variants passed or failed, what visual concepts were proposed, which Reddit posts were flagged, what human decision is needed, and where the supporting logs live.
+File: `reports/generated/content-agent-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `content-agent` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
@@ -61,6 +81,47 @@ The human report goes to `reports/generated/content-agent-[DATE].md`. It states 
 - Stop if the prompt includes forbidden brand claims, taboos, or unverifiable superlatives.
 - Stop if Reddit ingest fails or returns data that cannot be normalized.
 - Stop if an alert would publish live without an approved destination and explicit human clearance.
+
+## Snickerdoodle
+
+### Run Commands
+Full dialogic run:
+`snickerdoodle run content-agent --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run content-agent --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Map workflow or specification to scripts | `snickerdoodle run content-agent --step map-workflow-or-specification-to-scripts` |  |
+| Produce human report | `snickerdoodle run content-agent --step produce-human-report` | `--no-write` |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate content-agent --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate content-agent --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate content-agent --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Map workflow or specification to scripts | `scripts/gigo/content-agent__map-workflow-or-specification-to-scripts.py` | gigo |
+| Produce human report | `scripts/tools/content-agent__produce-human-report.py` | tool |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/content-agent/` | JSON |
+| Verified data | `data/verified/content-agent/` | JSON |
+| Agent log | `logs/content-agent-[DATE].json` | JSON |
+| Human report | `reports/generated/content-agent-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |
 
 ## Provenance
 

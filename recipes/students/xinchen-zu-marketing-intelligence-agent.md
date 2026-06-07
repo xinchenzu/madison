@@ -1,71 +1,80 @@
 # Xinchen Zu - Marketing Intelligence Agent For Social Media And Industry Trends
 
-## What This Project Is
+## Purpose
 
 Xinchen Zu built a Marketing Intelligence Agent that collects marketing and social-media articles from multiple industry RSS feeds, standardizes them, and exports structured datasets. Assignment 3 collected 135 records from five sources. Assignment 4 v2 adds Google Gemini AI analysis, random article selection, category detection, priority scoring, marketing recommendations, error handling, and human-readable CSV outputs.
 
-## Long-Term Goal
+## Source Inventory
 
-The project goal is a reusable marketing intelligence workflow for professionals who need current industry information without manually checking many blogs. It supports trend monitoring, emerging-topic detection, and future AI-powered marketing analysis.
+| Source Node | Node Type | Source URL or Path | Human Check |
+|---|---|---|---|
+| HubSpot Marketing Blog RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for HubSpot Marketing Blog RSS. | Verify feed URL and date/author fields. |
+| Sprout Social Insights RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Sprout Social Insights RSS. | Verify feed and source labels. |
+| Hootsuite Blog RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Hootsuite Blog RSS. | Verify feed and source labels. |
+| Social Media Examiner RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Social Media Examiner RSS. | Verify feed and source labels. |
+| Search Engine Journal RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Search Engine Journal RSS. | Verify duplicate feed node and whether duplication is intentional. |
+| Google Gemini AI | AI service | [TODO: DATA SOURCE] Confirm source URL/path for Google Gemini AI. | Approve API key, prompt, error handling, and output format. |
 
-## Evidence Used To Build This Recipe
+## Node Classification
 
-| Artifact | What it contributes |
-| --- | --- |
-| A3 documentation PDF | Project overview, five RSS sources, 135 records, data inventory, fields, setup. |
-| A3 demo PDF | Workflow structure, merges, cleanup fields, final dataset. |
-| A3 CSV | 135 records with title, date, author, link, source. |
-| A4 demo PDF | Marketing Intelligence Agent v2 with Gemini, category, priority, summary, recommendation, error handling. |
-| A4 workflow v2 and output CSV examples | Success/error examples for AI-generated marketing analysis. |
+| Node Name | Node Type | Classification |
+|---|---|---|
+| Original workflow node map | [TODO: DEV] Parse original n8n JSON. | [TODO: DEFINE] Classify parsed nodes as ingest, gigo, tool, conductor, or report. |
 
-## Data Sources And Verification
+## Inputs
 
-| Source | Type | Records / Scope | Use In Project | Verification / Human Check |
-| --- | --- | --- | --- | --- |
-| HubSpot Marketing Blog RSS | Public RSS | 50 records in A3 docs | Content marketing, SEO, AI marketing, lead generation, digital marketing trends. | Verify feed URL and date/author fields. |
-| Sprout Social Insights RSS | Public RSS | [TO DO] count by source in final CSV | Social media strategy and platform trends. | Verify feed and source labels. |
-| Hootsuite Blog RSS | Public RSS | [TO DO] count by source in final CSV | Social media management and marketing articles. | Verify feed and source labels. |
-| Social Media Examiner RSS | Public RSS | [TO DO] count by source in final CSV | Social media marketing practices and analysis. | Verify feed and source labels. |
-| Search Engine Journal RSS | Public RSS | [TO DO] count; source appears duplicated in A3 workflow | SEO/search marketing updates. | Verify duplicate feed node and whether duplication is intentional. |
-| Google Gemini AI | AI service | A4 selected article analysis | Category, priority, one-sentence summary, marketing recommendation. | Approve API key, prompt, error handling, and output format. |
-
-## Data Schema And Quality Checks
-
-A3 output keeps `title`, `date`, `author`, `link`, and `source` and removes extra RSS metadata. The documented final dataset has 135 records from five industry sources. A4 success examples use CSV text outputs, while error examples include an `error` column; this is useful but requires a clearer structured schema before production. The A3 workflow contains Search Engine Journal twice, so a human must decide whether that is a duplicate bug or intentional redundancy.
-
-## Recipe Steps
-
-| Step | Labor | Input | Output | Human Check |
-| --- | --- | --- | --- | --- |
-| Confirm marketing-intelligence scope | Human | A3/A4 docs | Approved topic scope and sources | Confirm intended users and whether AI analysis is advisory only. |
-| Fetch RSS feeds | AI | HubSpot, Sprout, Hootsuite, Social Media Examiner, Search Engine Journal | Raw RSS records | Check all feeds return records; confirm duplicate SEJ source. |
-| Merge records | AI | Raw source branches | Combined article set | Check no source was dropped. |
-| Standardize fields | AI | Merged records | title/date/author/link/source dataset | Human spot-check three records per source. |
-| Export A3 CSV | AI | Standardized records | 135-row marketing data CSV | Verify field consistency and source counts. |
-| Select article for AI | AI + Human | Standardized records | AI candidate item | Confirm selection logic is representative or intentionally random. |
-| Run Gemini analysis | AI with Human gate | Selected article text | Category, priority, summary, recommendation | Approve key, prompt, and fallback/error behavior. |
-| Write success/error report | AI | AI response or error | Human-readable CSV output | Human checks recommendation and whether error was handled. |
-
-## AI Layer And Human Judgment
-
-Assignment 4 adds Gemini AI to classify marketing content, assign priority, summarize the article, and recommend marketing action. Error-handling examples show that failures are captured in output CSVs rather than crashing. Human judgment is required to decide whether random article selection is enough or whether the workflow should prioritize by source/date/topic.
-
-## Reports, Logs, And Outputs
-
-| Output | Audience | Purpose | Required Checks |
-| --- | --- | --- | --- |
-| A3 DataFile CSV | Marketing analyst | 135-record source dataset. | Check five fields and source coverage. |
-| A4 success CSVs | Marketing operator | AI-generated category/priority/summary/recommendation text. | Check recommendations and source link. |
-| A4 error CSVs | Operator | Failure examples with error field. | Verify error messages are useful and not leaking secrets. |
-| Human report/log | Human boss | Run summary, source status, selected article, AI output, errors. | Must distinguish successful analysis from fallback/error. |
+| Input | Type | Source | Required? |
+|---|---|---|---|
+| Original n8n workflow JSON | JSON | [TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/zuxinchen_405407_41801846_Zu_Xinchen_A3_Workflow.json | Yes |
+| HubSpot Marketing Blog RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for HubSpot Marketing Blog RSS. | Yes |
+| Sprout Social Insights RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Sprout Social Insights RSS. | Yes |
+| Hootsuite Blog RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Hootsuite Blog RSS. | Yes |
+| Social Media Examiner RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Social Media Examiner RSS. | Yes |
+| Search Engine Journal RSS | Public RSS | [TODO: DATA SOURCE] Confirm source URL/path for Search Engine Journal RSS. | Yes |
+| Google Gemini AI | AI service | [TODO: DATA SOURCE] Confirm source URL/path for Google Gemini AI. | Yes |
 
 ## Phase Gates
 
-1. RSS gate: all approved feeds return data or are marked [TO DO] source unavailable. [TO]
-2. Duplicate source gate: Search Engine Journal duplicate node must be resolved. [PA]
-3. Schema gate: all rows have title, date, link, source; author may be [TO DO] unknown. [IJ]
-4. AI gate: Gemini credential via env var and prompt approved. [EI]
-5. Recommendation gate: marketing recommendation cites article source and does not overclaim. [IJ]
+1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "pantry/zuxinchen_405407_41801846_Zu_Xinchen_A3_Workflow.json"`.
+   Human capacity: [PF].
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/students/xinchen-zu-marketing-intelligence-agent.md`.
+   Human capacity: [PA].
+3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run xinchen-zu-marketing-intelligence-agent --mode dialogic --sample`.
+   Human capacity: [TO].
+4. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/xinchen-zu-marketing-intelligence-agent data/verified/xinchen-zu-marketing-intelligence-agent -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+5. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/xinchen-zu-marketing-intelligence-agent.md`.
+   Human capacity: [EI].
+
+## Steps
+
+1. Step name: Verify provenance and source intent. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: pantry/zuxinchen_405407_41801846_Zu_Xinchen_A3_Workflow.json.
+   Output: provenance fields: workflow_path, exists, parsed_ok, title_matches_pipeline, source_inventory_checked.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Map workflow or specification to scripts. Labor: AI with Human gate.
+   Script called: `scripts/gigo/xinchen-zu-marketing-intelligence-agent__map-workflow-or-specification-to-scripts.py`
+   Input: recipe inputs and provenance evidence.
+   Output: implementation map fields: steps, script_paths, missing_specs, typed_todos.
+   Where output goes: data/verified/.
+3. Step name: Produce human report. Labor: AI with Human review.
+   Script called: `scripts/tools/xinchen-zu-marketing-intelligence-agent__produce-human-report.py`
+   Input: agent log plus raw and verified outputs.
+   Output: markdown report sections: run summary, source inventory, inputs used, validation results, flags, typed TODOs, decision recommendation.
+   Where output goes: reports/generated/.
+
+## Output Contract
+
+### Agent output
+File: `logs/xinchen-zu-marketing-intelligence-agent-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
+
+### Human report
+File: `reports/generated/xinchen-zu-marketing-intelligence-agent-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `Xinchen Zu - Marketing Intelligence Agent For Social Media And Industry Trends` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
@@ -75,19 +84,47 @@ Assignment 4 adds Gemini AI to classify marketing content, assign priority, summ
 - Gemini key appears in workflow/log/output.
 - Recommendation not tied to source article.
 
-## [TO DO] Items Before Production
+## Snickerdoodle
 
-- [TO DO] Resolve duplicate Search Engine Journal feed node.
-- [TO DO] Define structured A4 output schema beyond free-form text column.
-- [TO DO] Add per-source counts to run log.
-- [TO DO] Store Gemini key only in env var.
+### Run Commands
+Full dialogic run:
+`snickerdoodle run xinchen-zu-marketing-intelligence-agent --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run xinchen-zu-marketing-intelligence-agent --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Map workflow or specification to scripts | `snickerdoodle run xinchen-zu-marketing-intelligence-agent --step map-workflow-or-specification-to-scripts` |  |
+| Produce human report | `snickerdoodle run xinchen-zu-marketing-intelligence-agent --step produce-human-report` | `--no-write` |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate xinchen-zu-marketing-intelligence-agent --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate xinchen-zu-marketing-intelligence-agent --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate xinchen-zu-marketing-intelligence-agent --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Map workflow or specification to scripts | `scripts/gigo/xinchen-zu-marketing-intelligence-agent__map-workflow-or-specification-to-scripts.py` | gigo |
+| Produce human report | `scripts/tools/xinchen-zu-marketing-intelligence-agent__produce-human-report.py` | tool |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/xinchen-zu-marketing-intelligence-agent/` | JSON |
+| Verified data | `data/verified/xinchen-zu-marketing-intelligence-agent/` | JSON |
+| Agent log | `logs/xinchen-zu-marketing-intelligence-agent-[DATE].json` | JSON |
+| Human report | `reports/generated/xinchen-zu-marketing-intelligence-agent-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |
 
 ## Provenance
 
-- pantry/zuxinchen_405407_41801846_Zu_Xinchen_A3_Workflow.json
-- pantry/zuxinchen_405407_41801847_DataFile.csv
-- pantry/zuxinchen_405407_41801848_Assignment 3 Documentation.pdf
-- pantry/zuxinchen_405407_41801851_DEMO - Assignment 3 Screenshot Walkthrough Xinchen Zu.pdf
-- pantry/zuxinchen_LATE_405407_41930874_Demo Walkthrough.pdf
-- pantry/zuxinchen_LATE_405407_41930875_workflow_v2.json
-- pantry/zuxinchen_LATE_405407_41930876_marketing_analysis_error_handling_example1.csv through success_example13.csv
+Original workflow JSON: `[TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/zuxinchen_405407_41801846_Zu_Xinchen_A3_Workflow.json`

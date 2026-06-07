@@ -4,51 +4,72 @@
 
 The restaurant-agent workflow handles TasteBuds Cafe customer requests for food orders and table reservations. It translates the imported webhook-and-agent flow into a recipe with explicit ingest boundaries, local tool contracts, human phase gates, and auditable outputs so order and reservation writes do not happen silently.
 
+## Source Inventory
+
+| Source Node | Node Type | Source URL or Path | Human Check |
+|---|---|---|---|
+| Original workflow sources | [TODO: DEV] Parse original workflow node types. | [TODO: DATA SOURCE] Extract source URLs or paths from original workflow JSON. | Confirm source is allowed, current, and rate-safe before live fetch. |
+
+## Node Classification
+
+| Node Name | Node Type | Classification |
+|---|---|---|
+| Original workflow node map | [TODO: DEV] Parse original n8n JSON. | [TODO: DEFINE] Classify parsed nodes as ingest, gigo, tool, conductor, or report. |
+
 ## Inputs
 
 | Input | Type | Source | Required? |
 |---|---|---|---|
+| Original n8n workflow JSON | JSON | data/madison-main/n8n-workflows/originals/archives/cicerone/restaurant-agent.json | Yes |
 | Customer query | Text | Webhook body field `query` | Yes |
-| Menu rows | Tabular rows | Restaurant Menu workflow export via `scripts/ingest/restaurant-agent-get-menu.py` | Yes for order requests |
-| Reservation availability rows | Tabular rows | Google Sheets export via `scripts/ingest/restaurant-agent-get-reservation-availability.py` | Yes for reservation requests |
-| Confirmed reservation rows | Tabular rows | Google Sheets export via `scripts/ingest/restaurant-agent-get-confirmed-reservations.py` | Yes for reservation changes |
-| Order rows | Tabular rows | Google Sheets export via `scripts/ingest/restaurant-agent-get-orders.py` | Yes for order creation or modification |
-| Proposed write action | JSON object | Human-cleared agent draft | Yes before any order or reservation update |
+| Menu rows | Tabular rows | Restaurant Menu workflow export via `scripts/ingest/restaurant-agent-get-menu.py` | Yes |
+| Reservation availability rows | Tabular rows | Google Sheets export via `scripts/ingest/restaurant-agent-get-reservation-availability.py` | Yes |
+| Confirmed reservation rows | Tabular rows | Google Sheets export via `scripts/ingest/restaurant-agent-get-confirmed-reservations.py` | Yes |
+| Order rows | Tabular rows | Google Sheets export via `scripts/ingest/restaurant-agent-get-orders.py` | Yes |
+| Proposed write action | JSON object | Human-cleared agent draft | Yes |
 
 ## Phase Gates
 
-1. Source gate: the original workflow JSON must exist at `data/madison-main/n8n-workflows/originals/archives/cicerone/restaurant-agent.json`; verify with `test -f "data/madison-main/n8n-workflows/originals/archives/cicerone/restaurant-agent.json"`. Human capacity: [TO].
-2. Credential gate: live Google Sheets ingest must provide the requested spreadsheet id explicitly or by environment variable; sample mode is required before live mode. Human capacity: [PA].
-3. Menu gate: menu rows must be current enough to support availability claims; verify with `python3 scripts/ingest/restaurant-agent-get-menu.py --sample`. Human capacity: [PA].
-4. Reservation availability gate: before confirming or modifying a reservation, the requested date row must be read and the target slot must be available; verify with `python3 scripts/tools/restaurant-agent-update-reservation-availability.py --sample --action block`. Human capacity: [IJ].
-5. Double-booking gate: when blocking a reservation slot, preserve all other time slots exactly as found in the source row and write only the requested slot change. Human capacity: [IJ].
-6. Confirmed reservation gate: write confirmed reservation details only after availability has been checked and the requested slot has been blocked in the local write contract. Human capacity: [EI].
-7. Order gate: write an order only after menu availability and customer confirmation are logged. Human capacity: [EI].
-8. Report gate: every run that produces an order, reservation, or customer-facing answer must produce both a parseable log and a human-readable report. Human capacity: [TO].
+1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "data/madison-main/n8n-workflows/originals/archives/cicerone/restaurant-agent.json"`.
+   Human capacity: [PF].
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/restaurant-agent.md`.
+   Human capacity: [PA].
+3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run restaurant-agent --mode dialogic --sample`.
+   Human capacity: [TO].
+4. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/restaurant-agent data/verified/restaurant-agent -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+5. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/restaurant-agent.md`.
+   Human capacity: [EI].
 
 ## Steps
 
-1. Step name: Receive customer query. Labor: AI. Script called: none; conductor captures webhook body. Input: `query`. Output: run envelope with timestamp and session id. Where output goes: `logs/`.
-2. Step name: Ingest menu. Labor: AI. Script called: `scripts/ingest/restaurant-agent-get-menu.py`. Input: menu workflow export or sample rows. Output: normalized menu JSON. Where output goes: `data/raw/restaurant-agent/menu.json`.
-3. Step name: Ingest reservation availability. Labor: AI. Script called: `scripts/ingest/restaurant-agent-get-reservation-availability.py`. Input: reservation availability sheet or sample rows. Output: normalized availability JSON. Where output goes: `data/raw/restaurant-agent/reservation-availability.json`.
-4. Step name: Ingest confirmed reservations. Labor: AI. Script called: `scripts/ingest/restaurant-agent-get-confirmed-reservations.py`. Input: confirmed reservations sheet or sample rows. Output: normalized reservation JSON. Where output goes: `data/raw/restaurant-agent/confirmed-reservations.json`.
-5. Step name: Ingest orders. Labor: AI. Script called: `scripts/ingest/restaurant-agent-get-orders.py`. Input: orders sheet or sample rows. Output: normalized order JSON. Where output goes: `data/raw/restaurant-agent/orders.json`.
-6. Step name: Draft customer response. Labor: AI. Script called: `scripts/tools/restaurant-agent-generate-response.py`. Input: customer query plus local menu, reservation, and order data. Output: response contract with intent, required writes, flags, and customer-facing text. Where output goes: `logs/restaurant-agent-response.json`.
-7. Step name: Human clearance. Labor: Human. Human action required: confirm requested action, privacy boundary, menu availability, reservation slot status, and customer details before any write. Input: response contract and source rows. Output: approved or rejected gate decision. Where output goes: `logs/gate-decisions/`.
-8. Step name: Write order contract. Labor: AI. Script called: `scripts/tools/restaurant-agent-update-orders.py`. Input: approved order JSON and local orders JSON. Output: updated local orders JSON plus write log. Where output goes: `data/verified/restaurant-agent/orders.json` and `logs/`.
-9. Step name: Write reservation availability contract. Labor: AI. Script called: `scripts/tools/restaurant-agent-update-reservation-availability.py`. Input: approved date, slot, and action. Output: updated local availability JSON plus write log. Where output goes: `data/verified/restaurant-agent/reservation-availability.json` and `logs/`.
-10. Step name: Write confirmed reservation contract. Labor: AI. Script called: `scripts/tools/restaurant-agent-update-confirmed-reservations.py`. Input: approved reservation details. Output: updated local reservation JSON plus write log. Where output goes: `data/verified/restaurant-agent/confirmed-reservations.json` and `logs/`.
-11. Step name: Produce human report. Labor: AI. Script called: none; conductor fills `reports/templates/restaurant-agent.md`. Input: response contract and write logs. Output: concise run report. Where output goes: `reports/generated/`.
+1. Step name: Verify provenance and source intent. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: data/madison-main/n8n-workflows/originals/archives/cicerone/restaurant-agent.json.
+   Output: provenance fields: workflow_path, exists, parsed_ok, title_matches_pipeline, source_inventory_checked.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Map workflow or specification to scripts. Labor: AI with Human gate.
+   Script called: `scripts/gigo/restaurant-agent__map-workflow-or-specification-to-scripts.py`
+   Input: recipe inputs and provenance evidence.
+   Output: implementation map fields: steps, script_paths, missing_specs, typed_todos.
+   Where output goes: data/verified/.
+3. Step name: Produce human report. Labor: AI with Human review.
+   Script called: `scripts/tools/restaurant-agent__produce-human-report.py`
+   Input: agent log plus raw and verified outputs.
+   Output: markdown report sections: run summary, source inventory, inputs used, validation results, flags, typed TODOs, decision recommendation.
+   Where output goes: reports/generated/.
 
 ## Output Contract
 
 ### Agent output
-
-The agent log goes to `logs/restaurant-agent-[DATE].json` and contains: `workflow`, `run_id`, `input_query`, `intent`, `customer_name`, `data_files`, `menu_items_checked`, `reservation_slots_checked`, `order_ids_checked`, `proposed_writes`, `writes_performed`, `response_text`, `flags`, `stop_conditions`, and `generated_at`.
+File: `logs/restaurant-agent-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
 
 ### Human report
-
-The human report goes to `reports/generated/restaurant-agent-[DATE].md`. It names the customer request, states whether it was an order or reservation flow, lists the evidence used, identifies the human decision needed or taken, and links to the log entries behind any write.
+File: `reports/generated/restaurant-agent-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `restaurant-agent` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
@@ -61,6 +82,47 @@ The human report goes to `reports/generated/restaurant-agent-[DATE].md`. It name
 - Stop if a confirmed reservation write is requested before the availability block is logged.
 - Stop if customer identity is needed before sharing or modifying an existing order or reservation.
 - Stop if customer-facing output contains unverified prices, allergens, delivery terms, reservation capacity, or staff promises.
+
+## Snickerdoodle
+
+### Run Commands
+Full dialogic run:
+`snickerdoodle run restaurant-agent --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run restaurant-agent --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Map workflow or specification to scripts | `snickerdoodle run restaurant-agent --step map-workflow-or-specification-to-scripts` |  |
+| Produce human report | `snickerdoodle run restaurant-agent --step produce-human-report` | `--no-write` |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate restaurant-agent --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate restaurant-agent --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate restaurant-agent --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Map workflow or specification to scripts | `scripts/gigo/restaurant-agent__map-workflow-or-specification-to-scripts.py` | gigo |
+| Produce human report | `scripts/tools/restaurant-agent__produce-human-report.py` | tool |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/restaurant-agent/` | JSON |
+| Verified data | `data/verified/restaurant-agent/` | JSON |
+| Agent log | `logs/restaurant-agent-[DATE].json` | JSON |
+| Human report | `reports/generated/restaurant-agent-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |
 
 ## Provenance
 

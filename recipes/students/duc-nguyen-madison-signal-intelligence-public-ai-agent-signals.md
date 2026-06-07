@@ -1,78 +1,76 @@
 # Duc Nguyen - Madison Signal Intelligence for Public AI-Agent Signals
 
-## What This Project Is
+## Purpose
 
 Duc Nguyen built a reusable public-signal ingest and intelligence layer for Madison. Assignment 3 collected public AI-agent and automation signals from Hacker News, DEV Community, and GitHub, normalized them into one schema, deduplicated records, validated required fields, and exported a reusable CSV. Assignment 4 upgraded that collector into Madison Signal Intelligence: an AI-ranked workflow that classifies signals, assigns priority and confidence, explains why they matter, and recommends actions for founders or engineers.
 
-## Long-Term Goal
+## Source Inventory
 
-The A2 career target is founding-stage AI infrastructure and distributed systems work, especially Browserbase-style backend reliability for agent runtimes. The project is long-term portfolio proof for the same problem one layer up: rate limits, retries, normalization, monitoring, and reliable public-source ingestion for downstream agents.
+| Source Node | Node Type | Source URL or Path | Human Check |
+|---|---|---|---|
+| Hacker News Algolia API | Public API | [TODO: DATA SOURCE] Confirm source URL/path for Hacker News Algolia API. | Verify URL, query ai agents, hitsPerPage=60, date normalization, and completeness of record_id/title/url/posted_at. |
+| DEV Community API | Public API | [TODO: DATA SOURCE] Confirm source URL/path for DEV Community API. | Verify source availability, author/title/url/date fields, and engagement/comment fields. |
+| GitHub Search API | Public API | [TODO: DATA SOURCE] Confirm source URL/path for GitHub Search API. | Verify GitHub rate limits, repository URL, owner/name, updated date, language/tags, engagement score. |
+| OpenAI API in A4 | AI service | [TODO: DATA SOURCE] Confirm source URL/path for OpenAI API in A4. | Human must approve model, cost, batch size, prompt, and fallback behavior before live runs. |
 
-## Evidence Used To Build This Recipe
+## Node Classification
 
-| Artifact | What it contributes |
-| --- | --- |
-| A2 PDF | Target role: Software Engineer, Distributed Systems; focus on AI infrastructure, streaming, observability, and backend reliability. |
-| A3 documentation PDF | Defines the reliable public-signal pipeline, sources, 180-record schema, required fields, and quality summary. |
-| A3 CSV | 181 rows: 180 data records plus a quality-summary row; fields include record_id, source_name, source_type, title, url, posted_at, engagement_score, comments_count, tags, content_hash. |
-| A4 zip documentation | Adds OpenAI signal intelligence, fallback parsing/scoring, ranked CSV, HTML report, signal cards, scale tests, and optional multi-agent debate extension. |
-| A4 outputs | Ranked Signal Intelligence CSV, Madison Report HTML, signal cards, and v3 multi-agent proof artifacts. |
+| Node Name | Node Type | Classification |
+|---|---|---|
+| Original workflow node map | [TODO: DEV] Parse original n8n JSON. | [TODO: DEFINE] Classify parsed nodes as ingest, gigo, tool, conductor, or report. |
 
-## Data Sources And Verification
+## Inputs
 
-| Source | Type | Records / Scope | Use In Project | Verification / Human Check |
-| --- | --- | --- | --- | --- |
-| Hacker News Algolia API | Public API | 60 records | Developer discussion/news around AI agents and automation. | Verify URL, query ai agents, hitsPerPage=60, date normalization, and completeness of record_id/title/url/posted_at. |
-| DEV Community API | Public API | 60 records | Developer articles and technical posts tagged AI. | Verify source availability, author/title/url/date fields, and engagement/comment fields. |
-| GitHub Search API | Public API | 60 records | Open-source AI-agent repository adoption and developer attention signals. | Verify GitHub rate limits, repository URL, owner/name, updated date, language/tags, engagement score. |
-| OpenAI API in A4 | AI service | 12 stable AI-scored records in final batch | Classifies trend cluster, priority, confidence, insight, and action. | Human must approve model, cost, batch size, prompt, and fallback behavior before live runs. |
-
-## Recommended Sources To Add
-
-| Recommended Sources | What Snickerdoodle Should Save |
-| --- | --- |
-| Kaggle social media archive datasets | Post content, engagement counts, platform, timestamps, author metadata if public and allowed. |
-| Platform public documentation | Platform, endpoint or feature name, data field definitions, limits, policy notes, update date. |
-| RSS feeds from social analytics blogs | Headline, source, topic, date, platform mentioned, source URL. |
-
-## Data Schema And Quality Checks
-
-A3 required fields are `record_id`, `source_name`, `title`, `url`, and `posted_at`; all 180 data records were reported complete. Shared schema also includes `source_type`, `text`, `author`, `engagement_score`, `comments_count`, `tags`, `content_hash`, and `quality_status`. A4 adds `trend_cluster`, `madison_priority`, `madison_score`, `confidence`, `ai_decision`, `ai_insight`, `recommended_action`, `ai_status`, and `analyzed_at`. Quality checks include deduplication, required-field validation, content hash construction, AI response parsing, fallback scoring when AI output is malformed, and scale testing. The documented breaking point is a 50-record AI batch timing out at 60 seconds; the stable final AI batch is 12 records.
-
-## Recipe Steps
-
-| Step | Labor | Input | Output | Human Check |
-| --- | --- | --- | --- | --- |
-| Verify source intent | Human + AI | A2/A3/A4 documentation and workflow JSON | Approved project scope | Confirm this is a public AI-agent signal intelligence system, not a generic RSS collector. |
-| Collect HN/DEV/GitHub signals | AI | Three public APIs | Raw source payloads in data/raw/ | Check rate limits, source freshness, and that live calls are permitted. |
-| Normalize each source | AI | Raw payloads | Source-specific normalized records | Spot-check dates, URLs, authors/owners, engagement fields, and missing text. |
-| Merge and deduplicate | AI | Normalized records | Unified 180-record dataset | Check duplicate removal and required field failures. |
-| Export A3 signal CSV | AI | Verified unified records | Public Signal Data CSV | Confirm CSV includes quality-summary row and no private data. |
-| Build AI batch prompt | AI + Human | Top/selected verified records | AI prompt payload | Approve prompt, model, privacy boundary, batch size, and cost. |
-| Run AI signal intelligence | AI | Prompt batch plus OpenAI credentials via env var | Ranked AI-scored records | Review fallback scoring and any malformed AI responses. |
-| Generate human outputs | AI | Ranked records | HTML report, signal cards, optional multi-agent proof | Human verifies every recommendation traces back to a source record. |
-
-## AI Layer And Human Judgment
-
-Assignment 4 adds OpenAI-based signal analysis and an optional v3 multi-agent debate layer. The normal AI output includes trend cluster, priority, score, confidence, decision, insight, and recommended action. The wow extension adds analyst vote, skeptic risk, operator action, judge decision, feedback-learning reason, and delivery payloads. Human judgment is required to approve any strategic claim or action recommendation because engagement score is a proxy signal, not proof of market value.
-
-## Reports, Logs, And Outputs
-
-| Output | Audience | Purpose | Required Checks |
-| --- | --- | --- | --- |
-| A3 Public Signal CSV | Data reviewer / downstream agent | Reusable normalized dataset for Madison agents. | Must show 180 complete records and required fields. |
-| A4 Ranked Signal Intelligence CSV | Founder / engineer / product strategist | Prioritized public signals with AI reasoning and actions. | Check ai_status, confidence, priority distribution, and source traceability. |
-| Madison Signal Intelligence HTML report | Human decision-maker | Readable ranked signal report. | Findings must link to source rows and avoid unsupported claims. |
-| Signal cards and multi-agent proof | Instructor / portfolio reviewer | Shows concrete output gallery and debate-style analysis. | Verify cards are not hallucinated and reflect ranked CSV. |
-| Scale test log | Engineer / operator | Documents 12-record stability and 50-record timeout. | Production plan must add batching and cost/token logging. |
+| Input | Type | Source | Required? |
+|---|---|---|---|
+| Original n8n workflow JSON | JSON | [TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/Nguyen_Duc_A3_Workflow.json | Yes |
+| Hacker News Algolia API | Public API | [TODO: DATA SOURCE] Confirm source URL/path for Hacker News Algolia API. | Yes |
+| DEV Community API | Public API | [TODO: DATA SOURCE] Confirm source URL/path for DEV Community API. | Yes |
+| GitHub Search API | Public API | [TODO: DATA SOURCE] Confirm source URL/path for GitHub Search API. | Yes |
+| OpenAI API in A4 | AI service | [TODO: DATA SOURCE] Confirm source URL/path for OpenAI API in A4. | Yes |
 
 ## Phase Gates
 
-1. Source gate: verify all three public sources still resolve and are appropriate for public-signal monitoring. Human capacity: [TO], [PA].
-2. Schema gate: no downstream AI step runs until record_id, source_name, title, url, and posted_at are complete or rejects are logged. Human capacity: [IJ].
-3. AI gate: OpenAI calls require approved model, batch size, prompt, cost limit, and environment-variable credential handling. Human capacity: [EI].
-4. Scale gate: production must batch records below the documented timeout threshold and log tokens/cost. Human capacity: [TO].
-5. Claim gate: every recommended action must cite a source record and confidence score. Human capacity: [IJ], [EI].
+1. Source identity gate: Original workflow JSON exists and is the intended source. Test: `test -f "pantry/Nguyen_Duc_A3_Workflow.json"`.
+   Human capacity: [PF].
+2. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/students/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals.md`.
+   Human capacity: [PA].
+3. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run duc-nguyen-madison-signal-intelligence-public-ai-agent-signals --mode dialogic --sample`.
+   Human capacity: [TO].
+4. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals data/verified/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+5. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals.md`.
+   Human capacity: [EI].
+
+## Steps
+
+1. Step name: Verify provenance and source intent. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: pantry/Nguyen_Duc_A3_Workflow.json.
+   Output: provenance fields: workflow_path, exists, parsed_ok, title_matches_pipeline, source_inventory_checked.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Map workflow or specification to scripts. Labor: AI with Human gate.
+   Script called: `scripts/gigo/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals__map-workflow-or-specification-to-scripts.py`
+   Input: recipe inputs and provenance evidence.
+   Output: implementation map fields: steps, script_paths, missing_specs, typed_todos.
+   Where output goes: data/verified/.
+3. Step name: Produce human report. Labor: AI with Human review.
+   Script called: `scripts/tools/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals__produce-human-report.py`
+   Input: agent log plus raw and verified outputs.
+   Output: markdown report sections: run summary, source inventory, inputs used, validation results, flags, typed TODOs, decision recommendation.
+   Where output goes: reports/generated/.
+
+## Output Contract
+
+### Agent output
+File: `logs/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
+
+### Human report
+File: `reports/generated/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `Duc Nguyen - Madison Signal Intelligence for Public AI-Agent Signals` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
@@ -82,17 +80,47 @@ Assignment 4 adds OpenAI-based signal analysis and an optional v3 multi-agent de
 - Batch size exceeds stable tested limit without queueing.
 - Any report recommends investment/collaboration without traceable evidence.
 
-## [TO DO] Items Before Production
+## Snickerdoodle
 
-- [TO DO] Replace local download paths with Madison repo output paths.
-- [TO DO] Add token/cost logging per AI call.
-- [TO DO] Add batch queue for runs above 12 AI-scored records.
-- [TO DO] Record human gate decisions in logs/gate-decisions/.
+### Run Commands
+Full dialogic run:
+`snickerdoodle run duc-nguyen-madison-signal-intelligence-public-ai-agent-signals --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run duc-nguyen-madison-signal-intelligence-public-ai-agent-signals --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Map workflow or specification to scripts | `snickerdoodle run duc-nguyen-madison-signal-intelligence-public-ai-agent-signals --step map-workflow-or-specification-to-scripts` |  |
+| Produce human report | `snickerdoodle run duc-nguyen-madison-signal-intelligence-public-ai-agent-signals --step produce-human-report` | `--no-write` |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate duc-nguyen-madison-signal-intelligence-public-ai-agent-signals --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate duc-nguyen-madison-signal-intelligence-public-ai-agent-signals --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate duc-nguyen-madison-signal-intelligence-public-ai-agent-signals --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Map workflow or specification to scripts | `scripts/gigo/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals__map-workflow-or-specification-to-scripts.py` | gigo |
+| Produce human report | `scripts/tools/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals__produce-human-report.py` | tool |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals/` | JSON |
+| Verified data | `data/verified/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals/` | JSON |
+| Agent log | `logs/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals-[DATE].json` | JSON |
+| Human report | `reports/generated/duc-nguyen-madison-signal-intelligence-public-ai-agent-signals-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |
 
 ## Provenance
 
-- pantry/Nguyen_Duc_A3_Workflow.json
-- pantry/Nguyen_Duc_A3_Documentation.pdf
-- pantry/Nguyen_Duc_A3_Public_Signal_Data.csv
-- pantry/nguyenduc_318747_41724138_Nguyen_Duc_Week2.pdf
-- pantry/nguyenduc_318747_41915183_submit.zip
+Original workflow JSON: `[TODO: DATA SOURCE] Restore or move original workflow JSON to a repo-local path. Last documented path: pantry/Nguyen_Duc_A3_Workflow.json`

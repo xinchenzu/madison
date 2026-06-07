@@ -4,71 +4,93 @@
 
 Generates channel, persona, and A/B variant copy from the approved campaign structure. The recipe uses Madison copy agents for subject lines, pre-headers, generational messaging, SMS, ZML, and campaign development.
 
-This is Phase 5 of the draft Madison branding marketing pipeline.
-
-## Node Classification
-
-| Node Name | Node Type | Classification | Snickerdoodle |
-|---|---|---|---|
-| Copy Generation | `copy-agent-bundle` | gigo | Needs script: `scripts/gigo/madison-gigo-copy-generation.py`; output JSON: `data/verified/madison-branding-marketing-pipeline/copy-variants-verified.json`. |
-| Email Template Generation | `zml-agent` | gigo | Included in `madison-gigo-copy-generation.py`; output files under `data/verified/madison-branding-marketing-pipeline/email-templates/`. |
-
-## Madison Agents
-
-- Subject Line Generator
-- Pre-Header Text Generator
-- Generational Messaging Optimizer
-- SMS Copy Generator
-- ZML Agent
-- Campaign Developer Agent
-
 ## Inputs
 
-| Input | Type | Source | Required? | Human Check |
-|---|---|---|---|---|
-| Approved campaign structure | JSON | `data/verified/madison-branding-marketing-pipeline/campaign-structure-verified.json` | Yes | Confirm Gate G3 passed. |
-| Verified personas | JSON | `data/verified/madison-branding-marketing-pipeline/personas-verified.json` | Yes | Confirm persona IDs and cohorts are available. |
-| Client brief | JSON | `data/raw/madison-branding-marketing-pipeline/brief.json` | Yes | Confirm brand safety, suppressions, objective, and channels. |
-
-## Validation Rules
-
-- For each channel x persona x A/B variant, generate appropriate copy.
-- Subject Line Generator must produce variants with spam-risk scores.
-- Reject copy variants with spam score above threshold.
-- Flag SMS copy exceeding character limits.
-- Flag duplicate subject lines across variants.
-- ZML Agent generates conditional personalization logic for email templates.
-- Brand safety notes and suppressions must remain visible in the copy-generation context.
+| Input | Type | Source | Required? |
+|---|---|---|---|
+| Approved campaign structure | JSON | `data/verified/madison-branding-marketing-pipeline/campaign-structure-verified.json` | Yes |
+| Verified personas | JSON | `data/verified/madison-branding-marketing-pipeline/personas-verified.json` | Yes |
+| Client brief | JSON | `data/raw/madison-branding-marketing-pipeline/brief.json` | Yes |
 
 ## Phase Gates
 
-1. Campaign gate: Gate G3 must be approved before copy generation. Human capacity: [PF].
-2. Spam-risk gate: spam threshold must be defined before production. Human capacity: [TO].
-3. SMS gate: SMS copy must satisfy character and carrier constraints. Human capacity: [PA].
-4. Template gate: generated ZML/HTML files remain local verified outputs until QA passes. Human capacity: [EI].
+1. Input readiness gate: Every required input in this recipe exists or is marked with a typed TODO. Test: `rg -n "TODO:" recipes/madison-copy-content-generation.md`.
+   Human capacity: [PA].
+2. Sample run gate: Ingest and tool steps run without live side effects before live mode. Test: `snickerdoodle run madison-copy-content-generation --mode dialogic --sample`.
+   Human capacity: [TO].
+3. Data-shape gate: Raw and verified outputs parse as JSON where applicable. Test: `find data/raw/madison-copy-content-generation data/verified/madison-copy-content-generation -name "*.json" -print -exec python3 -m json.tool {} \;`.
+   Human capacity: [IJ].
+4. Report contract gate: Human report defines reader, decision enabled, and sections. Test: `rg -n "Reader:|Decision enabled:|Sections:" recipes/madison-copy-content-generation.md`.
+   Human capacity: [EI].
 
 ## Steps
 
-1. Step name: Verify campaign approval. Labor: AI. Script called: none. Input: `logs/gate-G3-campaign-structure.json`. Output: gate readiness check. Where output goes: `logs/`.
-2. Step name: Generate copy variants. Labor: AI with Human gate. Script called: `scripts/gigo/madison-gigo-copy-generation.py`. Input: approved campaign structure, personas, and brief. Output: `copy-variants-verified.json` and email templates. Where output goes: `data/verified/madison-branding-marketing-pipeline/`.
+1. Step name: Verify campaign approval. Labor: Human.
+   Human action: Record approval, rejection, or requested changes with supervisory capacity label [TODO: DEFINE].
+   Input: logs/gate-G3-campaign-structure.json.
+   Output: approval check with gate status and reviewer_capacity.
+   Where output goes: logs/gate-decisions/.
+2. Step name: Generate copy variants. Labor: AI with Human gate.
+   Script called: `scripts/gigo/madison-gigo-copy-generation.py`
+   Input: campaign-structure-verified.json, personas-verified.json, and brief.json.
+   Output: copy-variants-verified JSON fields: channel, persona_id, variant_id, subject_line, preheader, body_copy, sms_copy, spam_score, validation_flags plus email template files.
+   Where output goes: data/verified/madison-branding-marketing-pipeline/.
 
-## Outputs
+## Output Contract
 
-`data/verified/madison-branding-marketing-pipeline/copy-variants-verified.json`
+### Agent output
+File: `logs/madison-copy-content-generation-[DATE].json`
+Fields: `workflow`, `run_id`, `mode`, `steps_completed`, `records_seen`, `rejects`, `duplicates`, `flags`, `stop_conditions`, `todo_items`, `source_files`, `gate_decisions`, `generated_at`.
 
-`data/verified/madison-branding-marketing-pipeline/email-templates/`
+### Human report
+File: `reports/generated/madison-copy-content-generation-[DATE].md`
+Reader: domain lead or human boss responsible for accepting the `Madison Copy And Content Generation` run.
+Decision enabled: approve the run for the next phase, request source/schema fixes, or block live execution.
+Sections: Run summary, source inventory, inputs used, steps completed, records seen, rejects, duplicates, flags, typed TODOs, gate decisions, evidence-backed findings, decision recommendation.
 
 ## Stop Conditions
 
 - Stop if Gate G3 is missing or not approved.
-- Stop if spam threshold is undefined in production; add `[TO DO] define threshold`.
+- Stop if spam threshold is undefined in production; add `[TODO: DEFINE] define threshold`.
 - Stop if SMS variants exceed character limits.
 - Stop if duplicate subject lines are not resolved or flagged.
 - Stop if generated copy violates brand safety notes or suppressions.
 
-## [TO DO] Items Before Production
+## Snickerdoodle
 
-- [TO DO] Define spam-risk score threshold.
-- [TO DO] Define SMS character limit and carrier filtering contract.
-- [TO DO] Define copy variant schema.
-- [TO DO] Define email template file naming convention.
+### Run Commands
+Full dialogic run:
+`snickerdoodle run madison-copy-content-generation --mode dialogic`
+
+Sample mode (no live network calls, no writes):
+`snickerdoodle run madison-copy-content-generation --mode dialogic --sample`
+
+### Step Commands
+
+| Step | CLI Command | Flags |
+|---|---|---|
+| Generate copy variants | `snickerdoodle run madison-copy-content-generation --step generate-copy-variants` |  |
+
+### Gate Commands
+
+| Gate | CLI Command |
+|---|---|
+| Gate 1 - source/input readiness | `snickerdoodle gate madison-copy-content-generation --gate 1 --decision approve --note "..."` |
+| Gate 2 - sample run | `snickerdoodle gate madison-copy-content-generation --gate 2 --decision approve --note "..."` |
+| Gate 3 - report contract | `snickerdoodle gate madison-copy-content-generation --gate 3 --decision approve --note "..."` |
+
+### Script Locations
+
+| Step | Script Path | Layer |
+|---|---|---|
+| Generate copy variants | `scripts/gigo/madison-gigo-copy-generation.py` | gigo |
+
+### Output Locations
+
+| Output | Path | Format |
+|---|---|---|
+| Raw ingest | `data/raw/madison-copy-content-generation/` | JSON |
+| Verified data | `data/verified/madison-copy-content-generation/` | JSON |
+| Agent log | `logs/madison-copy-content-generation-[DATE].json` | JSON |
+| Human report | `reports/generated/madison-copy-content-generation-[DATE].md` | Markdown |
+| Gate decisions | `logs/gate-decisions/` | JSON |
