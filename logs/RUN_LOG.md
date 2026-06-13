@@ -3,6 +3,22 @@
 Human-readable history for recipe-driven work. Short, concrete entries; no
 secrets, personal contact details, or private notes.
 
+## 2026-06-12 — Drafted Exercise Two (Madison talks to Figma)
+
+- **Recipe:** manual (author-directed; design settled in prior discussion)
+- **Inputs:** Exercise One's Step 5 flags (untraceable board claims = test data); the Figma API book (Ch 1 snapshot/drift, Ch 2 API surfaces and ping, Ch 3 document graph and fixtures, Ch 5/11 audit pattern); author decision to dedicate a full exercise to Madison↔Figma rather than keep craft work in Exercise One
+- **Outputs:** `docs/exercises/exercise-02-madison-talks-to-figma.md` — Steps 0–6 (token discipline → ping → fixture → claims extraction → trace adjudication → recipe wrap → log), 20/5 grading (10 itemized mechanics lines; Glimmer on articulating the conformance/adequacy gap for the student's own board), what-can-go-wrong table; DOMAIN.md course-exercises section updated
+- **Result:** Audit-direction only (REST read, free plans, no Enterprise gate) — verify before automating writes; Plugin-API render named as an ungraded semester-build candidate. The human-adjudication gate (every trace row) is the exercise's P1 lesson: extraction and table-completeness are machine work; whether a match is *true* is not. Recipe-with-evidence gives students a legitimately promoted recipe and dogfoods the gaps→build loop.
+- **Open issues:** not yet run against a real student board (FigJam vs design-file node types asserted, not verified — first real run should confirm STICKY/TEXT handling); positioned as a lab between A1 and A2, pending author confirmation; quartile tie rule still open from Exercise One.
+
+## 2026-06-12 — Exercise One Step 5 rewritten: snapshot-or-build
+
+- **Recipe:** manual (author-directed after course-data review)
+- **Inputs:** Canvas export of INFO 7375 (Figma appears in 10 of 15 assignments; A6/A7 "Updated Figma Board Link" = the board is a running surface); author decisions: Exercise One runs mid-semester so most students already have an A1 board; Figma craft work removed from this exercise; Exercise Two will be dedicated to Madison↔Figma
+- **Outputs:** Exercise One Step 5 rewritten — students with an existing board snapshot it (dated, in the fork) and run one reconciliation pass (each board claim → `brand/` pointer or *flagged untraceable*); students without one hand-build the minimal version; either way logged as a snapshot. Header, rubric line 11, and what-can-go-wrong row updated to match.
+- **Result:** Step 5 no longer violates the exercise's own thesis (a hand-rendered board is a manual crossing producing a snapshot — the drift problem, committed by the exercise itself). Pre-existing boards are the better specimen: board-first/truth-second means untraceable claims already exist, and they become Exercise Two's first test data.
+- **Open issues:** Exercise Two (Madison reads the board via Figma REST, audits traceability against `brand/`) not yet drafted; decide whether it backs A2 or sits as a lab between A1 and A2; audit-only vs. optional Plugin-API render.
+
 ## 2026-06-12 — Added 20/5 grading scheme to Exercise One
 
 - **Recipe:** manual (author-specified)

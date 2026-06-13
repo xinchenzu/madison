@@ -1,8 +1,8 @@
 # Exercise One — Your Brand's Personal Layer
 
 **Course:** INFO 7375 Branding & AI · backs **Assignment 1** (every rubric line gets a checkable artifact)
-**What you'll build:** a `brand/` folder in your Madison fork — `resume.json` (your attested record), `brand.yml` (your aspiration, audience, and positioning), `gaps.md` (the delta, mapped to Madison builds) — plus the Figma board *rendered from them*.
-**Time:** one sitting for the layer; the Figma render at your pace.
+**What you'll build:** a `brand/` folder in your Madison fork — `resume.json` (your attested record), `brand.yml` (your aspiration, audience, and positioning), `gaps.md` (the delta, mapped to Madison builds) — plus your Figma board *reconciled against them* (snapshotted if you have one, hand-built if you don't).
+**Time:** one sitting for the layer; the board step is ten minutes.
 **You need:** a CLI agent (Cowork, Claude Code, or Codex), your Madison fork cloned, your current resume or LinkedIn profile.
 
 The principle this exercise runs on (from `MYCROFT.md`): the agent does the extraction, drafting, and research; **you** do the attesting, choosing, and signing. The Figma board everyone sees is the *report*; the files in `brand/` are the *truth* it renders. Two customers, one source.
@@ -81,9 +81,15 @@ The migration rule, which runs all semester: a gap closes only with evidence (th
 
 **Artifacts:** `brand/gaps.md` (agent draft + your edits — kill one wrong row, rewrite one in your own words) and the project proposal.
 
-## Step 5 — Render the Figma board
+## Step 5 — The board: snapshot it, or build it
 
-Now — and only now — build the Assignment 1 Figma board, as the human-facing *report* of your machine-readable truth: the introduction card renders `brand.yml`; the skills visualization renders `resume.json` + `gaps.md` (public columns only); the project proposal renders the top gap row; the baseline section holds the LinkedIn screenshot your import came from; the goals section is your gaps' plan column, sorted. Nothing on the board should exist that isn't traceable to a file in `brand/` — if it's on the board but in no file, it's decoration claiming to be evidence.
+Most of you already have an Assignment 1 Figma board — built before your `brand/` files existed. Don't rebuild it. This step is ten minutes either way:
+
+**Have a board?** Capture it as-is: a dated screenshot saved to your fork (`brand/board-snapshot-YYYY-MM-DD.png`) plus the board link. Then one reconciliation pass: every claim on the board either gets a pointer to the `brand/` artifact that backs it, or gets *flagged as untraceable*. Don't fix the board yet — just flag. A claim with no file behind it is decoration claiming to be evidence, and your board almost certainly has some, because the board came first and the truth came second.
+
+**No board yet?** Hand-build the minimal version from your files: the introduction card renders `brand.yml`; the skills visualization renders `resume.json` + `gaps.md` (public columns only); the project proposal renders the top gap row; the baseline section holds the LinkedIn screenshot your import came from.
+
+Either way, log it for what it is: a **snapshot** — a manual copy (or a pre-existing artifact) that was accurate at capture and drifts the moment a gap closes or a resume entry lands. In Exercise Two, Madison learns to check the board against `brand/` automatically; the untraceable claims you flagged today become its first test data.
 
 ## Step 6 — Log it
 
@@ -107,7 +113,7 @@ One entry in your fork's `logs/RUN_LOG.md`: what was built, the three import err
 | 8 | `gaps.md` drafted with evidence columns filled | 1 |
 | 9 | Madison-build column answered for **every** gap; top row written up as the 150–200-word project proposal | 2 |
 | 10 | Required gap edits done: one wrong row killed with a reason, one row rewritten in the student's own words | 1 |
-| 11 | Figma board rendered *from the files* — every board claim traceable to a `brand/` artifact | 1 |
+| 11 | Board snapshotted (dated, in the fork) or hand-built; every board claim traced to a `brand/` artifact *or flagged as untraceable* | 1 |
 | 12 | RUN_LOG entry: what was built, the three errors, the top gap, the proposal (no private contents) | 1 |
 | | **Mechanics total** | **20** |
 
@@ -134,5 +140,5 @@ These points are **relative and capped**:
 | Every brand.yml attribute lacks a proof pointer | you wrote aspirations as attributes | move them to gaps.md — that's what it's for |
 | The archetype test result drives the whole brand | a labeled self-test treated as science | it's a reflection prompt with a citation, not a verdict |
 | Agent's media suggestions have no sources | research is vibes | send it back: every suggestion cites or dies |
-| Figma board has claims no file contains | decoration posing as evidence | add the file entry or cut the claim |
+| Figma board has claims no file contains | decoration posing as evidence — expected, since most boards predate the files | flag it now; Exercise Two's audit automates this check, then you add the file entry or cut the claim |
 | Madison-build column is empty | gaps written as self-improvement only | every gap gets asked: "what would I *build* to close this?" |

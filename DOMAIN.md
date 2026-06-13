@@ -38,7 +38,9 @@ Student-named recipes in `recipes/` and `logs/student-recipe-evidence/` contain 
 
 ## Course exercises
 
-`docs/exercises/exercise-01-brand-personal-layer.md` — Exercise One (backs INFO 7375 Assignment 1): build `brand/` — attested `resume.json` (same convention as other Mycroft domains), `brand.yml` (aspiration → audience → Dunford-frame positioning, instruments cited as the self-tests they are), media targets *derived* from aspiration-keyed evidence, and `gaps.md` with every gap mapped to the Madison build that would close it (the semester project proposal falls out of the top row). The Figma board renders these files; the files are the truth.
+`docs/exercises/exercise-01-brand-personal-layer.md` — Exercise One (backs INFO 7375 Assignment 1): build `brand/` — attested `resume.json` (same convention as other Mycroft domains), `brand.yml` (aspiration → audience → Dunford-frame positioning, instruments cited as the self-tests they are), media targets *derived* from aspiration-keyed evidence, and `gaps.md` with every gap mapped to the Madison build that would close it (the semester project proposal falls out of the top row). The Figma board is snapshotted (or minimally hand-built) and logged as what it is — a snapshot that will drift; the files are the truth.
+
+`docs/exercises/exercise-02-madison-talks-to-figma.md` — Exercise Two (lab between A1 and A2): the **board-audit recipe**. Madison reads the student's Figma board over the REST API (token in `.env`, never in chat) and machine-checks that every board claim traces to a `brand/` artifact: ping → dated fixture → `board-claims.json` → agent-proposed trace table → **human adjudication of every row** (the gate). Untraceable claims resolved with reasons; the whole thing wrapped as `recipes/board-audit.md` with run evidence — most students' first recipe promoted above DRAFT. Conceptual source text: the Figma API book (chapters 1–3: snapshot/drift, what the API exposes, the file as document graph). Write-direction (Plugin API render) deliberately out of scope — verify before automating writes.
 
 ## First win (zero-config)
 
