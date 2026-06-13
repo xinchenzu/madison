@@ -89,7 +89,7 @@ Most of you already have an Assignment 1 Figma board — built before your `bran
 
 **No board yet?** Hand-build the minimal version from your files: the introduction card renders `brand.yml`; the skills visualization renders `resume.json` + `gaps.md` (public columns only); the project proposal renders the top gap row; the baseline section holds the LinkedIn screenshot your import came from.
 
-Either way, log it for what it is: a **snapshot** — a manual copy (or a pre-existing artifact) that was accurate at capture and drifts the moment a gap closes or a resume entry lands. In Exercise Two, Madison learns to check the board against `brand/` automatically; the untraceable claims you flagged today become its first test data.
+Either way, log it for what it is: a **snapshot** — a manual copy (or a pre-existing artifact) that was accurate at capture and drifts the moment a gap closes or a resume entry lands. In Exercise 1A, Madison learns to check the board against `brand/` automatically; the untraceable claims you flagged today become its first test data.
 
 ## Step 6 — Log it
 
@@ -140,5 +140,5 @@ These points are **relative and capped**:
 | Every brand.yml attribute lacks a proof pointer | you wrote aspirations as attributes | move them to gaps.md — that's what it's for |
 | The archetype test result drives the whole brand | a labeled self-test treated as science | it's a reflection prompt with a citation, not a verdict |
 | Agent's media suggestions have no sources | research is vibes | send it back: every suggestion cites or dies |
-| Figma board has claims no file contains | decoration posing as evidence — expected, since most boards predate the files | flag it now; Exercise Two's audit automates this check, then you add the file entry or cut the claim |
+| Figma board has claims no file contains | decoration posing as evidence — expected, since most boards predate the files | flag it now; Exercise 1A's audit automates this check, then you add the file entry or cut the claim |
 | Madison-build column is empty | gaps written as self-improvement only | every gap gets asked: "what would I *build* to close this?" |

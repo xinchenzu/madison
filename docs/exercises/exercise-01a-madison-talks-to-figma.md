@@ -1,4 +1,4 @@
-# Exercise Two — Madison Talks to Figma
+# Exercise 1A — Madison Talks to Figma
 
 **Course:** INFO 7375 Branding & AI · sits between Assignments 1 and 2 (the board you audit here is the board A2 plans on; the recipe you write is a real Madison contribution)
 **What you'll build:** the **board-audit recipe** — Madison reads your Figma board over the REST API and checks that every claim on it traces to a file in `brand/`. Plus the trail: a fixture, a claims file, an adjudicated trace table, and a recipe with run evidence.

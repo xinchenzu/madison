@@ -1,10 +1,10 @@
-# Exercise Three — Target, Gap, PRD, Recipe
+# Exercise Two — Target, Gap, PRD, Recipe
 
 **Course:** INFO 7375 Branding & AI · guest-lecture exercise · backs **Assignment 2** ("Plan Your Madison Project Like a Pro")
 **Format:** I run this **live in class** on my own example, start to finish. You have the recording. You have one week to do the same on *your* record.
-**What you'll build, in one sitting:** a primary `targets.json` (your dream job, captured and SOC-mapped), a re-keyed `gaps.md` (the join, audited), a `PRD.md` (the build argued from your evidence), and a Madison recipe at `status: DRAFT` (the architecture — specified, not yet run). The board renders all four; your Exercise Two board-audit recipe re-runs to prove it.
+**What you'll build, in one sitting:** a primary `targets.json` (your dream job, captured and SOC-mapped), a re-keyed `gaps.md` (the join, audited), a `PRD.md` (the build argued from your evidence), and a Madison recipe at `status: DRAFT` (the architecture — specified, not yet run). The board renders all four; your Exercise 1A board-audit recipe re-runs to prove it.
 **Time:** one sitting (≈ the class session); cleanup at your pace within the week.
-**You need:** Exercise One done (`brand/` exists), Exercise Two done (you have a `board-audit` recipe), a CLI agent, your Madison fork, awareness access to the-reallocation-engine (for the O*NET/SOC pattern).
+**You need:** Exercise One done (`brand/` exists), Exercise 1A done (you have a `board-audit` recipe), a CLI agent, your Madison fork, awareness access to the-reallocation-engine (for the O*NET/SOC pattern).
 
 The spine, four times over (from `MYCROFT.md`, P1): **the machine captures and runs; you select, attest, and argue.** Extraction, mapping, and table-joins are conformance — the machine does them better and won't fudge. Which O*NET code is right, which three requirements matter, why this build for you, what you *won't* build — those are yours. Watch where, in the live run, I hand work to the agent and where I take it back. That handoff is the whole lesson.
 
@@ -40,7 +40,7 @@ Have the agent join targets × resume and draft the table into a re-keyed `gaps.
 2. **Under-claim → close it the right way.** A real skill never made it into `resume.json`, so the gap is false. Don't just delete the row — *add the attested resume entry*, and the row dissolves on its own. (Migration rule, live.)
 3. **Mis-map.** "Madison could help by building X" that wouldn't actually close the gap — rewrite it or kill it with a reason.
 
-This is your Exercise Two board-audit pattern pointed at a *derived table*: agent proposes every row, you adjudicate every row, and the row isn't done until you've signed it. Two honest reckonings will surface — some Exercise One gap rows won't survive a real posting (they die, with a reason), and the posting will demand things no row covered (new rows, target-cited). Key each surviving row to a `targets.json` entry **and its O*NET skill**, so it's portable when this posting dies.
+This is your Exercise 1A board-audit pattern pointed at a *derived table*: agent proposes every row, you adjudicate every row, and the row isn't done until you've signed it. Two honest reckonings will surface — some Exercise One gap rows won't survive a real posting (they die, with a reason), and the posting will demand things no row covered (new rows, target-cited). Key each surviving row to a `targets.json` entry **and its O*NET skill**, so it's portable when this posting dies.
 
 **Artifact:** re-keyed `brand/gaps.md` — every surviving row cites a target requirement and its O*NET skill; at least one row corrected in each direction it actually occurs.
 
@@ -93,7 +93,7 @@ This is the payoff of the whole session: you leave with a **real Madison recipe 
 
 ## Move 5 — Render and verify the board
 
-Render all four moves onto your Assignment 2 Figma board (target card, gap table, PRD sections, architecture diagram). Then — the loop — **re-run your Exercise Two `board-audit` recipe**: every new board claim must trace to a file in `brand/` or `recipes/`. The recipe you wrote in week two is now your standing drift check; this is run #2 on changed data. Resolve any untraceable claim (add the file entry or cut the claim).
+Render all four moves onto your Assignment 2 Figma board (target card, gap table, PRD sections, architecture diagram). Then — the loop — **re-run your Exercise 1A `board-audit` recipe**: every new board claim must trace to a file in `brand/` or `recipes/`. The recipe you wrote in week two is now your standing drift check; this is run #2 on changed data. Resolve any untraceable claim (add the file entry or cut the claim).
 
 ## Move 6 — Log it
 

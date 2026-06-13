@@ -1,10 +1,10 @@
-# Exercise Four — Gather, Validate, Defend
+# Exercise Three — Gather, Validate, Defend
 
 **Course:** INFO 7375 Branding & AI · guest-lecture exercise · backs **Assignment 3** ("Build Your Data Pipeline")
 **Format:** I run it **live in class** on my own project — gather, validate, defend — start to finish. You have the recording. You have a week to do the same on *your* data.
-**What you'll build:** your Exercise Three `DRAFT` recipe walked to **`RUNNABLE-SAMPLE`** — a working n8n data pipeline that *gathers* from 3+ Tier-1 sources **and validates** what it gathered, writing raw to `data/raw/` and the verified, defended file to `data/verified/`. Plus the artifact that earns the grade: the **data defense** — the audit numbers *and* the argument that this is the right data for your problem.
+**What you'll build:** your Exercise Two `DRAFT` recipe walked to **`RUNNABLE-SAMPLE`** — a working n8n data pipeline that *gathers* from 3+ Tier-1 sources **and validates** what it gathered, writing raw to `data/raw/` and the verified, defended file to `data/verified/`. Plus the artifact that earns the grade: the **data defense** — the audit numbers *and* the argument that this is the right data for your problem.
 **Time:** one sitting to gather + validate; the defense and cleanup at your pace within the week.
-**You need:** Exercise Three done (a `DRAFT` recipe exists), n8n installed (`npm install -g n8n`, `n8n start`, open `localhost:5678`), your Madison fork, your Assignment-2 problem in front of you.
+**You need:** Exercise Two done (a `DRAFT` recipe exists), n8n installed (`npm install -g n8n`, `n8n start`, open `localhost:5678`), your Madison fork, your Assignment-2 problem in front of you.
 
 The spine (from `MYCROFT.md`, P1 and P2): **the machine gathers and runs the checks; you select the sources, attest the numbers, and argue the adequacy.** *Verified data is structural* — nothing enters `data/verified/` without passing the validation gate. And the rule that makes the whole thing honest: **you cannot defend what you did not validate.** A 1,000-row scrape you can't stand behind scores *below* 100 clean rows you can. Quality wins because it's the only thing you can argue for.
 
@@ -16,7 +16,7 @@ The spine (from `MYCROFT.md`, P1 and P2): **the machine gathers and runs the che
 
 **Quality over quantity.** 50–100 clean, *defensible* records beat 1,000 messy ones. The grade comes from defending the data; messy data is indefensible. This isn't a style preference — it's structural. Don't chase volume.
 
-**Collect once, reuse forever.** Run the pipeline once, save the raw pull to `data/raw/`, then work against the *saved* data. This is the fixture discipline you already used in Exercise Two (fetch the board once to a dated file). It's why you don't get rate-limited, blocked, or cut off mid-project — and it's why every refresh must be *re-validated*, not trusted because the source was good last time (the turkey was fed for 1,000 days).
+**Collect once, reuse forever.** Run the pipeline once, save the raw pull to `data/raw/`, then work against the *saved* data. This is the fixture discipline you already used in Exercise 1A (fetch the board once to a dated file). It's why you don't get rate-limited, blocked, or cut off mid-project — and it's why every refresh must be *re-validated*, not trusted because the source was good last time (the turkey was fed for 1,000 days).
 
 ## Where to get your data (provenance is a grade, not a footnote)
 
@@ -83,7 +83,7 @@ The forcing function, stated plainly: **you cannot defend what you did not valid
 
 ## Move 5 — Promote the recipe and log it
 
-Your Exercise Three recipe goes `DRAFT → RUNNABLE-SAMPLE`: the sample run completed, conformance checks passed, the audit was generated and read. Update the frontmatter *with the evidence cited* (the run, the audit file) — status is a claim, and a claim needs a logged artifact (P3). Then one `logs/RUN_LOG.md` entry: sources + tiers, records gathered/verified, % clean, the coercion-audit count, the top adequacy risk, recipe status. No credentials, ever.
+Your Exercise Two recipe goes `DRAFT → RUNNABLE-SAMPLE`: the sample run completed, conformance checks passed, the audit was generated and read. Update the frontmatter *with the evidence cited* (the run, the audit file) — status is a claim, and a claim needs a logged artifact (P3). Then one `logs/RUN_LOG.md` entry: sources + tiers, records gathered/verified, % clean, the coercion-audit count, the top adequacy risk, recipe status. No credentials, ever.
 
 **Honest lifecycle note:** this ships the **data layer** — real, validated, defensible, a genuine portfolio piece. The gap doesn't *fully* close yet: the agent that consumes this data is Assignment 4, where the recipe goes `RUNNABLE-SAMPLE → RUNNABLE-LIVE → VERIFIED`. Partial progress, logged as such — which is itself the lesson.
 

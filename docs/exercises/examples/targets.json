@@ -1,5 +1,5 @@
 {
-  "_comment": "WORKED EXAMPLE — the live-demo specimen for Exercise Three. This is the instructor's own targets.json, performed in class. Students produce their own version against their own record. Schema is two-layered on purpose: the MACHINE LAYER is captured + mapped (extraction is fluent, the machine is better at it); the HUMAN LAYER is selected + annotated + signed (only the student knows which O*NET code is right, which 3 requirements matter, and why this role). See docs/exercises/exercise-03-target-gap-prd-recipe.md.",
+  "_comment": "WORKED EXAMPLE — the live-demo specimen for Exercise Two. This is the instructor's own targets.json, performed in class. Students produce their own version against their own record. Schema is two-layered on purpose: the MACHINE LAYER is captured + mapped (extraction is fluent, the machine is better at it); the HUMAN LAYER is selected + annotated + signed (only the student knows which O*NET code is right, which 3 requirements matter, and why this role). See docs/exercises/exercise-02-target-gap-prd-recipe.md.",
   "schema_version": "0.1.0",
   "owner": "Nik Bear Brown",
   "updated": "2026-06-19",

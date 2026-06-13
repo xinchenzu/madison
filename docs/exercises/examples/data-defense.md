@@ -1,6 +1,6 @@
-# Data Defense — worked example (Exercise Four live-demo specimen)
+# Data Defense — worked example (Exercise Three live-demo specimen)
 
-> Instructor's own example, performed in class. Students produce their own against their own project. This is the artifact Exercise Four grades: the **conformance numbers** (machine produced, human read) plus the **adequacy argument** (irreducibly human). See `docs/exercises/exercise-04-gather-validate-defend.md`.
+> Instructor's own example, performed in class. Students produce their own against their own project. This is the artifact Exercise Three grades: the **conformance numbers** (machine produced, human read) plus the **adequacy argument** (irreducibly human). See `docs/exercises/exercise-03-gather-validate-defend.md`.
 
 **Project:** brand-reputation news intelligence (Madison `recipes/brand-reputation-news-intelligence-pipeline.md`, taken `DRAFT → RUNNABLE-SAMPLE` in this run)
 **Problem (from Assignment 2):** which signals from named sources are reliable enough for a human to use in brand-reputation decisions?

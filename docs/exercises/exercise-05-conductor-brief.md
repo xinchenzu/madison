@@ -2,7 +2,7 @@
 
 **Course:** INFO 7375 Branding & AI · guest-lecture exercise · backs **Assignment 5 (The Conductor Brief)**
 **Format:** I run it **live in class** — write the brief in two forms, run the conductor against the machine form, show where they diverge. You have the recording. You have a week to do the same on *your* tool.
-**What you'll build:** the AI-age strategic brief — your tool stated **once, in two forms**: a **narrative brief** for the human audience (boss, client, hiring manager) and a **structured config** for the machine audience (the conductor). Then you run the conductor against the config on your real Exercise Four data and produce the **divergence log**: where the alibi (prose) and the actuator (rules) disagree, and what the run actually did.
+**What you'll build:** the AI-age strategic brief — your tool stated **once, in two forms**: a **narrative brief** for the human audience (boss, client, hiring manager) and a **structured config** for the machine audience (the conductor). Then you run the conductor against the config on your real Exercise Three data and produce the **divergence log**: where the alibi (prose) and the actuator (rules) disagree, and what the run actually did.
 **Time:** one sitting to write both forms + run; the divergence reconciliation at your pace within the week.
 **You need:** Exercises Three (PRD + DRAFT recipe) and Four (verified data in `data/verified/`) done; Claude Code as the conductor; your Madison fork.
 
@@ -38,7 +38,7 @@ This is the alibi half. It's where intent lives in human-readable form. A smart 
 
 Declarative. For the conductor. This is the half most students entering the AI world have never written — and the half that actually runs. **You cannot delegate it to the conductor, because the conductor is its reader, not its author** (asking the AI to write its own rules is asking the prisoner to write the prison). Two files:
 
-**`brand_config.json`** — the data contract (A5 Part 3). Per source: name, what it is (type, count, update freq), what it *represents* in plain English, the **quality standard a human could actually check** ("every record has a date, a source URL, ≥20 words"), and `local_path: data/verified/…`. (Your Exercise Four `data/verified/` files are the inputs; the quality standards are your Exercise Four validation gate, formalized.)
+**`brand_config.json`** — the data contract (A5 Part 3). Per source: name, what it is (type, count, update freq), what it *represents* in plain English, the **quality standard a human could actually check** ("every record has a date, a source URL, ≥20 words"), and `local_path: data/verified/…`. (Your Exercise Three `data/verified/` files are the inputs; the quality standards are your Exercise Three validation gate, formalized.)
 
 **`gates.yml`** (or `RULES.md`) — the phase gates, A5 Parts 4 and 5 turned into conformance rules. For each major step, `good_looks_like` (the condition that lets the run proceed) and `bad_looks_like` (the trigger) with an explicit `response: hard_stop | flag_for_review | log_and_continue`. This is Madison's verification stack as a file: conformance checks halt; gates are hard stops. *This formalization is also what a recipe needs to reach `RUNNABLE-LIVE` — a human can only clear a gate that's been written down.*
 
@@ -62,7 +62,7 @@ Declarative. For the conductor. This is the half most students entering the AI w
 
 ## Move 4 — Run the conductor against the config (the actuator fires)
 
-Point Claude Code at the recipe and the config, on your real Exercise Four `data/verified/` file. The conductor executes against `gates.yml` and `brand_config.json` — **not** against `brief.md`. The gates pass or halt; the `bad_looks_like` triggers fire or don't. Read the run: which gates passed, which fired, what the conductor did at each branch.
+Point Claude Code at the recipe and the config, on your real Exercise Three `data/verified/` file. The conductor executes against `gates.yml` and `brand_config.json` — **not** against `brief.md`. The gates pass or halt; the `bad_looks_like` triggers fire or don't. Read the run: which gates passed, which fired, what the conductor did at each branch.
 
 Crucially, watch the conductor at the points your config was *silent*. Wherever `gates.yml` didn't specify, the conductor chose — and its choice is the training prior, not your intent. Those silences are where the divergence lives.
 
@@ -105,7 +105,7 @@ One `logs/RUN_LOG.md` entry: the one-sentence mission, count of ALIGNED / DRIFT 
 | 3 | The One Thing: 3 competitors with honest gaps and **sources cited**; one defensible claim tied to the user | 2 |
 | 4 | `brand_config.json`: every `data/verified/` source with plain-English meaning + a checkable quality standard | 3 |
 | 5 | `gates.yml`: ≥3 steps, each with `good_looks_like` + `bad_looks_like` + an explicit `response` | 3 |
-| 6 | Conductor **run against the config** (not the prose) on real Exercise Four data; gate-by-gate result recorded | 2 |
+| 6 | Conductor **run against the config** (not the prose) on real Exercise Three data; gate-by-gate result recorded | 2 |
 | 7 | **Divergence log**: every narrative claim reconciled against config + run; each row verdicted ALIGNED / DRIFT / GAP | 2 |
 | 8 | Every DRIFT and GAP **resolved** with a reason (amend config / amend prose / accept the conductor's choice on purpose) | 1 |
 | 9 | RUN_LOG entry (mission, A/D/G counts, what changed, status); no credentials | 1 |
