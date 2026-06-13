@@ -1,0 +1,93 @@
+{
+  "_comment": "WORKED EXAMPLE — the live-demo specimen for Exercise Three. This is the instructor's own targets.json, performed in class. Students produce their own version against their own record. Schema is two-layered on purpose: the MACHINE LAYER is captured + mapped (extraction is fluent, the machine is better at it); the HUMAN LAYER is selected + annotated + signed (only the student knows which O*NET code is right, which 3 requirements matter, and why this role). See docs/exercises/exercise-03-target-gap-prd-recipe.md.",
+  "schema_version": "0.1.0",
+  "owner": "Nik Bear Brown",
+  "updated": "2026-06-19",
+
+  "targets": [
+    {
+      "id": "ml-platform-eng-northeastern-roux",
+      "primary": true,
+
+      "company": "Example Quant/Research Lab",
+      "title": "Machine Learning Platform Engineer",
+      "url": "https://example.org/careers/ml-platform-engineer",
+      "captured": "2026-06-19",
+      "capture_artifact": "brand/targets/ml-platform-eng-2026-06-19.png",
+
+      "_layer_machine": "captured + SOC/O*NET-mapped by the agent — no judgment",
+      "requirements_full": [
+        "Python, strong software engineering fundamentals",
+        "Experience building and operating ML pipelines in production",
+        "Containerization (Docker) and orchestration (Kubernetes)",
+        "Workflow/orchestration tooling (Airflow, n8n, or similar)",
+        "Cloud infrastructure (AWS or GCP)",
+        "Model monitoring and data-quality validation",
+        "Collaboration with research scientists; clear written communication"
+      ],
+      "onet": {
+        "soc_code": "15-1299.08",
+        "onet_title": "Computer Systems Engineers/Architects",
+        "alt_considered": {
+          "soc_code": "15-2051.00",
+          "onet_title": "Data Scientists",
+          "why_not_chosen": "Posting is platform/infra-weighted, not analysis-weighted — Systems Engineer fits the verbatim requirements better. Human call; agent had proposed Data Scientist."
+        },
+        "matched_skills": [
+          {"onet_skill": "Programming", "from_requirement": 0},
+          {"onet_skill": "Systems Analysis", "from_requirement": 1},
+          {"onet_skill": "Operations Monitoring", "from_requirement": 5},
+          {"onet_skill": "Complex Problem Solving", "from_requirement": 1},
+          {"onet_skill": "Writing", "from_requirement": 6}
+        ],
+        "source": "https://www.onetonline.org/link/summary/15-1299.08",
+        "mapping_confidence": "agent-proposed"
+      },
+
+      "_layer_human": "selected + annotated + signed by the student",
+      "top_3": [
+        {
+          "requirement": "Experience building and operating ML pipelines in production",
+          "onet_skill": "Systems Analysis",
+          "why_top": "Named first in the responsibilities section and repeated in 'what you'll do' — the load-bearing ask."
+        },
+        {
+          "requirement": "Workflow/orchestration tooling (Airflow, n8n, or similar)",
+          "onet_skill": "Programming",
+          "why_top": "Directly buildable in Madison — this is where my gap and my coursework meet."
+        },
+        {
+          "requirement": "Model monitoring and data-quality validation",
+          "onet_skill": "Operations Monitoring",
+          "why_top": "The Mycroft audit discipline is exactly this; my strongest transferable claim."
+        }
+      ],
+      "why_this_role": "It sits where my teaching work and my systems instinct overlap — building the reliable plumbing research depends on, not the research itself.",
+      "soc_attested": true,
+      "soc_attested_note": "Confirmed 15-1299.08 against the actual posting; agent had proposed Data Scientist (15-2051.00) and I corrected it — the posting is infra-weighted.",
+
+      "hiring_manager": {
+        "name": null,
+        "public_facts": "Team led by a platform/infra lead per the posting; no individual named.",
+        "source": null,
+        "_rule": "Public facts only, source cited. No speculation, no contact details. If unsure, leave null or move to brand/private-reflection.md."
+      },
+
+      "status": "open"
+    }
+  ],
+
+  "canonical_profile": {
+    "_comment": "Derived view — agent-computed, student-attested. EMPTY in week one (one target). It fills as later sessions add listings; N listings mapped to the same SOC/O*NET codes converge into the lane's real demands. This is the multi-week payoff: one posting is an anecdote, a SOC-keyed aggregate is data.",
+    "derived_from": ["ml-platform-eng-northeastern-roux"],
+    "soc_codes_seen": {"15-1299.08": 1},
+    "skills_ranked": [
+      {"onet_skill": "Programming", "listings": 1, "of": 1},
+      {"onet_skill": "Systems Analysis", "listings": 1, "of": 1},
+      {"onet_skill": "Operations Monitoring", "listings": 1, "of": 1}
+    ],
+    "computed": "2026-06-19",
+    "attested_by_student": true,
+    "note": "One data point is not a profile. This becomes meaningful at 4+ listings — that's the arc, not this week."
+  }
+}
