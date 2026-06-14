@@ -63,9 +63,11 @@ The **live** tool, running. Highlight 2–3 key features, explain the methodolog
 ## Move 7 — Render, time, and prove consistency
 
 ```bash
-node scripts/build-deck.mjs your-deck.md     # renders the HTML/D3 deck; press p for the print PDF
+node scripts/build-pitch.mjs your-deck.md    # validates (10 slides, notes), runs the trace audit, then renders with the Madison preset
 node scripts/conformance.mjs your-deck.md your-deck.html
 ```
+
+`build-pitch` chains the checks: it flags if you're off the 10-slide budget or missing speaker notes, runs `deck-trace` on your `TRACE:` annotations (blocking the render if a slide is untraced or a reference is broken), then calls `build-deck`. Run the trace audit standalone any time with `node scripts/deck-trace.mjs your-deck.md`.
 ```
 madison-pitch    # run the timing check — cut until it lands at 9:30, not 10:00
 brandy           # consistency audit: every touchpoint reinforces one identity
@@ -111,7 +113,8 @@ The bonus is explicit that completing every requirement well earns **zero** bonu
 ## Before you present — check it
 
 ```bash
-node scripts/build-deck.mjs your-deck.md            # renders + the print PDF (press p)
+node scripts/build-pitch.mjs your-deck.md           # validate + trace audit + render (Madison preset)
+node scripts/deck-trace.mjs your-deck.md            # every slide → a resolvable TRACE: (untraced/broken = exit 1)
 node scripts/conformance.mjs your-deck.md your-deck.html
 node scripts/to-markdown.mjs brand/resume.json brand/brand.yml   # the facts behind the slides trace here
 ```

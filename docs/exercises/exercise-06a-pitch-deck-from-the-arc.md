@@ -58,6 +58,14 @@ Build a trace table: **every on-slide claim → the artifact that backs it, or f
 
 Untraceable claim → it is an *aspiration*, not a proof. It comes off the slide and goes into the notes ("where we're headed") or into `gaps.md`. This is the same rule as `brand.yml` (no proof → it's a gap) and the Ex 1A board audit (every claim traces or is flagged), applied to the pitch. A deck where every slide traces is a deck you can defend under questioning.
 
+**Machine pre-check.** Annotate each slide in the spec with a `TRACE:` line listing the artifact(s) it rests on (a flagged aspiration becomes `TRACE: ASPIRATION`), then let the tool confirm every reference resolves before you eyeball the table:
+
+```bash
+node scripts/deck-trace.mjs your-deck.md
+```
+
+It fails (exit 1) on any **untraced** slide or any `TRACE:` path that doesn't exist — so a slide can't quietly ship without provenance. The machine confirms the artifact *exists*; whether it actually *backs the claim* is still your half of the audit.
+
 ## Move 6 — Log it
 
 One `logs/RUN_LOG.md` entry: the deck name, slide count, how many claims traced vs. how many you moved to aspiration, the one claim you were most tempted to inflate and didn't, and the recipe lifecycle stage you reported honestly on slide 8.
@@ -99,6 +107,7 @@ One `logs/RUN_LOG.md` entry: the deck name, slide count, how many claims traced 
 ```bash
 node scripts/build-deck.mjs your-deck.md --out your-deck.html   # renders; open and press p for the PDF
 node scripts/conformance.mjs your-deck.md your-deck.html        # spec + deck well-formed
+node scripts/deck-trace.mjs your-deck.md                        # every slide carries a resolvable TRACE: (untraced/broken = exit 1)
 ```
 
 Then run the **trace audit by hand**: read each slide's claim and point to the file that backs it. A claim you can't point at is the one to cut. The machine checks that the deck is well-formed (conformance, P4); whether every claim is *true and traced* is the human gate — which is the whole point of the lab. Full guide: `docs/exercises/HOW-TO-CHECK.md`.

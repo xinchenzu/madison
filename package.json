@@ -6,7 +6,12 @@
   "scripts": {
     "verify": "node scripts/conformance.mjs",
     "build-prompts": "node scripts/build-prompts.mjs",
-    "svg-to-png": "node scripts/svg-to-png.mjs"
+    "build-instructions": "node scripts/build-instructions.mjs",
+    "svg-to-png": "node scripts/svg-to-png.mjs",
+    "build-resume": "node scripts/build-resume.mjs",
+    "contrast-check": "node scripts/contrast-check.mjs",
+    "deck-trace": "node scripts/deck-trace.mjs",
+    "build-pitch": "node scripts/build-pitch.mjs"
   },
   "dependencies": {
     "glob": "^10.0.0",

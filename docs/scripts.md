@@ -34,6 +34,23 @@ node scripts/svg-to-png.mjs
   `prompts/<suite>/` (manifest + body + knowledge files) into a tool-native
   adapter — e.g. a Claude/Cowork `.skill`. Run `node scripts/build-prompts.mjs
   courses`.
+- `scripts/build-resume.mjs`: renders `brand/resume.json` → ATS résumé
+  (`.pdf` + `.docx`) and a branded visual `.pdf` from one verified source.
+  **Refuses** while the `_human_gate` is open, any `issues[].resolution` is
+  null, or any field still carries a `[CONFLICT]`/`[Unverifiable]` tag. Backs
+  Exercise 8. `node scripts/build-resume.mjs [brand/resume.json] [--out-dir d]
+  [--accent "#C8102E"] [--check]`.
+- `scripts/contrast-check.mjs`: WCAG 2.x contrast ratios for a palette — the
+  machine half of the Exercise-8 accessibility deliverable. `--pair fg bg`
+  (gate, exit 1 on AA fail) or a palette file / hex list (matrix). `--large`
+  for large-text thresholds.
+- `scripts/deck-trace.mjs`: the machine pre-check behind the slide trace audit
+  (Exercise 6A + Final). Confirms every slide carries a `TRACE:` line and each
+  referenced artifact resolves; `TRACE: ASPIRATION` flags an unevidenced claim.
+  Exit 1 on any untraced slide or unresolved ref.
+- `scripts/build-pitch.mjs`: the deterministic tail of madison-pitch →
+  build-deck. Validates pitch constraints (~10 slides, speaker NOTES), runs
+  `deck-trace` if the deck is annotated, then renders with the Madison preset.
 - `scripts/*info5100*.mjs`: INFO 7375 research/fact-checking/chapter generation
   helpers.
 - `prompts/`: the CLI-agnostic prompt sets (writing/production prompts and

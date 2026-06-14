@@ -18,10 +18,10 @@ The division of labor is the whole lesson, again. **Madison does the Tier-1 work
 | **Website — sections + IA (35)** | Nina `/n10 wireframes` | the five-page IA, per-page job · hero · blocks · CTA · exit-risk, the user-flow, and the **Vercel v0 / Framer / Wix platform comparison** |
 | ↳ the brand system the site implements | `/n8 palette` + `/n11 styleguide` | hex palette + Google-Fonts type + logo-usage rules to build into the theme |
 | ↳ the build scaffold (if you go the Vercel/v0 route) | **`templates/wrap-your-tool`** (Exercise 5A) | a working responsive Next.js deploy scaffold — you drop your brand theme into it |
-| **Color accessibility check (5)** | `/n8` (WCAG built in) | a palette whose text/bg pairs already pass — you confirm each in WebAIM and screenshot |
+| **Color accessibility check (5)** | `/n8` (WCAG built in) + **`scripts/contrast-check.mjs`** | a palette whose text/bg pairs already pass — check the ratios locally, then confirm in WebAIM and screenshot |
 | **LinkedIn header (15)** | `/n7 visual` + `/n9 logo`-style prompts | the visual world + ready-to-run AI-generation prompts; you generate at 1584×396 |
 | **AI brand visuals (15)** | `/n7 visual` | the three scenes / metaphor that make the visuals a *family*, not three unrelated pictures |
-| **ATS resume (15)** | **`brand/resume.json`** (Exercise 1) | the *verified content* — single source for both resumes; you render single-column + keyword-target |
+| **ATS resume (15)** | **`brand/resume.json`** + **`scripts/build-resume.mjs`** | the *verified content* — `build-resume` renders ATS PDF+Word + a visual PDF from it, and **refuses while any gate is open**; you keyword-target + polish |
 | **Visual resume (15)** | `brand/resume.json` + `/n8` | same verified content, full visual system + headshot |
 | **Finalize / quality** | `/n12 critique` → `/ready` | gap-find and a 0–100 readiness score before you submit |
 
@@ -57,7 +57,14 @@ Build the four required sections, each **implementing your A7 system** (no place
 
 ## Move 2 — Color accessibility check (Part 1, 5 pts) — the one required doc
 
-`/n8` already gave you a WCAG-checked palette, so this should pass by construction. Confirm it: take each **text-on-background pair** your site actually uses, run it through **WebAIM** (https://webaim.org/resources/contrastchecker/), and screenshot the result. Any pair that fails — fix the shade in your theme and re-check. Collect the screenshots into one **PDF**.
+`/n8` already gave you a WCAG-checked palette, so this should pass by construction. Check it locally first — the machine half of the deliverable:
+
+```bash
+node scripts/contrast-check.mjs --pair "#111111" "#FFFFFF"   # each real text-on-bg pair (exit 1 = fails AA)
+node scripts/contrast-check.mjs your-palette.json            # or score every pair in a palette file at once
+```
+
+Then take each **text-on-background pair** your site actually uses, run it through **WebAIM** (https://webaim.org/resources/contrastchecker/) for the submission proof, and screenshot the result. Any pair that fails — fix the shade in your theme and re-check. Collect the screenshots into one **PDF**.
 
 This is the assignment's *only* required written deliverable, and it's the course's accessibility principle made mechanical: don't trust that it *looks* readable — check the ratio.
 
@@ -80,14 +87,15 @@ Using `/n7`'s **three scenes / metaphor** as the brief, generate **three** brand
 
 ## Move 5 — ATS resume (Part 3, 15 pts) — built from `resume.json`
 
-This is the payoff of Exercise 1. Your **`brand/resume.json` is the verified content**; the ATS resume is that content rendered for clean parsing:
+This is the payoff of Exercise 1. Your **`brand/resume.json` is the verified content**; render it deterministically:
 
-- **Single-column** layout (ATS parses it cleanly).
-- **Keyword-target** for your specific roles/industry — pull from `resume.json`'s `experience` + `skills_top`, phrased to match the postings you're aiming at.
-- **Subtle brand** — your `/n8` accent color, your heading font, light logo placement — nothing that breaks the parse.
-- Submit **PDF + Word**.
+```bash
+node scripts/build-resume.mjs brand/resume.json --out-dir brand/resume-out --accent "#C8102E"
+```
 
-**Your gate — you cannot ship a resume built on conflicting facts.** Before you render, run the review check (below) on `resume.json`: the **"Needs your input"** list — the `_human_gate`, the `[CONFLICT]`s, the open `issues` from Exercise 1 — must be **empty**. The PhD-described-three-ways and the unverified MBA have to be resolved *first*. A polished resume on contradictory credentials is exactly the fluent-but-untrustworthy artifact this course exists to catch — and it's the one document where it gets you caught.
+`build-resume` produces **`resume-ats.pdf` + `resume-ats.docx`** (single-column, ATS-parseable) **and `resume-visual.pdf`** (branded with your accent) — *from one source*, so the two resumes can't tell different stories. Then your human work: **keyword-target** the ATS version for your specific roles (pull from `experience` + `skills_top`, phrased to match the postings), and keep the brand **subtle** — accent color and font, nothing that breaks the parse. Submit **PDF + Word**.
+
+**Your gate — you cannot ship a resume built on conflicting facts, and the tool enforces it.** `build-resume` **refuses to render** while any `_human_gate` is open, any `issues[].resolution` is null, or any field still carries a `[CONFLICT]`/`[Unverifiable]` tag — it prints exactly what's unresolved and exits. The PhD-described-three-ways and the unverified MBA have to be fixed in Exercise 1 *first*. A polished resume on contradictory credentials is exactly the fluent-but-untrustworthy artifact this course exists to catch — and it's the one document where it gets you caught. (Check the gate without rendering: `node scripts/build-resume.mjs --check`.)
 
 ## Move 6 — Visual resume (Part 3, 15 pts)
 
@@ -141,7 +149,8 @@ One `logs/RUN_LOG.md` entry: which Nina commands you ran, your platform pick and
 
 ```bash
 node scripts/conformance.mjs brand/resume.json brand/brand.yml   # well-formed
-node scripts/to-markdown.mjs brand/resume.json                   # the "Needs your input" list must be EMPTY before you render either resume
+node scripts/build-resume.mjs --check                            # the gate: refuses while resume.json is unresolved (must be clean to render)
+node scripts/contrast-check.mjs --pair "#yourtext" "#yourbg"     # each real text/bg pair passes AA (exit 1 = fail)
 ```
 
 Then, by hand: run **WebAIM** on every real text/bg pair (the required PDF) · open the site **on your phone** · lay the LinkedIn header, the three visuals, the site, and the visual resume **side by side** and run the **trace audit** — every choice points to your A7 system or it's the generic one to fix. The machine checks that your content is well-formed and your credentials are reconciled; whether the presence is *coherent and yours* is the human gate, and it's the whole point. Full guide: `docs/exercises/HOW-TO-CHECK.md`.

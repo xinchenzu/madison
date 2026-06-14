@@ -1,0 +1,29 @@
+name: madison-instructions
+title: "Madison agent instructions (source for AGENTS.md + CLAUDE.md)"
+
+# Shared rule modules — the portable ~95%, shareable with sibling Mycroft-domain
+# projects. A sibling project (e.g. Mycroft) selects its own subset from the same
+# library, so neither carries the other's bloat. Order = order in the output file.
+shared:
+  - governance.md
+  - markdown-default.md
+  - "no-delete.md"
+  - conformance-gate.md
+  - subagent-scoping.md
+  - completion-report.md
+
+# Project-specific source (identity, layout rules, the help menu).
+project: madison.md
+
+# Appended ONLY to CLAUDE.md. Claude Code supports @import; other tools read
+# AGENTS.md directly and resolve MYCROFT.md / DOMAIN.md on demand per governance.md.
+claude_only:
+  - "## Claude Code"
+  - "@MYCROFT.md"
+  - "- Use plan mode before edits under recipes/ or data/verified/."
+
+# Adapters to emit. agents -> AGENTS.md (core inlined, the cross-tool standard);
+# claude -> CLAUDE.md (@AGENTS.md import + the claude_only tail).
+targets:
+  - agents
+  - claude

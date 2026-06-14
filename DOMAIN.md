@@ -12,14 +12,30 @@ Turns marketing-relevant signals into verified, auditable intelligence: ingest f
 | Path | What it is |
 |---|---|
 | `data/raw/`, `data/verified/` | **the two-layer data architecture — exists here** (unlike the reallocation engine, where it is roadmap); nothing enters verified without validation |
-| `data/madison-main/` | upstream source export (n8n workflows, originals) — provenance, do not rewrite |
+| `data/madison-main/` | **quarantined Tier 3** (vendored upstream app — see "Quarantined" below); provenance only, do not load or rewrite |
 | `recipes/` | the operating surface: 48 recipes — monitor/pipeline recipes, agent recipes (marketmind, content-agent, ai-concierge, restaurant-agent…), `madison-*` brand recipes, and student-named project recipes (flat in this directory). All carry lifecycle frontmatter, currently `status: DRAFT` |
 | `pantry/n8n-provenance/` | the original n8n-derived skill files + old shared contract (provenance from the skills/ era) |
 | `logs/` | RUN_LOG.md (canonical log), `gate-decisions/`, `student-recipe-evidence/`, run artifacts (JSON responses, reports) — **this repo has real run history** |
 | `prompts/` | **CLI-agnostic prompt sets — the source of truth for prompt-based functionality** (post-refactor 2026-06-13). Single prompts as flat `.md`; command suites as subdirs (`courses/`) with a `manifest.yml` + body + knowledge files, compiled to tool-native adapters by `scripts/build-prompts.mjs`. The old `scripts/cowork-*.md` prompts moved here |
-| `scripts/` | executable code only — `.mjs`/`.py`/`.sh` (`build-prompts.mjs`, `svg-to-png.mjs`, `*info5100*.mjs`, `gigo/`, `ingest/`, `tools/`, `madison-main/`). No prompts (they're in `prompts/`) |
+| `scripts/` | executable code only — `.mjs`/`.py`/`.sh` (`conformance.mjs`, `to-markdown.mjs`, `build-prompts.mjs`, `assignment6-build-pdf.mjs`, `a5b-verify.mjs`, `build-deck.mjs`, `build-resume.mjs` [A8 resumes from resume.json, gated], `contrast-check.mjs` [A8 WCAG], `deck-trace.mjs` [6A/Final slide→artifact trace], `build-pitch.mjs` [madison-pitch→build-deck chain], `svg-to-png.mjs`, `*info5100*.mjs`, `gigo/`, `ingest/`, `tools/`). No prompts (they're in `prompts/`). `scripts/madison-main/` is **quarantined Tier 3** (see below) |
 | `chapters/` | the book (early draft) + course subdirectories |
 | `docs/`, `d3/`, `images/` | documentation, authoring tools, figures |
+
+## CI — the remote machine gate (`.github/workflows/verify.yml`)
+
+Every push and PR runs `node scripts/conformance.mjs` (well-formedness — the machine half of P4) **and** a **drift guard** that rebuilds `AGENTS.md`/`CLAUDE.md` from `instructions/` and fails if they differ from what's committed (enforcing "the instruction files are generated, never hand-edited" remotely). Local enforcement (the `.claude/` hooks) + remote enforcement (this workflow) now cover both halves of audit P3.
+
+## Enforcement hooks (`.claude/`, Claude Code only)
+
+Two prose rules are now enforced by hooks (config `.claude/settings.json`, handlers `.claude/hooks/`): **`archive-guard.sh`** (PreToolUse·Bash) denies `rm` of anything but rebuildables (`.build`/`__pycache__`/`*.pyc`/`*.bak`) — the no-delete rule, enforced; **`conformance-check.sh`** (Stop) runs `node scripts/conformance.mjs` when Claude finishes and blocks (exit 2) on failure. These fire in **Claude Code (CLI) only** — Cowork does not execute them, and `rm` on the FUSE mount is separately blocked anyway. CLAUDE.md/AGENTS.md are guidance; these hooks are enforcement (the P4 machine gate made automatic).
+
+## Instruction files are generated (do not hand-edit)
+
+`AGENTS.md` (the cross-tool standard — Codex/Cursor/Gemini CLI/Copilot read it) and `CLAUDE.md` (Claude Code's name; a thin `@AGENTS.md` import + a Claude-only tail) are **build artifacts**, compiled from `instructions/` by `scripts/build-instructions.mjs` (`npm run build-instructions`). Source = `instructions/_shared/*.md` (the portable ~95% rule modules, shareable with sibling Mycroft-domain projects) + `instructions/madison.md` (identity + the `help` menu) + `instructions/manifest.yml` (which modules, in what order, + the Claude-only tail). Edit the source and rebuild; **never hand-edit the root files** — the build overwrites them, which is what kills the two-file drift. `--promote` writes the root files; `instructions/.build/` is the gitignored staging where you review the diff first.
+
+## Quarantined — Tier 3 (ignore unless asked by name)
+
+`scripts/madison-main/`, `docs/madison-main/`, `data/madison-main/` are a **vendored upstream codebase** (the `brandguide.ai` backend/frontend, `marketmind`, the social-media scrapers, `SurveyAnalysis`) — a *different project*, retained here only as provenance and a mining source for the book. **Do not load, read, edit, or treat any of it as source for Madison work unless explicitly asked for a named file inside it.** It is excluded from `conformance.mjs` (SKIP set) and git-ignored (kept on disk, out of version control and out of the agent's default view). ~349 files / ~61 MB. If something here earns promotion into the book, copy that one file into the proper Madison location rather than wiring the agent to the tree.
 
 ## Lifecycle status (honest)
 
