@@ -9,7 +9,7 @@
 
 ## Acknowledgments
 
-This book exists because students in INFO 7375, *Branding and AI*, at Northeastern University's College of Engineering took an unfinished course seriously and reported back honestly — and because twenty-five of them let their Brand Portfolio work become the case layer that gives the theory its weight. Nina Harris, my co-instructor, brought four decades of brand and creative discipline to material I would otherwise have taught only as engineering. The Humanitarians AI fellows pipeline pressure-tested the Madison framework against real, deployed, production-scale work. Drafters, reviewers, and AI-assisted production workflows turned a directory of files into a usable learning object. The errors that remain are mine.
+This book exists because students in INFO 7375, *Branding and AI*, at Northeastern University's College of Engineering took an unfinished course seriously and reported back honestly — and because twenty-five of them let their Brand Portfolio work become the case layer that gives the theory its weight. Nina Harris, my co-instructor, brought four decades of brand and creative discipline to material I would otherwise have taught only as engineering. The Humanitarians AI fellows pipeline pressure-tested the Madison framework against real, deployed, production-scale work. Drafters, reviewers, and AI-assisted production workflows turned a directory of files into a usable learning object. The errors that remain are mine. Above all, this book is written *for* the Humanitarians AI Fellows — it is theirs first.
 
 ---
 
@@ -20,6 +20,8 @@ This book exists because students in INFO 7375, *Branding and AI*, at Northeaste
 His credentials are unusually wide for the subject: a PhD and MS in Computer Science from UCLA (computational and systems biology, with minors in AI and statistics), an MS in Information Design and Data Visualization and an MBA from Northeastern, and a BA in Biochemistry from UC Santa Cruz. He founded the nonprofit Humanitarians AI (a 501(c)(3), est. 2019), whose fellows build production-scale AI with public evidence of real work, alongside Bear Brown & Company. His teaching philosophy is *learn AI by doing AI* — specifying, delegating, discerning, auditing, and taking responsibility — and his through-line is **Computational Skepticism**: in branding, where polish is the medium, AI fluency is a discipline of checking the claim, not a license to ship it.
 
 [nikbearbrown.com](https://www.nikbearbrown.com) · [bearbrown.co](https://www.bearbrown.co/) · [humanitarians.ai](https://www.humanitarians.ai/) · [bear@bearbrown.co](mailto:bear@bearbrown.co)
+
+**Humanitarians AI** — co-author and publisher of this book — is a 501(c)(3) nonprofit (EIN 33-1984805), founded in 2019 and based in Boston. It connects international graduates on Optional Practical Training (OPT) with real projects, experienced mentors, and the *Irreducibly Human* curriculum. Its Fellows pressure-tested the Madison framework against real, deployed brand work — and they are the community this book is written for. [humanitarians.ai](https://www.humanitarians.ai/) · [info@humanitarians.ai](mailto:info@humanitarians.ai)
 
 ---
 
