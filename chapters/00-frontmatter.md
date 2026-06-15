@@ -7,7 +7,7 @@
 
 # Madison Plus One
 
-**Nik Bear Brown · Humanitarians AI**
+**Nik Bear Brown · Nina Harris · Humanitarians AI**
 
 *AI+1, Hands on. Domain specific. No generic prompts.*
 
@@ -15,7 +15,7 @@
 
 ## Copyright
 
-Copyright © 2026 Nik Bear Brown and Humanitarians AI. All rights reserved.
+Copyright © 2026 Nik Bear Brown, Nina Harris, and Humanitarians AI. All rights reserved.
 
 Published by Humanitarians AI, a 501(c)(3) nonprofit organization.
 

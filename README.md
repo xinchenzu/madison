@@ -2,7 +2,7 @@
 
 *AI+1, Hands on. Domain specific. No generic prompts.*
 
-**Author:** Nik Bear Brown and Humanitarians AI · **Publisher:** Humanitarians AI · **Edition:** 2026
+**Author:** Nik Bear Brown, Nina Harris, and Humanitarians AI · **Publisher:** Humanitarians AI · **Edition:** 2026
 
 > **Agents and contributors:** the source of truth for this repository is [`SNICKERDOODLE.md`](SNICKERDOODLE.md) (the agent-operating constitution — Madison is a Snickerdoodle branding/marketing domain); [`DOMAIN.md`](DOMAIN.md) describes this repository's branding-and-marketing domain, its layout, and what is runnable today. Read both before structural work.
 
@@ -57,4 +57,4 @@ These are Kindle / online editions, designed for integration with **Medhavy** (a
 
 ## Copyright
 
-Copyright © 2026 Nik Bear Brown and Humanitarians AI. Published by Humanitarians AI, a 501(c)(3) nonprofit organization. See [LICENSE.md](LICENSE.md).
+Copyright © 2026 Nik Bear Brown, Nina Harris, and Humanitarians AI. Published by Humanitarians AI, a 501(c)(3) nonprofit organization. See [LICENSE.md](LICENSE.md).

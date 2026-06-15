@@ -21,6 +21,8 @@ His credentials are unusually wide for the subject: a PhD and MS in Computer Sci
 
 [nikbearbrown.com](https://www.nikbearbrown.com) · [bearbrown.co](https://www.bearbrown.co/) · [humanitarians.ai](https://www.humanitarians.ai/) · [bear@bearbrown.co](mailto:bear@bearbrown.co)
 
+**Nina Harris** — co-author of this book — co-teaches INFO 7375: *Branding and AI* with Nik Bear Brown at Northeastern University's College of Engineering, and serves as Creative/Brand Director on the Board of Directors of Humanitarians AI. A Brand and Creative Director with more than forty years in advertising and design, she led brand identity, standards, and creative direction at Charles Schwab — producing a proprietary library of more than 10,000 photographs alongside its video, iconography, music, and illustration — after principal and creative-director roles at Publicis, McCann-Erickson, and Saatchi & Saatchi. Her four decades of brand judgment, storytelling, and creative discipline run through every chapter of this book where craft meets AI execution. [linkedin.com/in/nina-harris](https://www.linkedin.com/in/nina-harris-524ab7108/)
+
 **Humanitarians AI** — co-author and publisher of this book — is a 501(c)(3) nonprofit (EIN 33-1984805), founded in 2019 and based in Boston. It connects international graduates on Optional Practical Training (OPT) with real projects, experienced mentors, and the *Irreducibly Human* curriculum. Its Fellows pressure-tested the Madison framework against real, deployed brand work — and they are the community this book is written for. [humanitarians.ai](https://www.humanitarians.ai/) · [info@humanitarians.ai](mailto:info@humanitarians.ai)
 
 ---
