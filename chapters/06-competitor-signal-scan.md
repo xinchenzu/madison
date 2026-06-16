@@ -124,6 +124,7 @@ Prompt suggestion: *"Here is a competitor matrix with several contradiction flag
 ## Chapter 6 Exercises: Competitor Signal Scan
 **Project:** Your Own Brand Intelligence System
 **This chapter adds:** a sourced competitor signal matrix where every observation carries a URL and a capture date, and every inference is flagged as a candidate rather than a finding.
+
 ---
 ### Exercise 1 — When to Use AI
 **The judgment:** The matrix is built by extracting observable features from captured pages at scale — exactly the kind of repetitive, checkable reading where AI is strong.
@@ -132,6 +133,7 @@ Prompt suggestion: *"Here is a competitor matrix with several contradiction flag
 - Detecting where a competitor's homepage tone contradicts its ad tone and raising a flag — *Why AI works here:* this is **cross-source comparison**, a pattern-detection task whose output you can verify by opening both sources.
 
 **The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
 ---
 ### Exercise 2 — When NOT to Use AI
 **The judgment:** Deciding the boundaries of the competitive frame and what the patterns mean for this client are strategy calls, not extraction tasks.
@@ -141,6 +143,7 @@ Prompt suggestion: *"Here is a competitor matrix with several contradiction flag
 
 **The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
 **Series connection:** Tier 5 — the agent prepares the observation layer at scale; a named practitioner verifies sources and signs the implication memo, accepting accountability for every inference that crosses the gate.
+
 ---
 ### Exercise 3 — LLM Exercise
 **What you're building this chapter:** a sourced competitor signal matrix plus a separate, labeled implication memo — the second verified component in your brand repo.
@@ -168,6 +171,7 @@ Rules: do not add competitors I did not list. Do not invent sources, dates, clai
 **What this produces:** a fully sourced observation matrix with contradiction flags and labeled candidate inferences, plus a clearly separated implication memo whose every claim traces back to specific rows.
 **How to adapt this prompt:** *For your own brand:* capture real touchpoints yourself (screenshots, dated URLs) before pasting — the matrix is only defensible if you can show the source when challenged in a meeting. *For ChatGPT / Gemini:* portable as-is; if the model starts editorializing in matrix cells, add "matrix cells contain only what is literally on the page; all interpretation lives in the note column." *For a Claude Project:* once you run scans across multiple categories or refresh the same set over time, move this into a Project and store your competitor-set definition and capture conventions as Project knowledge.
 **Connection to previous chapters:** this extends Chapter 5's evidence discipline — every matrix entry is a Can Say only because it carries a source and date, and every note is a Can Suggest held as a candidate. **Preview of next chapter:** the labeled inferences and contradiction flags you surface here become inputs the Chapter 7 creative brief must classify as Inferred or Needs-approval rather than smuggle in as fact.
+
 ---
 ### Exercise 4 — CLI Exercise
 **What you're building this chapter:** a `competitor-matrix.md` in your brand repo built from a folder of capture notes, with a machine-conformance check that every row has a source and a date.
@@ -194,6 +198,7 @@ Then run a CONFORMANCE CHECK and print it to the chat (do not change the file ba
 **What to inspect in the output:** confirm the row count equals your number of capture files, spot-check two rows against their source files for fabricated claims, and verify every "MISSING — do not cite" cell corresponds to a capture that genuinely lacks that field.
 **If it goes wrong:** if a cell contains a claim not in the source, re-run with "quote the exact sentence from the capture file that supports each Primary claim cell." If it altered a capture file, restore from git and restate the read-only rule.
 **CLAUDE.md / AGENTS.md note:** add to `CLAUDE.md`: "Competitor matrix rule: every row needs a source URL and capture date; rows missing either are marked 'do not cite.' Observations and inferences stay in separate columns; never average contradictions away."
+
 ---
 ### Exercise 5 — AI Validation Exercise
 **What you're validating:** the `competitor-matrix.md` from Exercise 4 (or the Exercise 3 matrix and implication memo).
@@ -212,5 +217,6 @@ Validation Checklist — Competitor Signal Scan
 **What to do with your findings:** each Fail or Cannot determine triggers a fix — re-trace the row to its source, move an editorializing cell into the note column, or mark a sparse source low-confidence. The corrected matrix plus implication memo is the verified component you commit for this chapter.
 **AI Use Disclosure prompt:** "AI extracted the primary claims, proof, CTAs, and tone labels from competitor materials I captured and dated, and drafted candidate inferences in the note column; I verified every row against its source, defined the competitor set myself, and signed the implication memo. The model could not determine whether a contradiction between a competitor's homepage and ad tone reflects misalignment or deliberate audience bifurcation, so that was left as a labeled candidate for human interpretation."
 **Series connection:** the failure mode is contradictions and sparse sources smoothed into a fluent-but-wrong narrative; preserving the texture and re-tracing each row is the Tier 5 verification that keeps the matrix defensible.
+
 ---
 **Tags:** competitor-matrix · source-traceability · contradiction-flag · observation-vs-implication · signal-extraction · capture-dating

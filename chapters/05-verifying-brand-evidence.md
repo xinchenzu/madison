@@ -186,6 +186,7 @@ Take the "cannot claim" conclusions from Exercise 2. Ask the LLM to rewrite each
 ## Chapter 5 Exercises: Verifying Brand Evidence
 **Project:** Your Own Brand Intelligence System
 **This chapter adds:** an evidence-adequacy audit that classifies each brand claim by type and decides what proof it needs before the claim is allowed into a recommendation.
+
 ---
 ### Exercise 1 — When to Use AI
 **The judgment:** Some parts of an evidence audit are mechanical scans over text you can check line by line — that is where AI earns its place.
@@ -194,6 +195,7 @@ Take the "cannot claim" conclusions from Exercise 2. Ask the LLM to rewrite each
 - Reformatting a pile of mixed claims into the four-list table structure with empty reason cells — *Why AI works here:* this is **structuring**, a transformation task with a known template, leaving the actual sorting judgment to you.
 
 **The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
 ---
 ### Exercise 2 — When NOT to Use AI
 **The judgment:** The audit's whole point is deciding what the evidence warrants, and that decision is the one thing you cannot delegate.
@@ -203,6 +205,7 @@ Take the "cannot claim" conclusions from Exercise 2. Ask the LLM to rewrite each
 
 **The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
 **Series connection:** Tier 5 — the audit produces a defensible artifact (the four-list sort) that a named reviewer signs, so the human is verifying and accepting accountability for AI-flagged candidates, not co-authoring the judgment.
+
 ---
 ### Exercise 3 — LLM Exercise
 **What you're building this chapter:** the evidence-adequacy audit — a four-list sort plus a warranted-verb rewrite that becomes the first verified component of your brand repo.
@@ -235,6 +238,7 @@ Present the result as a table with columns: Claim | Verb | List | Limiting facto
 **What this produces:** a tabular evidence-adequacy audit of your own analysis, with each claim verb-rated, bucketed with a named limiting factor, model-judgment fields flagged, and a warranted rewrite for every claim that overran its evidence.
 **How to adapt this prompt:** *For your own brand:* paste a real paragraph from a report you received or wrote, and use your actual source notes in the EVIDENCE SET block — the audit is only as good as the provenance you give it. *For ChatGPT / Gemini:* the prompt is portable as-is; if the model softens placements to be agreeable, add "be conservative: when coverage or method is unclear, default to Can Suggest or Needs Human Review." *For a Claude Project:* once you start accumulating evidence sets across chapters, move this into a Project and add your brand's source-quality standards as Project knowledge so the audit applies them automatically.
 **Connection to previous chapters:** this operationalizes Chapter 4's division of labor — the model flags verb candidates and proposes a sort; you own the gate. **Preview of next chapter:** the audit teaches you to demand a source and a date for every claim, which is exactly the discipline the Chapter 6 competitor signal matrix is built around.
+
 ---
 ### Exercise 4 — CLI Exercise
 **What you're building this chapter:** a reusable `evidence-audit.md` file in your brand repo that records the four-list sort for a batch of claims, with provenance, so the audit is inspectable later.
@@ -261,6 +265,7 @@ After writing evidence-audit.md, print a short verification summary to the chat:
 **What to inspect in the output:** check that every MISSING-source claim landed in Needs Human Review, that no source was fabricated (cross-check two rows against `claims-raw.md`), and that the verb in each row actually matches the claim's wording.
 **If it goes wrong:** if the model invented a source or pushed a thinly-evidenced claim into Can Say, re-run with "verify every Source-as-given against the exact text of claims-raw.md and quote it." If it edited the source file, restore from git and re-emphasize the read-only rule.
 **CLAUDE.md / AGENTS.md note:** add a line to your repo's `CLAUDE.md`: "Evidence rule: no claim enters Can Say without an inspectable source and date in the repo; claims with MISSING provenance default to Needs Human Review. Never fabricate sources, dates, or sample sizes."
+
 ---
 ### Exercise 5 — AI Validation Exercise
 **What you're validating:** the `evidence-audit.md` from Exercise 4 (or the Exercise 3 table, if you stayed in chat).
@@ -279,5 +284,6 @@ Validation Checklist — Verifying Brand Evidence
 **What to do with your findings:** every Fail or Cannot determine becomes a correction — re-sort the claim, restore the missing source, or move it to Needs Human Review. The corrected audit is the verified component you commit to the repo for this chapter.
 **AI Use Disclosure prompt:** "AI produced the first-pass verb ratings and four-list sort from my pasted evidence and claims; I reviewed every placement, corrected the overcommitted verbs, and signed off on the final buckets. The model could not determine the true coverage and method behind the pre-processed sentiment scores, so those claims were held in Needs Human Review pending the original methodology."
 **Series connection:** the failure mode here is fluent-but-wrong provenance — an audit that looks rigorous while resting on sources the model never verified; catching it is the Tier 5 verification move that makes the artifact defensible.
+
 ---
 **Tags:** evidence-audit · warranted-verbs · four-list-sort · provenance-check · model-judgment · claim-classification

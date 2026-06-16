@@ -122,6 +122,7 @@ The brief says what the work is trying to do. It does not say how the organizati
 ## Chapter 7 Exercises: The Creative Brief Builder
 **Project:** Your Own Brand Intelligence System
 **This chapter adds:** a creative brief with a field-status register that labels every field verified, inferred, or needs-approval and attaches a resolution owner to each gap.
+
 ---
 ### Exercise 1 — When to Use AI
 **The judgment:** The brief's structural and drafting work — filling fields, building the register skeleton, surfacing candidate insights — is where AI accelerates without owning the decisions.
@@ -130,6 +131,7 @@ The brief says what the work is trying to do. It does not say how the organizati
 - Building the assumption register table — one row per Inferred or Unknown field with a resolution-method prompt — *Why AI works here:* this is **structuring** against a known template, where the gaps come from your status labels and the model just lays out the scaffold.
 
 **The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
 ---
 ### Exercise 2 — When NOT to Use AI
 **The judgment:** The strategic choices a brief records — the proposition, the tension, the sign-off — are commitments that require authority and accountability the model cannot hold.
@@ -139,6 +141,7 @@ The brief says what the work is trying to do. It does not say how the organizati
 
 **The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
 **Series connection:** Tier 6 — the brief is a decision surface where AI drafts and the human commits; the status labels and sign-off are the mechanism that keeps the human accountable for every strategic choice the model only drafted.
+
 ---
 ### Exercise 3 — LLM Exercise
 **What you're building this chapter:** a one-page creative brief with a field-status register and an attached assumption register — the third verified component in your brand repo.
@@ -166,6 +169,7 @@ Rules: do not mark any field Confirmed unless I gave you a documented, approved 
 **What this produces:** a status-labeled one-page brief plus a companion assumption register that makes every gap visible and assignable, with the proposition correctly held at Approval-needed until reviewed.
 **How to adapt this prompt:** *For your own brand:* load your real evidence audit and competitor matrix into the Project first, then fill BRAND FACTS from documented sources — the labels are only honest if the underlying inputs are real. *For ChatGPT / Gemini:* paste the evidence audit and matrix inline at the top of the prompt instead of using Project knowledge; if the model over-marks fields Confirmed, add "show me the exact source quote for any Confirmed label." *For a Claude Project:* keep this as your standing brief-builder Project and add your organization's field-status definitions and sign-off roles as knowledge so every brief inherits the same discipline.
 **Connection to previous chapters:** the Audience and Insight fields draw their status directly from the Chapter 5 four-list sort and the Chapter 6 matrix — an audience claim that was Can Suggest there cannot be Confirmed here. **Preview of next chapter:** the brief says what the work is trying to do; Chapter 8's measurement plan turns the objective field into KPIs tied to decisions, so a vague or Unknown objective here surfaces as an un-measurable KPI there.
+
 ---
 ### Exercise 4 — CLI Exercise
 **What you're building this chapter:** a `creative-brief.md` with an embedded field-status register and a separate `assumption-register.md`, generated from a `brief-inputs.md` in your repo.
@@ -195,6 +199,7 @@ Then print a verification summary to the chat: count of fields per status, and a
 **What to inspect in the output:** verify no field is Confirmed without a real documented source in `brief-inputs.md`, confirm the proposition is Approval-needed unless explicitly reviewed, and check that every Inferred/Unknown field has a matching row in the assumption register.
 **If it goes wrong:** if a field is marked Confirmed on thin evidence, re-run with "for every Confirmed field, quote the exact source line from brief-inputs.md; if you cannot, downgrade to Inferred." If it invented a resolution owner, restate the [assign] rule.
 **CLAUDE.md / AGENTS.md note:** add to `CLAUDE.md`: "Brief rule: no field is Confirmed without a documented, approved source; the proposition stays Approval-needed until legal/commercial review; every non-Confirmed field gets an assumption-register row with an owner. Never invent sources or owner names."
+
 ---
 ### Exercise 5 — AI Validation Exercise
 **What you're validating:** the `creative-brief.md` and `assumption-register.md` from Exercise 4 (or the Exercise 3 brief and register).
@@ -213,5 +218,6 @@ Validation Checklist — The Creative Brief Builder
 **What to do with your findings:** each Fail or Cannot determine becomes a correction — downgrade an over-confident label, add a missing register row, or restore the strategic tension the draft smoothed away. The corrected brief and register are the verified component you commit for this chapter.
 **AI Use Disclosure prompt:** "AI drafted the brief fields and assumption register from inputs and verified artifacts I supplied, labeling each field's status and flagging the proposition as Approval-needed; I checked every Confirmed label against its source, assigned the resolution owners, and accepted accountability for the strategic choices. The model could not determine whether the proposition's proof was legally sufficient, so that field was held at Approval-needed pending review."
 **Series connection:** the failure mode is a fluent-but-wrong brief that looks finished while hiding unconfirmed fields and a flattened tension; the status labels and register are the Tier 6 mechanism that keeps the human accountable for what was only drafted.
+
 ---
 **Tags:** creative-brief · field-status-register · assumption-register · confirmed-inferred-approval · proposition-proof · gap-visibility
