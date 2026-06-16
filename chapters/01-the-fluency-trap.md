@@ -80,8 +80,6 @@ Your job, once you understand this mechanism, is to be immune to it. Not cynical
 
 Now consider the kind of claim-classification table that Madison produces as its primary output from this work.
 
-![A seven-column audit table template with a header row and empty body rows — columns left to right: Claim, Type, Source, Evidence Status, Risk, Rewrite, and Owner — with the Owner column emphasized because attaching a named person is what changes behavior](../images/01-the-fluency-trap-fig-03.png)
-*Figure 1.4 — The claim audit table structure*
 
 | Claim | Type | Source | Evidence Status | Risk | Rewrite | Owner |
 |---|---|---|---|---|---|---|
