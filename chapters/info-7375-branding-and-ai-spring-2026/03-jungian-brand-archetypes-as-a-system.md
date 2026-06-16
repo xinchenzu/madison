@@ -590,7 +590,7 @@ Use these prompts with Claude to generate interactive D3 v7 versions of the
 figures in this chapter. Each produces a standalone HTML file you can open
 in a browser and modify freely.
 
-**Prerequisites:** Load `brutalist/CLAUDE.md` and `brutalist/DESIGN.md` into
+**Prerequisites:** Load `brutalist/D3.md` and `brutalist/DESIGN.md` into
 your Claude project context before using these prompts. They define the stack,
 naming conventions, color system, and typography the figures use.
 
