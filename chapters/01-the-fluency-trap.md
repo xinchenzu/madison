@@ -128,6 +128,155 @@ Once you can see fluent artifacts as mixtures of evidence, inference, and judgme
 <!-- LLM EXERCISE -->
 **Exercise for further inquiry.** Take a brand brief, persona document, or content plan — ideally one generated with AI assistance. Without looking at the underlying sources, write down every factual claim in the document. Then classify each claim using the five types described in this chapter: verified, inferred, unsupported, taste judgment, approval-needed. For each unsupported claim, write one sentence describing what kind of evidence would make it verifiable. Compare the resulting table to what the artifact implied about its own reliability. What changed in your reading of the document once you had the table?
 
+## Chapter 1 Exercises: The Fluency Trap
+
+**Project:** Your Own Brand Intelligence System
+
+**This chapter adds:** the judgment frame for the whole system — a repeatable claim-audit reflex plus a one-page "What the model cannot know about my brand" charter that every later component is checked against.
+
+---
+
+### Exercise 1 — When to Use AI
+**The judgment:** In this chapter's work, AI assistance is appropriate for the following tasks:
+
+- Splitting a fluent artifact into its individual claims — *Why AI works here:* this is mechanical decomposition (a reformatting/extraction task); you can read the brief yourself and confirm nothing was dropped or invented.
+- Proposing a first-pass label for each claim (verified / inferred / unsupported / taste / approval-needed) — *Why AI works here:* it is option-generation against a fixed taxonomy you already understand, and you have independent criteria to overrule any label.
+- Drafting the "what evidence would make this verifiable" sentence for each unsupported claim — *Why AI works here:* this is drafting suggestions, not deciding truth; you judge whether the proposed evidence actually settles the claim.
+
+**The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose.
+
+---
+
+### Exercise 2 — When NOT to Use AI
+**The judgment:** In this chapter's work, the following tasks require human judgment. Delegating them to AI is not appropriate — not because AI cannot produce output, but because AI output here cannot be trusted without verification that requires the same expertise as doing the task yourself.
+
+- Deciding whether a claim is *actually* verified — i.e., whether a real source exists and says what the claim says — *Why AI fails here:* the model has no access to your survey, sales notes, or competitor record; it will confidently assert support that does not exist (missing ground truth + hallucination risk).
+- Writing the "What the model cannot know about my brand" charter — *Why AI fails here:* this is a statement of *your* brand's private facts and boundaries; an AI-generated version would be plausible-sounding fiction, and the charter's whole job is to be true.
+- Making the final ship / needs-evidence / needs-an-owner call on each claim — *Why AI fails here:* that decision carries accountability and must trace to a named human; outsourcing it reintroduces the exact fluency trap the audit exists to catch.
+
+**The tell:** You know you have crossed the line when you are using AI output as your reason for a conclusion rather than as a tool for reaching one.
+
+**Series connection:** Tier 4 — Metacognitive. The skill here is knowing the boundary of your own and the model's knowledge: catching yourself trusting fluency, and naming what neither of you can actually verify.
+
+---
+
+### Exercise 3 — LLM Exercise
+**What you're building this chapter:** the seed artifacts of your Brand Intelligence System — `claim-audit.md` (a fluent artifact split into a labeled claim table) and `CANNOT-KNOW.md` (your charter of what the model cannot know about your brand).
+
+**Tool:** Claude (claude.ai chat) — a single-pass task with no need for persistent project memory yet.
+
+**The Prompt:**
+```
+You are helping me audit a brand artifact for unsupported claims. I will paste a
+brand brief, persona, or content plan. Do NOT add facts, sources, or judgments of
+your own.
+
+1. Extract every distinct factual or evaluative claim as a numbered list. Do not
+   merge, soften, or invent claims — quote or closely paraphrase each one.
+2. For each claim, propose ONE label from this taxonomy and a one-line reason:
+   - verified (states a fact that should have a source)
+   - inferred (follows from evidence but isn't directly measured)
+   - unsupported (stated as fact with no visible trail)
+   - taste judgment (evaluative, needs a human owner)
+   - approval-needed (a commitment requiring authorization)
+3. For each "unsupported" claim, write one sentence describing what specific
+   evidence would make it verifiable.
+4. Output as a markdown table: Claim | Proposed Label | Reason | Evidence-needed.
+
+After the table, list every place where you GUESSED the label because you could not
+tell — mark these "NEEDS HUMAN."
+
+Here is the artifact:
+[FILL IN: paste your brand brief / persona / content plan]
+```
+
+**What this produces:** a first-draft claim table you then correct by hand, saved as `claim-audit.md`. Separately, you write `CANNOT-KNOW.md` yourself (do not ask AI to write it).
+
+**How to adapt this prompt:**
+- *For your own brand:* paste a real artifact you received recently that "looked finished." The messier its provenance, the more the audit teaches.
+- *For ChatGPT / Gemini:* identical; if the model starts adding sources, restate "Do NOT add facts or sources of your own."
+- *For a Claude Project:* once you have several chapters' artifacts, move this into a Project so the audit can reference your accumulating `CANNOT-KNOW.md`.
+
+**Connection to previous chapters:** this is Chapter 1 — it establishes the audit reflex everything else builds on.
+
+**Preview of next chapter:** Chapter 2 takes the gaps this audit exposes and asks where your scarce attention should actually go — triage, not blanket verification.
+
+---
+
+### Exercise 4 — CLI Exercise
+**What you're building this chapter:** the repository skeleton for your Brand Intelligence System and its first two committed artifacts.
+
+**Tool:** Claude Code
+
+**Skill level:** Beginner
+
+**Setup:**
+Before running this exercise, confirm:
+- [ ] You have completed Exercise 3 and have a corrected `claim-audit.md` and a hand-written `CANNOT-KNOW.md`.
+- [ ] You have an empty folder for the project and Claude Code open in it.
+- [ ] You will add a standing rule to `CLAUDE.md`: *the model never marks a claim "verified" — only a human does.*
+
+**The Task:**
+```
+Set up the repository for my Brand Intelligence System.
+
+Read the two files I will place in this folder: claim-audit.md and CANNOT-KNOW.md.
+Do not modify their contents.
+
+Then:
+1. Create this structure: /audits, /charter, /sources, and a top-level README.md.
+2. Move claim-audit.md into /audits and CANNOT-KNOW.md into /charter (use git mv if
+   this is a git repo; otherwise plain move). Do not edit the files.
+3. In README.md, write a 5-line description of the project and a table of contents
+   linking to the two files. Use only facts present in those files — invent nothing.
+4. Create CLAUDE.md containing one rule: "Claims are never marked 'verified' by the
+   assistant. Only a named human marks a claim verified, with a source path."
+5. STOP and show me the resulting file tree and the README before doing anything else.
+
+Do not delete anything. Do not create files I did not ask for.
+```
+
+**Expected output:** a four-folder repo with your two artifacts filed, a factual README, and a one-rule `CLAUDE.md`.
+
+**What to inspect in the output:** that the README invented no claims; that the files were moved, not rewritten; that nothing was deleted.
+
+**If it goes wrong:** the most likely failure is the README adding brand "facts" that aren't in your files. Recovery: reject it and re-run with "use only sentences that appear verbatim in the two files."
+
+**CLAUDE.md / AGENTS.md note:** add the standing rule above — it governs every later chapter's automation.
+
+---
+
+### Exercise 5 — AI Validation Exercise
+**What you're validating:** the `claim-audit.md` table Claude produced in Exercise 3.
+
+**Validation type:** Structured data + reasoning chain.
+
+**Risk level:** Medium — a mislabeled "verified" claim is exactly the failure that ships unsupported brand statements.
+
+**Setup:** open the AI-labeled table from Exercise 3 next to the original artifact.
+
+**The Validation Task:**
+Evaluate the AI output using this checklist. For each item record Pass / Fail / Cannot determine and explain.
+```
+Validation Checklist — The Fluency Trap
+□ Correctness: Is every claim labeled "verified" actually backed by a source you can name and open?
+□ Completeness: Did the audit miss any claim that a brand reviewer would flag — especially ones buried in fluent sentences?
+□ Scope: Did the model add claims, sources, or judgments that were not in the original artifact?
+□ Taxonomy fit: Is any "inferred" really "unsupported," or any "taste judgment" smuggled in as fact?
+□ Owner test: For each "approval-needed" claim, can you name the person who must sign off?
+□ Failure mode check: fluent-but-wrong — did a confident label make you stop checking? Any "verified" with no real ground truth behind it?
+```
+
+**What to do with your findings:** all pass → file the table and proceed. One fail → fix the label and re-run the prompt with a sharper instruction. Multiple fails → re-do the audit by hand; the artifact is too entangled to delegate.
+
+**AI Use Disclosure prompt:** write two sentences — (1) what AI produced (the claim split and proposed labels) and how you used it (as a first draft you corrected); (2) one thing the AI could not determine that required your judgment (which claims are truly verified, and what your brand's record actually contains).
+
+**Series connection:** the failure mode here is *fluency mistaken for verification* — the Tier 4 metacognitive trap of trusting a confident label instead of checking the ground truth behind it.
+
+---
+
+**Tags:** fluency-trap · claim-audit · brand-evidence · verification-reflex · cannot-know-charter · tier-4-metacognitive
+
 ## Prompts
 
 ### Figure 1.2 — Two worlds: same sentence, different status
