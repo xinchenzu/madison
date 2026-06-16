@@ -21,8 +21,7 @@ Here is what a signal actually looks like. A competitor's homepage headline on a
 
 *The matrix is an observation layer, not a strategy layer. Implications go in a separate labeled section.*
 
-![An empty seven-column grid schematic of the competitor-observation matrix — Source, Capture Date, Primary Claim, Proof Offered, CTA, Audience Signal, Contradiction Flag — with the source-and-date pair grouped as provenance and the contradiction column accented.](../images/06-competitor-signal-scan-fig-01.png)
-*Figure 6.1 — The competitor matrix, core columns*
+*Table 6.1 — The competitor matrix, core columns*
 
 The recipe for this chapter is built around that matrix. Inputs: the competitor set, the category terms you are using to bound the comparison, a source list, a date range, and the brand question you are trying to answer. Steps: capture the sources directly — screenshots, URLs with timestamps, downloaded ads — and then extract from each source the specific observable features: positioning language, claims, proof offered, CTA, audience signals, channel choices, tone. Flag contradictions when you find them. Compare patterns across the set. Write human-review notes for every inference that goes beyond the observation. Outputs: the matrix, a source appendix, and a short implication memo that is labeled as interpretation rather than observation. Gate: strategy recommendations stay separate from observations, and the separation is explicit, not implicit. Log: competitor names, URLs or file paths, capture timestamps, and extraction notes.
 
