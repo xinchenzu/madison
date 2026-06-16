@@ -15,7 +15,8 @@
     "contrast-check": "node scripts/contrast-check.mjs",
     "deck-trace": "node scripts/deck-trace.mjs",
     "build-pitch": "node scripts/build-pitch.mjs",
-    "audit:layout": "node scripts/svg-layout-audit.mjs"
+    "audit:layout": "node scripts/svg-layout-audit.mjs",
+    "postsvg-to-png": "node scripts/svg-layout-audit.mjs images || true"
   },
   "dependencies": {
     "glob": "^10.0.0",
