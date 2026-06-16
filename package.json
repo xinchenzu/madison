@@ -14,7 +14,8 @@
     "build-resume": "node scripts/build-resume.mjs",
     "contrast-check": "node scripts/contrast-check.mjs",
     "deck-trace": "node scripts/deck-trace.mjs",
-    "build-pitch": "node scripts/build-pitch.mjs"
+    "build-pitch": "node scripts/build-pitch.mjs",
+    "audit:layout": "node scripts/svg-layout-audit.mjs"
   },
   "dependencies": {
     "glob": "^10.0.0",
