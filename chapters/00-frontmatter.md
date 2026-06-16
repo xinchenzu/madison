@@ -9,7 +9,7 @@
 
 **Nik Bear Brown · Nina Harris · Humanitarians AI**
 
-*How Marketers, Founders, and Brand Strategists Keep Judgment When AI Makes Execution Free*
+*Why Brand Practitioners Need to Run Their Own AI — and How*
 
 ---
 

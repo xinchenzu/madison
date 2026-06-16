@@ -1,6 +1,6 @@
 # The Madison CLI Framework
 
-*How Marketers, Founders, and Brand Strategists Keep Judgment When AI Makes Execution Free*
+*Why Brand Practitioners Need to Run Their Own AI — and How*
 
 **Author:** Nik Bear Brown, Nina Harris, and Humanitarians AI · **Publisher:** Humanitarians AI · **Edition:** 2026
 
