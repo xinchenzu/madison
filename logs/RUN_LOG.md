@@ -430,3 +430,16 @@ workflow changes.
 - **Outputs:** Added `chapters/01-the-fluency-trap.md` through `chapters/16-the-build-and-the-honest-run.md`; rewrote `chapters/97-fundamental-themes.md` as a Madison appendix; added `scripts/write-madison-tiktoc-chapters.mjs`; appended one row per written chapter to `logs/log.csv`.
 - **Result:** The top-level Madison book now mirrors the TIKTOC chapter structure through Chapter 16, with each chapter following the concrete scenario, capability, recipe, evidence boundary, project task, verification, human-judgment gate, and bridge anatomy.
 - **Open issues:** Drafts are coherent first-pass chapters rather than deeply expanded final prose; a later editorial pass can add longer worked examples, diagrams, and chapter-specific exercises if desired.
+## 2026-06-23 — Board Snapshot
+
+Board snapshot added:
+brand/board-snapshot-2026-06-23.png
+
+Source:
+Original Assignment 1 Figma Board
+
+Board link:
+[https://www.figma.com/board/raKfiWE7cXGUFmqrge8dNm/Assignment-1?node-id=0-1&t=52DeZ5zZUO6bsNmZ-1]
+
+Note:
+This board snapshot was added to satisfy Exercise 1 rubric item #11. The board predates the final brand/ artifacts and is being preserved as a dated snapshot.
