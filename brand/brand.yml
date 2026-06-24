@@ -1,189 +1,130 @@
-# brand.yml — INFO 7375 Exercise 1, personal brand layer
-# Rule of this file (the self-test): an attribute may live here ONLY if a
-# resume.json entry backs it. No proof -> it is an aspiration -> gaps.md.
+# brand.yml — INFO 7375 Exercise 1, personal brand layer (Xinchen Zu)
+# Constraint: every fact about the person is from the resume PDF only.
+# Rule of this file: an attribute may live here ONLY if a resume.json entry
+# backs it. No proof -> aspiration -> gaps.md.
 
 aspiration: >-
-  Become the recognized authority on telling trustworthy AI from merely fluent
-  AI — by building the verification tools and teaching the method — so that
-  influence arrives as the dividend that credibility pays, not as a thing chased.
+  I am becoming a marketing technologist who bridges brand strategy, data, and
+  AI to create measurable business impact.
+# Proof status (resume-based): brand strategy + data are backed by resume.json.
+# AI is NOT backed by any resume entry -> top gap in gaps.md, not an attribute.
 
 audience:
-  # Reached through credibility, never through reach-for-its-own-sake.
-  - who: academics
-    they_care_about: >-
-      costly, hard-to-fake proof they can CHECK themselves. Not tool-vs-paper but
-      tool-AND-paper: a result the reader can run and re-parameterize — change the
-      inputs, move the sliders, watch it hold or break. A paper deflated when it
-      became cheap to draft; a paper backed by a runnable, parameter-adjustable
-      artifact is the costliest signal of all, because the reader validates it live
-      instead of taking the PDF on faith. (Exemplar already in the record: Tangram —
-      Nature Methods + an open tool people actually use. Make it the template.)
-  - who: policy experts
-    they_care_about: verification and governance of AI claims
-  - who: company boards
-    they_care_about: AI risk and trust (can we believe what this system produced?)
-  - who: educators & edtech (preK-12, higher ed, vendors, consultants)
-    they_care_about: >-
-      what actually changes classroom practice — evidence-backed, not hype; how to
-      tell a real efficacy claim from a marketed one. PROVEN PULL (not aspiration):
-      inbound editorial invitation from EdSurge / ISTE-ASCD + ~30 education-focused
-      manuscripts. The "EdTech Skepticism" series is the wedge; this is the same
-      trustworthy-vs-fluent thesis aimed at the classroom.
+  # NOTE: audience is a brand DECISION derived from your aspiration — it is not a
+  # fact stated on your resume. Marked accordingly; confirm against real postings.
+  - who: "Hiring managers & recruiters for marketing-technology / marketing-analytics roles"
+    basis: "derived from your aspiration (NOT a resume fact)"
+    they_care_about: "evidence you connect brand strategy to measurable outcomes with data"
+  - who: "Consumer-brand & e-commerce growth teams"
+    basis: "derived from your aspiration + your demonstrated domain (resume: Dealmoon/TikTok/NetEase)"
+    they_care_about: "data-informed campaign operators who also understand brand"
 
 positioning:
-  # April Dunford, *Obviously Awesome* — positioning as context-setting,
-  # adapted to a person. Win a narrow frame where you are the obvious choice;
-  # do not compete in the broad "AI expert" market where you lose to reach.
-  frame: "Trustworthy vs. merely fluent AI — the verification problem"
+  # April Dunford, *Obviously Awesome* — positioning as context-setting.
+  frame: >-
+    The marketing technologist who pairs brand-strategy training with hands-on
+    campaign data work — and is building the AI layer on top of that proof.
 
   anti_position: >-
-    NOT another all-reach, no-build AI commentator. The failure mode I refuse is
-    talk without a there-there — visibility unbacked by shipped, reproducible
-    artifacts. This is the shadow of the round-one "influencer" aspiration, named
-    so it can be avoided. GUARDRAIL / self-test: if a post, talk, or claim isn't
-    tied to something a reader can run, it's drifting toward the thing I won't be.
-    Influence is permitted only as the dividend of building — never the goal.
-
-  # The foil is a CATEGORY, not a person: prestige without working software.
-  foil:
-    category: >-
-      Important-sounding AI labs, institutes, and commentators that produce
-      announcements, titles, and papers — but not things that work.
-    instances:
-      - "prestige university AI labs (announcements > shipped software)"
-      - "commentators known for words about AI — a book, a Substack, LinkedIn (e.g. Mollick)"
-    defensible_contrast: >-
-      They optimize for the APPEARANCE of capability — impressive names, big
-      announcements, takes. I optimize for the working artifact. This is the
-      trustworthy-vs-fluent thesis at INSTITUTIONAL scale: a lab can be as
-      fluent-but-empty as an AI draft. Anchor every contrast to output you can run.
-    public_line: "Important labs make announcements. Come to me when it has to actually work."
-    discipline: >-
-      Keep specific orgs OUT of the written artifact — especially ones you're
-      affiliated with (NEU). Fight the category; name no institution in public.
-      Never claim a named person/org 'built nothing' — falsifiable, costs you the room.
+    NOT a storyteller-marketer with no numbers, and NOT a pure analyst with no
+    brand sense. Self-test: if I claim "AI," I must point to something I built
+    that uses it. Until that artifact exists (see gaps.md), AI is a direction I
+    am building toward, not a claim I make.
 
   competitive_alternatives:
-    # Who the audience turns to today if you didn't exist.
-    - "Ethan Mollick — the REACH benchmark. Classify by axis, not vibe: high reach / commentary-translator. Real stealable asset: mass-audience distribution + plain-language translation of AI. What he misses: doesn't ship adopted tools or reproducible artifacts — reach without a runnable proof layer. Your white space = reach AND proof (steal the distribution, keep the moat)."
-    - "Narayanan & Kapoor / AI Snake Oil — rigorous skeptics (critique; don't build the alternative)"
-    - "Gary Marcus — skeptic-as-critic (POV without the build or the classroom)"
-    - "Andrew Ng — AI education (practitioner; not a skepticism stance)"
+    # Generic categories, not named outside entities.
+    - "Pure data analysts — strong on analysis, lighter on brand/campaign judgment"
+    - "Pure marketers/creatives — strong on brand, lighter on data and Python"
+    - "Marketing-ops generalists — process, but less data depth or brand strategy"
 
   unique_attributes:
-    - attribute: "Builds adopted open-source tools — doesn't just opine"
-      weight: PRIMARY   # the lead signal now that papers are cheap to draft
-      proof: ["projects: Madison Framework", "projects: 25+ deployed course bots", "projects: Jobsekr", "projects: DevProof"]
-      vs: "Mollick/Marcus comment; you ship. A tool that's USED is the costliest signal — it can't be faked by fluency."
-      caveat: "Only out-signals a paper if adoption is shown. Capture usage (deployments, users, repo stars) into resume.json — see gaps.md. Until then it's an existing tool, not a proven-adopted one."
-    - attribute: "Reproducible, interactive research — the paper you can run and re-parameterize"
-      weight: PRIMARY   # the synthesis: tool AND paper, the reader as the gate
-      proof: ["Tangram — Nature Methods paper + open-source tool people use (the exemplar/template)", "experience: Broad Institute / Harvard Medical School", "education: MS Information Design & Data Visualization", "skills: D3 / interactive visualization", "open-access books with rebuildable figures"]
-      vs: "A static PDF asks for faith; a runnable, parameter-adjustable result asks to be tested — and survives it. Few academics ship the paper AND the live artifact; you've done it at Nature Methods."
-    - attribute: "Operationalizes AI literacy at university scale"
-      proof: ["experience: ENGR 0201, 700+ learners (Dean-commissioned)", "experience: Anthropic/Claude Enterprise entry course", "experience: INFO 6205 Coursera"]
-      vs: "Not a talk — a deployed program."
-    - attribute: "Owns a named skepticism POV"
-      proof: ["Computational Skepticism for AI (open-access book)", "skepticism.ai", "the 'fluency is the first sign of trouble' thesis"]
-      vs: "A position, not a credential — this is the spine."
+    # Each attribute MUST point to a resume.json entry. All proof below is on the resume.
+    - attribute: "Runs large-scale, cross-functional marketing campaigns end to end"
+      proof:
+        - "experience: Dealmoon — Campaign Specialist (Black Friday, 9/16 Shopping Day; led product/design/tech teams)"
+      vs: "Owned delivery across functions and timelines."
+
+    - attribute: "Turns post-campaign and user data into decision-ready insights"
+      proof:
+        - "experience: Dealmoon — post-campaign GMV & feedback analysis -> playbooks"
+        - "experience: NetEase — competitive analysis of 5+ players; dashboard diagnostics"
+        - "skills: Python (data analysis); Microsoft Excel"
+      vs: "The 'data' pillar of the aspiration, already evidenced."
+
+    - attribute: "Brand strategy grounded in formal training + brand partnerships"
+      proof:
+        - "education: B.A. Strategic Communication, Washington State University"
+        - "experience: Dealmoon — co-developed strategies with Estee Lauder, YamiBuy"
+      vs: "The 'brand strategy' pillar, evidenced by degree + named brands on the resume."
+
+    - attribute: "Builds operational systems that scale (SOPs, acquisition models)"
+      proof:
+        - "experience: TikTok — designed host-acquisition SOP (segmentation, incentives, collaboration model)"
+        - "experience: TikTok — streamlined creator-merchant-ops coordination"
+      vs: "Designs repeatable process, not one-off execution."
+
+    - attribute: "Cross-border / China-US e-commerce & creator/livestream operations"
+      proof:
+        - "experience: TikTok — UK market-entry strategy; matched 80+ advertisers to creators"
+        - "experience: Dealmoon — strategies with global brands"
+        - "skills: Mandarin (native) + English (business proficiency)"
+      vs: "Operates natively across the China-US consumer-commerce gap."
 
   one_line:
-    # The seam — the sentence both a human and a machine read the same way.
     recommended: >-
-      For people who must trust AI but can't yet verify it, Nik Bear Brown is the
-      builder-academic who turns "sounds right" into "checked" — because he ships
-      the tools and publishes the science, not just the takes.
-    alternates:
-      - "I help academics, policy makers, and boards tell trustworthy AI from merely fluent AI — I build the tools and teach the method."
-      - "The professor who builds the proof: publishes the science, ships the verification tools, teaches the skepticism."
-      - "Important labs make announcements. Come to me when it has to actually work."   # strongest, shortest, names no one
+      For consumer brands that need marketing decisions backed by evidence,
+      Xinchen Zu is the marketing technologist who pairs brand-strategy training
+      with hands-on campaign analytics — and is building the AI layer on the data
+      she already works in.
+    note: "AI is stated as a direction ('building toward'), never a present capability — no resume entry backs it."
 
 media:
-  # Cited media-target map — two converging deep-research passes (2026-06-13).
-  # Full report + sources: brand/media-target-map.md. Spine: costly/gated signals
-  # beat reach; self-pub volume is the cheap signal everywhere. Each entry has a
-  # CITED reason (rubric line 6) + a role + a win condition.
-
-  # The one real INBOUND — strongest cited signal (an actual editorial invitation):
-  - channel: "EdSurge (ISTE / ASCD)"
-    role: "voice + proof — editor-gated journalism, not self-published"
-    audience: "educators & edtech (beachhead; halo to academics)"
-    cited_reason: >-
-      Direct editorial invitation, June 2026 — Ira Apfel (Editorial Director, EdSurge):
-      "especially excited because you have research to back up your arguments"; routed by
-      Daniel Obregon (CMO, ISTE-ASCD). ~550K practitioners; editorial-independence firewall
-      makes it read as journalism, not vendor PR. Qualified yes: reach, not academic credit.
-    proposed_vehicle: "'EdTech Skepticism' series; first piece ready (Surgeon General advisory)."
-    win_condition: "one 1000–1500w piece accepted by the managing editor → the recurring series commissioned"
-    discipline: "Lead with ONE sharp piece, not the 30-manuscript menu."
-
-  # Academics / policy / boards — the cited map (brand/media-target-map.md):
-  - channel: "Artifact-audited methods venues (ACM artifact review + badges)"
-    role: "proof (highest-signal academic)"
-    audience: "academics, policy"
-    cited_reason: "ACM Artifact Review/Badging makes the tool AND result independently auditable — the costliest academic signal, exact fit for a verification-tool builder. [ACM]"
-    win_condition: "badged methods paper; independent reproduction; citations that reference the artifact; outside institutions using the tool"
-
-  - channel: "Registered Reports (where the question permits)"
+  # Step 3: targets DERIVED from the aspiration via cited research (path #2).
+  # Full research record + numbered sources: brand/media-research.md and
+  # brand/media-target-map.md. Each kept channel carries a cited reason.
+  - channel: "Online portfolio (case studies)"
     role: "proof"
-    audience: "academics, policy"
-    cited_reason: "Method peer-reviewed BEFORE results exist — the anti-fluency signal; >300 journals; RRs outperform on rigor of method and analysis. [Center for Open Science]"
-    win_condition: "Stage-1 acceptance on one flagship verification method, then the completed report"
-
-  - channel: "GitHub repo + docs + live demo (USE, not stars)"
-    role: "proof + discovery"
-    audience: "academics, policy, technical execs"
-    cited_reason: "Stars are weak and gameable (weak stars↔downloads; deployments correlate). The signal is external USE — adopters, installs, outside issues/PRs, citations. [NDSS]"
-    win_condition: "named outside adopters, reproducible install path, external PRs/issues, package metrics, paper/policy citations"
-
-  - channel: "arXiv + SSRN (discovery layer only)"
+    cited_reason: >-
+      Employers are skeptical of skill lists and want proof of execution shown as
+      outcomes, not outputs; portfolios/case studies carry as much weight as
+      qualifications. [LSE Exec Ed; JobPrepped; vocal.media; KSU]
+    win_condition: "2-3 case studies, each framed problem -> approach -> outcome -> recommendation"
+  - channel: "GitHub (+ Kaggle for notebooks)"
+    role: "proof"
+    cited_reason: >-
+      A portfolio is among the most important factors in data hiring; GitHub/Kaggle
+      is the standard place to host code and notebooks — where the data + AI pillars
+      get evidenced. [Coursera; Towards Data Science; 365 Data Science]
+    win_condition: "well-presented repo using a real, messy dataset with documented cleaning + a business recommendation; no tutorial staples (Titanic/Iris)"
+  - channel: "MarTech.org community + MarTech Conference (+ MarketingProfs)"
+    role: "discovery + voice"
+    cited_reason: >-
+      The named ecosystem for marketing technologists specifically (the exact hybrid
+      role), not a generic marketing crowd. [MarTech.org; MarTech Conference; MarketingProfs]
+    win_condition: "active participation, then a contribution or session that puts my work in front of the field"
+  - channel: "LinkedIn"
     role: "discovery"
-    audience: "academics, policy"
-    cited_reason: "Strong rapid distribution but NOT final proof — arXiv states moderation isn't peer review; SSRN is early-stage sharing. [arXiv; SSRN]"
-    win_condition: "each preprint converts downstream to an audited publication, a standards contribution, or a policy brief"
+    cited_reason: >-
+      Included on evidence, not habit: 93% of recruiters source candidates on LinkedIn
+      and search by skills/keywords, making it the highest-probability discovery surface.
+      [LinkedIn / S. Bruce; Salesso]
+    win_condition: "profile surfaces in recruiter keyword searches for my target terms; inbound contact; clickthrough to portfolio/GitHub"
+  - channel: "Certifications — Google Analytics 4, HubSpot"
+    role: "proof (supporting)"
+    cited_reason: >-
+      Costly-to-fake tool-proficiency signals: GA appears in 41% of marketing-analyst
+      postings; HubSpot demand is high. Supporting, not a headline. [Jobsolv; iidtescala; Modern Marketing Institute]
+    win_condition: "GA4 certified; credential paired with a portfolio project that uses the tool (a cert alone is rarely enough)"
+  - channel: "Data-driven storytelling content"
+    role: "voice"
+    cited_reason: >-
+      Credibility for this role is built through data-driven storytelling, not posting
+      volume — it demonstrates the analytical thinking at the core of the aspiration. [LSE Exec Ed]
+    win_condition: "occasional write-ups that each turn one analysis into a clear, decision-oriented story"
 
-  - channel: "Artifact-linked policy briefs on skepticism.ai"
-    role: "voice + discovery"
-    audience: "policy, executives"
-    cited_reason: "Policy audiences search the open web but reward concise, attributed, recommendation-bearing, demo-linked evidence + direct expert access — not essay volume. [CIPR; NSW evidence-use review]"
-    win_condition: "staff/think-tank citations, demo requests, invitations to brief or testify"
-
-  - channel: "NIST AI workshops + standards / AI Consortium"
-    role: "proof + elite discovery"
-    audience: "policy, technical execs, academics"
-    cited_reason: "NIST convenes gov/academia/industry to define trustworthy-AI measurement — unusually matched to a verification-tool builder. Bring a benchmark/metric/tool, not a worldview. [NIST]"
-    win_condition: "workshop slot, comments adopted in drafts, consortium involvement, citation in NIST guidance"
-
-  - channel: "Stanford HAI / OECD-GPAI / selected policy convenings"
-    role: "discovery + credibility transfer"
-    audience: "policy, some executives"
-    cited_reason: "Convene policymakers + experts around governance; fit tool-backed interventions, not punditry. [Stanford HAI; OECD-GPAI] (Brookings / FAR.AI events = lower-confidence amplifiers.)"
-    win_condition: "invited talks, closed-door roundtables, commissioned memos, working-group roles"
-
-  - channel: "NACD + CMU-NACD board education (AI Oversight certificate)"
-    role: "discovery + credibility transfer"
-    audience: "boards, executives"
-    cited_reason: "Boards trust peer-director communities + governance education; AI oversight is institutionalizing there. Enter via teaching/scenarios, not 'AI thought leadership'. [NACD; NACD-CMU]"
-    win_condition: "teach a board workshop, become repeat faculty, earn director-to-director referrals"
-
-  - channel: "Search-firm + tech-advisory-board intermediaries"
-    role: "discovery + vetting"
-    audience: "boards, CEOs"
-    cited_reason: "Boards source AI expertise through search/advisory firms (e.g. Russell Reynolds) — the gatekeepers who vet for them — not open-source browsing. [Russell Reynolds]"
-    win_condition: "search-firm shortlists, formal advisory-board seats, retained oversight work"
-
-  - channel: "Education Week Opinion"
-    role: "proof-adjacent authority"
-    audience: "educators, education policy"
-    cited_reason: "Most-trusted K-12 outlet (1.6M readers; cited in policymaking up to the Supreme Court). [edweek.org]"
-    win_condition: "one op-ed picked up or cited in district/policy discussion"
-
-# --- media CUT / deprioritize (rubric line 7 — rejections keep their reason) ---
-# (top-level key: a sequence can't hold a mapping key, so this can't live under media)
+# --- media CUT / deprioritized (rubric line 7 — rejections keep their reason) ---
 media_cut:
-  - "A large self-published Kindle CATALOG as a primary authority bet — weak academic validation + Amazon now policing AI-content volume. Keep only flagship, sourced, tool-anchored books. [KDP/Amazon]"
-  - "GitHub star-chasing — stars are a weak, gameable usage proxy (weak stars↔downloads). [NDSS]"
-  - "Generic 'AI commentator' social posting as a primary strategy — these audiences trust proof, evidence, and peer ecosystems over reach (inference from channel evidence)."
-  - "Preprints without audited artifacts or venue conversion — arXiv/SSRN are discovery, not final validators. [arXiv; SSRN]"
-  - "Board outreach built around public repo links — directors discover via governance communities + intermediaries, not open-source browsing (inference). [NACD; Russell Reynolds]"
-  - "MIT Sloan Management Review — winding down its standalone review (final issue Sept 2026). [mitsloan.mit.edu]"
+  - "Generic social broadcasting / 'be active online' (e.g. Instagram/TikTok personal-brand posting) as a primary strategy — this field rewards proof of execution over presence. [LSE Exec Ed; JobPrepped]"
+  - "Certifications as the PRIMARY/sole strategy — a cert on its own is 'rarely enough' without demonstrable skills + a portfolio; kept only as supporting proof. [iidtescala; Modern Marketing Institute]"
+  - "Tutorial-staple / popular Kaggle clone projects (Titanic, Iris) on GitHub — hiring managers discount them; use real, messy datasets. [Careery]"
+  - "GitHub star-chasing / repo quantity as the signal — the signal is a well-presented, evaluable project, not popularity or count. [Careery]"

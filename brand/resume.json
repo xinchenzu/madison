@@ -2,122 +2,132 @@
   "_artifact": "resume",
   "_assignment": "INFO 7375 Exercise 1 — brand/ personal layer",
   "_sources": {
-    "cv": "pasted CV / résumé (Nik Bear Brown)",
-    "li": "pasted LinkedIn profile export"
+    "cv": "Xinchen Zu Resume.pdf (brand/Xinchen Zu Resume.pdf)"
   },
   "_label_key": {
-    "[agree]": "same in CV and LinkedIn",
-    "[cv-only]": "single source: CV",
-    "[li-only]": "single source: LinkedIn",
-    "[CONFLICT]": "sources disagree — human must resolve",
-    "[Unverifiable]": "needs a document (diploma, etc.) to attest",
-    "[drift]": "point-in-time metric, excluded from the durable record"
+    "[cv-only]": "single source: the resume PDF",
+    "[Unverifiable]": "self-reported metric or credential; needs a document/source to attest",
+    "[gap]": "absent from the resume — candidate gaps.md entry"
   },
-  "_human_gate": [
-    "identity.canonical_email",
-    "education[].status_when_CONFLICT_or_Unverifiable",
-    "issues[].resolution"
-  ],
+  "_attestation": {
+    "attested": true,
+    "attested_date": "2026-06-23",
+    "three_import_errors_note": "Three extraction catches found and resolved: (1) intern title 'Cross border E-commerce Operations Intern' had a hyphen added by the import — reviewed against the resume; (2) human-readable dates ('Nov 2023 – Apr 2025') were reformatted to ISO precision the resume did not state — each start/end checked against the resume; (3) 'Python proficient' and all %/$ metrics were carried as fact — relabeled as self-reported / [Unverifiable] pending a source.",
+    "_human_gate": "Attested by Xinchen Zu after reviewing accuracy and the three catches."
+  },
 
   "identity": {
-    "name": "Nik Bear Brown",
-    "name_variants_seen": ["Nik Bear Brown", "N. B. Brown", "Brown, N. B.", "Brown, N.", "Nik Bear (Nerd, Poet, Lyricist, Doodler, PhD, MBA) Brown"],
-    "pronouns": "They/Them  [li-only]",
-    "headline": "Associate Teaching Professor, AI & Machine Learning — Northeastern University",
-    "location": "Boston, Massachusetts, United States  [agree]",
-    "canonical_email": null,
-    "emails_seen": ["ni.brown@neu.edu  [li-only, featured post]", "bear@bearbrown.co  [session]"],
+    "name": "Xinchen Zu",
+    "location": "San Jose, California, 94801  [cv-only]",
+    "canonical_email": "zu.xi@northeastern.edu",
+    "phone": "509-263-7288  [cv-only — personal; decide if it belongs in a PUBLIC artifact]",
     "links": {
-      "linkedin": "linkedin.com/in/nikbearbrown",
-      "github": "github.com/nikbearbrown",
-      "website": "nikbearbrown.com",
-      "substack": "https://www.skepticism.ai/"
-    }
+      "linkedin": null,
+      "github": null,
+      "website": null,
+      "portfolio": null
+    },
+    "_links_note": "[gap] No LinkedIn/GitHub/website/portfolio on the resume. Assignment 1 Part 3 wants a LinkedIn screenshot — likely a gaps.md row."
   },
 
   "education": [
-    { "degree": "PhD, Computer Science", "school": "UCLA", "years": "2003–2013",
-      "field_note": "CV: 'Computer Science'. LinkedIn degree label: 'Mathematics and Computer Science'. LinkedIn text: major field 'computational and systems biology', minors AI + statistics.",
-      "status": "[CONFLICT] — pick one canonical description" },
-    { "degree": "MS, Computer Science", "school": "UCLA",
-      "status": "[cv-only] — not in LinkedIn's 3 listed educations" },
-    { "degree": "MS, Information Design and Data Visualization", "school": "Northeastern University", "years": "2019–2021", "gpa": "3.7",
-      "status": "[agree]" },
-    { "degree": "MBA", "school": "Northeastern University, Boston",
-      "status": "[cv-only][Unverifiable] — claimed in CV and in LinkedIn name tag, but not in LinkedIn's education section" },
-    { "degree": "BA, Biochemistry and Molecular Biology", "school": "UC Santa Cruz",
-      "field_note": "CV: 'Biochemistry and Molecular Biology — UC Santa Cruz'. LinkedIn text: 'BA in Molecular Biology and Biochemistry' (no school given).",
-      "status": "[CONFLICT] — school single-sourced (UCSC, CV only); word order differs" }
+    {
+      "degree": "M.S. Information Systems",
+      "school": "Northeastern University, College of Engineering",
+      "location": "San Jose, California",
+      "status_dates": "expected May 2027",
+      "gpa": "4.0 / 4.0  [Unverifiable — transcript]",
+      "status": "[cv-only]"
+    },
+    {
+      "degree": "B.A. Strategic Communication",
+      "school": "Washington State University",
+      "location": "Pullman, Washington",
+      "status_dates": "Dec 2022",
+      "gpa": "3.4 / 4.0  [Unverifiable — transcript]",
+      "status": "[cv-only]"
+    }
   ],
 
   "experience": [
-    { "title": "Associate Teaching Professor", "org": "Northeastern University, College of Engineering", "start": "2022-05", "end": "present", "status": "[agree]" },
-    { "title": "Affiliated / Affiliate Faculty", "org": "Institute for Experiential AI, Northeastern", "start": "2022-12", "end": "present", "status": "[agree]" },
-    { "title": "Founder & Executive Director", "org": "Humanitarians AI Inc. (501(c)(3))", "start": "2019", "end": "present", "status": "[agree]" },
-    { "title": "Assistant Teaching Professor", "org": "Northeastern University, College of Engineering", "start": "2017", "end": "2022", "status": "[cv-only]" },
-    { "title": "Lecturer", "org": "Northeastern University, College of Computer Science", "start": "2013", "end": "2017", "status": "[agree]" },
-    { "title": "Founding Partner & Faculty Mentor", "org": "Northeastern AI Skunkworks", "start": "2019", "end": "present", "status": "[agree]" },
-    { "title": "various founder/CEO/CTO roles", "org": "Bear Brown and Company; Abecedarian; NikBearBrown.com; Musinique LLC", "start": "2021", "end": "present",
-      "status": "[CONFLICT] — overlapping self-employed timelines + two CV entries contain an editorial complaint about Massachusetts that must NOT enter a brand artifact" }
-  ],
-
-  "selected_publications": [
-    { "cite": "Avasthi, R., Lu, Z., Brown, N. B. 'Deep learning and alignment of spatially resolved single-cell transcriptomes with Tangram.' Nature Methods 18, 1352–1362 (2021).", "status": "[cv-only]" },
-    { "cite": "Gultepe, E., Valluru, R., Brown, N. B., Sridhar, S. 'The Landscape of Nanomedical Clinical Trials.' Nano Today 66, 102898 (Feb 2026).", "status": "[cv-only]" },
-    { "cite": "Issak, A. A., et al. 'Mapping the Typographic Latent Space of Digits.' ICLR 2023.", "status": "[cv-only]" },
-    { "_note": "author name appears as both 'Brown, N. B.' and 'Brown, N.' — normalize before publishing" }
-  ],
-
-  "projects": {
-    "_status": "SAMPLE — 3 of 100s built; full catalog imported later (live demo).",
-    "_why_it_matters": "This is the proof engine for the two PRIMARY brand.yml attributes (builds adopted tools / reproducible interactive research). A tool counts as a COSTLY signal only when adoption + reproducibility are evidenced — so every entry carries those fields, null until captured. Don't paste 100 names; import 100 with their proof.",
-    "_import_template": {
-      "name": "", "what": "", "repo": "", "live_url": "",
-      "adoption": { "users": null, "deployments": null, "stars": null, "status": "[Unverifiable — capture]" },
-      "reproducible": { "runnable_artifact": false, "paper": null },
-      "status": ""
+    {
+      "title": "Campaign Specialist",
+      "org": "Dealmoon",
+      "location": "Dallas, Texas",
+      "start": "2023-11",
+      "end": "2025-04",
+      "highlights": [
+        "Led cross-functional teams (product, design, tech) to deliver large-scale campaigns (Black Friday, 9/16 Shopping Day) on time, driving 25%+ uplift in conversion. [Unverifiable — self-reported metric]",
+        "Analyzed post-campaign GMV and user feedback to generate insights, informing playbooks across targeting, messaging, and promotional design.",
+        "Co-developed marketing strategies with global brands (Estee Lauder, YamiBuy) across multiple product categories."
+      ],
+      "status": "[cv-only]"
     },
-    "items": [
-      { "name": "Tangram", "what": "Open-source single-cell spatial mapping tool — the paper-plus-runnable EXEMPLAR.",
-        "repo": "open-source (squidpy / Tangram)",
-        "adoption": { "users": "widely used in spatial transcriptomics", "stars": null, "status": "[cv-only] — capture real install/citation counts" },
-        "reproducible": { "runnable_artifact": true, "paper": "Nature Methods 18, 1352–1362 (2021)" },
-        "status": "EXEMPLAR — the template every project should aim at: a paper you can run" },
-      { "name": "Madison Framework", "what": "Open-source agent-based marketing intelligence framework; core infra for INFO 7375.",
-        "repo": "github.com/nikbearbrown/INFO-7375-Branding-and-AI",
-        "adoption": { "users": null, "deployments": null, "stars": null, "status": "[Unverifiable — capture]" },
-        "reproducible": { "runnable_artifact": true, "paper": null },
-        "status": "[cv-only]" },
-      { "name": "Jobsekr (jobsekr.app)", "what": "Job aggregation platform for OPT/H-1B students.", "live_url": "jobsekr.app",
-        "adoption": { "listings": "65,000+ [CONFLICT]", "companies": "1,600+ vs '30K+ mapped' [CONFLICT]", "status": "[CONFLICT] — reconcile / label as different measures" },
-        "reproducible": { "runnable_artifact": true, "paper": null },
-        "status": "[CONFLICT]" },
-      { "name": "Course bots (Ada, Newton, Grace…)", "what": "25+ AI course assistants deployed across NEU courses.",
-        "adoption": { "deployments": "25+ [cv-only]", "users": null, "status": "[Unverifiable — capture]" },
-        "reproducible": { "runnable_artifact": true, "paper": null },
-        "status": "[cv-only]" }
+    {
+      "title": "Cross border E-commerce Operations Intern",
+      "org": "TikTok",
+      "location": "Shanghai, China",
+      "start": "2022-03",
+      "end": "2022-05",
+      "highlights": [
+        "Shaped UK market entry strategy for livestream commerce; built supply by sourcing non-traditional English-speaking creators (students, teachers) via talent-scout partnerships.",
+        "Designed a scalable host-acquisition SOP (segmentation, incentives, collaboration model) enabling 200+ hosts to ramp. [Unverifiable — self-reported metric]",
+        "Matched 80+ advertisers (beauty, crystal, IT) to creators by budget and audience fit; $60K+ single-session sales for top campaigns. [Unverifiable — self-reported metric]",
+        "Streamlined creator-merchant-ops coordination for clearer deliverables and timely execution."
+      ],
+      "status": "[cv-only]"
+    },
+    {
+      "title": "Growth Operations Intern",
+      "org": "NetEase",
+      "location": "Beijing, China",
+      "start": "2021-11",
+      "end": "2022-02",
+      "highlights": [
+        "Ran competitive analysis of 5+ players; surfaced post-pandemic shifts toward offline/hybrid learning used by the product team for positioning and roadmap.",
+        "Launched engagement campaigns (topic series, serialized content) boosting retention 20%. [Unverifiable — self-reported metric]",
+        "Tracked growth efficiency via internal dashboards; diagnosed bottlenecks across onboarding, content, and notification workflows."
+      ],
+      "status": "[cv-only]"
+    }
+  ],
+
+  "leadership": [
+    {
+      "title": "Team Lead",
+      "org": "Career Talks Series, Washington State University",
+      "start": "2019-10",
+      "end": "2020-02",
+      "highlights": [
+        "Led a 4-member team to deliver 10+ career seminars (resume writing, post-grad planning), 20+ attendees each.",
+        "Managed end-to-end program design, promotion, and logistics; 90% participant satisfaction. [Unverifiable — self-reported metric]",
+        "Gave resume feedback that contributed to a 55% employment/internship placement rate within 3 months. [Unverifiable — self-reported metric]"
+      ],
+      "status": "[cv-only]"
+    }
+  ],
+
+  "skills": {
+    "languages": [
+      "Mandarin (native)",
+      "English (business proficiency)"
+    ],
+    "tools": [
+      "Microsoft Suite — Excel / PowerPoint / Outlook (proficient) [Unverifiable — self-rated]",
+      "Python (proficient; data analysis) [Unverifiable — self-rated]"
     ]
   },
 
-  "awards": [
-    { "name": "Dean's Award, College of Engineering, Northeastern", "year": "2024–25", "status": "[cv-only]" },
-    { "name": "RISE Award, Computer and Information Sciences", "year": "2022", "status": "[cv-only]" }
+  "interests": [
+    "Photography (portrait & live events)",
+    "Swimming",
+    "Travel",
+    "Volunteering (multicultural community event host)"
   ],
 
-  "skills_top": ["Python", "Deep Learning", "Machine Learning", "Data Visualization", "Prompt Engineering"],
-
-  "_excluded_drift": {
-    "note": "Point-in-time vanity metrics — true on the day, false next week. Never in the durable record.",
-    "values": ["16,385 followers", "1,324 profile views (past 90d)", "2,836 post impressions (7d)", "endorsement counts"]
-  },
-
   "issues": [
-    { "id": 1, "severity": "high", "field": "education[PhD]", "problem": "PhD described 3 ways across sources (CS / Math+CS / computational-systems-biology major).", "resolution": null },
-    { "id": 2, "severity": "high", "field": "education[MBA]", "problem": "MBA in CV + name tag but absent from LinkedIn education; unverifiable from the two sources.", "resolution": null },
-    { "id": 3, "severity": "high", "field": "experience[self-employed]", "problem": "Overlapping company dates AND editorial rant ('The State Of Massachusetts drove this business out of business') embedded in two entries.", "resolution": null },
-    { "id": 4, "severity": "med", "field": "education[BA]", "problem": "BA school (UC Santa Cruz) is single-sourced (CV); field word-order differs between sources.", "resolution": null },
-    { "id": 5, "severity": "med", "field": "identity.canonical_email", "problem": "Two emails in play (ni.brown@neu.edu vs bear@bearbrown.co) — which is the brand contact?", "resolution": null },
-    { "id": 6, "severity": "low", "field": "identity.name", "problem": "5 name variants incl. publication forms; pick one display name + one citation form.", "resolution": null },
-    { "id": 7, "severity": "low", "field": "projects[Jobsekr]", "problem": "Company-count metrics differ between CV and a LinkedIn post.", "resolution": null }
+    { "id": 1, "severity": "med", "field": "identity.links", "problem": "No LinkedIn/GitHub/website on resume; Assignment 1 needs a LinkedIn presence.", "resolution": "Logged as a gaps.md row (Section A)." },
+    { "id": 2, "severity": "low", "field": "identity.phone", "problem": "Phone number present; brand/ is a public folder — decide whether to keep it public.", "resolution": null },
+    { "id": 3, "severity": "low", "field": "*.metrics", "problem": "All percentage/$ metrics are self-reported and unverifiable from the resume alone.", "resolution": "Labeled [Unverifiable — self-reported] in place." }
   ]
 }

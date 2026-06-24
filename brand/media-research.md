@@ -1,126 +1,73 @@
-# Media-target research — cited (2024–2026)
+# media-research.md — discovery-channel research (Xinchen Zu)
 
-Generated via deep-research (5 parallel search agents, adversarial verification).
-Supports `brand.yml` → `media:` and Exercise 1 rubric line 6 ("every suggestion
-carries a cited source"). Source URLs inline.
+Aspiration: *"I am becoming a marketing technologist who bridges brand strategy,
+data, and AI to create measurable business impact."*
 
-## Headline: gated beats volume — across every audience
+Method used: Exercise 1, Step 3, path #2 — research the field's actual discovery,
+proof, and voice channels; cite a named source for every finding. Facts about me
+come only from my resume; channel evidence is external and cited below.
+Research date: 2026-06-23.
 
-The one finding that unifies all four audiences and settles the Kindle question:
-the credibility signal each audience trusts is the **costly, gate-passed** one —
-independently *reproduced* artifacts, *cited* public comments, shipped-track-record
-thought leadership, peer-reviewed anchors. **Self-published volume is the cheap
-signal everywhere.** This is the brand thesis, externally confirmed.
+## Raw findings (claim -> source -> channel it implies)
 
-## THE KINDLE QUESTION — verdict: CHANGE HOW (decouple authority from the catalog)
+### Theme A — Proof of work now outweighs claims
+| Finding | Source | Channel implied |
+|---|---|---|
+| "Proof of impact is the bridge between education and employment"; portfolios/case studies/performance evidence carry as much weight as qualifications, sometimes more. | LSE Exec Ed, "The Credibility Gap" [1] | Portfolio (proof) |
+| Employers are skeptical of skill lists without evidence; they want proof of execution. Show outcomes ("reduced cost per lead by 32%"), not outputs; 2–3 solid projects is enough. | JobPrepped, Marketing Portfolio Guide [2] | Portfolio (proof) |
+| A strong marketing-analytics portfolio connects analysis to a business recommendation; lead with analytics for analytics roles. | vocal.media, "What a strong marketing analytics portfolio looks like" [3] | Portfolio (proof) |
+| Portfolios should show outcomes + business impact; hosted online (Notion/Wix/WordPress). | KSU College of Business, "Marketing Portfolio That Stands Out" [4] | Portfolio (proof) |
 
-A ~100-title self-published technical/AI Kindle catalog is, with these audiences,
-**neutral at best and a liability at worst.**
+### Theme B — Technical/data proof lives on GitHub & Kaggle
+| Finding | Source | Channel implied |
+|---|---|---|
+| A portfolio is "perhaps the most important factor" in data hiring; publish on GitHub/Kaggle to show code and Jupyter notebooks. | Coursera, "How to Build a Data Analyst Portfolio" [5] | GitHub/Kaggle (proof) |
+| GitHub recommended to host data projects and demonstrate self-direction. | Towards Data Science, "Professional Portfolio on GitHub" [6] | GitHub (proof) |
+| Hiring managers want real, messy datasets with documented cleaning + business recommendations; presentation determines whether a repo earns an interview; avoid tutorial staples (Titanic/Iris) and popular Kaggle clones. | Careery, "Data Analyst Portfolio Projects That Actually Get You Hired" [7] | GitHub/Kaggle (proof) |
+| Portfolios can be hosted on GitHub/Kaggle for free. | 365 Data Science, "Data Science Portfolio in 2025" [8] | GitHub/Kaggle (proof) |
 
-- Amazon discovery is **per-title, not per-author** (item-to-item collaborative
-  filtering + sales-first ranking) — a big catalog earns no "authority bonus."
-  [Amazon Science](https://www.amazon.science/the-history-of-amazons-recommendation-algorithm)
-- Post-2023, high-volume publishing in AI/tech niches is the exact behavior Amazon
-  throttled (**3 new titles/day cap + AI-disclosure requirement, Sept 2023**) and
-  the Authors Guild/press named as content-farm spam.
-  [Authors Guild](https://authorsguild.org/news/amazons-new-disclosure-policy-for-ai-generated-book-content-is-a-welcome-first-step/)
-  · [Axios](https://www.axios.com/2023/08/16/ai-book-publishing-fake-amazon)
-- Academia **discounts self-publishing**; the editor/peer gate is the prestige
-  signal. [Academic Influence](https://academicinfluence.com/self-traditional-publishing)
-- Executives trust **rigor, not volume**: 73% of B2B decision-makers trust
-  thought-leadership over marketing, and the top quality marker is "strong research
-  and data" (55%). [Edelman–LinkedIn 2024](https://www.edelman.com/expertise/Business-Marketing/2024-b2b-thought-leadership-report)
+### Theme C — Credentials signal tool proficiency (but aren't sufficient alone)
+| Finding | Source | Channel implied |
+|---|---|---|
+| Google Analytics certification appears in 41% of marketing-analyst job postings; hands-on certs outperform academic ones in hiring. | Jobsolv, "7 Best Marketing Analyst Certifications" [9] | Certifications (proof) |
+| HubSpot held ~35% marketing-automation market share (2024), raising employer demand; but a HubSpot cert alone is "rarely enough" without demonstrable skills + portfolio. | iidtescala, "Is HubSpot Certification Enough?" [10]; Modern Marketing Institute [11] | Certifications (proof, supporting) |
 
-**Move:** lead with **1–3 gated, rigorous, transparently-produced** flagship works
-(peer-reviewed-adjacent or real editorial review); disclose AI use; treat the
-catalog as a *sandbox*, not a credential; move authority signals off Amazon.
-*Caveat: no single study directly measures "book count → perceived expertise" — this
-is converging evidence (discovery mechanics + AI-flood framing + academic
-gatekeeping + Edelman rigor data), not one decisive source.*
+### Theme D — A field-specific community exists for marketing technologists
+| Finding | Source | Channel implied |
+|---|---|---|
+| MarTech.org is the news + community hub for marketing technologists; it gathered the community first in Boston (2014). | MarTech.org / About [12][13] | Community (discovery + voice) |
+| The MarTech Conference is explicitly "for the growing community of senior-level, hybrid professionals who are both marketing-savvy and tech-savvy: marketing technologists, creative technologists, growth hackers, data scientists." | MarTech Conference [14] | Community (discovery + voice) |
+| MarketingProfs serves 350,000+ marketers with B2B/martech know-how. | MarketingProfs, Martech resources [15] | Community (discovery + voice) |
+| Local martech meetups/events exist for networking. | Meetup, Martech topics [16]; John Huang, "Honest Guide to Starting a Marketing Career in Tech" [17] | Events (discovery) |
 
-This is exactly why the **EdSurge** invitation matters: editor-gated journalism is
-the costly-signal version of writing. One edited byline outsignals the whole shelf.
+### Theme E — Discovery is recruiter-driven and keyword-based
+| Finding | Source | Channel implied |
+|---|---|---|
+| 93% of recruiters use LinkedIn to source candidates; keyword searches (by skills/role terms) are the most common method. | LinkedIn / S. Bruce, "93% of recruiters use LinkedIn" [18] | LinkedIn (discovery) |
+| LinkedIn is recruiters' primary sourcing channel; profiles are searched by location, skills, keywords. | Salesso, "LinkedIn Hiring Statistics 2026" [19] | LinkedIn (discovery) |
 
-## KEEP — channels worth finite time (per audience, cited)
+### Theme F — Voice = data-driven storytelling, not volume
+| Finding | Source | Channel implied |
+|---|---|---|
+| Data-driven storytelling is "essential for building rapport and relationships, and it's all about credibility." | LSE Exec Ed, "The Credibility Gap" [1] | Voice (thought leadership) |
 
-### Academics
-- **JOSS (Journal of Open Source Software)** — turns maintained, *used* software into
-  a peer-reviewed, citable credential. *Proof.* [joss.theoj.org](https://joss.theoj.org/about)
-- **ACM artifact evaluation → "Results Reproduced" badge** — an *independent team*
-  reproduces your results; structurally un-fakeable, and it *gained* value as papers
-  deflated. Perfect fit for the reproducible-research attribute. *Proof (costliest).*
-  [ACM](https://2025.acmmmsys.org/reproducibility.html)
-- **arXiv → top peer-reviewed venue (paired)** — arXiv banned CS review/position
-  papers (Nov 2025) over AI-slop, leaning on venue acceptance as the filter; the
-  preprint is discovery, the acceptance is the credibility event.
-  [Nature](https://www.nature.com/articles/d41586-025-03664-7)
-- **Google/Semantic Scholar profile + RSE community visibility** — where peers
-  actually find work; RSE (Research Software Engineer) societies legitimize building
-  as a contribution. *Discovery/voice.* [US-RSE/Society of RSE](https://society-rse.org/august-2024-newsletter/)
-- ⚠ **GitHub *stars* are NOT a credibility signal** (no source supports it); the
-  defensible version is *documented adoption / software citation*.
-
-### Policy
-- **NIST — AI RMF public comments + AI Consortium membership** — lowest-friction
-  formal standing for a technical builder; NTIA's own report says independent
-  verification of AI claims is an under-supplied accountability input — your thesis
-  answers a question policymakers already posed. *Proof.*
-  [NIST](https://www.nist.gov/news-events/news/2026/05/nist-expands-ai-consortiums-scope-calls-new-members)
-  · [NTIA](https://www.ntia.gov/issues/artificial-intelligence/ai-accountability-policy-report/developing-accountability-inputs-a-deeper-dive/ai-system-evaluations/independent-evaluations)
-- **FAS Day One policy memo** — structured outside-author channel with editing +
-  fellowship; the exact path Kapoor used for "Safe Harbor for AI Researchers."
-  *Voice/translation.* [FAS](https://fas.org/day-one-project/)
-- **Tech Policy Press** — op-ed/analysis to the policy-professional audience; anchor
-  to the "audit-washing" gap. *Discovery/voice.* [techpolicy.press](https://www.techpolicy.press/contributor-guidelines/)
-- **ACM FAccT + CRAFT** — the academic↔policy crossover venue. *Proof/discovery.*
-  [facctconference.org](https://facctconference.org/2025/acceptedcraft.html)
-
-### Company boards / executives
-- **Harvard Law School Forum on Corporate Governance** — the channel the
-  director-search firms and governance lawyers publish through; read by sitting
-  directors. *Proof/discovery.* [corpgov.law.harvard.edu](https://corpgov.law.harvard.edu/2026/05/03/the-path-to-the-boardroom-for-technology-executives/)
-- **NACD — Effective AI Oversight Certificate + Summit/chapter speaking** — ~40% of
-  boards now have a committee charged with AI oversight (up from 11% in 2024) and are
-  actively seeking this expertise. *Discovery.* [NACD](https://www.nacdonline.org/all-governance/governance-resources/governance-surveys/surveys-benchmarking/2025-public-company-board-practices--oversight-survey/2025-board-practices-oversight-ai/)
-- **HBR (research-backed)** — 73% of decision-makers trust thought leadership over
-  marketing; 86% would short-list a consistent quality producer into an RFP.
-  *Voice/proof-at-scale.* [Edelman–LinkedIn 2024](https://www.edelman.com/expertise/Business-Marketing/2024-b2b-thought-leadership-report)
-- **Director-search firm pipeline + GLG expert network** — the literal mechanism
-  boards use to source/vet AI advisors. *Discovery (on-demand vetting).*
-  [Spencer Stuart](https://www.spencerstuart.com/what-we-do/our-capabilities/director-recruitment)
-  · [GLG](https://glg.com/how-we-help/expert-network)
-- Cross-cut: lead with the **shipped track record translated into enterprise terms**
-  (risk, capital, downside) — "director first, tech expert second." [Russell Reynolds/Harvard](https://corpgov.law.harvard.edu/2026/05/03/the-path-to-the-boardroom-for-technology-executives/)
-
-### Educators & edtech
-- **Peer-reviewed anchor (AERA Open / a learning-sciences or AIED journal)** — the
-  scholarly base every trade piece links back to; keeps skepticism from reading as
-  punditry. *Proof.* [Chronicle](https://www.chronicle.com/article/public-writing-and-the-junior-scholar/)
-- **EdSurge byline (ISTE/ASCD)** — best *trade* venue to reach ~550K
-  practitioners/decision-makers; editorial-independence firewall makes it read as
-  journalism, not vendor PR. *Qualified yes: reach, not academic credit; works only
-  atop a scholarly base.* Already have the inbound invite. *Voice.*
-  [EdSurge ethics](https://www.edsurge.com/operations-ethics-and-policies)
-- **Education Week Opinion** — most-trusted K-12 outlet (1.6M readers; cited in
-  policymaking up to the Supreme Court); highest *external* authority of the trade
-  venues. *Proof-adjacent.* [EdWeek](https://www.edweek.org/about/)
-- **ISTELive / ASCD session** — educators trust peers/PLCs over publications for
-  edtech decisions, and ~half of ISTE's 16,500+ attendees are purchase influencers.
-  *Discovery/peer-seeding.* [ISTE](https://iste.org/news/new-survey-k-12-educators-look-to-peers-learning-communities-for-guidance-on-edtech)
-
-## CUT / deprioritize (with reasons)
-- **Raw GitHub stars as a credibility play** — no source supports stars as a trusted
-  signal; pursue documented adoption / software citation instead.
-- **MIT Sloan Management Review** — winding down its standalone review (final issue
-  Sept 2026); a declining channel, not a growth bet. [MIT Sloan](https://mitsloan.mit.edu/press/update-mit-sloan-management-review)
-- **Self-published Kindle volume as an authority play** — post-2023 it pattern-matches
-  to AI-slop with these audiences. [Authors Guild](https://authorsguild.org/news/amazons-new-disclosure-policy-for-ai-generated-book-content-is-a-welcome-first-step/)
-- **Generic "be active on LinkedIn"** — reach without a costly signal; keep only as
-  *discovery* that feeds the gated proofs, never as the proof itself.
-
-## Method + caveats
-Five parallel WebSearch agents, sources fetched and adversarially checked. Flags:
-GitHub-stars-as-credibility unsupported (cut); the "40% venue-prestige in T&P" figure
-is medicine-specific and pre-2024 (directional); "~16% of boards have an AI-skilled
-director" is a single secondary source; the Kindle verdict is converging evidence,
-not one decisive study.
+## Sources
+[1] https://www.lse.ac.uk/study-at-lse/executive-education/insights/articles/the-credibility-gap-why-marketers-need-more-than-just-skills-to-thrive-in-2026
+[2] https://jobprepped.com/marketing-portfolio-guide/
+[3] https://vocal.media/futurism/a-reader-asked-what-does-a-strong-marketing-analytics-portfolio-actually-look-like
+[4] https://cdbusiness.ksu.edu/blog/2026/01/29/marketing-portfolio-that-stands-out-tips-and-examples/
+[5] https://www.coursera.org/articles/how-to-build-a-data-analyst-portfolio
+[6] https://towardsdatascience.com/how-to-create-a-professional-portfolio-on-github-that-will-help-land-your-first-job-in-data-science-e1fc8bd7a797/
+[7] https://careery.pro/blog/data-analyst-careers/data-analyst-portfolio-projects
+[8] https://365datascience.com/career-advice/how-to-build-a-data-science-portfolio/
+[9] https://jobsolv.com/blog/best-marketing-analyst-certifications
+[10] https://www.iidtescala.com/is-hubspot-certification-enough-to-get-a-marketing-job
+[11] https://www.modernmarketinginstitute.com/blog/8-must-have-digital-marketing-certifications-that-employers-and-clients-actually-value-in-2026
+[12] https://martech.org/
+[13] https://martech.org/about-martech-org/
+[14] https://www.martechconf.com/
+[15] https://www.marketingprofs.com/resources/topic/172/martech
+[16] https://www.meetup.com/topics/martech/us/
+[17] https://www.linkedin.com/pulse/honest-guide-starting-marketing-career-tech-john-huang
+[18] https://www.linkedin.com/pulse/93-recruiters-use-linkedin-find-candidates-only-50-users-steve-bruce
+[19] https://salesso.com/blog/linkedin-hiring-statistics/

@@ -3,6 +3,17 @@
 Human-readable history for recipe-driven work. Short, concrete entries; no
 secrets, personal contact details, or private notes.
 
+## 2026-06-23 — Exercise 1: brand/ personal layer (Xinchen Zu)
+
+- **Recipe:** manual (Exercise 1, student record). Replaced the instructor's Nik Bear Brown example files in `brand/` with my own resume-based content.
+- **Built:** `brand/resume.json` (attested 2026-06-23), `brand/brand.yml`, `brand/gaps.md`, `brand/media-research.md`, `brand/media-target-map.md`, `brand/private-reflection.md` (gitignored).
+- **Source for facts about me:** `brand/Xinchen Zu Resume.pdf` only (single source; no LinkedIn export). Media channels sourced from cited external research (Step 3, path #2).
+- **Three extraction catches (attestation pass):** (1) intern title had a hyphen added by the import; (2) dates were reformatted to ISO precision the resume didn't state; (3) "Python proficient" + all %/$ metrics were carried as fact — relabeled self-reported / [Unverifiable].
+- **Aspiration:** "I am becoming a marketing technologist who bridges brand strategy, data, and AI to create measurable business impact."
+- **Top gap:** No demonstrated AI capability (AI is an aspiration pillar with zero resume backing) -> Assignment 1 Part 2 project: build an AI marketing-intelligence pipeline whose shipped artifact becomes the first attested AI entry in resume.json.
+- **Media:** cited research pass produced 6 kept channels (portfolio, GitHub/Kaggle, MarTech.org community, LinkedIn, GA4/HubSpot certs, data-driven storytelling) + 4 cuts, each with a named source [1]–[19]; mirrored into `brand.yml` `media:`.
+- **Open issues:** required rubric edits still owed by the student (kill one gaps row with a reason; rewrite one in own words); `private-reflection.md` self-ratings to be filled; board snapshot (Step 5) not yet done; conformance check (`node scripts/conformance.mjs`) not run — node not installed in this environment.
+
 ## 2026-06-14 — Rewrote TIKTOC for Madison Recipe Engine practitioner guide
 
 - **Recipe:** manual architecture rewrite, author-directed.
